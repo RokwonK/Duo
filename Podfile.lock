@@ -1,0 +1,39 @@
+PODS:
+  - Alamofire (5.2.2)
+  - DynamicCodable (1.0)
+  - KakaoSDKAuth (2.0.0):
+    - KakaoSDKCommon (= 2.0.0)
+  - KakaoSDKCommon (2.0.0):
+    - Alamofire (~> 5.1)
+    - DynamicCodable (~> 1.0)
+  - KakaoSDKUser (2.0.0):
+    - KakaoSDKAuth (= 2.0.0)
+    - KakaoSDKCommon (= 2.0.0)
+  - naveridlogin-sdk-ios (4.1.2)
+
+DEPENDENCIES:
+  - Alamofire
+  - KakaoSDKAuth
+  - KakaoSDKUser
+  - naveridlogin-sdk-ios
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - DynamicCodable
+    - KakaoSDKAuth
+    - KakaoSDKCommon
+    - KakaoSDKUser
+    - naveridlogin-sdk-ios
+
+SPEC CHECKSUMS:
+  Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
+  KakaoSDKAuth: 8c4575565c4b7800fb60f3b90baa1198c2299cad
+  KakaoSDKCommon: 0273f3c70e1334baa8396d63981bd3e9ad236950
+  KakaoSDKUser: 15ae4cfde8d85f15a5c74fe72b7f8b1ef574b966
+  naveridlogin-sdk-ios: cf8afccdb1793d4ecfcd5d46aa8729d8b5058c70
+
+PODFILE CHECKSUM: c518656b951efdc9790e11bf6bd63f7ed0fbf857
+
+COCOAPODS: 1.8.4

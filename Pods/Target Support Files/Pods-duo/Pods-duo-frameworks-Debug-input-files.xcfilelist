@@ -1,0 +1,7 @@
+${PODS_ROOT}/Target Support Files/Pods-duo/Pods-duo-frameworks.sh
+${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
+${BUILT_PRODUCTS_DIR}/DynamicCodable/DynamicCodable.framework
+${BUILT_PRODUCTS_DIR}/KakaoSDKAuth/KakaoSDKAuth.framework
+${BUILT_PRODUCTS_DIR}/KakaoSDKCommon/KakaoSDKCommon.framework
+${BUILT_PRODUCTS_DIR}/KakaoSDKUser/KakaoSDKUser.framework
+${PODS_ROOT}/naveridlogin-sdk-ios/NaverThirdPartyLogin.framework

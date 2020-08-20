@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -14,6 +14,7 @@
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9B24ED038200409033 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9A24ED038200409033 /* Assets.xcassets */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
+		3B2254EAA5279D13A4A8BB36 /* Pods_duo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,9 @@
 		09BD7F9A24ED038200409033 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A22BD3CD5178AD248BABCA6 /* Pods-duo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.debug.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.debug.xcconfig"; sourceTree = "<group>"; };
+		E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.release.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2254EAA5279D13A4A8BB36 /* Pods_duo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -44,6 +49,8 @@
 			children = (
 				09BD7F8D24ED038100409033 /* duo */,
 				09BD7F8C24ED038100409033 /* Products */,
+				0C2A884A61E9B8B9736785C2 /* Pods */,
+				805CC1D0E5179882B5E8865D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -70,6 +77,23 @@
 			path = duo;
 			sourceTree = "<group>";
 		};
+		0C2A884A61E9B8B9736785C2 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4A22BD3CD5178AD248BABCA6 /* Pods-duo.debug.xcconfig */,
+				E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		805CC1D0E5179882B5E8865D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -77,9 +101,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 09BD7FA224ED038200409033 /* Build configuration list for PBXNativeTarget "duo" */;
 			buildPhases = (
+				7BE7DB0EC51B9F1D5CAF7644 /* [CP] Check Pods Manifest.lock */,
 				09BD7F8724ED038100409033 /* Sources */,
 				09BD7F8824ED038100409033 /* Frameworks */,
 				09BD7F8924ED038100409033 /* Resources */,
+				78E5EABA2A5F75D464744876 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -135,6 +161,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		78E5EABA2A5F75D464744876 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-duo/Pods-duo-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-duo/Pods-duo-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-duo/Pods-duo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7BE7DB0EC51B9F1D5CAF7644 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-duo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		09BD7F8724ED038100409033 /* Sources */ = {
@@ -220,7 +288,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -274,7 +342,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -286,11 +354,13 @@
 		};
 		09BD7FA324ED038200409033 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 4A22BD3CD5178AD248BABCA6 /* Pods-duo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35Z5L89946;
 				INFOPLIST_FILE = duo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -304,11 +374,13 @@
 		};
 		09BD7FA424ED038200409033 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 35Z5L89946;
 				INFOPLIST_FILE = duo/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
