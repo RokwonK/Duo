@@ -11,9 +11,16 @@ import CoreData
 import NaverThirdPartyLogin
 import KakaoSDKCommon
 import KakaoSDKAuth
+import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+    
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        <#code#>
+    }
+    
     
 
     // 어플리 케이션이 실행 되었을때, 호출됨

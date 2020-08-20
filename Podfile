@@ -12,6 +12,10 @@ target 'duo' do
   # Kakao Login
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'
+
+  # Google Login
+  pod 'GoogleSignIn'
+
   # Pods for duo
 
 end

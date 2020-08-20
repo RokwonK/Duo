@@ -1,6 +1,23 @@
 PODS:
   - Alamofire (5.2.2)
+  - AppAuth (1.4.0):
+    - AppAuth/Core (= 1.4.0)
+    - AppAuth/ExternalUserAgent (= 1.4.0)
+  - AppAuth/Core (1.4.0)
+  - AppAuth/ExternalUserAgent (1.4.0)
   - DynamicCodable (1.0)
+  - GoogleSignIn (5.0.2):
+    - AppAuth (~> 1.2)
+    - GTMAppAuth (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GTMAppAuth (1.0.0):
+    - AppAuth/Core (~> 1.0)
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.3.1):
+    - GTMSessionFetcher/Full (= 1.3.1)
+  - GTMSessionFetcher/Core (1.3.1)
+  - GTMSessionFetcher/Full (1.3.1):
+    - GTMSessionFetcher/Core (= 1.3.1)
   - KakaoSDKAuth (2.0.0):
     - KakaoSDKCommon (= 2.0.0)
   - KakaoSDKCommon (2.0.0):
@@ -13,6 +30,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire
+  - GoogleSignIn
   - KakaoSDKAuth
   - KakaoSDKUser
   - naveridlogin-sdk-ios
@@ -20,7 +38,11 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - AppAuth
     - DynamicCodable
+    - GoogleSignIn
+    - GTMAppAuth
+    - GTMSessionFetcher
     - KakaoSDKAuth
     - KakaoSDKCommon
     - KakaoSDKUser
@@ -28,12 +50,16 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: 814429acc853c6c54ff123fc3d2ef66803823ce0
+  AppAuth: 31bcec809a638d7bd2f86ea8a52bd45f6e81e7c7
   DynamicCodable: 2cf558d057b3e6540552943254e1c9eeb706dde2
+  GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
+  GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
+  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
   KakaoSDKAuth: 8c4575565c4b7800fb60f3b90baa1198c2299cad
   KakaoSDKCommon: 0273f3c70e1334baa8396d63981bd3e9ad236950
   KakaoSDKUser: 15ae4cfde8d85f15a5c74fe72b7f8b1ef574b966
   naveridlogin-sdk-ios: cf8afccdb1793d4ecfcd5d46aa8729d8b5058c70
 
-PODFILE CHECKSUM: c518656b951efdc9790e11bf6bd63f7ed0fbf857
+PODFILE CHECKSUM: 14c74f65b77f8226ed07139017a2b09e4d687cce
 
 COCOAPODS: 1.8.4
