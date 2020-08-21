@@ -36,23 +36,24 @@
 				<string>kakaoad22198785adb026ae8a5565ef48d7da</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>com.googleusercontent.apps.670654932586-tjf445l443al4aklub6rnm2q2pk0j428</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1</string>
-    
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-        <!--  네이버 앱 띄우기  -->
 		<string>naversearchapp</string>
-        <!--    네이버 아이디로 로그인    -->
 		<string>naversearchthirdlogin</string>
-        <!-- 카카오톡으로 로그인 -->
-        <string>kakaokompassauth</string>
-        <!-- 카카오링크 -->
-        <string>kakaolink</string>
-        
+		<string>kakaokompassauth</string>
+		<string>kakaolink</string>
 	</array>
-    
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIApplicationSceneManifest</key>

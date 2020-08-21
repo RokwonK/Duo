@@ -14,12 +14,10 @@ import KakaoSDKAuth
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate {
     
+
     
-    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        <#code#>
-    }
     
     
 
@@ -49,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         
         KakaoSDKCommon.initSDK(appKey: "ad22198785adb026ae8a5565ef48d7da")
         
+        GIDSignIn.sharedInstance().clientID = "670654932586-tjf445l443al4aklub6rnm2q2pk0j428.apps.googleusercontent.com"
+        
+
+        
         return true
     }
     
@@ -66,6 +68,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, GIDSignInDelegate {
         // 인증 코드를 받고 URL scheme이 맞는지 확인
         // 네이버 라이브러리에 넘겨줌 => 넘겨주자마자 바로 접근코드 얻는 메서드 실행(scene)
         NaverThirdPartyLoginConnection.getSharedInstance()?.application(app, open: url, options: options)
+        
+        GIDSignIn.sharedInstance().handle(url)
+
 
          return true;
     }

@@ -10,8 +10,54 @@ import Alamofire
 import NaverThirdPartyLogin
 import KakaoSDKAuth
 import KakaoSDKUser
+import GoogleSignIn
 
-class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
+class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,GIDSignInDelegate {
+    
+    // 0. 구글 로그인
+    // -----------------------------------------------------------------------------------------------------------
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
+              withError error: Error!) {
+        print(error);
+      // Perform any operations when the user disconnects from app here.
+      // ...
+    }
+    
+    @IBAction func Google_Login (_sender: AnyObject){
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+
+    @IBAction func Google_Logout (_sender: AnyObject){
+        GIDSignIn.sharedInstance().signOut()
+        print("구글 로그아웃 완료")
+    }
+
+    //구글 로그인 요청후
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
+        
+        if let error = error {
+            if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
+                print("The user has not signed in before or they have since signed out.")
+            }
+            else {
+                print("\(error.localizedDescription)")
+            }
+        }
+        
+        if (error != nil){
+            print("Sign-in Error \(error)")
+            return;
+        }
+        print(user)
+        
+        if let user = user.userID {print(user)}
+        if let id = user.authentication.idToken {print(id)}
+        if let full = user.profile.name {print(full)}
+        if let em = user.profile.email {print(em)}
+    }
+
+    
     
     // 1. 네이버 로그인
     // -----------------------------------------------------------------------------------------------------------
@@ -59,18 +105,14 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
             switch res.result {
             case .success(let value):
                 if let data = value as? Dictionary<String, Any> {
-                    if let response = data as? Dictionary<String, Any> {
-                        if let realdata = response["response"] as? Dictionary<String,Any>{
-                            print("\(realdata["id"]!)")
-                            print("\(realdata["name"]!)")
-                            print("\(realdata["email"]!)")
-                        }
+                    if let response = data["response"] as? Dictionary<String, Any> {
+                        print("\(response["id"]!)")
+                        print("\(response["name"]!)")
+                        print("\(response["email"]!)")
                     }
                 }
-                break;
             case .failure(let err):
                 print("\(err)")
-                break;
             }
         }
     }
@@ -103,6 +145,9 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
                 else {
                     print("카톡 로그인 성공")
                     let talktoken = oauthToken
+                    
+                    
+                    
                 }
             }
         }
@@ -134,6 +179,12 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
     }
     
     
+    // -----------------------------------------------------------------------------------------------------------
+    
+    @IBOutlet weak var naverButtonUi: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         
@@ -141,8 +192,11 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate {
         if let havetoken = loginConn?.tokenType { logout_button.isHidden = false; }
         else { logout_button.isHidden = true; }
         
+        GIDSignIn.sharedInstance().delegate = self
+        // 자동 로그인
+        // GIDSignIn.sharedInstance()?.restorePreviousSignIn()
     }
-    // -----------------------------------------------------------------------------------------------------------
+    
     
 
     
