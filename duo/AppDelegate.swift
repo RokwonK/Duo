@@ -16,11 +16,6 @@ import GoogleSignIn
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
-
-    
-    
-    
-
     // 어플리 케이션이 실행 되었을때, 호출됨
     // 시작 프로세스가 거의 완료되었고, 앱을 실행할 준비가 거의 완료되었음을 알림(true return)
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

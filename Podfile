@@ -14,7 +14,7 @@ target 'duo' do
   pod 'KakaoSDKUser'
 
   # Google Login
-  pod 'GoogleSignIn'
+  pod 'GoogleSignIn', '~> 5.0.2'
 
   # Pods for duo
 

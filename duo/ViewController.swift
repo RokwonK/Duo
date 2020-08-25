@@ -12,7 +12,8 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import GoogleSignIn
 
-class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,GIDSignInDelegate {
+class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,GIDSignInDelegate, UITabBarControllerDelegate {
+    
     
     // 0. 구글 로그인
     // -----------------------------------------------------------------------------------------------------------
@@ -55,6 +56,13 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         if let id = user.authentication.idToken {print(id)}
         if let full = user.profile.name {print(full)}
         if let em = user.profile.email {print(em)}
+        if let access_token = user.authentication.accessToken {print(access_token)}
+        
+        // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
+        let storyBoard = self.storyboard!
+        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
+        tabbarcontroller.delegate = self
+        present(tabbarcontroller, animated: true, completion: nil)
     }
 
     
@@ -115,6 +123,12 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
                 print("\(err)")
             }
         }
+        
+        // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
+        let storyBoard = self.storyboard!
+        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
+        tabbarcontroller.delegate = self
+        present(tabbarcontroller, animated: true, completion: nil)
     }
     
     // 로그인 성공했을 시, 로그인 토큰을 건네 받고 이 함수 실행됨.
@@ -150,6 +164,12 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
                     
                 }
             }
+            
+            // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
+            let storyBoard = self.storyboard!
+            let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
+            tabbarcontroller.delegate = self
+            present(tabbarcontroller, animated: true, completion: nil)
         }
         else {
             AuthApi.shared.loginWithKakaoAccount { (oauthToken, err) in
