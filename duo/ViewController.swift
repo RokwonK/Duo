@@ -14,10 +14,19 @@ import GoogleSignIn
 
 class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,GIDSignInDelegate, UITabBarControllerDelegate {
     
+    // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
+    func loginSuccess () {
+        let storyBoard = self.storyboard!
+        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
+        tabbarcontroller.delegate = self
+        present(tabbarcontroller, animated: true, completion: nil)
+    }
+    
     // 각 SNS에서 받은 accestoken,refreshtoken으로 우리서버와 연결
     // accestoken,만료시간, sns
     func userLoginConfirm(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
                 
+        print(acExpire)
         let urlStr = "http:localhost:80/login/\(sns)"
         let url = URL(string :urlStr)!
         //(우리 서버로 인증 하는 부분)
@@ -27,6 +36,7 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
                             encoding: JSONEncoding.default)
         
         req.responseJSON { res in
+            print(res)
             // 여기서도 분기 코드 작성해야함
             // 1. 처음 로그인 => nickname이 없다는 뜻 만들어야 하므로 만드는 곳으로 분기
             //          => 일단 api만들고 있음
@@ -38,16 +48,10 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         /*
             여기서 저 위의 매개변수들을 coredata에 저장해야함.
             즉, 이부분 코드 만들어 줘야함
+            sns 가 google 일 경우는 따로 분리해서 sns랑  idtoken에 acToken만 넣으면 됨
          
         */
-        
-        
-        
-        // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
-        let storyBoard = self.storyboard!
-        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
-        tabbarcontroller.delegate = self
-        present(tabbarcontroller, animated: true, completion: nil)
+        self.loginSuccess();
     }
     
     
@@ -82,14 +86,17 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
             return;
         }
         
-        // google idToken과 accessToken 둘 중에 어떤걸 써야 할 지 몰라서 그냥 놔둠
-        print(user.authentication.refreshToken)
+        //print(user.authentication.refreshToken)
+        print("idtoken")
         print(user.authentication.idToken)
-        print(user.authentication.accessToken)
-        print(user.authentication.idTokenExpirationDate)
-        print(user.authentication.accessTokenExpirationDate)
+        //print(user.authentication.accessToken)
+        //print(user.authentication.idTokenExpirationDate)
+        //print(user.authentication.accessTokenExpirationDate)
+        guard let idToken = user.authentication.idToken else {return}
+        guard let idTokenExpire = user.authentication.idTokenExpirationDate else {return}
+        guard let rfToken = user.authentication.refreshToken else {return}
         
-    
+        userLoginConfirm(idToken, idTokenExpire, rfToken, "google")
     }
 
     
@@ -180,6 +187,8 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         // 1. 액세스 토큰 만료 기간 검사
         // 2. 갱신 토큰으로 만료 기간 update
         // 3. 우리서버에 액세스 토큰 보내기
+        
+        
         //
         // coredata에 넣을 것
         // 1. accessToken
