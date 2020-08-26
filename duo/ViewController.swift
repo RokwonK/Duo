@@ -18,10 +18,10 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
     var loginlist : [NSManagedObject] = []
     func save(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String){
         
-        var access_token: String?
-        var access_expire: Date?
-        var refresh_token: String?
-        var sns: String?
+        var access_token: String
+        var access_expire: Date
+        var refresh_token: String
+        var sns_name: String
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
         let context = appDelegate.persistentContainer.viewContext
@@ -31,7 +31,7 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         login.setValue(acToken, forKey: "access_token")
         login.setValue(acExpire, forKey: "access_expire")
         login.setValue(rfToken, forKey: "refresh_token")
-        login.setValue(sns, forKey: "sns")
+        login.setValue(sns, forKey: "sns_name")
         
         do{
             try context.save()
@@ -91,7 +91,8 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
             sns 가 google 일 경우는 따로 분리해서 sns랑  idtoken에 acToken만 넣으면 됨
         */
         self.save(acToken, acExpire, rfToken, sns)
-       
+        fetch()
+        print(loginlist)
         self.loginSuccess();
     }
 
