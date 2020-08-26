@@ -11,8 +11,48 @@ import NaverThirdPartyLogin
 import KakaoSDKAuth
 import KakaoSDKUser
 import GoogleSignIn
+import CoreData
 
 class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,GIDSignInDelegate, UITabBarControllerDelegate {
+   
+    var loginlist : [NSManagedObject] = []
+    func save(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String){
+        
+        var access_token: String?
+        var access_expire: Date?
+        var refresh_token: String?
+        var sns: String?
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
+        let context = appDelegate.persistentContainer.viewContext
+        let entity = NSEntityDescription.entity(forEntityName: "Login", in: context)!
+        
+        let login = NSManagedObject(entity: entity, insertInto: context)
+        login.setValue(acToken, forKey: "access_token")
+        login.setValue(acExpire, forKey: "access_expire")
+        login.setValue(rfToken, forKey: "refresh_token")
+        login.setValue(sns, forKey: "sns")
+        
+        do{
+            try context.save()
+            loginlist.append(login)
+        } catch let error as NSError{
+            print("저장 오류 \(error), \(error.userInfo)")
+        }
+    }
+    
+    func fetch() {
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let fetch_request = NSFetchRequest<NSManagedObject>(entityName: "Login")
+        
+        do {
+            loginlist = try context.fetch(fetch_request)
+        }
+        catch let error as NSError{ print("불러올수 없습니다. \(error), \(error.userInfo)")
+        }
+    }
+    
     
     // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
     func loginSuccess () {
@@ -26,35 +66,35 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
     // accestoken,만료시간, sns
     func userLoginConfirm(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
                 
-        print(acExpire)
-        let urlStr = "http:localhost:80/login/\(sns)"
-        let url = URL(string :urlStr)!
-        //(우리 서버로 인증 하는 부분)
-        let req = AF.request(url,
-                            method:.post,
-                            parameters: ["accesstoken" : acToken],
-                            encoding: JSONEncoding.default)
-        
-        req.responseJSON { res in
-            print(res)
-            // 여기서도 분기 코드 작성해야함
-            // 1. 처음 로그인 => nickname이 없다는 뜻 만들어야 하므로 만드는 곳으로 분기
-            //          => 일단 api만들고 있음
-            // 2. 원래 있는 아이디 => 우리서버에서 nickname을 넘겨줄 테니 그 닉테임을 가지고 tabbar로 이동하면 댐
-            // 3. 오류 => 다시 로그인 요망 이라는 alert 표시
-        }
-        
+//        print(acExpire)
+//        let urlStr = "http:localhost:80/login/\(sns)"
+//        let url = URL(string :urlStr)!
+//        //(우리 서버로 인증 하는 부분)
+//        let req = AF.request(url,
+//                            method:.post,
+//                            parameters: ["accesstoken" : acToken],
+//                            encoding: JSONEncoding.default)
+//
+//        req.responseJSON { res in
+//            print(res)
+//            // 여기서도 분기 코드 작성해야함
+//            // 1. 처음 로그인 => nickname이 없다는 뜻 만들어야 하므로 만드는 곳으로 분기
+//            //          => 일단 api만들고 있음
+//            // 2. 원래 있는 아이디 => 우리서버에서 nickname을 넘겨줄 테니 그 닉테임을 가지고 tabbar로 이동하면 댐
+//            // 3. 오류 => 다시 로그인 요망 이라는 alert 표시
+//        }
+//
         // 로그인이 잘되었으면 여기서 부터 다시 실행됨
         /*
             여기서 저 위의 매개변수들을 coredata에 저장해야함.
             즉, 이부분 코드 만들어 줘야함
             sns 가 google 일 경우는 따로 분리해서 sns랑  idtoken에 acToken만 넣으면 됨
-         
         */
+        self.save(acToken, acExpire, rfToken, sns)
+       
         self.loginSuccess();
     }
-    
-    
+
     // 0. 구글 로그인
     // -----------------------------------------------------------------------------------------------------------
     
@@ -87,8 +127,8 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         }
         
         //print(user.authentication.refreshToken)
-        print("idtoken")
-        print(user.authentication.idToken)
+        //print("idtoken")
+        //print(user.authentication.idToken)
         //print(user.authentication.accessToken)
         //print(user.authentication.idTokenExpirationDate)
         //print(user.authentication.accessTokenExpirationDate)
@@ -132,9 +172,6 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
     // 접근 코드 갱신
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {}
     func oauth20ConnectionDidFinishDeleteToken() {}
-    
-    
-    
     
     
     // 2. 카카오 로그인

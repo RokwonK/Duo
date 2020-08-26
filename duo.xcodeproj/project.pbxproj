@@ -72,13 +72,13 @@
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09BD7F9024ED038100409033 /* SceneDelegate.swift */,
 				09BD7F9224ED038100409033 /* ViewController.swift */,
+				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 				19C4241C24F20E0A00395657 /* TabBarController.swift */,
 				1980409824F4B23700ED48B2 /* GameTab.swift */,
 				09BD7F9424ED038100409033 /* Main.storyboard */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
 				09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */,
-				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 			);
 			path = duo;
 			sourceTree = "<group>";
