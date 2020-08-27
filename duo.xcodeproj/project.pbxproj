@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090BA44A24F771DD009B2D7F /* NaverLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090BA44924F771DD009B2D7F /* NaverLogin.swift */; };
+		090BA44C24F771EC009B2D7F /* KakaoLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090BA44B24F771EC009B2D7F /* KakaoLogin.swift */; };
+		090BA44E24F771FD009B2D7F /* GoogleLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090BA44D24F771FD009B2D7F /* GoogleLogin.swift */; };
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
 		09BD7F9124ED038100409033 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9024ED038100409033 /* SceneDelegate.swift */; };
 		09BD7F9324ED038100409033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9224ED038100409033 /* ViewController.swift */; };
@@ -20,6 +23,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090BA44924F771DD009B2D7F /* NaverLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NaverLogin.swift; sourceTree = "<group>"; };
+		090BA44B24F771EC009B2D7F /* KakaoLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KakaoLogin.swift; sourceTree = "<group>"; };
+		090BA44D24F771FD009B2D7F /* GoogleLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoogleLogin.swift; sourceTree = "<group>"; };
 		09BD7F8B24ED038100409033 /* duo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BD7F8E24ED038100409033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		09BD7F9024ED038100409033 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +54,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090BA44824F77195009B2D7F /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				090BA44924F771DD009B2D7F /* NaverLogin.swift */,
+				090BA44B24F771EC009B2D7F /* KakaoLogin.swift */,
+				090BA44D24F771FD009B2D7F /* GoogleLogin.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
 		09BD7F8224ED038100409033 = {
 			isa = PBXGroup;
 			children = (
@@ -69,6 +85,7 @@
 		09BD7F8D24ED038100409033 /* duo */ = {
 			isa = PBXGroup;
 			children = (
+				090BA44824F77195009B2D7F /* Login */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09BD7F9024ED038100409033 /* SceneDelegate.swift */,
 				09BD7F9224ED038100409033 /* ViewController.swift */,
@@ -234,11 +251,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
+				090BA44A24F771DD009B2D7F /* NaverLogin.swift in Sources */,
 				09BD7F9324ED038100409033 /* ViewController.swift in Sources */,
+				090BA44C24F771EC009B2D7F /* KakaoLogin.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameTab.swift in Sources */,
 				19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */,
 				09BD7F9124ED038100409033 /* SceneDelegate.swift in Sources */,
+				090BA44E24F771FD009B2D7F /* GoogleLogin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
