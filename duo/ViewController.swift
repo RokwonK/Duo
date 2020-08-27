@@ -15,44 +15,57 @@ import CoreData
 
 class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,GIDSignInDelegate, UITabBarControllerDelegate {
    
-    var loginlist : [NSManagedObject] = []
+    var loginlist : [NSManagedObject] = [] // 코어데이터에 로그인 정보 저장할 객체 배열 생성
+    
+    //데이터 저장함수
     func save(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String){
         
-        var access_token: String
-        var access_expire: Date
-        var refresh_token: String
-        var sns_name: String
-        
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Login", in: context)!
+        // AppDelegate.swift 파일에서 참조얻기
+        let context = appDelegate.persistentContainer.viewContext // context객체 참조
+        let entity = NSEntityDescription.entity(forEntityName: "Login", in: context)! // entity 객체 생성
         
-        let login = NSManagedObject(entity: entity, insertInto: context)
+        let login = NSManagedObject(entity: entity, insertInto: context)//entity 설정
+        
+        //entity 속성값 설정
         login.setValue(acToken, forKey: "access_token")
         login.setValue(acExpire, forKey: "access_expire")
         login.setValue(rfToken, forKey: "refresh_token")
         login.setValue(sns, forKey: "sns_name")
         
         do{
-            try context.save()
-            loginlist.append(login)
+            try context.save() //저장
         } catch let error as NSError{
             print("저장 오류 \(error), \(error.userInfo)")
         }
     }
     
+    //저장된 데이터 불러오는 함수
     func fetch() {
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
         let context = appDelegate.persistentContainer.viewContext
-        let fetch_request = NSFetchRequest<NSManagedObject>(entityName: "Login")
+        let fetch_request = NSFetchRequest<NSManagedObject>(entityName: "Login") //Login entity 불러오는 동작
+        fetch_request.returnsObjectsAsFaults = false //데이터참조 오류 방지
         
         do {
-            loginlist = try context.fetch(fetch_request)
+            loginlist = try context.fetch(fetch_request) //처음에 선언한 배열에 넣기
         }
         catch let error as NSError{ print("불러올수 없습니다. \(error), \(error.userInfo)")
         }
     }
     
+//    //코어데이터에 저장된 로그인정보가 있는지(그전에 로그인한 이력확인) 확인
+//    var isEmpty: Bool {
+//        do {
+//            let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//            let context = appDelegate.persistentContainer.viewContext
+//            let check_request = NSFetchRequest<NSManagedObject>(entityName: "Login")
+//            let count  = try context.count(for: check_request)
+//            return count == 0
+//        } catch {
+//            return true
+//        }
+//    }
     
     // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
     func loginSuccess () {
@@ -60,6 +73,8 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
         tabbarcontroller.delegate = self
         present(tabbarcontroller, animated: true, completion: nil)
+        fetch()
+        print(loginlist)
     }
     
     // 각 SNS에서 받은 accestoken,refreshtoken으로 우리서버와 연결
@@ -91,8 +106,6 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
             sns 가 google 일 경우는 따로 분리해서 sns랑  idtoken에 acToken만 넣으면 됨
         */
         self.save(acToken, acExpire, rfToken, sns)
-        fetch()
-        print(loginlist)
         self.loginSuccess();
     }
 
@@ -110,6 +123,9 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
     @IBAction func Google_Login (_sender: AnyObject){
         GIDSignIn.sharedInstance()?.presentingViewController = self
         GIDSignIn.sharedInstance()?.signIn()
+    }
+    
+    func refreshTokens(handler: GIDAuthenticationHandler!){
     }
 
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
@@ -139,8 +155,6 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         
         userLoginConfirm(idToken, idTokenExpire, rfToken, "google")
     }
-
-    
     
     // 1. 네이버 로그인
     // -----------------------------------------------------------------------------------------------------------
@@ -162,6 +176,8 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "naver");
     }
     
+    
+    
     // 로그인 성공했을 시, 로그인 토큰을 건네 받고 이 함수 실행됨.
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         getNaverEmailFromURL()
@@ -174,6 +190,10 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {}
     func oauth20ConnectionDidFinishDeleteToken() {}
     
+    // Access 토큰 갱신
+    func requestAccessTokenWithRefreshToken(){
+        oauth20ConnectionDidFinishRequestACTokenWithRefreshToken()
+    }
     
     // 2. 카카오 로그인
     // -----------------------------------------------------------------------------------------------------------
@@ -208,14 +228,33 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
             }
         }
     }
-    
-    
+
     // -----------------------------------------------------------------------------------------------------------
+    
+    
+    func resetAllRecords() //코어데이터 엔티티 데이터 초기화
+    {
+        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
+        {
+            try context.execute(deleteRequest)
+            try context.save()
+        }
+        catch
+        {
+            print ("There was an error")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad();
         GIDSignIn.sharedInstance().delegate = self
-        
+        resetAllRecords()
+//        if !isEmpty{
+//
+//        }
         /*
             만료일 검증 다하고 userLoginConfirm 함수 호출하면 댐.
             너가 코드 작성해야할 부분
@@ -225,7 +264,6 @@ class ViewController: UIViewController, NaverThirdPartyLoginConnectionDelegate,G
         // 1. 액세스 토큰 만료 기간 검사
         // 2. 갱신 토큰으로 만료 기간 update
         // 3. 우리서버에 액세스 토큰 보내기
-        
         
         //
         // coredata에 넣을 것
