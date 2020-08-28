@@ -13,10 +13,7 @@ import KakaoSDKUser
 import GoogleSignIn
 import CoreData
 
-class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDelegate {
-   
-    // 네이버로그인 인스턴스 생성
-    let naver = NaverLogin()
+class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
     // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
     func loginSuccess () {
@@ -26,8 +23,7 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
         present(tabbarcontroller, animated: true, completion: nil)
     }
     
-    // 각 SNS에서 받은 accestoken,refreshtoken으로 우리서버와 연결
-    // accestoken,만료시간, sns
+    // 우리 서버와 통신 고유 id값 닉네임 넘겨줌
     func userLoginConfirm(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
                 
 //        print(acExpire)
@@ -57,27 +53,29 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
         self.loginSuccess();
     }
 
-    // 0. 구글 로그인
-    // -----------------------------------------------------------------------------------------------------------
     
-    // 로그인 화면과 연결이 안될때의 에러
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!,
-              withError error: Error!) {
-        print(error);
-      // Perform any operations when the user disconnects from app here.
-      // ...
-    }
     
-    @IBAction func Google_Login (_sender: AnyObject){
-        GIDSignIn.sharedInstance()?.presentingViewController = self
-        GIDSignIn.sharedInstance()?.signIn()
-    }
     
-    func refreshTokens(handler: GIDAuthenticationHandler!){
+    
+    /*
+        구글 로그인
+    */
+    
+    
+    let google = GIDSignIn.sharedInstance();
+    
+    // 구글 로그아웃이 실행되고 난 후 호출
+    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
+        if (error != nil) {
+            print(error)
+        }
     }
 
+    // 구글 로그인 후 실행
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
+        print("dfdfd")
         
+        // optional을 벗겨내고 안에 nil이 아니라면
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
                 print("The user has not signed in before or they have since signed out.")
@@ -86,10 +84,13 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
                 print("\(error.localizedDescription)")
             }
         }
+        // 애초에 nil이 아니라면
         if (error != nil){
             print("Sign-in Error \(error!)")
             return;
         }
+        
+        
         guard let idToken = user.authentication.idToken else {return}
         guard let idTokenExpire = user.authentication.idTokenExpirationDate else {return}
         guard let rfToken = user.authentication.refreshToken else {return}
@@ -97,25 +98,83 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
         userLoginConfirm(idToken, idTokenExpire, rfToken, "google")
     }
     
+    
+    // 로그아웃
+    func googleLogout() {
+        google?.signOut()
+    }
+    
+    @IBAction func Google_Login (_sender: AnyObject){
+        google?.delegate = self
+        google?.signIn()
+    }
+    
+    
+    
+    
+    
+    
+    
     /*
-        1. 네이버 로그인
+        네이버 로그인
     */
     
     // 네이버 로그인 버튼 클릭 시
-    @IBAction func naverSignIn(_ sender: UIButton) {
+    let loginConn = NaverThirdPartyLoginConnection.getSharedInstance();
+    
+    func getNaverEmailFromURL() {
+        // 받은 데이터를 이용해서 사용자 정보 가져오기
+        guard let ACToken = loginConn?.accessToken else {return }
+        guard let ACExpireDate = loginConn?.accessTokenExpireDate else {return }
+        guard let RFToken = loginConn?.refreshToken else {return }
+        print("ACToken : \(ACToken) ")
+        print("ACEXpireDate : \(ACExpireDate) ")
+        print("ACToken : \(RFToken) ")
         
-        naver.startLogin();
-        
-        guard let ACToken = naver.loginConn?.accessToken else {return}
-        guard let ACTokenExpire = naver.loginConn?.accessTokenExpireDate else {return}
-        guard let RFToken = naver.loginConn?.refreshToken else {return}
-        
-        self.userLoginConfirm(ACToken,ACTokenExpire,RFToken,"naver");
+        self.userLoginConfirm(ACToken,ACExpireDate,RFToken, "naver")
     }
+    
+    // 로그인 후 토큰들을 받아오면 실행되는 함수
+    func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
+        self.getNaverEmailFromURL()
+    }
+    // 액세스토큰 갱신 시 호출되는 함수
+    func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
+        self.getNaverEmailFromURL()
+    }
+    
+    // 연동해제시 호출되는 함수
+    func oauth20ConnectionDidFinishDeleteToken() {
+    }
+    
+    // 연동해제 실패(네아로서버와의 연결 실패 등)시 호출되는 함수
+    func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
+        print("Error \(error.localizedDescription)")
+    }
+    
+    // 로그아웃 => 저장된 토큰정보 삭제
+    func naverLogout() {
+        loginConn?.resetToken();
+        // 연동해제 네아로 서버의 인증정보까지 삭제
+        loginConn?.requestDeleteToken()
+    }
+    
+    
+    @IBAction func naverSignIn(_ sender: UIButton) {
+        // login 기능 수행을 이곳으로 위임
+        loginConn?.delegate = self
+        // 로그인 시작 네이버/사파리 연결
+        loginConn?.requestThirdPartyLogin();
+    }
+    
+    
+    
+    
+    
     
    
     /*
-        2. 카카오 로그인
+        카카오 로그인
     */
     @IBAction func Kakao_Login(_ sender: Any) {
         if (AuthApi.isKakaoTalkLoginAvailable()) {
@@ -128,6 +187,7 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
                     guard let ACToken = oauthToken?.accessToken else {return}
                     guard let ACExpireDate = oauthToken?.expiredAt else {return}
                     guard let RFToken = oauthToken?.refreshToken else {return}
+                    
                     self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
                 }
             }
@@ -147,56 +207,53 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
             }
         }
     }
+    
+    
+    
+    
+    
 
-    // -----------------------------------------------------------------------------------------------------------
-    
-    
-    func resetAllRecords() //코어데이터 엔티티 데이터 초기화
-    {
-        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
-        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
-        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-        do
-        {
-            try context.execute(deleteRequest)
-            try context.save()
-        }
-        catch
-        {
-            print ("There was an error")
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad();
-        GIDSignIn.sharedInstance().delegate = self
+        //google?.delegate = self
+        google?.presentingViewController = self
+        // 이전 로그인 정보를 복구
+        google?.restorePreviousSignIn()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
         
-        //주석처리 신경쓰지말것 실험해보느라 막쓴거여서 그대로 믿지마
         // 네이버 로그인
-        guard let naverToken : Bool = naver.loginConn?.isValidAccessTokenExpireTimeNow() else {return}
-        
+        naverLogout();
+        guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
+
         
         // 네이버로 로그인한 기록이 있음
-        if (naver.loginConn?.accessToken != nil) {
-            // 토큰 만료일짜가 지나지 않음
-            if (naverToken) {
-                print("자동로그인 ㄱㄱ")
-                // 서버 통신 하는 부분
-                // 자동로그인 self.loginSuccess();
-            }
-            // 토큰 만료일자가 지남
-            else {
-                // 갱신하는 코드 작성
+        if (loginConn?.accessToken != nil) {
+            // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
+            if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
+            else { self.getNaverEmailFromURL() }
+        }
+        // 구글 로그인 기록 이 있음
+        
+        if (google?.currentUser != nil) {
+            print("1")
+            print(google?.currentUser.authentication.accessTokenExpirationDate)
+            google?.currentUser.authentication.refreshTokens{ GIDAuthentication, Error in
+                guard Error == nil else { return }
+                print("2")
+                print(GIDAuthentication)
             }
             
+            print("3")
+            print(google?.currentUser.authentication.accessTokenExpirationDate)
         }
         
         
-        
     }
+    
     
 }
 
@@ -256,4 +313,20 @@ class ViewController: UIViewController, GIDSignInDelegate, UITabBarControllerDel
  //            return true
  //        }
  //    }
+ 
+ func resetAllRecords() //코어데이터 엔티티 데이터 초기화
+ {
+     let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+     let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
+     let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+     do
+     {
+         try context.execute(deleteRequest)
+         try context.save()
+     }
+     catch
+     {
+         print ("There was an error")
+     }
+ }
  */
