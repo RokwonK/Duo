@@ -75,6 +75,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
         print("dfdfd")
         
+        
         // optional을 벗겨내고 안에 nil이 아니라면
         if let error = error {
             if (error as NSError).code == GIDSignInErrorCode.hasNoAuthInKeychain.rawValue {
@@ -94,6 +95,9 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         guard let idToken = user.authentication.idToken else {return}
         guard let idTokenExpire = user.authentication.idTokenExpirationDate else {return}
         guard let rfToken = user.authentication.refreshToken else {return}
+        print(idToken)
+        print(idTokenExpire)
+        print(rfToken)
         
         userLoginConfirm(idToken, idTokenExpire, rfToken, "google")
     }
@@ -212,13 +216,11 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     
     
-
+//2020-08-28 04:49:30 +0000
     override func viewDidLoad() {
         super.viewDidLoad();
-        //google?.delegate = self
+        google?.delegate = self
         google?.presentingViewController = self
-        // 이전 로그인 정보를 복구
-        google?.restorePreviousSignIn()
     }
     
     
@@ -229,27 +231,21 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         naverLogout();
         guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
 
-        
         // 네이버로 로그인한 기록이 있음
         if (loginConn?.accessToken != nil) {
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
             else { self.getNaverEmailFromURL() }
         }
-        // 구글 로그인 기록 이 있음
         
-        if (google?.currentUser != nil) {
-            print("1")
-            print(google?.currentUser.authentication.accessTokenExpirationDate)
-            google?.currentUser.authentication.refreshTokens{ GIDAuthentication, Error in
-                guard Error == nil else { return }
-                print("2")
-                print(GIDAuthentication)
-            }
-            
-            print("3")
-            print(google?.currentUser.authentication.accessTokenExpirationDate)
-        }
+        
+        googleLogout();
+        // 이전 로그인 정보를 복구
+        // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
+        google?.restorePreviousSignIn();
+        
+        
+        
         
         
     }
