@@ -73,8 +73,6 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
 
     // 구글 로그인 후 실행
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
-        print("dfdfd")
-        
         
         // optional을 벗겨내고 안에 nil이 아니라면
         if let error = error {
@@ -142,6 +140,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         self.getNaverEmailFromURL()
     }
+    
     // 액세스토큰 갱신 시 호출되는 함수
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         self.getNaverEmailFromURL()
@@ -149,6 +148,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     // 연동해제시 호출되는 함수
     func oauth20ConnectionDidFinishDeleteToken() {
+        print("Success Logout")
     }
     
     // 연동해제 실패(네아로서버와의 연결 실패 등)시 호출되는 함수
@@ -175,40 +175,41 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     
     
-    
    
     /*
         카카오 로그인
     */
-    @IBAction func Kakao_Login(_ sender: Any) {
-        if (AuthApi.isKakaoTalkLoginAvailable()) {
-            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("카톡 로그인 성공")
-                    guard let ACToken = oauthToken?.accessToken else {return}
-                    guard let ACExpireDate = oauthToken?.expiredAt else {return}
-                    guard let RFToken = oauthToken?.refreshToken else {return}
-                    
-                    self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
-                }
-            }
+    
+    func kakaoLogout() {
+        UserApi.shared.logout {err in
+            if let error = err { print(error) }
+            else { print("kakaoLogut success") }
+        }
+    }
+    
+    func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) {
+        if let error = error {
+            print(error)
         }
         else {
-            AuthApi.shared.loginWithKakaoAccount { (oauthToken, err) in
-                if let error = err {
-                    print(error)
-                }
-                else {
-                    print ("login succes");
-                    guard let ACToken = oauthToken?.accessToken else {return}
-                    guard let ACExpireDate = oauthToken?.expiredAt else {return}
-                    guard let RFToken = oauthToken?.refreshToken else {return}
-                    self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
-                }
-            }
+            
+            print("kakaoLogin success")
+            guard let ACToken = auth?.accessToken else {return}
+            guard let ACExpireDate = auth?.expiredAt else {return}
+            guard let RFToken = auth?.refreshToken else {return}
+            print("ACToken : \(ACToken)")
+            
+            self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
+        }
+    }
+    
+    
+    @IBAction func Kakao_Login(_ sender: Any) {
+        if (AuthApi.isKakaoTalkLoginAvailable()) {
+            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in self.kakaoLogin(oauthToken, error) }
+        }
+        else {
+            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in self.kakaoLogin(oauthToken, error)}
         }
     }
     
@@ -216,9 +217,11 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     
     
-//2020-08-28 04:49:30 +0000
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad();
+        // restorePreviousSignIn 함수를 위해 필요
         google?.delegate = self
         google?.presentingViewController = self
     }
@@ -236,6 +239,8 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
             else { self.getNaverEmailFromURL() }
+            
+            return;
         }
         
         
@@ -244,11 +249,24 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
         google?.restorePreviousSignIn();
         
-        
-        
-        
-        
+        kakaoLogout()
+        // 캐시에 로그인 기록이 있으 => 자동로그인 가능
+        UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
+            if let error = Error {
+                print("Occur Eror \(error)")
+                return;
+            }
+            
+            if (AccessTokenInfo != nil) {
+                // 토큰 갱신
+                AuthApi.shared.refreshAccessToken { auth, Error in
+                    // 자동 로그인 실행
+                    self.kakaoLogin(auth, Error)
+                }
+            }
+        }
     }
+    
     
     
 }
