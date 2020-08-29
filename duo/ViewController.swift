@@ -141,8 +141,6 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
 
     // 구글 로그인 후 실행
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
-        print("dfdfd")
-        
         
         // optional을 벗겨내고 안에 nil이 아니라면
         if let error = error {
@@ -206,6 +204,7 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
         self.getNaverEmailFromURL()
     }
+    
     // 액세스토큰 갱신 시 호출되는 함수
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
         self.getNaverEmailFromURL()
@@ -213,6 +212,7 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
     
     // 연동해제시 호출되는 함수
     func oauth20ConnectionDidFinishDeleteToken() {
+        print("Success Logout")
     }
     
     // 연동해제 실패(네아로서버와의 연결 실패 등)시 호출되는 함수
@@ -239,9 +239,21 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
         loginConn?.requestThirdPartyLogin();
     }
     
+<<<<<<< HEAD
     /*
         카카오 로그인
     */
+=======
+    
+    
+    
+    
+   
+    /*
+        카카오 로그인
+    */
+    
+>>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
     func kakaoLogout() {
         UserApi.shared.logout {err in
             if let error = err { print(error) }
@@ -265,6 +277,10 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
         }
     }
     
+<<<<<<< HEAD
+=======
+    
+>>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
     @IBAction func Kakao_Login(_ sender: Any) {
         if (AuthApi.isKakaoTalkLoginAvailable()) {
             AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in self.kakaoLogin(oauthToken, error) }
@@ -275,9 +291,19 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
     }
     
 <<<<<<< HEAD
+<<<<<<< HEAD
 //2020-08-28 04:49:30 +0000
+=======
+    
+    
+    
+    
+    
+    
+>>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
     override func viewDidLoad() {
         super.viewDidLoad();
+        // restorePreviousSignIn 함수를 위해 필요
         google?.delegate = self
         google?.presentingViewController = self
     }
@@ -311,15 +337,25 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
             else { self.getNaverEmailFromURL() }
+<<<<<<< HEAD
             return
+=======
+            
+            return;
+>>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
         }
         
         // googleLogout();
         // 이전 로그인 정보를 복구
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
         google?.restorePreviousSignIn();
+<<<<<<< HEAD
     
         // kakaoLogout()
+=======
+        
+        kakaoLogout()
+>>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
         // 캐시에 로그인 기록이 있으 => 자동로그인 가능
         UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
             if let error = Error {
@@ -336,6 +372,7 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
             }
         }
     }
+    
     
     
 }
