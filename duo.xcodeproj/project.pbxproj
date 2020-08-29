@@ -13,6 +13,7 @@
 		09BD7F9624ED038100409033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9424ED038100409033 /* Main.storyboard */; };
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
+		19077FD624F8DC62000F842F /* Nickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19077FD524F8DC62000F842F /* Nickname.swift */; };
 		195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195CA9A224F16D2100D1F52A /* Assets.xcassets */; };
 		1980409924F4B23700ED48B2 /* GameTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1980409824F4B23700ED48B2 /* GameTab.swift */; };
 		19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4241C24F20E0A00395657 /* TabBarController.swift */; };
@@ -28,6 +29,7 @@
 		09BD7F9824ED038100409033 /* duo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duo.xcdatamodel; sourceTree = "<group>"; };
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		19077FD524F8DC62000F842F /* Nickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickname.swift; sourceTree = "<group>"; };
 		195CA9A224F16D2100D1F52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1980409824F4B23700ED48B2 /* GameTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTab.swift; sourceTree = "<group>"; };
 		19C4241C24F20E0A00395657 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -72,9 +74,10 @@
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09BD7F9024ED038100409033 /* SceneDelegate.swift */,
 				09BD7F9224ED038100409033 /* ViewController.swift */,
-				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
+				19077FD524F8DC62000F842F /* Nickname.swift */,
 				19C4241C24F20E0A00395657 /* TabBarController.swift */,
 				1980409824F4B23700ED48B2 /* GameTab.swift */,
+				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 				09BD7F9424ED038100409033 /* Main.storyboard */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
@@ -234,6 +237,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
+				19077FD624F8DC62000F842F /* Nickname.swift in Sources */,
 				09BD7F9324ED038100409033 /* ViewController.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameTab.swift in Sources */,

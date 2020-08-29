@@ -15,47 +15,110 @@ import CoreData
 
 class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
-    // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
+    //정보저장 배열 객체 생성
+    var loginlist : [NSManagedObject] = []
+    
+    //데이터 저장함수
+    func save( _ fromserver_nickname: String, _ fromserver_id : Int64){
+        
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
+        // AppDelegate.swift 파일에서 참조얻기
+        let context = appDelegate.persistentContainer.viewContext // context객체 참조
+        let entity = NSEntityDescription.entity(forEntityName: "LoginInfo", in: context)! // entity 객체 생성
+        let login = NSManagedObject(entity: entity, insertInto: context)//entity 설정
+        
+        //entity 속성값 설정
+        login.setValue(fromserver_nickname, forKey: "nickname")
+        login.setValue(fromserver_id, forKey: "id")
+
+        do{
+            try context.save()
+            self.loginSuccess()
+            
+        } catch let error as NSError{
+            print("저장 오류 \(error), \(error.userInfo)")
+        }
+    }
+    
+    //코어데이터 저장된 엔티티 초기화
+    func resetAllRecords()
+    {
+        let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
+        let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
+        let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
+        do
+        {
+            try context.execute(deleteRequest)
+            try context.save()
+        }
+        catch
+        {
+            print ("There was an error")
+        }
+    }
+    
     func loginSuccess () {
         let storyBoard = self.storyboard!
         let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
-        tabbarcontroller.delegate = self
         present(tabbarcontroller, animated: true, completion: nil)
-    }
+       }
+    
     
     // 우리 서버와 통신 고유 id값 닉네임 넘겨줌
     func userLoginConfirm(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
-                
-//        print(acExpire)
-//        let urlStr = "http:localhost:80/login/\(sns)"
-//        let url = URL(string :urlStr)!
-//        //(우리 서버로 인증 하는 부분)
-//        let req = AF.request(url,
-//                            method:.post,
-//                            parameters: ["accesstoken" : acToken],
-//                            encoding: JSONEncoding.default)
-//
-//        req.responseJSON { res in
-//            print(res)
-//            // 여기서도 분기 코드 작성해야함
-//            // 1. 처음 로그인 => nickname이 없다는 뜻 만들어야 하므로 만드는 곳으로 분기
-//            //          => 일단 api만들고 있음
-//            // 2. 원래 있는 아이디 => 우리서버에서 nickname을 넘겨줄 테니 그 닉테임을 가지고 tabbar로 이동하면 댐
-//            // 3. 오류 => 다시 로그인 요망 이라는 alert 표시
-//        }
-//
-        // 로그인이 잘되었으면 여기서 부터 다시 실행됨
-        /*
-            여기서 저 위의 매개변수들을 coredata에 저장해야함.
-            즉, 이부분 코드 만들어 줘야함
-            sns 가 google 일 경우는 따로 분리해서 sns랑  idtoken에 acToken만 넣으면 됨
-        */
-        self.loginSuccess();
-    }
+        
+        let urlStr = "ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
+        let url = URL(string :urlStr)!
+        var fromserver_nickname = ""
+        var fromserver_id = 0
 
-    
-    
-    
+        struct getinfo : Codable {
+            var nickname : String
+            var id : Int64
+        }
+        
+        //(우리 서버로 인증 하는 부분)
+        let req = AF.request(url,
+                            method:.post,
+                            parameters: ["accesstoken" : acToken],
+                            encoding: JSONEncoding.default)
+        
+        req.responseJSON { res in
+            print(res)
+            
+            switch res.result{
+                
+            case.success (let value):
+                do{
+                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let logininfo = try JSONDecoder().decode(getinfo.self, from: data)
+                    
+                    fromserver_nickname = logininfo.nickname
+                    fromserver_id = Int(logininfo.id)
+                }
+                catch{
+                }
+            
+            case .failure(let error):
+                print("error :\(error)")
+                break;
+            }
+        }
+        
+        
+        if fromserver_nickname == "needNickname"{
+            let storyBoard = self.storyboard!
+            let make_nickname = storyBoard.instantiateViewController(withIdentifier: "nickname") as! UIViewController
+            present(make_nickname, animated: true, completion: nil)
+            
+        }
+        
+        else{
+            //resetAllRecords()
+            save(fromserver_nickname, Int64(fromserver_id))
+        }
+        
+    }
     
     /*
         구글 로그인
@@ -113,12 +176,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         google?.signIn()
     }
     
-    
-    
-    
-    
-    
-    
+
     /*
         네이버 로그인
     */
@@ -171,50 +229,40 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         loginConn?.requestThirdPartyLogin();
     }
     
-    
-    
-    
-    
-    
-   
     /*
         카카오 로그인
     */
-    @IBAction func Kakao_Login(_ sender: Any) {
-        if (AuthApi.isKakaoTalkLoginAvailable()) {
-            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in
-                if let error = error {
-                    print(error)
-                }
-                else {
-                    print("카톡 로그인 성공")
-                    guard let ACToken = oauthToken?.accessToken else {return}
-                    guard let ACExpireDate = oauthToken?.expiredAt else {return}
-                    guard let RFToken = oauthToken?.refreshToken else {return}
-                    
-                    self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
-                }
-            }
-        }
-        else {
-            AuthApi.shared.loginWithKakaoAccount { (oauthToken, err) in
-                if let error = err {
-                    print(error)
-                }
-                else {
-                    print ("login succes");
-                    guard let ACToken = oauthToken?.accessToken else {return}
-                    guard let ACExpireDate = oauthToken?.expiredAt else {return}
-                    guard let RFToken = oauthToken?.refreshToken else {return}
-                    self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
-                }
-            }
+    func kakaoLogout() {
+        UserApi.shared.logout {err in
+            if let error = err { print(error) }
+            else { print("kakaoLogut success") }
         }
     }
     
+    func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) {
+        if let error = error {
+            print(error)
+        }
+        else {
+            
+            print("kakaoLogin success")
+            guard let ACToken = auth?.accessToken else {return}
+            guard let ACExpireDate = auth?.expiredAt else {return}
+            guard let RFToken = auth?.refreshToken else {return}
+            print("ACToken : \(ACToken)")
+            
+            self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
+        }
+    }
     
-    
-    
+    @IBAction func Kakao_Login(_ sender: Any) {
+        if (AuthApi.isKakaoTalkLoginAvailable()) {
+            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in self.kakaoLogin(oauthToken, error) }
+        }
+        else {
+            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in self.kakaoLogin(oauthToken, error)}
+        }
+    }
     
 //2020-08-28 04:49:30 +0000
     override func viewDidLoad() {
@@ -228,7 +276,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         super.viewDidAppear(false)
         
         // 네이버 로그인
-        naverLogout();
+        //naverLogout();
         guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
 
         // 네이버로 로그인한 기록이 있음
@@ -236,25 +284,34 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
             else { self.getNaverEmailFromURL() }
+            return
         }
         
-        
-        googleLogout();
+        // googleLogout();
         // 이전 로그인 정보를 복구
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
         google?.restorePreviousSignIn();
-        
-        
-        
-        
-        
+    
+        // kakaoLogout()
+        // 캐시에 로그인 기록이 있으 => 자동로그인 가능
+        UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
+            if let error = Error {
+                print("Occur Eror \(error)")
+                return;
+            }
+            
+            if (AccessTokenInfo != nil) {
+                // 토큰 갱신
+                AuthApi.shared.refreshAccessToken { auth, Error in
+                    // 자동 로그인 실행
+                    self.kakaoLogin(auth, Error)
+                }
+            }
+        }
     }
     
     
 }
-
-
-
 
 // Coredata에 저장, 값 꺼내오기 코드
 /*
