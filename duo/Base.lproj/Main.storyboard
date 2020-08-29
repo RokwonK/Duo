@@ -93,11 +93,8 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-<<<<<<< HEAD
             <point key="canvasLocation" x="-758" y="468"/>
-=======
-            <point key="canvasLocation" x="5.5999999999999996" y="467.73399014778329"/>
->>>>>>> yoonjae
+
         </scene>
         <!--Chat-->
         <scene sceneID="QZn-P0-Xc4">
