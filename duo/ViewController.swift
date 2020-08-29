@@ -7,16 +7,21 @@
 //
 import UIKit
 import Alamofire
-import NaverThirdPartyLogin
 import KakaoSDKAuth
 import KakaoSDKUser
 import GoogleSignIn
 import CoreData
 
+<<<<<<< HEAD
 class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
     //정보저장 배열 객체 생성
     var loginlist : [NSManagedObject] = []
+=======
+
+class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDelegate {
+    var loginlist : [NSManagedObject] = [] // 코어데이터에 로그인 정보 저장할 객체 배열 생성
+>>>>>>> yoonjae
     
     //데이터 저장함수
     func save( _ fromserver_nickname: String, _ fromserver_id : Int64){
@@ -165,6 +170,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         userLoginConfirm(idToken, idTokenExpire, rfToken, "google")
     }
     
+<<<<<<< HEAD
     
     // 로그아웃
     func googleLogout() {
@@ -213,6 +219,10 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         print("Error \(error.localizedDescription)")
     }
+=======
+    // 2. 카카오 로그인
+    // -----------------------------------------------------------------------------------------------------------
+>>>>>>> yoonjae
     
     // 로그아웃 => 저장된 토큰정보 삭제
     func naverLogout() {
@@ -264,6 +274,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         }
     }
     
+<<<<<<< HEAD
 //2020-08-28 04:49:30 +0000
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -274,6 +285,22 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
+=======
+    @IBAction func call_naverclass( sender: AnyObject) {
+        naver().naverSignIn()
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad();
+        GIDSignIn.sharedInstance().delegate = self
+//        if !isEmpty{
+//
+//        }
+        /*
+            만료일 검증 다하고 userLoginConfirm 함수 호출하면 댐.
+            너가 코드 작성해야할 부분
+        */
+>>>>>>> yoonjae
         
         // 네이버 로그인
         //naverLogout();

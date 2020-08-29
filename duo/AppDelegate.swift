@@ -14,7 +14,7 @@ import KakaoSDKAuth
 import GoogleSignIn
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate{
     
     // 어플리 케이션이 실행 되었을때, 호출됨
     // 시작 프로세스가 거의 완료되었고, 앱을 실행할 준비가 거의 완료되었음을 알림(true return)
@@ -22,23 +22,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         // 네이버 로그인 환경설정
-        let loginConn = NaverThirdPartyLoginConnection.getSharedInstance();
-        
+        let loginconn = NaverThirdPartyLoginConnection.getSharedInstance();
         
         // 네이버앱 활성화 (네이버 앱이 설치x시, 사파리로 연결됨)
-        loginConn?.isNaverAppOauthEnable = true;
-        loginConn?.isInAppOauthEnable = true;
+        loginconn?.isNaverAppOauthEnable = true;
+        loginconn?.isInAppOauthEnable = true;
         
         
         // Pods 폴더의 Naver로그인 헤더에 입력해 놓은 값들을 가져와 네이버로그인instance에 할당
-        loginConn?.serviceUrlScheme = kServiceAppUrlScheme
+        loginconn?.serviceUrlScheme = kServiceAppUrlScheme
         
         //접금 토큰 요청에 사용하는 발급받은 id,secret 및 app이름
-        loginConn?.consumerKey = kConsumerKey
-        loginConn?.consumerSecret = kConsumerSecret
-        loginConn?.appName = kServiceAppName
+        loginconn?.consumerKey = kConsumerKey
+        loginconn?.consumerSecret = kConsumerSecret
+        loginconn?.appName = kServiceAppName
         // 화면 가로 회전 차단
-        loginConn?.setOnlyPortraitSupportInIphone(true)
+        loginconn?.setOnlyPortraitSupportInIphone(true)
         
         KakaoSDKCommon.initSDK(appKey: "ad22198785adb026ae8a5565ef48d7da")
         
