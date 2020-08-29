@@ -12,16 +12,11 @@ import KakaoSDKUser
 import GoogleSignIn
 import CoreData
 
-<<<<<<< HEAD
+
 class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
     //정보저장 배열 객체 생성
     var loginlist : [NSManagedObject] = []
-=======
-
-class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDelegate {
-    var loginlist : [NSManagedObject] = [] // 코어데이터에 로그인 정보 저장할 객체 배열 생성
->>>>>>> yoonjae
     
     //데이터 저장함수
     func save( _ fromserver_nickname: String, _ fromserver_id : Int64){
@@ -168,8 +163,6 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
         userLoginConfirm(idToken, idTokenExpire, rfToken, "google")
     }
     
-<<<<<<< HEAD
-    
     // 로그아웃
     func googleLogout() {
         google?.signOut()
@@ -219,10 +212,6 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         print("Error \(error.localizedDescription)")
     }
-=======
-    // 2. 카카오 로그인
-    // -----------------------------------------------------------------------------------------------------------
->>>>>>> yoonjae
     
     // 로그아웃 => 저장된 토큰정보 삭제
     func naverLogout() {
@@ -239,21 +228,10 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
         loginConn?.requestThirdPartyLogin();
     }
     
-<<<<<<< HEAD
-    /*
-        카카오 로그인
-    */
-=======
+
     
     
     
-    
-   
-    /*
-        카카오 로그인
-    */
-    
->>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
     func kakaoLogout() {
         UserApi.shared.logout {err in
             if let error = err { print(error) }
@@ -276,11 +254,6 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
             self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
         }
     }
-    
-<<<<<<< HEAD
-=======
-    
->>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
     @IBAction func Kakao_Login(_ sender: Any) {
         if (AuthApi.isKakaoTalkLoginAvailable()) {
             AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in self.kakaoLogin(oauthToken, error) }
@@ -290,17 +263,10 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
         }
     }
     
-<<<<<<< HEAD
-<<<<<<< HEAD
-//2020-08-28 04:49:30 +0000
-=======
     
     
     
-    
-    
-    
->>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
+ 
     override func viewDidLoad() {
         super.viewDidLoad();
         // restorePreviousSignIn 함수를 위해 필요
@@ -311,22 +277,6 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-=======
-    @IBAction func call_naverclass( sender: AnyObject) {
-        naver().naverSignIn()
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad();
-        GIDSignIn.sharedInstance().delegate = self
-//        if !isEmpty{
-//
-//        }
-        /*
-            만료일 검증 다하고 userLoginConfirm 함수 호출하면 댐.
-            너가 코드 작성해야할 부분
-        */
->>>>>>> yoonjae
         
         // 네이버 로그인
         //naverLogout();
@@ -337,25 +287,17 @@ class ViewController: UIViewController,GIDSignInDelegate, UITabBarControllerDele
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
             else { self.getNaverEmailFromURL() }
-<<<<<<< HEAD
+
             return
-=======
-            
-            return;
->>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
         }
         
         // googleLogout();
         // 이전 로그인 정보를 복구
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
         google?.restorePreviousSignIn();
-<<<<<<< HEAD
-    
-        // kakaoLogout()
-=======
+
         
         kakaoLogout()
->>>>>>> e5ad87f9365b83a6da4033bc8905f06490c2b1b7
         // 캐시에 로그인 기록이 있으 => 자동로그인 가능
         UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
             if let error = Error {
