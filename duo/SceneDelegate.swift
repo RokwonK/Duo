@@ -65,6 +65,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use this method to undo the changes made on entering the background.
     }
 
+    
     // 화면이 Background로 들어갔다 즉, 사용되어지고 있지않다 => 보여지고 있지 않다.
     func sceneDidEnterBackground(_ scene: UIScene) {
         // Called as the scene transitions from the foreground to the background.

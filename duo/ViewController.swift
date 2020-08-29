@@ -11,6 +11,7 @@ import KakaoSDKAuth
 import KakaoSDKUser
 import GoogleSignIn
 import CoreData
+import NaverThirdPartyLogin
 
 
 class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
