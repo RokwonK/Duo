@@ -5,7 +5,6 @@
 //  Created by 황윤재 on 2020/08/28.
 //  Copyright © 2020 김록원. All rights reserved.
 //
-
 import UIKit
 import CoreData
 import Alamofire
@@ -60,11 +59,12 @@ class Nickname : UIViewController {
         var sns = getfromappdelegate?.sns_name
         var acToken = getfromappdelegate?.access_token
         //닉네임 서버로 송신하는코드
-        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
+        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/set_nickname"
         let url = URL(string :urlStr)!
         var confirmed_nickname = ""
         var confirmed_id = 0
-        
+        print(sns)
+        print(acToken)
         
         //서버에서 받을 json 구조체
         struct getinfo : Codable {
@@ -75,33 +75,31 @@ class Nickname : UIViewController {
         //서버로 생성할 닉네임 보내고 nickname,id json데이터 받아오기
         let req = AF.request(url,
                              method:.post,
-                             parameters: ["nickname" : inputtext, "sns" : sns, "accesstoken" : acToken],
+                             parameters: ["nickname" : inputtext.text, "sns" : sns, "accesstoken" : acToken],
                              encoding: JSONEncoding.default)
-        
+
         req.responseJSON { res in
             print(res)
-            
+
             switch res.result{
-                
+
             case.success (let value):
                 do{
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let logininfo = try JSONDecoder().decode(getinfo.self, from: data)
-                    
+
                     confirmed_nickname = logininfo.nickname
                     confirmed_id = Int(logininfo.id)
                 }
                 catch{
                 }
-                
+
             case .failure(let error):
                 print("error :\(error)")
                 break;
             }
 
         }
-               
         first_save(confirmed_nickname, Int(confirmed_id))
-        
     }
 }

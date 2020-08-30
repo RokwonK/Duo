@@ -57,7 +57,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0WY-l0-u4W">
-                                <rect key="frame" x="52" y="378" width="269" height="56"/>
+                                <rect key="frame" x="76" y="378" width="223" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="     카카오 아이디로 로그인" image="kakao">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -66,27 +66,26 @@
                                     <action selector="Kakao_Login:" destination="BYZ-38-t0r" eventType="touchUpInside" id="fOi-g7-TkO"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uzf-Em-n6s">
-                                <rect key="frame" x="52" y="271" width="269" height="56"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lw-WW-pMR">
+                                <rect key="frame" x="89" y="475" width="196" height="56"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="      구글 아이디로 로그인" image="google">
+                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="Google_LoginWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J0D-mV-5uR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fON-8O-mB1">
+                                <rect key="frame" x="82" y="267" width="211" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="     네이버 아이디로 로그인" image="naver">
                                     <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="call_naverclassWithSender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3tb-1C-11A"/>
-                                    <action selector="naverSignIn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2H-Qr-LYW"/>
-                                </connections>
-                            </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4Lw-WW-pMR">
-                                <rect key="frame" x="49" y="477" width="269" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                <state key="normal" title="       구글 아이디로 로그인" image="google">
-                                    <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
-                                </state>
-                                <connections>
-                                    <action selector="Google_LoginWith_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J0D-mV-5uR"/>
+                                    <action selector="naverSignIn_sender:" destination="BYZ-38-t0r" eventType="touchUpInside" id="DMZ-wB-9Qh"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -189,7 +188,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <navigationBar key="tableFooterView" contentMode="scaleToFill" id="5Xv-jm-iw2">
-                            <rect key="frame" x="0.0" y="100" width="375" height="44"/>
+                            <rect key="frame" x="0.0" y="99.666667938232422" width="375" height="44"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                             <items>
                                 <navigationItem title="Title" id="uC9-r6-9iL"/>

@@ -26,10 +26,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
                 _ = AuthController.handleOpenUrl(url: url)
             }
         }
-        
     }
     
-
     //----------------------------------------------------------------
     // 앱에 장면이 추가되었다고 delegate에게 알린다.
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {

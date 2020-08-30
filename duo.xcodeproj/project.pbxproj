@@ -82,7 +82,6 @@
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
 				09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */,
-				1955F51924F7740400DC8B19 /* Login */,
 			);
 			path = duo;
 			sourceTree = "<group>";
@@ -94,13 +93,6 @@
 				E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */,
 			);
 			path = Pods;
-			sourceTree = "<group>";
-		};
-		1955F51924F7740400DC8B19 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Login;
 			sourceTree = "<group>";
 		};
 		805CC1D0E5179882B5E8865D /* Frameworks */ = {

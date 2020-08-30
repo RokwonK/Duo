@@ -16,11 +16,8 @@ import NaverThirdPartyLogin
 
 class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
-    //정보저장 배열 객체 생성
-    var loginlist : [NSManagedObject] = []
-    
     //데이터 저장함수
-    func save( _ fromserver_nickname: String, _ fromserver_id : Int64){
+    func save( _ fromserver_nickname: String, _ fromserver_id : Int){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
         // AppDelegate.swift 파일에서 참조얻기
@@ -36,7 +33,6 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
             try context.save()
             print(fromserver_nickname)
             print(fromserver_id)
-            self.loginSuccess()
             
         } catch let error as NSError{
             print("저장 오류 \(error), \(error.userInfo)")
@@ -80,7 +76,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         //서버에서 받을 json데이터항목정의
         struct getinfo : Codable {
             var nickname : String
-            var id : Int64
+            var id : Int
         }
         
         //(우리 서버로 인증 하는 부분)
@@ -91,9 +87,8 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         
         req.responseJSON { res in
             print(res)
-            
-            switch res.result{
-                
+    
+            switch res.result {
             case.success (let value):
                 do{
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
@@ -101,29 +96,40 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
                     
                     fromserver_nickname = logininfo.nickname
                     fromserver_id = Int(logininfo.id)
+                    
+                    if fromserver_nickname == "needNickname"{
+                        let storyBoard = self.storyboard!
+                        let make_nickname = storyBoard.instantiateViewController(withIdentifier: "nickname") as! UIViewController
+                        self.present(make_nickname, animated: true, completion: nil)
+                    }
+                        
+                    else{
+                        //resetAllRecords()
+                        self.save(fromserver_nickname, Int(fromserver_id))
+                    }
                 }
                 catch{
                 }
-            
-            case .failure(let error):
+                
+            case.failure(let error):
                 print("error :\(error)")
                 break;
             }
         }
         
         
-        if fromserver_nickname == "needNickname"{
-            let storyBoard = self.storyboard!
-            let make_nickname = storyBoard.instantiateViewController(withIdentifier: "nickname") as! UIViewController
-            present(make_nickname, animated: true, completion: nil)
-            
-        }
-        
-        else{
-            //resetAllRecords()
-            save(fromserver_nickname, Int64(fromserver_id))
-        }
-        
+//        if fromserver_nickname == "needNickname"{
+//            let storyBoard = self.storyboard!
+//            let make_nickname = storyBoard.instantiateViewController(withIdentifier: "nickname") as! UIViewController
+//            present(make_nickname, animated: true, completion: nil)
+//
+//        }
+//
+//        else{
+//            //resetAllRecords()
+//            save(fromserver_nickname, Int(fromserver_id))
+//        }
+//
     }
     
     /*
@@ -221,24 +227,21 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     // 로그아웃 => 저장된 토큰정보 삭제
     func naverLogout() {
-        loginConn?.resetToken();
+        loginConn?.resetToken()
         // 연동해제 네아로 서버의 인증정보까지 삭제
         loginConn?.requestDeleteToken()
     }
     
-    
-    @IBAction func naverSignIn(_ sender: UIButton) {
+    @IBAction func naverSignIn(_sender: UIButton){
         // login 기능 수행을 이곳으로 위임
         loginConn?.delegate = self
         // 로그인 시작 네이버/사파리 연결
-        loginConn?.requestThirdPartyLogin();
+        loginConn?.requestThirdPartyLogin()
     }
-    
 
     /*
      카카오 로그인
     */
-    
     
     func kakaoLogout() {
         UserApi.shared.logout {err in
@@ -272,6 +275,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         }
     }
     
+    //------------------------앱 실행시 동작--------------------------------
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -284,11 +288,15 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         
-        // 네이버 로그인
-        //naverLogout();
-        guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
+        //임시로 로그아웃해놓기 테스트위해서
+        naverLogout()
+        googleLogout()
+        kakaoLogout()
 
-        // 네이버로 로그인한 기록이 있음
+        //네이버 accesstoken 만료일 확인
+        guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
+        
+        // 네이버로 로그인한 기록이 있을때 => 자동로그인
         if (loginConn?.accessToken != nil) {
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
@@ -296,21 +304,18 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
 
             return
         }
-        
-        // googleLogout();
-        // 이전 로그인 정보를 복구
+
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
         google?.restorePreviousSignIn();
 
-        
-        kakaoLogout()
-        // 캐시에 로그인 기록이 있으 => 자동로그인 가능
+
+        // 카카오 캐시에 로그인 기록이 있을때 => 자동로그인
         UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
             if let error = Error {
                 print("Occur Eror \(error)")
                 return;
             }
-            
+
             if (AccessTokenInfo != nil) {
                 // 토큰 갱신
                 AuthApi.shared.refreshAccessToken { auth, Error in
@@ -320,8 +325,6 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
             }
         }
     }
-    
-    
     
 }
 
