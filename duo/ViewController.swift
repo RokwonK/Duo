@@ -70,8 +70,9 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         let url = URL(string :urlStr)!
         var fromserver_nickname = ""
         var fromserver_id = 0
-        AppDelegate().sns_name = sns            //appdelegate에다 변수저장
-        AppDelegate().access_token = acToken
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        ad?.sns_name = sns            //appdelegate에다 변수저장
+        ad?.access_token = acToken
 
         //서버에서 받을 json데이터항목정의
         struct getinfo : Codable {

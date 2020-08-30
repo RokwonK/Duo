@@ -55,16 +55,14 @@ class Nickname : UIViewController {
     //닉네임생성완료 버튼누르면 실행
     @IBAction func make_nickname(sender: UIButton) {
         
-        let getfromappdelegate = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
-        var sns = getfromappdelegate?.sns_name
-        var acToken = getfromappdelegate?.access_token
+        let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
+        var sns = ad?.sns_name
+        var acToken = ad?.access_token
         //닉네임 서버로 송신하는코드
         let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/set_nickname"
         let url = URL(string :urlStr)!
         var confirmed_nickname = ""
         var confirmed_id = 0
-        print(sns)
-        print(acToken)
         
         //서버에서 받을 json 구조체
         struct getinfo : Codable {
