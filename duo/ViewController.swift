@@ -34,6 +34,8 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
 
         do{
             try context.save()
+            print(fromserver_nickname)
+            print(fromserver_id)
             self.loginSuccess()
             
         } catch let error as NSError{
@@ -68,11 +70,14 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     // 우리 서버와 통신 고유 id값 닉네임 넘겨줌
     func userLoginConfirm(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
         
-        let urlStr = "ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
+        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
         let url = URL(string :urlStr)!
         var fromserver_nickname = ""
         var fromserver_id = 0
+        AppDelegate().sns_name = sns            //appdelegate에다 변수저장
+        AppDelegate().access_token = acToken
 
+        //서버에서 받을 json데이터항목정의
         struct getinfo : Codable {
             var nickname : String
             var id : Int64
@@ -230,7 +235,9 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     }
     
 
-    
+    /*
+     카카오 로그인
+    */
     
     
     func kakaoLogout() {
@@ -255,6 +262,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
             self.userLoginConfirm(ACToken, ACExpireDate, RFToken, "kakao")
         }
     }
+    
     @IBAction func Kakao_Login(_ sender: Any) {
         if (AuthApi.isKakaoTalkLoginAvailable()) {
             AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in self.kakaoLogin(oauthToken, error) }
@@ -265,9 +273,6 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     }
     
     
-    
-    
- 
     override func viewDidLoad() {
         super.viewDidLoad();
         // restorePreviousSignIn 함수를 위해 필요
