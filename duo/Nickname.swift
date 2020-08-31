@@ -71,6 +71,9 @@ class Nickname : UIViewController {
                }
         
         //서버로 생성할 닉네임 보내고 nickname,id json데이터 받아오기
+        print(sns)
+        print(acToken)
+        print(inputtext.text)
         let req = AF.request(url,
                              method:.post,
                              parameters: ["nickname" : inputtext.text, "sns" : sns, "accesstoken" : acToken],

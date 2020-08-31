@@ -107,6 +107,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
                     else{
                         //resetAllRecords()
                         self.save(fromserver_nickname, Int(fromserver_id))
+                        self.loginSuccess()
                     }
                 }
                 catch{
@@ -233,7 +234,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         loginConn?.requestDeleteToken()
     }
     
-    @IBAction func naverSignIn(_sender: UIButton){
+    @IBAction func naverSignIn(_sender: UIButton) {
         // login 기능 수행을 이곳으로 위임
         loginConn?.delegate = self
         // 로그인 시작 네이버/사파리 연결
@@ -311,50 +312,32 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
 
 
         // 카카오 캐시에 로그인 기록이 있을때 => 자동로그인
-        UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
-            if let error = Error {
-                print("Occur Eror \(error)")
-                return;
-            }
-
-            if (AccessTokenInfo != nil) {
-                // 토큰 갱신
-                AuthApi.shared.refreshAccessToken { auth, Error in
-                    // 자동 로그인 실행
-                    self.kakaoLogin(auth, Error)
+        let kakaoManager = TokenManager.manager;
+        
+        if (kakaoManager.getToken() != nil) {
+            UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
+                if let error = Error {
+                    print("Occur Eror \(error)")
+                    return;
                 }
+
+                if (AccessTokenInfo != nil) {
+                    // 토큰 갱신
+                    AuthApi.shared.refreshAccessToken { auth, Error in
+                        // 자동 로그인 실행
+                        self.kakaoLogin(auth, Error)
+                    }
+                }
+                
             }
         }
+        
+        
     }
     
 }
 
-// Coredata에 저장, 값 꺼내오기 코드
 /*
-     var loginlist : [NSManagedObject] = [] // 코어데이터에 로그인 정보 저장할 객체 배열 생성
-     
-     //데이터 저장함수
-     func save(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String){
-         
-         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
-         // AppDelegate.swift 파일에서 참조얻기
-         let context = appDelegate.persistentContainer.viewContext // context객체 참조
-         let entity = NSEntityDescription.entity(forEntityName: "Login", in: context)! // entity 객체 생성
-         
-         let login = NSManagedObject(entity: entity, insertInto: context)//entity 설정
-         
-         //entity 속성값 설정
-         login.setValue(acToken, forKey: "access_token")
-         login.setValue(acExpire, forKey: "access_expire")
-         login.setValue(rfToken, forKey: "refresh_token")
-         login.setValue(sns, forKey: "sns_name")
-         
-         do{
-             try context.save() //저장
-         } catch let error as NSError{
-             print("저장 오류 \(error), \(error.userInfo)")
-         }
-     }
      
      //저장된 데이터 불러오는 함수
      func fetch() {
@@ -369,33 +352,5 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
          catch let error as NSError{ print("불러올수 없습니다. \(error), \(error.userInfo)")
          }
      }
-     
- //    //코어데이터에 저장된 로그인정보가 있는지(그전에 로그인한 이력확인) 확인
- //    var isEmpty: Bool {
- //        do {
- //            let appDelegate = UIApplication.shared.delegate as! AppDelegate
- //            let context = appDelegate.persistentContainer.viewContext
- //            let check_request = NSFetchRequest<NSManagedObject>(entityName: "Login")
- //            let count  = try context.count(for: check_request)
- //            return count == 0
- //        } catch {
- //            return true
- //        }
- //    }
- 
- func resetAllRecords() //코어데이터 엔티티 데이터 초기화
- {
-     let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
-     let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
-     let deleteRequest = NSBatchDeleteRequest(fetchRequest: deleteFetch)
-     do
-     {
-         try context.execute(deleteRequest)
-         try context.save()
-     }
-     catch
-     {
-         print ("There was an error")
-     }
- }
+
  */
