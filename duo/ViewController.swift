@@ -289,11 +289,6 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-        
-        //임시로 로그아웃해놓기 테스트위해서
-        naverLogout()
-        googleLogout()
-        kakaoLogout()
 
         //네이버 accesstoken 만료일 확인
         guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
