@@ -180,6 +180,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
     // 로그아웃
     func googleLogout() {
         google?.signOut()
+        print("3")
     }
     
     @IBAction func Google_Login (_sender: AnyObject){
@@ -232,6 +233,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
         loginConn?.resetToken()
         // 연동해제 네아로 서버의 인증정보까지 삭제
         loginConn?.requestDeleteToken()
+        print("1")
     }
     
     @IBAction func naverSignIn(_sender: UIButton) {
@@ -250,6 +252,7 @@ class ViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDel
             if let error = err { print(error) }
             else { print("kakaoLogut success") }
         }
+        print("2")
     }
     
     func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) {

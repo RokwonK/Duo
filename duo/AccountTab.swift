@@ -21,13 +21,10 @@ class AccountViewController: UIViewController {
      present(loginpage, animated: true, completion: nil)
     }
     
-    let vc = UIApplication.shared.delegate as? ViewController // Viewcontroller 클래스 참조
-    
      @IBAction func Logout(_sender : UIButton){
-        vc?.naverLogout()
-        vc?.googleLogout()
-        vc?.kakaoLogout()
-        vc?.resetAllRecords()
+        ViewController().naverLogout()
+        ViewController().kakaoLogout()
+        ViewController().googleLogout()
         
         goto_loginpage()
     }
