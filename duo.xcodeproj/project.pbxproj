@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090EF50D24FFE55700ADC959 /* SelectBoard.swift */; };
+		09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */; };
 		09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */; };
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
 		09BD7F9324ED038100409033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9224ED038100409033 /* ViewController.swift */; };
@@ -24,6 +26,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		090EF50D24FFE55700ADC959 /* SelectBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBoard.swift; sourceTree = "<group>"; };
+		09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLPostCell.swift; sourceTree = "<group>"; };
 		09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09BD7F8B24ED038100409033 /* duo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BD7F8E24ED038100409033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,12 +81,14 @@
 		09BD7F8D24ED038100409033 /* duo */ = {
 			isa = PBXGroup;
 			children = (
+				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
 				09BD7F9224ED038100409033 /* ViewController.swift */,
 				19077FD524F8DC62000F842F /* Nickname.swift */,
 				19C4241C24F20E0A00395657 /* TabBarController.swift */,
 				1980409824F4B23700ED48B2 /* GameTab.swift */,
+				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
 				19D82EC524FD3D3600FEC53F /* FilterPage.swift */,
 				1974132E24FD09B7003BB2F3 /* AccountTab.swift */,
@@ -245,6 +251,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
 				19077FD624F8DC62000F842F /* Nickname.swift in Sources */,
@@ -252,6 +259,7 @@
 				09BD7F9324ED038100409033 /* ViewController.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameTab.swift in Sources */,
+				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
 				19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */,
 				19D82EC624FD3D3600FEC53F /* FilterPage.swift in Sources */,
 				1974132F24FD09B7003BB2F3 /* AccountTab.swift in Sources */,
