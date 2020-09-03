@@ -28,4 +28,7 @@ class AccountViewController: UIViewController {
         
         goto_loginpage()
     }
+    @IBAction func DeleteAccount(_ sender: Any) {
+        
+    }
 }

@@ -24,18 +24,30 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var peoplenum: UILabel!
     @IBOutlet weak var boardtext: UILabel!
     @IBOutlet weak var end: UILabel!
-
     
+    @IBOutlet weak var toplabel: UILabel!
+    @IBOutlet weak var junglelabel: UILabel!
+    @IBOutlet weak var midlabel: UILabel!
+    @IBOutlet weak var bottomlabel: UILabel!
+    @IBOutlet weak var supportlabel: UILabel!
+    
+    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
     
     override func viewDidLoad() {
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
+        
         var talkon = boardInfo?["talkon"] as! Int
         var startt = boardInfo?["startTier"] as! Int
         var endt = boardInfo?["endTier"] as! Int
-//        var headcount = boardInfo?["headcount"] as! Int
-        
+        var headcount = boardInfo?["headCount"] as! Int
+        var Top = boardInfo?["top"] as! Int
+        var Jungle = boardInfo?["jungle"] as! Int
+        var Mid = boardInfo?["mid"] as! Int
+        var Bottom = boardInfo?["bottom"] as! Int
+        var Support = boardInfo?["support"] as! Int
+    
         switch talkon{
         case 1:
             mic.text = "토크온: 가능"
@@ -47,35 +59,51 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             return
         }
         
-        switch startt{
-        case 1:
-            start.text = "상관없음"
-        default:
-            return
+        
+        let stShared = startt/10;
+        let stRemaind = startt % 10;
+        let edShared = endt/10;
+        let edRemaind = endt % 10;
+        
+        if (startt == 1 && endt == 100) {
+            start.text = "모든티어"
+            end.text = "모든 티어"
+        }
+        else if (startt == 1) {
+            end.text = "\(eachTier[edShared] + "\(10-edRemaind)" )"
+        }
+        else if (endt == 100) {
+            start.text = "\(eachTier[stShared] + "\(10-stRemaind)" )";
+        }
+        else {
+            start.text = "\(eachTier[stShared] + "\(10-stRemaind)" )"
+            end.text = "\(eachTier[edShared] + "\(10-edRemaind)" )"
         }
         
-        switch endt{
-        case 100:
-            end.text = "상관없음"
-        default:
-            return
-        }
         
-//        switch headcount{
-//        case 1:
-//            peoplenum.text = "1명"
-//        case 2:
-//        default:
-//            return
-//        }
-        
-        nickname.text = boardInfo?["nickname"] as! String
+        nickname.text = "닉네임: \(boardInfo?["nickname"] as! String)"
         boardtitle.text = boardInfo?["title"] as! String
         gamemode.text = boardInfo?["gameMode"] as! String
-        time.text = boardInfo?["createdAt"] as! String
+        time.text = "시작시간: \(boardInfo?["startTime"] as! String)"
         boardtext.text = boardInfo?["content"] as! String
+        peoplenum.text = "인원:\(headcount)명모집"
         
-
+        if (Top == 1 || Top == 3) {
+            toplabel.backgroundColor = UIColor.green
+        }
+        if (Jungle == 1 || Jungle == 3) {
+            junglelabel.backgroundColor = UIColor.green
+        }
+        if (Mid == 1 || Mid == 3) {
+            midlabel.backgroundColor = UIColor.green
+        }
+        if (Bottom == 1 || Bottom == 3) {
+            bottomlabel.backgroundColor = UIColor.green
+        }
+        if (Support == 1 || Support == 3) {
+           supportlabel.backgroundColor = UIColor.green
+        }
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -91,6 +119,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     }
 }
 
+//댓글
 class CommentTable: UITableViewCell{
     
     @IBOutlet weak var comment: UILabel!

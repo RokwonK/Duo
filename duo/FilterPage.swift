@@ -47,7 +47,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var start: UIPickerView!
     @IBOutlet weak var end: UIPickerView!
     
-    let tier = ["브론즈","실버","골드"]
+    let tier = ["아이언","브론즈","실버","골드","플레티넘","다이아","마스터","그랜드마스터","챌린저"]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
