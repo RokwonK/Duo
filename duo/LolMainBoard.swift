@@ -16,6 +16,7 @@ class LolMainBoard: UITableViewController {
     var postsData : Array<Dictionary<String, Any>>?;
     var userId : Int?;
     var userNickname : String?;
+    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
     
     
     
@@ -99,6 +100,63 @@ class LolMainBoard: UITableViewController {
             if let v = row as? Dictionary<String,Any> {
                 if let gm = v["gameMode"] as? String{
                     cell.gameMode.text = gm;
+                }
+                if let hc = v["headCount"] as? Int {
+                    cell.headCount.text = "인원 \(hc)"
+                }
+                if let tit = v["title"] as? String {
+                    cell.title.text = tit;
+                    cell.title.font = UIFont.boldSystemFont(ofSize: 20)
+                }
+                if let st = v["startTime"] as? String {
+                    cell.startTime.text = "시작시간 : \(st)";
+                }
+                if let top = v["top"] as? Int {
+                    if (top == 1 || top == 3) {
+                        cell.top.layer.backgroundColor = UIColor.green.cgColor;
+                    }
+                }
+                if let bottom = v["bottom"] as? Int {
+                    if (bottom == 1 || bottom == 3) {
+                        cell.bottom.layer.backgroundColor = UIColor.green.cgColor;
+                    }
+                }
+                if let mid = v["mid"] as? Int {
+                    if (mid == 1 || mid == 3) {
+                        cell.mid.layer.backgroundColor = UIColor.green.cgColor;
+                    }
+                }
+                if let sup = v["support"] as? Int {
+                    if (sup == 1 || sup == 3) {
+                        cell.support.layer.backgroundColor = UIColor.green.cgColor;
+                    }
+                }
+                if let jung = v["jungle"] as? Int {
+                    if (jung == 1 || jung == 3) {
+                        cell.jungle.layer.backgroundColor = UIColor.green.cgColor;
+                    }
+                }
+                if let stTier = v["startTier"] as? Int {
+                    if let edTier = v["endTier"] as? Int {
+                        let stShared = stTier/10;
+                        let stRemaind = stTier % 10;
+                        let edShared = edTier/10;
+                        let edRemaind = edTier%10;
+                        
+                        if (stTier == 1 && edTier == 100) {
+                            cell.tier.text = "상관x";
+                        }
+                        else if (stTier == 1) {
+                            cell.tier.text = "~\(eachTier[edShared] + "\(10-edRemaind)" )";
+                        }
+                        else if (edTier == 100) {
+                            cell.tier.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~";
+                        }
+                        else {
+                            cell.tier.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~\(eachTier[edShared] + "\(10-edRemaind)" )";
+                        }
+                        
+                    }
                 }
                 
                 print(v)

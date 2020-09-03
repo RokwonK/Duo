@@ -21,4 +21,7 @@ class LoLPostCell : UITableViewCell {
     @IBOutlet weak var mid: UILabel!
     @IBOutlet weak var support: UILabel!
     @IBOutlet weak var jungle: UILabel!
+    
+    
+    
 }
