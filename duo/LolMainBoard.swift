@@ -126,8 +126,6 @@ class LolMainBoard: UITableViewController {
         present(filterpage, animated: true, completion: nil)
     }
     
-    // 세그 연결해야함 LoLPostCell 과 그 클래스를 segue show 연결하센
-    // 연결하고 밑에 주석 푸센
     // Selection Segue => Show
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(11)

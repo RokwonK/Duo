@@ -81,15 +81,15 @@
 		09BD7F8D24ED038100409033 /* duo */ = {
 			isa = PBXGroup;
 			children = (
-				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
 				09BD7F9224ED038100409033 /* ViewController.swift */,
 				19077FD524F8DC62000F842F /* Nickname.swift */,
 				19C4241C24F20E0A00395657 /* TabBarController.swift */,
 				1980409824F4B23700ED48B2 /* GameTab.swift */,
-				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
+				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
+				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
 				19D82EC524FD3D3600FEC53F /* FilterPage.swift */,
 				1974132E24FD09B7003BB2F3 /* AccountTab.swift */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
