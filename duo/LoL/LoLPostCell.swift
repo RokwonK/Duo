@@ -22,6 +22,13 @@ class LoLPostCell : UITableViewCell {
     @IBOutlet weak var support: UILabel!
     @IBOutlet weak var jungle: UILabel!
     
-    
+    override func prepareForReuse() {
+        super.prepareForReuse();
+        top.backgroundColor = UIColor.white;
+        bottom.backgroundColor = UIColor.white;
+        mid.backgroundColor = UIColor.white;
+        support.backgroundColor = UIColor.white;
+        jungle.backgroundColor = UIColor.white;
+    }
     
 }
