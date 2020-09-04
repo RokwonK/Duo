@@ -7,10 +7,17 @@
 <br>
 
 
-
 ### **개발자**
 - 상명대 소프트웨어학과 : [김록원](https://github.com/RokwonK)
+    - Server, iOS, Web
 - 상명대 소프트웨어학과 : [황윤재](https://github.com/helloyjae)
+    - iOS
+- 상명대 소프트웨어학과 : [김형호](https://github.com/kimhyungho)
+    - Android, Web
+- 상명대 소프트웨어학과 : [김대근](https://github.com/Kimdaegeun1230)
+    - Android
+- 상명대 소프트웨어학과 : [유지호](https://github.com/jihoooo97)
+    - Android, Server
 
 <hr>
 <br>
@@ -22,6 +29,12 @@
 
 <hr>
 <br>
+<br>
+
+
+## iOS
+
+<br>
 
 ### **시작한 이유, 목적**
 1. '맥북 들고 있으면 적어도 iOS 개발정도는 해봐야지?' 라는 생각 - (10%)
@@ -32,7 +45,7 @@
 <br>
 
 ### **한계, 이룬 것**
-- *앱 개발 후 쓸 예정*
+- *앱 개발 완료 후 쓸 예정*
 
 <hr>
 <br>
