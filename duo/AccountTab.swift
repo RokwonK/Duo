@@ -13,6 +13,8 @@ class AccountViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         BaseFunc.fetch()
+        
+        
         // Do any additional setup after loading the view.
     }
     
@@ -20,6 +22,11 @@ class AccountViewController: UIViewController {
         let storyBoard = self.storyboard!
         let loginpage = storyBoard.instantiateViewController(withIdentifier: "loginpage") as! ViewController
         present(loginpage, animated: true, completion: nil)
+    }
+    
+    
+    @IBAction func mypost(_ sender: Any) {
+        
     }
     
     @IBAction func Logout(_sender : UIButton){
