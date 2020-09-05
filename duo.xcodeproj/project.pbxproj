@@ -17,6 +17,7 @@
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
 		19077FD624F8DC62000F842F /* Nickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19077FD524F8DC62000F842F /* Nickname.swift */; };
+		191CAFB82503BED900933A66 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CAFB72503BED900933A66 /* MyPost.swift */; };
 		1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943A45D24FD3604001B4092 /* LolMainBoard.swift */; };
 		195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195CA9A224F16D2100D1F52A /* Assets.xcassets */; };
 		1974132F24FD09B7003BB2F3 /* AccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1974132E24FD09B7003BB2F3 /* AccountTab.swift */; };
@@ -39,6 +40,7 @@
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		19077FD524F8DC62000F842F /* Nickname.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Nickname.swift; sourceTree = "<group>"; };
+		191CAFB72503BED900933A66 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
 		1943A45D24FD3604001B4092 /* LolMainBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LolMainBoard.swift; sourceTree = "<group>"; };
 		195CA9A224F16D2100D1F52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1974132E24FD09B7003BB2F3 /* AccountTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTab.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				19D82EC524FD3D3600FEC53F /* FilterPage.swift */,
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
 				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
+				191CAFB72503BED900933A66 /* MyPost.swift */,
 			);
 			path = LoL;
 			sourceTree = "<group>";
@@ -281,6 +284,7 @@
 				1980409924F4B23700ED48B2 /* GameTab.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
 				19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */,
+				191CAFB82503BED900933A66 /* MyPost.swift in Sources */,
 				19D82EC624FD3D3600FEC53F /* FilterPage.swift in Sources */,
 				1974132F24FD09B7003BB2F3 /* AccountTab.swift in Sources */,
 			);
