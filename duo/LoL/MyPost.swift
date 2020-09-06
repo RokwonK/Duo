@@ -31,7 +31,7 @@ class MyPostView :  UITableViewController{
                 
                 if let datas = value as? Array<Dictionary<String,Any>> {
                     self.postsData = datas;
-                    
+                    print("success")
                     DispatchQueue.main.async {
                         // 테이블 뷰에 그리기
                         self.TableViewController.reloadData();
@@ -130,7 +130,7 @@ class MyPostView :  UITableViewController{
             if let st = v["startTime"] as? String {
                 cell.startTime.text = "시작시간 : \(st)";
             }
-            
+
             if let stTier = v["startTier"] as? Int {
                 if let edTier = v["endTier"] as? Int {
                     let stShared = stTier/10;

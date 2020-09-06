@@ -666,7 +666,7 @@
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyPostCell" rowHeight="129" id="svG-Qv-PYj" customClass="Mypostcell" customModule="duo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="28" width="375" height="129"/>
                                 <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="svG-Qv-PYj" id="tJJ-7X-dff" customClass="Mypostcell" customModule="duo" customModuleProvider="target">
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="svG-Qv-PYj" id="tJJ-7X-dff">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
@@ -743,10 +743,8 @@
                                     </subviews>
                                     <connections>
                                         <outlet property="bottom" destination="WGK-Ks-3KL" id="EmP-RW-pOT"/>
-                                        <outlet property="gameMode" destination="O4Y-U8-Pbm" id="LQR-tg-sJN"/>
                                         <outlet property="headCount" destination="EgL-AX-0mq" id="UdG-Ee-Smc"/>
                                         <outlet property="jungle" destination="7aG-fX-oo0" id="zAN-TN-HbB"/>
-                                        <outlet property="mid" destination="126-Vt-hhQ" id="dYa-kk-eKF"/>
                                         <outlet property="startTime" destination="kht-lA-pg0" id="pYv-uG-ctI"/>
                                         <outlet property="support" destination="xYW-Af-HT5" id="OYd-uf-2ak"/>
                                         <outlet property="tier" destination="kVh-7a-dCm" id="J5h-gx-2LW"/>
@@ -754,6 +752,18 @@
                                         <outlet property="top" destination="ZZ0-Cq-EfV" id="IuS-KX-l0s"/>
                                     </connections>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="bottom" destination="WGK-Ks-3KL" id="vwm-Zl-JR5"/>
+                                    <outlet property="gameMode" destination="O4Y-U8-Pbm" id="feT-tw-yhc"/>
+                                    <outlet property="headCount" destination="EgL-AX-0mq" id="WwI-Vs-MSe"/>
+                                    <outlet property="jungle" destination="7aG-fX-oo0" id="Pnz-5N-aFs"/>
+                                    <outlet property="mid" destination="126-Vt-hhQ" id="Y3K-7Y-Q1n"/>
+                                    <outlet property="startTime" destination="kht-lA-pg0" id="NXJ-vg-weS"/>
+                                    <outlet property="support" destination="xYW-Af-HT5" id="22J-AN-zkz"/>
+                                    <outlet property="tier" destination="kVh-7a-dCm" id="KP1-NA-Tsb"/>
+                                    <outlet property="title" destination="Vyn-V4-KtI" id="tF5-pp-9ef"/>
+                                    <outlet property="top" destination="ZZ0-Cq-EfV" id="Zvg-qq-C93"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -769,21 +779,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWu-Zc-eCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2813.5999999999999" y="1129.8029556650247"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="rPs-K7-N6h">
-            <objects>
-                <viewController id="wga-BE-Va0" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="n5m-8S-2AO">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <viewLayoutGuide key="safeArea" id="mMa-ib-vyj"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="IeT-PQ-QVV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3508" y="1130"/>
         </scene>
         <!--Select Board-->
         <scene sceneID="lOf-tZ-dCX">
