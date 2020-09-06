@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class Mypostcell : UITableViewCell {
+class MyPostCell : UITableViewCell {
     
     @IBOutlet weak var gameMode: UILabel!
     @IBOutlet weak var tier: UILabel!

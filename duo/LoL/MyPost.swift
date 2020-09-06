@@ -82,8 +82,8 @@ class MyPostView :  UITableViewController{
     
     // 테이블 cell 하나하나의 값에 무엇이 들어가는지 정의
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-    
-        let cell = TableViewController.dequeueReusableCell(withIdentifier: "MyPostCell", for: indexPath) as! Mypostcell
+        print("들어옴")
+        let cell = TableViewController.dequeueReusableCell(withIdentifier: "MyPostCell", for: indexPath) as! MyPostCell
         print(indexPath)
         let index = indexPath.row;
         if let posts = postsData {

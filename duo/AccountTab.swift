@@ -56,7 +56,11 @@ class AccountViewController: UIViewController {
                 do{
                     let deletedata = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let alert = UIAlertController(title: nil , message: "회원탈퇴 완료", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "꺼져", style: .default, handler : {(alert: UIAlertAction!) in ViewController().naverLogout();ViewController().kakaoLogout();ViewController().googleLogout();self.goto_loginpage()})
+                    let okAction = UIAlertAction(title: "꺼져", style: .default, handler : {(alert: UIAlertAction!) in
+                        /*ViewController().naverLogout();
+                         ViewController().kakaoLogout();
+                         ViewController().googleLogout();*/
+                        self.goto_loginpage()})
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                     
