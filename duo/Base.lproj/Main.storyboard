@@ -670,37 +670,32 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="129"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Y-U8-Pbm">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Mode" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O4Y-U8-Pbm">
                                             <rect key="frame" x="9" y="22" width="44" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Tier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVh-7a-dCm">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Tier" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kVh-7a-dCm">
                                             <rect key="frame" x="62" y="22" width="30" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Head" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgL-AX-0mq">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Head" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EgL-AX-0mq">
                                             <rect key="frame" x="102" y="22" width="41" height="21"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyn-V4-KtI">
-                                            <rect key="frame" x="9" y="51" width="106" height="32"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vyn-V4-KtI">
+                                            <rect key="frame" x="9" y="69.333333333333329" width="106" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="starttime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kht-lA-pg0">
-                                            <rect key="frame" x="9" y="91" width="134" height="27"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="starttime" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kht-lA-pg0">
+                                            <rect key="frame" x="9" y="97.666666666666671" width="134" height="20.333333333333329"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -741,16 +736,18 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
-                                    <connections>
-                                        <outlet property="bottom" destination="WGK-Ks-3KL" id="EmP-RW-pOT"/>
-                                        <outlet property="headCount" destination="EgL-AX-0mq" id="UdG-Ee-Smc"/>
-                                        <outlet property="jungle" destination="7aG-fX-oo0" id="zAN-TN-HbB"/>
-                                        <outlet property="startTime" destination="kht-lA-pg0" id="pYv-uG-ctI"/>
-                                        <outlet property="support" destination="xYW-Af-HT5" id="OYd-uf-2ak"/>
-                                        <outlet property="tier" destination="kVh-7a-dCm" id="J5h-gx-2LW"/>
-                                        <outlet property="title" destination="Vyn-V4-KtI" id="EbQ-yj-gdi"/>
-                                        <outlet property="top" destination="ZZ0-Cq-EfV" id="IuS-KX-l0s"/>
-                                    </connections>
+                                    <constraints>
+                                        <constraint firstItem="kVh-7a-dCm" firstAttribute="top" secondItem="tJJ-7X-dff" secondAttribute="topMargin" constant="11" id="4LK-pK-qva"/>
+                                        <constraint firstAttribute="bottom" secondItem="kht-lA-pg0" secondAttribute="bottom" constant="11" id="7VY-25-i4o"/>
+                                        <constraint firstItem="Vyn-V4-KtI" firstAttribute="top" secondItem="EgL-AX-0mq" secondAttribute="bottom" constant="26.329999999999998" id="Qo7-5F-ZMp"/>
+                                        <constraint firstItem="EgL-AX-0mq" firstAttribute="top" secondItem="tJJ-7X-dff" secondAttribute="topMargin" constant="11" id="SSZ-n2-0ee"/>
+                                        <constraint firstItem="kVh-7a-dCm" firstAttribute="leading" secondItem="O4Y-U8-Pbm" secondAttribute="trailing" constant="9" id="T6A-iA-J1A"/>
+                                        <constraint firstItem="O4Y-U8-Pbm" firstAttribute="top" secondItem="tJJ-7X-dff" secondAttribute="topMargin" constant="11" id="a8I-zB-MVd"/>
+                                        <constraint firstItem="Vyn-V4-KtI" firstAttribute="top" secondItem="kVh-7a-dCm" secondAttribute="bottom" constant="26.329999999999998" id="e91-LH-mly"/>
+                                        <constraint firstItem="Vyn-V4-KtI" firstAttribute="top" secondItem="O4Y-U8-Pbm" secondAttribute="bottom" constant="26.329999999999998" id="gWA-hZ-sZ8"/>
+                                        <constraint firstItem="EgL-AX-0mq" firstAttribute="leading" secondItem="kVh-7a-dCm" secondAttribute="trailing" constant="10" id="q9Y-fU-kqU"/>
+                                        <constraint firstItem="kht-lA-pg0" firstAttribute="top" secondItem="Vyn-V4-KtI" secondAttribute="bottom" constant="8" id="tGN-F6-hP6"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
                                     <outlet property="bottom" destination="WGK-Ks-3KL" id="vwm-Zl-JR5"/>
@@ -773,7 +770,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="내가 쓴 게시물" id="fdr-Gk-sEz"/>
                     <connections>
-                        <outlet property="TableViewController" destination="sij-EN-QZm" id="jYk-Np-2Xo"/>
+                        <outlet property="MyPostTable" destination="sij-EN-QZm" id="GIF-kI-kuy"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWu-Zc-eCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

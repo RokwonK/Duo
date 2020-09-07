@@ -11,7 +11,7 @@ import Alamofire
 
 class MyPostView :  UITableViewController{
     
-    @IBOutlet var TableViewController: UITableView!
+    @IBOutlet var MyPostTable: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
 
@@ -34,7 +34,7 @@ class MyPostView :  UITableViewController{
                     print("success")
                     DispatchQueue.main.async {
                         // 테이블 뷰에 그리기
-                        self.TableViewController.reloadData();
+                        self.MyPostTable.reloadData();
                     }
                 }
                 
@@ -83,7 +83,7 @@ class MyPostView :  UITableViewController{
     // 테이블 cell 하나하나의 값에 무엇이 들어가는지 정의
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         print("들어옴")
-        let cell = TableViewController.dequeueReusableCell(withIdentifier: "MyPostCell", for: indexPath) as! MyPostCell
+        let cell = MyPostTable.dequeueReusableCell(withIdentifier: "MyPostCell", for: indexPath) as! MyPostCell
         print(indexPath)
         let index = indexPath.row;
         if let posts = postsData {
@@ -98,7 +98,6 @@ class MyPostView :  UITableViewController{
             if let bottom = v["bottom"] as? Int {
                 if (bottom == 1){
                     cell.bottom.backgroundColor = UIColor.green
-                    //cell.bottom.layer.backgroundColor = UIColor.green.cgColor;
                 }
             }
             if let mid = v["mid"] as? Int {
