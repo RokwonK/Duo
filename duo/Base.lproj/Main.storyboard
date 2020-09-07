@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="WMw-nE-IrR">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -339,64 +339,63 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="758"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeU-ob-kup">
-                                <rect key="frame" x="135" y="60" width="104" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="칼바람"/>
-                                <connections>
-                                    <action selector="button_processWithSender:" destination="NSu-kh-Rig" eventType="touchUpInside" id="nbX-o2-hfv"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-A8-pNh">
-                                <rect key="frame" x="252" y="60" width="104" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="솔랭"/>
-                                <connections>
-                                    <action selector="button_processWithSender:" destination="NSu-kh-Rig" eventType="touchUpInside" id="hvf-ot-Ufa"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUH-cg-Q3O">
-                                <rect key="frame" x="19" y="60" width="104" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="자랭"/>
-                                <connections>
-                                    <action selector="button_processWithSender:" destination="NSu-kh-Rig" eventType="touchUpInside" id="4mQ-oy-71T"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDS-iW-nsu">
-                                <rect key="frame" x="81" y="121" width="104" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="Custom"/>
-                                <connections>
-                                    <action selector="button_processWithSender:" destination="NSu-kh-Rig" eventType="touchUpInside" id="k5m-8Y-3HX"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tb-6c-aAE">
-                                <rect key="frame" x="202" y="121" width="104" height="54"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="URF"/>
-                                <connections>
-                                    <action selector="button_processWithSender:" destination="NSu-kh-Rig" eventType="touchUpInside" id="ECX-by-4Q3"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="인원수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0i-ml-Kwg">
-                                <rect key="frame" x="165" y="204" width="45" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" alignment="top" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="hsP-T5-ccp">
+                                <rect key="frame" x="28" y="86" width="319" height="35.000000000000007"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lLQ-A8-pNh">
+                                        <rect key="frame" x="0.0" y="0.0" width="33" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="솔랭"/>
+                                        <connections>
+                                            <action selector="ButtonSelected:" destination="NSu-kh-Rig" eventType="touchUpInside" id="bL6-xA-8tu"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NUH-cg-Q3O">
+                                        <rect key="frame" x="58" y="0.0" width="33" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="자랭"/>
+                                        <connections>
+                                            <action selector="ButtonSelected:" destination="NSu-kh-Rig" eventType="touchUpInside" id="Kb6-Bk-lzi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5tb-6c-aAE">
+                                        <rect key="frame" x="116" y="0.0" width="36" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="URF"/>
+                                        <connections>
+                                            <action selector="ButtonSelected:" destination="NSu-kh-Rig" eventType="touchUpInside" id="Ok3-BD-BcO"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qeU-ob-kup">
+                                        <rect key="frame" x="177" y="0.0" width="50" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="칼바람"/>
+                                        <connections>
+                                            <action selector="ButtonSelected:" destination="NSu-kh-Rig" eventType="touchUpInside" id="CT6-zT-FY0"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EDS-iW-nsu">
+                                        <rect key="frame" x="252" y="0.0" width="67" height="35"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="Custom"/>
+                                        <connections>
+                                            <action selector="ButtonSelected:" destination="NSu-kh-Rig" eventType="touchUpInside" id="7IV-QP-6yW"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="인원수" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C0i-ml-Kwg">
+                                <rect key="frame" x="165" y="162" width="45" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -457,7 +456,7 @@
                                 </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="PE0-Sg-0Vi">
-                                <rect key="frame" x="76" y="233" width="223" height="30"/>
+                                <rect key="frame" x="76" y="190" width="223" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="sliderValueChangedWithSender:" destination="NSu-kh-Rig" eventType="valueChanged" id="jcL-OT-xT7"/>
@@ -492,13 +491,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게임모드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrv-Lp-H2l">
-                                <rect key="frame" x="143" y="29" width="90" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="티어 선택" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="feO-1e-9Jd">
                                 <rect key="frame" x="155" y="305" width="64" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -521,7 +513,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="몇명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OO-4j-IVp">
-                                <rect key="frame" x="173" y="261" width="30" height="21"/>
+                                <rect key="frame" x="173" y="228" width="30" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -531,6 +523,9 @@
                                 <rect key="frame" x="296" y="666" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="적용"/>
+                                <connections>
+                                    <action selector="save:" destination="NSu-kh-Rig" eventType="touchUpInside" id="FrC-hz-3FS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XZB-Gj-LFa">
                                 <rect key="frame" x="263" y="4" width="82" height="30"/>
@@ -542,26 +537,38 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="초기화"/>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="게임모드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wrv-Lp-H2l">
+                                <rect key="frame" x="143" y="45" width="90" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="hsP-T5-ccp" firstAttribute="top" secondItem="wrv-Lp-H2l" secondAttribute="bottom" constant="20" id="1Ad-9E-YKS"/>
+                            <constraint firstItem="hsP-T5-ccp" firstAttribute="leading" secondItem="alP-hC-flY" secondAttribute="leading" constant="28" id="QJw-Cd-htS"/>
+                            <constraint firstItem="C0i-ml-Kwg" firstAttribute="top" secondItem="hsP-T5-ccp" secondAttribute="bottom" constant="41" id="dIe-P1-Z8q"/>
+                            <constraint firstItem="alP-hC-flY" firstAttribute="trailing" secondItem="hsP-T5-ccp" secondAttribute="trailing" constant="28" id="lQE-4U-JwR"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="alP-hC-flY"/>
                     </view>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <modalPageSheetSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <connections>
-                        <outlet property="custom" destination="EDS-iW-nsu" id="35i-CN-Bgr"/>
                         <outlet property="dealer" destination="WVm-Yi-grD" id="pP4-B3-hY9"/>
                         <outlet property="end" destination="uxo-Be-PU2" id="mgn-zH-rF1"/>
-                        <outlet property="free" destination="NUH-cg-Q3O" id="HOv-W0-qjc"/>
                         <outlet property="jungle" destination="fDI-Bv-F4b" id="20Z-6A-6Bj"/>
                         <outlet property="mid" destination="Mb5-tJ-VSU" id="oRD-90-vZW"/>
                         <outlet property="peoplenum" destination="2OO-4j-IVp" id="po0-Mn-Zog"/>
-                        <outlet property="random" destination="qeU-ob-kup" id="dAV-po-LlX"/>
-                        <outlet property="solo" destination="lLQ-A8-pNh" id="Sl4-oj-z8P"/>
                         <outlet property="start" destination="vwi-bZ-UBF" id="3dy-lH-LIa"/>
                         <outlet property="support" destination="8jG-KO-rpk" id="36W-Jr-KRw"/>
                         <outlet property="top" destination="vo0-Xr-nxv" id="4Qu-av-t3r"/>
-                        <outlet property="urf" destination="5tb-6c-aAE" id="Lnv-x2-DZU"/>
+                        <outletCollection property="GameModeButtons" destination="lLQ-A8-pNh" collectionClass="NSMutableArray" id="M3V-GZ-8Kg"/>
+                        <outletCollection property="GameModeButtons" destination="NUH-cg-Q3O" collectionClass="NSMutableArray" id="Yxj-kY-lah"/>
+                        <outletCollection property="GameModeButtons" destination="5tb-6c-aAE" collectionClass="NSMutableArray" id="NQb-U5-RDz"/>
+                        <outletCollection property="GameModeButtons" destination="qeU-ob-kup" collectionClass="NSMutableArray" id="g1a-0E-pS1"/>
+                        <outletCollection property="GameModeButtons" destination="EDS-iW-nsu" collectionClass="NSMutableArray" id="7nr-sR-syW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iRP-SO-8ky" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
