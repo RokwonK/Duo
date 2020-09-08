@@ -100,8 +100,8 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         if pickerView.tag == 1 {
             Mytier = tier[row]
             return "\(tier[row])"
-            
-        } else {
+        }
+        else {
             Mytiernumber = tiernumber[row]
             return "\(tiernumber[row])"
             
@@ -204,10 +204,8 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             gamemodename = "all"
         }
         positionresult()
-//        var a = ["gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": time, "headCount": headcount,"top": position["top"] as! Int,"mid":position["mid"] as! Int,"jungle": position["jungle"] as! Int,"bottom": position["bottom"] as! Int,"support": position["support"] as! Int,"talkon":talkon] as [String : Any]
-//        print(a)
         getPosts()
-//        dismiss(animated: true)
+        dismiss(animated: true)
     }
     
     //토크온 기능
@@ -220,56 +218,29 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
     }
     var postsData : Array<Dictionary<String, Any>>?;
-    
-    struct FilterArray : Codable {
-        var bottom : Int
-        var support : Int
-        var mid : Int
-        var jungle : Int
-        var top : Int
-        var talkon : Int
-        var title : String
-        var id: Int
-        var content : String
-        var deletedAt: Date
-        var createdAt : Date
-        var headCount : Int
-        var gameMode : String
-        var endTier : Int
-        var startTier : Int
-        var nickname : String
-    }
-
     func getPosts() {
         BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getPost/filter")!
         let req = AF.request(url,
                              method:.post,
-                             parameters: ["gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": "18:00", "headCount": headcount as! Int,"top": position["top"] as! Int,"mid":position["mid"] as! Int,"jungle": position["jungle"] as! Int,"bottom": position["bottom"] as! Int,"support": position["support"] as! Int,"talkon":talkon as! Int],
-//            parameters: ["gameMode": "normal","wantTier": 29, "startTime": "2020-09-04T12:31:42.000Z", "headCount": 3,"top": 1,"bottom": 2,"mid":1,"jungle": 1,"support": 1,"talkon":2],
+                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": time, "headCount": headcount,"top": position["top"],"mid":position["mid"],"jungle": position["jungle"],"bottom": position["bottom"],"support": position["support"],"talkon":talkon],
                              encoding: JSONEncoding.default)
         
         // db에서 값 가져오기
         req.responseJSON {res in
-            switch res.result{
-            case.success (let value):
-                do{
-                    print("success")
-                    let data1 = try JSONSerialization.data(withJSONObject: value)
-//                    let logininfo = try JSONDecoder().decode(FilterArray.self, from: data1)
-                    print(data1)
-//                    print(logininfo.bottom)
+            switch res.result {
+            case.success(let value):
+                if let datas = value as? Array<Dictionary<String,Any>> {
+                    self.postsData = datas;
+                    print(datas)
+                    DispatchQueue.main.async {
+                        // 테이블 뷰에 그리기
+                        LolMainBoard().TableViewController.reloadData();
+                    }
                 }
-                catch{
-                }
-
             case .failure(let error):
-                print("error :\(error)")
-                break;
+                print(error)
             }
-            print("1")
         }
-        print("2")
     }
-    
 }
