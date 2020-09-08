@@ -175,11 +175,13 @@ class LolMainBoard: UITableViewController {
         upLoadBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true;
         // 크기 조절
         upLoadBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true;
-        upLoadBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true;
+        //upLoadBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true;
+        
+        // position : absolute
         if #available(iOS 11.0, *) {
             
             // 오른쪽 -140만큼 띄움 safeAreaLayoutGuid => bar랑 메뉴바 같은거 제외한 뷰
-            upLoadBtn.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -140).isActive = true
+            upLoadBtn.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 210-self.view.frame.width).isActive = true
             upLoadBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
         }
         else {
@@ -195,15 +197,28 @@ class LolMainBoard: UITableViewController {
     //@ogjc => 각각의 변수, 함수 등에 적용하여 ObjectiveC의 접근을 가능하게 해준다.
     @objc func upLoadPost() {
         
+        
+        if let upLoadView = self.storyboard?.instantiateViewController(identifier: "UpLoadLoLPost") as? UpLoadLoLPost {
+            // 아래에서 위로 올라오게
+            upLoadView.modalTransitionStyle = UIModalTransitionStyle.coverVertical;
+            // 화면을 꽉 채우게
+            upLoadView.modalPresentationStyle = .currentContext
+            present(upLoadView, animated: true, completion: nil)
+        }
+        
+        
+        
+        
+        
         // 제목과 메세지 지정
-        let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
-        
-        // 확인버튼 만들기
-        alert.addAction(UIAlertAction(title: "확인"
-            , style: .default , handler: nil))
-        
-        // 화면에 띄우기
-        present(alert, animated: true, completion: nil)
+//        let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
+//
+//        // 확인버튼 만들기
+//        alert.addAction(UIAlertAction(title: "확인"
+//            , style: .default , handler: nil))
+//
+//        // 화면에 띄우기
+//        present(alert, animated: true, completion: nil)
     }
     
     

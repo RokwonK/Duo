@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090EF50D24FFE55700ADC959 /* SelectBoard.swift */; };
+		091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */; };
 		09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */; };
 		0989123C2502338D0006909F /* BaseFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseFunc.swift */; };
 		09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		090EF50D24FFE55700ADC959 /* SelectBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBoard.swift; sourceTree = "<group>"; };
+		091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpLoadLoLPost.swift; sourceTree = "<group>"; };
 		09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLPostCell.swift; sourceTree = "<group>"; };
 		0989123B2502338D0006909F /* BaseFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFunc.swift; sourceTree = "<group>"; };
 		09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
 				191CAFB72503BED900933A66 /* MyPost.swift */,
 				191CAFB92503E88200933A66 /* MyPostCell.swift */,
+				091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */,
 			);
 			path = LoL;
 			sourceTree = "<group>";
@@ -276,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */,
 				09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
