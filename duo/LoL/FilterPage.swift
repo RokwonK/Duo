@@ -33,14 +33,13 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     //게임모드 결정
-    
     func getGameModeType() -> GameModeNumber {
         for (index, button) in GameModeButtons.enumerated(){
             if button.backgroundColor == UIColor.blue{
                 return GameModeNumber(rawValue: index) ?? .freeRank
             }
         }
-        return .freeRank
+        return .knifeWind
     }
     
     enum GameModeNumber : Int{
@@ -63,12 +62,12 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         else{
             sender.backgroundColor = UIColor.white
         }
-       
+        
     }
     
     //인원수
     @IBOutlet weak var peoplenum: UILabel!
-    var headcount : Int = 0
+    var headcount : Int = 1
     @IBAction func sliderValueChanged(sender: UISlider) {
         var value = Int(sender.value) //UISlider(sender)의 value를 Int로 캐스팅해서 current라는 변수로 보낸다.
         peoplenum.text = "\(value)"
@@ -79,28 +78,46 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     @IBOutlet weak var start: UIPickerView!
     @IBOutlet weak var end: UIPickerView!
     
-    let tier = ["아이언","브론즈","실버","골드","플레티넘","다이아","마스터","그랜드마스터","챌린저"]
+    let tier = ["Iron","Bronze","Silver","Gold","Platinum","Dia","Master","GrandMaster","Challenger"]
+    let tiernumber = [1,2,3,4]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return tier.count
+        if pickerView.tag == 1 {
+            return tier.count
+        } else {
+            return tiernumber.count
+        }
     }
     
+    var Mytier : String = ""
+    var Mytiernumber : Int = 0
+    var Finaltier : Int = 0
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return tier[row]
+        if pickerView.tag == 1 {
+            Mytier = tier[row]
+            return "\(tier[row])"
+            
+        } else {
+            Mytiernumber = tiernumber[row]
+            return "\(tiernumber[row])"
+            
+        }
     }
     
-    //선택된 시간 String타입으로 변환
+    
+    
+    //datepicker
     var time : String = ""
     @IBAction func DatePicker (sender: UIDatePicker){
-        let datePickerView = sender
         let formatter = DateFormatter()
-        formatter.dateFormat = "HH:mm"
-        time = formatter.string(from: datePickerView.date)
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        time =  formatter.string(from: sender.date)
     }
+    
     
     @IBOutlet weak var top: UIButton!
     @IBOutlet weak var mid: UIButton!
@@ -145,10 +162,52 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     //적용버튼
+    var gamemodenum = 0
+    var gamemodename = ""
     @IBAction func apply(_ sender: UIButton) {
+        switch Mytier{
+        case "Iron":
+            Mytiernumber += 10
+        case "Bronze":
+            Mytiernumber += 20
+        case "Silver":
+            Mytiernumber += 30
+        case "Gold":
+            Mytiernumber += 40
+        case "Platinum":
+            Mytiernumber += 50
+        case "Dia":
+            Mytiernumber += 60
+        case "Master":
+            Mytiernumber += 70
+        case "GrandMaster":
+            Mytiernumber += 80
+        case "Challenger":
+            Mytiernumber += 90
+        default:
+            return
+        }
         
-        //        getPosts()
-        dismiss(animated: true)
+        gamemodenum = getGameModeType().rawValue
+        switch gamemodenum{
+        case 1:
+            gamemodename = "soloRank"
+        case 2:
+            gamemodename = "freeRank"
+        case 3:
+            gamemodename = "normal"
+        case 4:
+            gamemodename = "knifeWind"
+        case 5:
+            gamemodename = "custom"
+        default:
+            gamemodename = "all"
+        }
+        positionresult()
+//        var a = ["gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": time, "headCount": headcount,"top": position["top"] as! Int,"mid":position["mid"] as! Int,"jungle": position["jungle"] as! Int,"bottom": position["bottom"] as! Int,"support": position["support"] as! Int,"talkon":talkon] as [String : Any]
+//        print(a)
+        getPosts()
+//        dismiss(animated: true)
     }
     
     //토크온 기능
@@ -160,32 +219,57 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             talkon = 2
         }
     }
+    var postsData : Array<Dictionary<String, Any>>?;
     
-    //    func getPosts() {
-    //        BaseFunc.fetch();
-    //        let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
-    //        let req = AF.request(url,
-    //                            method:.post,
-    //                            parameters: ["gameMode": getGameModeType(),"wantTier": 17,"startTime": time, "headcount": headcount,"top": position["top"],"mid":position["mid"],"jungle": position["jungle"],"bottom": position["bottom"],"support": position["support"],"talkon":talkon],
-    //                            encoding: JSONEncoding.default)
-    //        // db에서 값 가져오기
-    //        req.responseJSON {res in
-    //            switch res.result {
-    //            case.success(let value):
-    //
-    //                if let datas = value as? Array<Dictionary<String,Any>> {
-    //                    self.postsData = datas;
-    //
-    //                    DispatchQueue.main.async {
-    //                        // 테이블 뷰에 그리기
-    //                        self.TableViewController.reloadData();
-    //                    }
-    //                }
-    //
-    //            case .failure(let error):
-    //                print(error)
-    //            }
-    //        }
-    //    }
+    struct FilterArray : Codable {
+        var bottom : Int
+        var support : Int
+        var mid : Int
+        var jungle : Int
+        var top : Int
+        var talkon : Int
+        var title : String
+        var id: Int
+        var content : String
+        var deletedAt: Date
+        var createdAt : Date
+        var headCount : Int
+        var gameMode : String
+        var endTier : Int
+        var startTier : Int
+        var nickname : String
+    }
+
+    func getPosts() {
+        BaseFunc.fetch();
+        let url = URL(string : BaseFunc.baseurl + "/post/lol/getPost/filter")!
+        let req = AF.request(url,
+                             method:.post,
+                             parameters: ["gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": "18:00", "headCount": headcount as! Int,"top": position["top"] as! Int,"mid":position["mid"] as! Int,"jungle": position["jungle"] as! Int,"bottom": position["bottom"] as! Int,"support": position["support"] as! Int,"talkon":talkon as! Int],
+//            parameters: ["gameMode": "normal","wantTier": 29, "startTime": "2020-09-04T12:31:42.000Z", "headCount": 3,"top": 1,"bottom": 2,"mid":1,"jungle": 1,"support": 1,"talkon":2],
+                             encoding: JSONEncoding.default)
+        
+        // db에서 값 가져오기
+        req.responseJSON {res in
+            switch res.result{
+            case.success (let value):
+                do{
+                    print("success")
+                    let data1 = try JSONSerialization.data(withJSONObject: value)
+//                    let logininfo = try JSONDecoder().decode(FilterArray.self, from: data1)
+                    print(data1)
+//                    print(logininfo.bottom)
+                }
+                catch{
+                }
+
+            case .failure(let error):
+                print("error :\(error)")
+                break;
+            }
+            print("1")
+        }
+        print("2")
+    }
     
 }
