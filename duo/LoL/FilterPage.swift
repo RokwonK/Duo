@@ -233,10 +233,10 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
                 if let datas = value as? Array<Dictionary<String,Any>> {
                     self.postsData = datas;
                     print(datas)
-                    DispatchQueue.main.async {
-                        // 테이블 뷰에 그리기
-                        LolMainBoard().TableViewController.reloadData();
-                    }
+//                    DispatchQueue.main.async {
+//                        // 테이블 뷰에 그리기
+//                        LolMainBoard().TableViewController.reloadData();
+//                    }
                 }
             case .failure(let error):
                 print(error)
