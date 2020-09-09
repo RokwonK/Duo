@@ -13,10 +13,14 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        //티어 picker
         start.delegate = self
         start.dataSource = self
         end.delegate = self
         end.dataSource = self
+        //
+        //둥글게둥글게
+        GameModeButtons.forEach({$0.layer.cornerRadius = 10})
         top.layer.cornerRadius = 10;
         mid.layer.cornerRadius = 10;
         jungle.layer.cornerRadius = 10;
@@ -47,6 +51,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         case normal
         case knifeWind
         case custom
+        case all
     }
     
     // 포지션 버튼 누를시 색상변경
@@ -64,7 +69,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     
     //인원수
     @IBOutlet weak var peoplenum: UILabel!
-    var headcount : Int = 1
+    var headcount : Int = 1 //기본값 >>> 상관없음 적용누를때 기본값으로 1 설정하는거 맞나? 확인바람
     @IBAction func sliderValueChanged(sender: UISlider) {
         var value = Int(sender.value) //UISlider(sender)의 value를 Int로 캐스팅해서 current라는 변수로 보낸다.
         peoplenum.text = "\(value)"
@@ -92,7 +97,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     
     var Mytier : String = ""
     var Mytiernumber : Int = 0
-    var Finaltier : Int = 0
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
             Mytier = tier[row]
@@ -101,7 +105,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         else {
             Mytiernumber = tiernumber[row]
             return "\(tiernumber[row])"
-            
         }
     }
     
@@ -156,9 +159,12 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     //적용버튼
-    var record : Int = 0
+    var record : Int = 0 // 내가 구현한 로직상으론 일단 메인게시판화면에서 필터화면을 갔다온건지 아닌지 구분하기위한 변수. 0이면 안갔다온거고 1이면 갔다온거.
+    //게임모드 식별하기위해 필요한 변수들
     var gamemodenum = 0
     var gamemodename = ""
+    
+    //적용버튼
     @IBAction func apply(sender: UIButton) {
         switch Mytier{
         case "Iron":
@@ -195,24 +201,40 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             gamemodename = "knifeWind"
         case 5:
             gamemodename = "custom"
+        case 6:
+            gamemodename = "all"
         default:
             gamemodename = "all"
         }
         positionresult()
-        self.getPosts()
+        getPosts()
         let ad = UIApplication.shared.delegate as? AppDelegate
         ad!.record += 1
         self.dismiss(animated: true, completion: nil)
     }
     
     //토크온 기능
-    var talkon = 3
+    var talkon = 3 //기본설정 상관없음
     @IBAction func `switch`(_ sender: UISwitch) {
         if sender.isOn {
             talkon = 1
         } else {
             talkon = 2
         }
+    }
+    
+    //상관없음 버튼
+    @IBAction func ApplyNothing(_ sender: UIButton) {
+        gamemodename = "all"
+        Mytiernumber = 11 // 1로 하는게 맞나? 일단은 11로 해놈
+        time = "2020-08-06T12:38:48.000Z" //예전시간으로 일단 설정해놈
+        headcount = 1
+        position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
+        talkon = 3
+        getPosts()
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        ad!.record += 1 // 필터화면 다녀간 흔적
+        self.dismiss(animated: true, completion: nil)
     }
     
     func getPosts() {

@@ -197,7 +197,6 @@ class LolMainBoard: UITableViewController{
         
         // 클릭시 이벤트 지정, 터치한 컴포넌트에서 손을 땟을때 실행
         upLoadBtn.addTarget(self, action: #selector(upLoadPost), for: .touchUpInside)
-        
         self.getPosts();
     }
     
