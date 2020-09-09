@@ -11,6 +11,8 @@ import Alamofire
 
 class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
+    let ad = UIApplication.shared.delegate as? AppDelegate // appdelegate파일 참조
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         //티어 picker
@@ -26,6 +28,10 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         jungle.layer.cornerRadius = 10;
         dealer.layer.cornerRadius = 10;
         support.layer.cornerRadius = 10;
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.ad!.filterdata = [] // 필터 설정할때마다 빈배열로 초기화
     }
 
     //게임모드 버튼 누를시 색상변경
@@ -235,6 +241,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         let ad = UIApplication.shared.delegate as? AppDelegate
         ad!.record += 1 // 필터화면 다녀간 흔적
         self.dismiss(animated: true, completion: nil)
+        print("상관없음 적용버튼")
     }
     
     func getPosts() {
@@ -250,10 +257,9 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             switch res.result {
             case.success(let value):
                 if let datas = value as? Array<Dictionary<String,Any>> {
-                    let ad = UIApplication.shared.delegate as? AppDelegate
                     var i = 0
                     for i in datas{
-                        ad!.filterdata.append(i);
+                        self.ad!.filterdata.append(i);
                     }
                 }
             case .failure(let error):
