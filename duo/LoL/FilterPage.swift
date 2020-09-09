@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         start.delegate = self
@@ -23,7 +23,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         dealer.layer.cornerRadius = 10;
         support.layer.cornerRadius = 10;
     }
-    
+
     //게임모드 버튼 누를시 색상변경
     @IBOutlet var GameModeButtons: [UIButton]!
     @IBAction func ButtonSelected(_ sender: UIButton) {
@@ -162,9 +162,10 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     }
     
     //적용버튼
+    var record : Int = 0
     var gamemodenum = 0
     var gamemodename = ""
-    @IBAction func apply(_ sender: UIButton) {
+    @IBAction func apply(sender: UIButton) {
         switch Mytier{
         case "Iron":
             Mytiernumber += 10
@@ -204,9 +205,12 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             gamemodename = "all"
         }
         positionresult()
-        getPosts()
-        dismiss(animated: true)
+        self.getPosts()
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        ad!.record += 1
+        self.dismiss(animated: true, completion: nil)
     }
+    
     
     //토크온 기능
     var talkon = 3
@@ -217,7 +221,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             talkon = 2
         }
     }
-    var postsData : Array<Dictionary<String, Any>>?;
+    
     func getPosts() {
         BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getPost/filter")!
@@ -231,16 +235,21 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             switch res.result {
             case.success(let value):
                 if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.postsData = datas;
-                    print(datas)
+                    let ad = UIApplication.shared.delegate as? AppDelegate
+                    var i = 0
+                    for i in datas{
+                        ad!.filterdata.append(i);
+                    }
+//                    print(ad?.filterdata)
 //                    DispatchQueue.main.async {
 //                        // 테이블 뷰에 그리기
-//                        LolMainBoard().TableViewController.reloadData();
+//                        LolMainBoard().TableViewController?.reloadData();
 //                    }
                 }
             case .failure(let error):
                 print(error)
             }
         }
+        print("getpost끝")
     }
 }
