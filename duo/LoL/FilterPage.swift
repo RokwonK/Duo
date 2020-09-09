@@ -29,7 +29,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     @IBAction func ButtonSelected(_ sender: UIButton) {
         GameModeButtons.forEach({$0.backgroundColor = UIColor.white})
         sender.backgroundColor = UIColor.blue
-        
     }
     
     //게임모드 결정
@@ -50,7 +49,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         case custom
     }
     
-    
     // 포지션 버튼 누를시 색상변경
     @IBAction func button_process(sender : UIButton){
         if sender.backgroundColor == UIColor.white{
@@ -62,7 +60,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         else{
             sender.backgroundColor = UIColor.white
         }
-        
     }
     
     //인원수
@@ -108,8 +105,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
     }
     
-    
-    
     //datepicker
     var time : String = ""
     @IBAction func DatePicker (sender: UIDatePicker){
@@ -117,7 +112,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         time =  formatter.string(from: sender.date)
     }
-    
     
     @IBOutlet weak var top: UIButton!
     @IBOutlet weak var mid: UIButton!
@@ -211,7 +205,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         self.dismiss(animated: true, completion: nil)
     }
     
-    
     //토크온 기능
     var talkon = 3
     @IBAction func `switch`(_ sender: UISwitch) {
@@ -240,16 +233,10 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
                     for i in datas{
                         ad!.filterdata.append(i);
                     }
-//                    print(ad?.filterdata)
-//                    DispatchQueue.main.async {
-//                        // 테이블 뷰에 그리기
-//                        LolMainBoard().TableViewController?.reloadData();
-//                    }
                 }
             case .failure(let error):
                 print(error)
             }
         }
-        print("getpost끝")
     }
 }

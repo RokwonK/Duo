@@ -15,6 +15,11 @@ class GameViewController : UIViewController{
         // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        let ad = UIApplication.shared.delegate as? AppDelegate
+        ad!.record = 0
+    }
+    
     @IBAction func Lol(_ sender: Any) {
         
     }

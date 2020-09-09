@@ -14,6 +14,7 @@ class LolMainBoard: UITableViewController{
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
+    let ad = UIApplication.shared.delegate as? AppDelegate
     
     func getPosts() {
         BaseFunc.fetch();
@@ -31,13 +32,11 @@ class LolMainBoard: UITableViewController{
                 
                 if let datas = value as? Array<Dictionary<String,Any>> {
                     self.postsData = datas;
-                    
                     DispatchQueue.main.async {
                         // 테이블 뷰에 그리기
                         self.TableViewController.reloadData();
                     }
                 }
-                
             case .failure(let error):
                 print(error)
             }
@@ -46,7 +45,7 @@ class LolMainBoard: UITableViewController{
     
     // 테이블의 갯수 정의
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        let ad = UIApplication.shared.delegate as? AppDelegate
+        
         if ad!.record > 0{
             postsData = ad!.filterdata
         }
@@ -60,7 +59,6 @@ class LolMainBoard: UITableViewController{
     // 테이블 cell 하나하나의 값에 무엇이 들어가는지 정의
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let ad = UIApplication.shared.delegate as? AppDelegate
         if ad!.record > 0{
             postsData = ad!.filterdata
         }
@@ -135,14 +133,12 @@ class LolMainBoard: UITableViewController{
                 }
             }
         }
-        
         return cell
     }
     
     // Selection Segue => Show
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        let ad = UIApplication.shared.delegate as? AppDelegate
         if ad!.record > 0{
             postsData = ad!.filterdata
         }
@@ -154,7 +150,6 @@ class LolMainBoard: UITableViewController{
                     if let r = row as? Dictionary<String, Any> {
                         controller.boardInfo = r;
                     }
-
                 }
             }
         }
@@ -170,6 +165,8 @@ class LolMainBoard: UITableViewController{
     let upLoadBtn = UIButton()
     override func viewDidLoad() {
         super.viewDidLoad()
+        TableViewController.delegate = self
+        TableViewController.dataSource = self
         
         upLoadBtn.setTitle("글 쓰기", for: .normal);
         upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
@@ -204,20 +201,17 @@ class LolMainBoard: UITableViewController{
         self.getPosts();
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        print("view will appear")
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        print(ad!.record)
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
         DispatchQueue.main.async {
-                               // 테이블 뷰에 그리기
-                               self.TableViewController.reloadData();
-                           }
+            // 테이블 뷰에 그리기
+            self.TableViewController.reloadData();
+        }
     }
     
     //@ogjc => 각각의 변수, 함수 등에 적용하여 ObjectiveC의 접근을 가능하게 해준다.
     @objc func upLoadPost() {
-        
         
         if let upLoadView = self.storyboard?.instantiateViewController(identifier: "UpLoadLoLPost") as? UpLoadLoLPost {
             // 아래에서 위로 올라오게
@@ -226,10 +220,6 @@ class LolMainBoard: UITableViewController{
             upLoadView.modalPresentationStyle = .currentContext
             present(upLoadView, animated: true, completion: nil)
         }
-        
-        
-        
-        
         
         // 제목과 메세지 지정
 //        let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
