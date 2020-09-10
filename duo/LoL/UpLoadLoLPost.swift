@@ -39,7 +39,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
     // lazy closuer - 지연 저장 프로퍼티 => addSubview에서 생성(성능, 공간 낭비를 줄임)
     lazy var uploadContent: UITextView = {
         
-        let contentView : UITextView = UITextView(frame: CGRect(x: 15, y: uploadTitle.frame.maxY+5, width: self.view.frame.width-30, height: 300))
+        let contentView : UITextView = UITextView(frame: CGRect(x: 15, y: self.uploadTitle.frame.maxY + 200, width: self.view.frame.width-30, height: 300))
         contentView.delegate = self;
         
         // 강제로 placeholder 만들기
@@ -62,9 +62,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        // naviBar 셋팅
-        let statusBarheight = UIApplication.shared.statusBarFrame.height
-        naviBar.frame = CGRect(x: 0, y: statusBarheight, width:self.naviBar.frame.maxX, height: self.naviBar.frame.maxY );
+        
         
         // 키보드 툴발 만들기
         toolBarKeyboard.sizeToFit()
@@ -74,12 +72,12 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
         
         // 제목 textField
         uploadTitle.attributedPlaceholder = NSAttributedString(string : "제목");
-        uploadTitle.frame = CGRect(x: 15, y: self.naviBar.frame.maxY + 15, width: self.view.frame.width-30, height: 30)
+        //uploadTitle.frame = CGRect(x: 15, y: self.naviBar.frame.maxY + 15, width: self.view.frame.width-30, height: 30)
         uploadTitle.inputAccessoryView = toolBarKeyboard
         
 
         
-        self.view.addSubview(self.uploadContent)
+        //self.view.addSubview(self.uploadContent)
     }
     
     //키보드에 확인 버튼 추가

@@ -982,7 +982,7 @@
             </objects>
             <point key="canvasLocation" x="3938" y="-219"/>
         </scene>
-        <!--Up Load LoL Post-->
+        <!--fdf-->
         <scene sceneID="YMK-rn-S43">
             <objects>
                 <viewController storyboardIdentifier="UpLoadLoLPost" id="vOh-qv-Qee" customClass="UpLoadLoLPost" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
@@ -990,32 +990,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ia2-3f-DXa">
-                                <rect key="frame" x="16" y="90" width="343" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="idw-99-kc7">
-                                <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <items>
-                                    <navigationItem title="Title" id="Zwu-w4-Hdl"/>
-                                </items>
-                            </navigationBar>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WE0-TY-6Sw">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlq-U2-uQl">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="820"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ia2-3f-DXa">
+                                                <rect key="frame" x="16" y="52" width="343" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzB-sM-14Z">
+                                                <rect key="frame" x="139" y="686" width="97" height="34"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits"/>
+                                            </textField>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                        <constraints>
+                                            <constraint firstItem="Ia2-3f-DXa" firstAttribute="top" secondItem="jlq-U2-uQl" secondAttribute="top" constant="52" id="1gd-e2-wTV"/>
+                                            <constraint firstItem="Ia2-3f-DXa" firstAttribute="leading" secondItem="jlq-U2-uQl" secondAttribute="leading" constant="16" id="apI-TZ-GE5"/>
+                                            <constraint firstAttribute="bottom" secondItem="qzB-sM-14Z" secondAttribute="bottom" constant="100" id="blX-Vx-P5r"/>
+                                            <constraint firstAttribute="trailing" secondItem="Ia2-3f-DXa" secondAttribute="trailing" constant="16" id="uWT-v5-tzt"/>
+                                            <constraint firstItem="qzB-sM-14Z" firstAttribute="top" secondItem="Ia2-3f-DXa" secondAttribute="bottom" constant="600" id="ufb-Uu-EXC"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="jlq-U2-uQl" firstAttribute="bottom" secondItem="WE0-TY-6Sw" secondAttribute="bottom" id="Dew-M0-qpt" userLabel="View.bottom = Content Layout Guide.bottom"/>
+                                    <constraint firstItem="jlq-U2-uQl" firstAttribute="trailing" secondItem="WE0-TY-6Sw" secondAttribute="trailing" id="OIp-sL-dkE" userLabel="View.trailing = Content Layout Guide.trailing"/>
+                                    <constraint firstItem="jlq-U2-uQl" firstAttribute="leading" secondItem="WE0-TY-6Sw" secondAttribute="leading" id="cAK-9Y-NpA" userLabel="View.leading = Content Layout Guide.leading"/>
+                                    <constraint firstItem="jlq-U2-uQl" firstAttribute="width" secondItem="WE0-TY-6Sw" secondAttribute="width" id="smN-vm-dmh" userLabel="View.width = Frame Layout Guide.width"/>
+                                    <constraint firstItem="jlq-U2-uQl" firstAttribute="top" secondItem="WE0-TY-6Sw" secondAttribute="top" id="zcj-pb-rBq" userLabel="View.top = Content Layout Guide.top"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="WE0-TY-6Sw" secondAttribute="bottom" id="D9Y-FW-Xvg" userLabel="Safe Area.bottom = Scroll View.bottom"/>
+                            <constraint firstItem="WE0-TY-6Sw" firstAttribute="trailing" secondItem="4Oq-9S-EGD" secondAttribute="trailing" id="DCf-GU-eUF" userLabel="Safe Area.trailing = Scroll View.trailing"/>
+                            <constraint firstItem="WE0-TY-6Sw" firstAttribute="leading" secondItem="4Oq-9S-EGD" secondAttribute="leading" id="bY6-zP-eVb"/>
+                            <constraint firstItem="WE0-TY-6Sw" firstAttribute="top" secondItem="Toh-nK-jjP" secondAttribute="top" id="lc1-Xa-KvE" userLabel="Scroll View.top = Safe Area.top"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4Oq-9S-EGD"/>
                     </view>
-                    <navigationItem key="navigationItem" id="L6v-bH-m3r"/>
+                    <navigationItem key="navigationItem" title="fdf" id="L6v-bH-m3r"/>
                     <connections>
-                        <outlet property="naviBar" destination="idw-99-kc7" id="ftR-gD-h2U"/>
                         <outlet property="uploadTitle" destination="Ia2-3f-DXa" id="3F5-ws-tPH"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kAz-kf-2pe" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3937" y="522"/>
+            <point key="canvasLocation" x="3936.8000000000002" y="521.67487684729065"/>
         </scene>
     </scenes>
     <resources>
