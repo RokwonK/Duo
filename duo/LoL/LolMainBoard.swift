@@ -213,11 +213,17 @@ class LolMainBoard: UITableViewController{
     @objc func upLoadPost() {
         
         if let upLoadView = self.storyboard?.instantiateViewController(identifier: "UpLoadLoLPost") as? UpLoadLoLPost {
-            // 아래에서 위로 올라오게
-            upLoadView.modalTransitionStyle = UIModalTransitionStyle.coverVertical;
+            
+            
+            // 네이베이션 바 만들어서 보내기
+            let navController = UINavigationController(rootViewController: upLoadView);
+            // 아래에서 위로 올라오게 = 전환 스타일
+            navController.modalTransitionStyle = UIModalTransitionStyle.coverVertical;
             // 화면을 꽉 채우게
-            upLoadView.modalPresentationStyle = .currentContext
-            present(upLoadView, animated: true, completion: nil)
+            navController.modalPresentationStyle = .fullScreen
+            
+            self.navigationController?.present(navController, animated: true, completion: nil)
+            //present(upLoadView, animated: true, completion: nil)
         }
         
         // 제목과 메세지 지정
