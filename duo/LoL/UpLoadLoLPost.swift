@@ -13,6 +13,9 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
     @IBOutlet weak var naviBar: UINavigationBar!
     @IBOutlet weak var uploadTitle: UITextField!
     let toolBarKeyboard = UIToolbar()
+    @IBAction func uploadCancel(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     
     
     

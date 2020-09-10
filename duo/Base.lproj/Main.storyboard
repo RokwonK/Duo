@@ -982,7 +982,7 @@
             </objects>
             <point key="canvasLocation" x="3938" y="-219"/>
         </scene>
-        <!--fdf-->
+        <!--글 쓰기-->
         <scene sceneID="YMK-rn-S43">
             <objects>
                 <viewController storyboardIdentifier="UpLoadLoLPost" id="vOh-qv-Qee" customClass="UpLoadLoLPost" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
@@ -1035,7 +1035,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4Oq-9S-EGD"/>
                     </view>
-                    <navigationItem key="navigationItem" title="fdf" id="L6v-bH-m3r"/>
+                    <navigationItem key="navigationItem" title="글 쓰기" id="L6v-bH-m3r">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="xmark" catalog="system" id="CYR-g7-Pe3">
+                            <connections>
+                                <action selector="uploadCancel:" destination="vOh-qv-Qee" id="R5R-EG-YOa"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="uploadTitle" destination="Ia2-3f-DXa" id="3F5-ws-tPH"/>
                     </connections>
@@ -1055,5 +1061,6 @@
         <image name="naver" width="22" height="20"/>
         <image name="overwatch" width="1200" height="1200"/>
         <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>
