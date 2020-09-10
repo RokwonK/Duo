@@ -13,9 +13,11 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
     @IBOutlet weak var naviBar: UINavigationBar!
     @IBOutlet weak var uploadTitle: UITextField!
     let toolBarKeyboard = UIToolbar()
+    
     @IBAction func uploadCancel(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
     }
+    
     
     
     
@@ -42,7 +44,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
     // lazy closuer - 지연 저장 프로퍼티 => addSubview에서 생성(성능, 공간 낭비를 줄임)
     lazy var uploadContent: UITextView = {
         
-        let contentView : UITextView = UITextView(frame: CGRect(x: 15, y: self.uploadTitle.frame.maxY + 200, width: self.view.frame.width-30, height: 300))
+        let contentView : UITextView = UITextView(frame: CGRect(x: 15, y: self.uploadTitle.bounds.maxY + 200, width: self.view.frame.width-30, height: 300))
         contentView.delegate = self;
         
         // 강제로 placeholder 만들기
@@ -75,12 +77,10 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate {
         
         // 제목 textField
         uploadTitle.attributedPlaceholder = NSAttributedString(string : "제목");
-        //uploadTitle.frame = CGRect(x: 15, y: self.naviBar.frame.maxY + 15, width: self.view.frame.width-30, height: 30)
+        //uploadTitle.frame = CGRect(x: 15, y: 15, width: self.RealView.bounds.width-30, height: 30)
         uploadTitle.inputAccessoryView = toolBarKeyboard
         
-
-        
-        //self.view.addSubview(self.uploadContent)
+        //self.RealView.addSubview(self.uploadContent)
     }
     
     //키보드에 확인 버튼 추가

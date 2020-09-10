@@ -1001,7 +1001,7 @@
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzB-sM-14Z">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="qzB-sM-14Z">
                                                 <rect key="frame" x="139" y="686" width="97" height="34"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
@@ -1010,10 +1010,12 @@
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstItem="Ia2-3f-DXa" firstAttribute="top" secondItem="jlq-U2-uQl" secondAttribute="top" constant="52" id="1gd-e2-wTV"/>
+                                            <constraint firstItem="qzB-sM-14Z" firstAttribute="leading" secondItem="jlq-U2-uQl" secondAttribute="leading" constant="139" id="7JP-RJ-gEu"/>
+                                            <constraint firstAttribute="bottom" secondItem="qzB-sM-14Z" secondAttribute="bottom" constant="100" id="Iph-xU-p9X"/>
                                             <constraint firstItem="Ia2-3f-DXa" firstAttribute="leading" secondItem="jlq-U2-uQl" secondAttribute="leading" constant="16" id="apI-TZ-GE5"/>
-                                            <constraint firstAttribute="bottom" secondItem="qzB-sM-14Z" secondAttribute="bottom" constant="100" id="blX-Vx-P5r"/>
                                             <constraint firstAttribute="trailing" secondItem="Ia2-3f-DXa" secondAttribute="trailing" constant="16" id="uWT-v5-tzt"/>
                                             <constraint firstItem="qzB-sM-14Z" firstAttribute="top" secondItem="Ia2-3f-DXa" secondAttribute="bottom" constant="600" id="ufb-Uu-EXC"/>
+                                            <constraint firstAttribute="trailing" secondItem="qzB-sM-14Z" secondAttribute="trailing" constant="139" id="yGi-Qi-GM4"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -1036,9 +1038,9 @@
                         <viewLayoutGuide key="safeArea" id="4Oq-9S-EGD"/>
                     </view>
                     <navigationItem key="navigationItem" title="글 쓰기" id="L6v-bH-m3r">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="xmark" catalog="system" id="CYR-g7-Pe3">
+                        <barButtonItem key="rightBarButtonItem" title="Cancel" image="xmark" catalog="system" id="tjb-gS-527">
                             <connections>
-                                <action selector="uploadCancel:" destination="vOh-qv-Qee" id="R5R-EG-YOa"/>
+                                <action selector="uploadCancel:" destination="vOh-qv-Qee" id="Iku-Dr-nNT"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

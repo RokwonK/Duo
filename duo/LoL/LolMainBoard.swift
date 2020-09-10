@@ -222,7 +222,7 @@ class LolMainBoard: UITableViewController{
             // 화면을 꽉 채우게
             navController.modalPresentationStyle = .fullScreen
             
-            self.navigationController?.present(navController, animated: true, completion: nil)
+            present(navController, animated: true, completion: nil)
             //present(upLoadView, animated: true, completion: nil)
         }
         
