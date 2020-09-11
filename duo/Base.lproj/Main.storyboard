@@ -1228,13 +1228,18 @@
                     <connections>
                         <outlet property="ContentView" destination="jlq-U2-uQl" id="aWq-tN-gOt"/>
                         <outlet property="ScrollView" destination="WE0-TY-6Sw" id="vBJ-L8-Vu4"/>
+                        <outlet property="bottomBtn" destination="QMv-n7-88b" id="kvp-Ho-nHZ"/>
                         <outlet property="endTierField" destination="qci-JP-z7k" id="yKm-kL-OHO"/>
                         <outlet property="gameModeField" destination="FVp-fn-faa" id="d2b-wl-C9v"/>
                         <outlet property="headCountField" destination="rbA-6V-2Po" id="9Sq-gn-Fcl"/>
+                        <outlet property="jungleBtn" destination="v77-gu-vgq" id="8FJ-ZN-YBg"/>
+                        <outlet property="midBtn" destination="W3w-OR-2eQ" id="UpF-ug-MBp"/>
                         <outlet property="startTierField" destination="Au3-1C-smq" id="5Ed-38-QXu"/>
                         <outlet property="startTimeField" destination="xWL-jx-XsG" id="DWc-gN-yea"/>
+                        <outlet property="supportBtn" destination="mZm-nO-bW4" id="7RN-TU-YLb"/>
                         <outlet property="talkOnBtn" destination="3aa-eJ-jwC" id="9jF-xS-EX2"/>
                         <outlet property="textContentView" destination="Dfr-FT-aL2" id="g3A-Y7-Yxk"/>
+                        <outlet property="topBtn" destination="Pp9-np-ros" id="85G-uR-kk4"/>
                         <outlet property="uploadBtn" destination="ZEj-E4-Oq3" id="Wf5-GD-ffU"/>
                         <outlet property="uploadTitle" destination="Ia2-3f-DXa" id="3F5-ws-tPH"/>
                         <outletCollection property="positionBtn" destination="Pp9-np-ros" collectionClass="NSMutableArray" id="uoS-ce-ndB"/>

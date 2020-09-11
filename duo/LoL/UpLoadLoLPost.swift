@@ -12,20 +12,120 @@ import Alamofire
 class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
     
-    
+    var selectDate = Date();
     let toolBarKeyboard = UIToolbar()
     let gameModeData : [String] = ["normal", "soloRank", "freeRank" , "custom", "knifeWind" ];
     let tierData : [String] = ["I4 ","I3","I2","I1","B4","B3","B2","B1","S4","S3","S2","S1","G4","G3","G2","G1","P4","P3","P2","P1","D4","D3","D2","D1","Master", "Grand Master", "Challenger"];
+    let tierDataToInt : [Int] = [6,7,8,9,16,17,18,19,26,27,28,29,36,37,38,39,46,47,48,49,56,57,58,59,70,80,90]
     let headCountData : [String] = ["1","2","3","4","5","6","7","8","9"];
     
     
     @IBAction func uploadAction(_ sender: Any) {
         //BaseFunc.baseurl;
+        let url = URL(string : BaseFunc.baseurl + "/post/lol/uploadpost")!
+        let dateformat = DateFormatter()
+        dateformat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         
+        let uploadedStartTime = dateformat.string(from: selectDate)
+        var uploadedStartTier = 6;
+        var uploadedEndTier = 90;
+        var uploadedTop = 1;
+        var uploadedBottom = 1;
+        var uploadedMid = 1;
+        var uploadedSupport = 1;
+        var uploadedJungle = 1;
+        var uploadedTalkon = 1;
+        
+        for (index, eachtier) in tierData.enumerated() {
+            if (eachtier == startTierField.text) {
+                uploadedStartTier = tierDataToInt[index];
+            }
+            if (eachtier == endTierField.text) {
+                uploadedEndTier = tierDataToInt[index];
+            }
+        }
+        
+        if topBtn.tintColor == UIColor.black { uploadedTop = 2; }
+        if bottomBtn.tintColor == UIColor.black { uploadedBottom = 2; }
+        if supportBtn.tintColor == UIColor.black { uploadedSupport = 2; }
+        if jungleBtn.tintColor == UIColor.black { uploadedJungle = 2; }
+        if midBtn.tintColor == UIColor.black { uploadedMid = 2; }
+        if talkOnBtn.tintColor == UIColor.black { uploadedTalkon = 2; }
+        
+        if (uploadedTop + uploadedMid + uploadedJungle + uploadedSupport + uploadedBottom == 10) {
+            let alert = UIAlertController(title: "포지션을 하나 이상 선택해주세요", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
+            present(alert, animated: true, completion: nil)
+            return;
+        }
+        if (uploadTitle.text == "") {
+            let alert = UIAlertController(title: "제목을 입력해주세요", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
+            present(alert, animated: true, completion: nil)
+            return;
+        }
+        if (textContentView.text == "" || textContentView.text == "내용 입력") {
+            let alert = UIAlertController(title: "내용을 작성해주세요", message: "", preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
+            present(alert, animated: true, completion: nil)
+            return;
+        }
+        
+        
+        
+        let req = AF.request(url,
+                            method:.post,
+                            parameters: [
+                                "userId" : BaseFunc.userId,
+                                "userNickname" : BaseFunc.userNickname,
+                                "gameMode" : gameModeField.text!,
+                                "startTier" : uploadedStartTier,
+                                "endTier" : uploadedEndTier,
+                                "startTime" : uploadedStartTime,
+                                "headCount" : Int(headCountField.text!)!,
+                                "top" : uploadedTop,
+                                "mid" : uploadedMid,
+                                "bottom" : uploadedBottom,
+                                "support" : uploadedSupport,
+                                "jungle" : uploadedJungle,
+                                "talkon" : uploadedTalkon,
+                                "title" : uploadTitle.text!,
+                                "content" : textContentView.text!
+                            ],
+                            encoding: JSONEncoding.default)
+        // db에서 값 가져오기
+        req.responseJSON {res in
+            switch res.result {
+            case.success(let value):
+                print(value)
+                if let datas = value as? Dictionary<String,Any> {
+                    if let msg = datas["msg"] as? String  {
+                        if (msg == "create success") {
+                            let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
+                            alert.addAction(UIAlertAction(title: "확인", style: .default ) { (action) in
+                                self.dismiss(animated: true, completion: nil)
+                            })
+                            self.present(alert, animated: true, completion: nil)
+                        }
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
+    
+    
+    @IBOutlet weak var topBtn: UIButton!
+    @IBOutlet weak var midBtn: UIButton!
+    @IBOutlet weak var jungleBtn: UIButton!
+    @IBOutlet weak var bottomBtn: UIButton!
+    @IBOutlet weak var supportBtn: UIButton!
+    
     @IBOutlet weak var uploadBtn: UIButton!
     @IBOutlet weak var textContentView: UITextView!
     @IBOutlet weak var talkOnBtn: UIButton!
+    
     @IBAction func positionAction(_ sender : UIButton) {
         if (sender.tintColor == UIColor.black) {
             sender.tintColor = UIColor.white;
@@ -101,6 +201,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     }
     
     @objc func timeChange(_ sender : UIDatePicker) {
+        selectDate = sender.date
         let dateformat : DateFormatter = DateFormatter();
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         

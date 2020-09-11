@@ -13,7 +13,7 @@ class LolMainBoard: UITableViewController{
     
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
-    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
+    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d","q", "m", "gm", "c"];
     let ad = UIApplication.shared.delegate as? AppDelegate
     
     func getPosts() {
@@ -113,9 +113,11 @@ class LolMainBoard: UITableViewController{
             if let stTier = v["startTier"] as? Int {
                 if let edTier = v["endTier"] as? Int {
                     let stShared = stTier/10;
-                    let stRemaind = stTier % 10;
+                    var stRemaind = stTier % 10;
                     let edShared = edTier/10;
-                    let edRemaind = edTier%10;
+                    var edRemaind = edTier%10;
+                    if (stRemaind == 0) {stRemaind = 10}
+                    if (edRemaind == 0) {edRemaind = 10}
                     
                     if (stTier == 1 && edTier == 100) {
                         cell.tier.text = "상관x";
