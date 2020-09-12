@@ -24,6 +24,7 @@
 		195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195CA9A224F16D2100D1F52A /* Assets.xcassets */; };
 		1974132F24FD09B7003BB2F3 /* AccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1974132E24FD09B7003BB2F3 /* AccountTab.swift */; };
 		1980409924F4B23700ED48B2 /* GameTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1980409824F4B23700ED48B2 /* GameTab.swift */; };
+		1995002E250D12180041BA69 /* GameTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995002D250D12180041BA69 /* GameTab.storyboard */; };
 		19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4241C24F20E0A00395657 /* TabBarController.swift */; };
 		19D82EC624FD3D3600FEC53F /* FilterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D82EC524FD3D3600FEC53F /* FilterPage.swift */; };
 		3B2254EAA5279D13A4A8BB36 /* Pods_duo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */; };
@@ -49,6 +50,7 @@
 		195CA9A224F16D2100D1F52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1974132E24FD09B7003BB2F3 /* AccountTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTab.swift; sourceTree = "<group>"; };
 		1980409824F4B23700ED48B2 /* GameTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTab.swift; sourceTree = "<group>"; };
+		1995002D250D12180041BA69 /* GameTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTab.storyboard; sourceTree = "<group>"; };
 		19C4241C24F20E0A00395657 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		19D82EC524FD3D3600FEC53F /* FilterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPage.swift; sourceTree = "<group>"; };
 		2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -97,6 +99,7 @@
 		09BD7F8D24ED038100409033 /* duo */ = {
 			isa = PBXGroup;
 			children = (
+				1995002C250D11930041BA69 /* Views */,
 				0989123A250233570006909F /* Base */,
 				09F139F425022AF600000AE9 /* LoL */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
@@ -107,7 +110,6 @@
 				1980409824F4B23700ED48B2 /* GameTab.swift */,
 				1974132E24FD09B7003BB2F3 /* AccountTab.swift */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
-				09BD7F9424ED038100409033 /* Main.storyboard */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
 				09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */,
@@ -136,6 +138,15 @@
 				E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		1995002C250D11930041BA69 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09BD7F9424ED038100409033 /* Main.storyboard */,
+				1995002D250D12180041BA69 /* GameTab.storyboard */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 		805CC1D0E5179882B5E8865D /* Frameworks */ = {
@@ -209,6 +220,7 @@
 			files = (
 				09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */,
 				195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */,
+				1995002E250D12180041BA69 /* GameTab.storyboard in Resources */,
 				09BD7F9624ED038100409033 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

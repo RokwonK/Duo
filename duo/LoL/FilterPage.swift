@@ -232,9 +232,9 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     //상관없음 버튼
     @IBAction func ApplyNothing(_ sender: UIButton) {
         gamemodename = "all"
-        Mytiernumber = 11 // 1로 하는게 맞나? 일단은 11로 해놈
+        Mytiernumber = 11
         time = "2020-08-06T12:38:48.000Z" //예전시간으로 일단 설정해놈
-        headcount = 1
+        headcount = 11
         position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
         talkon = 3
         getPosts()
