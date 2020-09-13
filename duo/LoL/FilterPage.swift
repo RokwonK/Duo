@@ -5,13 +5,35 @@
 //  Created by 황윤재 on 2020/08/31.
 //  Copyright © 2020 김록원. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 
 class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+    
+    @IBOutlet var GameModeButtons: [UIButton]!
+    @IBOutlet weak var peoplenum: UILabel!
+    @IBOutlet weak var top: UIButton!
+    @IBOutlet weak var mid: UIButton!
+    @IBOutlet weak var jungle: UIButton!
+    @IBOutlet weak var dealer: UIButton!
+    @IBOutlet weak var support: UIButton!
+    @IBOutlet weak var start: UIPickerView!
+    @IBOutlet weak var end: UIPickerView!
+    
+    var talkon = 3 //기본설정 상관없음
+    var record : Int = 0 // 필터화면을 갔다온건지 아닌지 구분하기위한 변수. 0이면 안갔다온거고 1이면 갔다온거.
+    var gamemodenum = 0 //게임모드 식별
+    var gamemodename = "" //게임모드 식별
+    var headcount : Int = 1
+    var position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
+    var time : String = ""
+    var Mytier : String = ""
+    var Mytiernumber : Int = 0
+    var url = URL(string : BaseFunc.baseurl + "/post/lol/getPost/filter")!
+    
     let ad = UIApplication.shared.delegate as? AppDelegate // appdelegate파일 참조
+    let tier = ["Iron","Bronze","Silver","Gold","Platinum","Dia","Master","GrandMaster","Challenger"]
+    let tiernumber = [1,2,3,4]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,13 +54,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
     
     override func viewDidAppear(_ animated: Bool) {
         self.ad!.filterdata = [] // 필터 설정할때마다 빈배열로 초기화
-    }
-
-    //게임모드 버튼 누를시 색상변경
-    @IBOutlet var GameModeButtons: [UIButton]!
-    @IBAction func ButtonSelected(_ sender: UIButton) {
-        GameModeButtons.forEach({$0.backgroundColor = UIColor.white})
-        sender.backgroundColor = UIColor.blue
+        BaseFunc.fetch();
     }
     
     //게임모드 결정
@@ -50,7 +66,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
         return .knifeWind
     }
-    
     enum GameModeNumber : Int{
         case soloRank
         case freeRank
@@ -59,35 +74,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         case custom
         case all
     }
-    
-    // 포지션 버튼 누를시 색상변경
-    @IBAction func button_process(sender : UIButton){
-        if sender.backgroundColor == UIColor.white{
-            sender.backgroundColor = UIColor.blue
-        }
-        else if sender.backgroundColor == UIColor.blue{
-            sender.backgroundColor = UIColor.red
-        }
-        else{
-            sender.backgroundColor = UIColor.white
-        }
-    }
-    
-    //인원수
-    @IBOutlet weak var peoplenum: UILabel!
-    var headcount : Int = 1 //기본값 >>> 상관없음 적용누를때 기본값으로 1 설정하는거 맞나? 확인바람
-    @IBAction func sliderValueChanged(sender: UISlider) {
-        var value = Int(sender.value) //UISlider(sender)의 value를 Int로 캐스팅해서 current라는 변수로 보낸다.
-        peoplenum.text = "\(value)"
-        headcount = value
-    }
-    
-    //티어 관련부분
-    @IBOutlet weak var start: UIPickerView!
-    @IBOutlet weak var end: UIPickerView!
-    
-    let tier = ["Iron","Bronze","Silver","Gold","Platinum","Dia","Master","GrandMaster","Challenger"]
-    let tiernumber = [1,2,3,4]
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
@@ -101,8 +87,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
     }
     
-    var Mytier : String = ""
-    var Mytiernumber : Int = 0
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         if pickerView.tag == 1 {
             Mytier = tier[row]
@@ -113,23 +97,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             return "\(tiernumber[row])"
         }
     }
-    
-    //datepicker
-    var time : String = ""
-    @IBAction func DatePicker (sender: UIDatePicker){
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        time =  formatter.string(from: sender.date)
-    }
-    
-    @IBOutlet weak var top: UIButton!
-    @IBOutlet weak var mid: UIButton!
-    @IBOutlet weak var jungle: UIButton!
-    @IBOutlet weak var dealer: UIButton!
-    @IBOutlet weak var support: UIButton!
-    
-    //포지션별 값
-    var position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
+
     //포지션 색상(선택여부)에따라 값 지정
     func positionresult(){
         if top.backgroundColor == UIColor.red{
@@ -163,12 +131,78 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
             position["support"]=1
         }
     }
+
+    func getPosts() {
+        var params = ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": time, "headCount": headcount,"top": position["top"],"mid":position["mid"],"jungle": position["jungle"],"bottom": position["bottom"],"support": position["support"],"talkon":talkon] as [String : Any]
+        
+        if (url == URL(string : BaseFunc.baseurl + "/post/lol/getPost")){
+            params = ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname]
+        }
+        let req = AF.request(url,
+                             method:.post,
+                             parameters: params,
+                             encoding: JSONEncoding.default)
+        // db에서 값 가져오기
+        req.responseJSON {res in
+            switch res.result {
+            case.success(let value):
+                if let datas = value as? Array<Dictionary<String,Any>> {
+                    var i = 0
+                    for i in datas{
+                        self.ad!.filterdata.append(i);
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+    }
+
+    //게임모드 버튼 누를시 색상변경
+    @IBAction func ButtonSelected(_ sender: UIButton) {
+        GameModeButtons.forEach({$0.backgroundColor = UIColor.white})
+        sender.backgroundColor = UIColor.blue
+    }
     
-    //적용버튼
-    var record : Int = 0 // 내가 구현한 로직상으론 일단 메인게시판화면에서 필터화면을 갔다온건지 아닌지 구분하기위한 변수. 0이면 안갔다온거고 1이면 갔다온거.
-    //게임모드 식별하기위해 필요한 변수들
-    var gamemodenum = 0
-    var gamemodename = ""
+    @IBAction func ApplyNothing(_ sender: UIButton) {
+        url = URL(string : BaseFunc.baseurl + "/post/lol/getPost")!
+        getPosts()
+        ad!.record += 1 // 필터화면 다녀간 흔적
+        self.dismiss(animated: true, completion: nil)
+    }
+    
+     @IBAction func sliderValueChanged(sender: UISlider) {
+         var value = Int(sender.value)
+         peoplenum.text = "\(value)"
+         headcount = value
+     }
+    
+    // 포지션 버튼 누를시 색상변경
+     @IBAction func button_process(sender : UIButton){
+         if sender.backgroundColor == UIColor.white{
+             sender.backgroundColor = UIColor.blue
+         }
+         else if sender.backgroundColor == UIColor.blue{
+             sender.backgroundColor = UIColor.red
+         }
+         else{
+             sender.backgroundColor = UIColor.white
+         }
+     }
+    
+    @IBAction func DatePicker (sender: UIDatePicker){
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        time =  formatter.string(from: sender.date)
+    }
+    
+    @IBAction func `switch`(_ sender: UISwitch) {
+        if sender.isOn {
+            talkon = 1
+        } else {
+            talkon = 2
+        }
+    }
     
     //적용버튼
     @IBAction func apply(sender: UIButton) {
@@ -194,7 +228,6 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         default:
             return
         }
-        
         gamemodenum = getGameModeType().rawValue
         switch gamemodenum{
         case 1:
@@ -214,57 +247,7 @@ class Filterpage : UIViewController, UIPickerViewDelegate, UIPickerViewDataSourc
         }
         positionresult()
         getPosts()
-        let ad = UIApplication.shared.delegate as? AppDelegate
         ad!.record += 1
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    //토크온 기능
-    var talkon = 3 //기본설정 상관없음
-    @IBAction func `switch`(_ sender: UISwitch) {
-        if sender.isOn {
-            talkon = 1
-        } else {
-            talkon = 2
-        }
-    }
-    
-    //상관없음 버튼
-    @IBAction func ApplyNothing(_ sender: UIButton) {
-        gamemodename = "all"
-        Mytiernumber = 11
-        time = "2020-08-06T12:38:48.000Z" //예전시간으로 일단 설정해놈
-        headcount = 11
-        position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
-        talkon = 3
-        getPosts()
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        ad!.record += 1 // 필터화면 다녀간 흔적
-        self.dismiss(animated: true, completion: nil)
-        print("상관없음 적용버튼")
-    }
-    
-    func getPosts() {
-        BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/lol/getPost/filter")!
-        let req = AF.request(url,
-                             method:.post,
-                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": time, "headCount": headcount,"top": position["top"],"mid":position["mid"],"jungle": position["jungle"],"bottom": position["bottom"],"support": position["support"],"talkon":talkon],
-                             encoding: JSONEncoding.default)
-        
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            switch res.result {
-            case.success(let value):
-                if let datas = value as? Array<Dictionary<String,Any>> {
-                    var i = 0
-                    for i in datas{
-                        self.ad!.filterdata.append(i);
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
     }
 }

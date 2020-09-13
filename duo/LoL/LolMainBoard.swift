@@ -208,7 +208,6 @@ class LolMainBoard: UITableViewController{
             // 테이블 뷰에 그리기
             self.TableViewController.reloadData();
         }
-        print("viewdidappear 도달")
     }
     
     //@ogjc => 각각의 변수, 함수 등에 적용하여 ObjectiveC의 접근을 가능하게 해준다.
