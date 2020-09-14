@@ -16,19 +16,20 @@ class LoLPostCell : UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var startTime: UILabel!
     
-    @IBOutlet weak var top: UILabel!
-    @IBOutlet weak var bottom: UILabel!
-    @IBOutlet weak var mid: UILabel!
-    @IBOutlet weak var support: UILabel!
-    @IBOutlet weak var jungle: UILabel!
+    @IBOutlet weak var topimage: UIImageView!
+    @IBOutlet weak var jungleimage: UIImageView!
+    @IBOutlet weak var midimage: UIImageView!
+    @IBOutlet weak var bottomimage: UIImageView!
+    @IBOutlet weak var supportimage: UIImageView!
+    
     
     override func prepareForReuse() {
         super.prepareForReuse();
-        top.backgroundColor = UIColor.white;
-        bottom.backgroundColor = UIColor.white;
-        mid.backgroundColor = UIColor.white;
-        support.backgroundColor = UIColor.white;
-        jungle.backgroundColor = UIColor.white;
+//        top.backgroundColor = UIColor.white;
+//        bottom.backgroundColor = UIColor.white;
+//        mid.backgroundColor = UIColor.white;
+//        support.backgroundColor = UIColor.white;
+//        jungle.backgroundColor = UIColor.white;
         tier.layer.cornerRadius = 5;
         gameMode.layer.cornerRadius = 5;
         headCount.layer.cornerRadius = 5;

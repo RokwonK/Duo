@@ -71,28 +71,29 @@ class LolMainBoard: UITableViewController{
             
             if let top = v["top"] as? Int {
                 if (top == 1) {
-                    cell.top.backgroundColor = UIColor.green
+//                    cell.top.backgroundColor = UIColor(patternImage: UIImage(named: "icon-position-top")!)
+                    cell.topimage.image = UIImage(named: "icon-position-top")
                 }
             }
             if let bottom = v["bottom"] as? Int {
                 if (bottom == 1){
-                    cell.bottom.backgroundColor = UIColor.green
+                    cell.bottomimage.image = UIImage(named: "icon-position-bottom")
                     //cell.bottom.layer.backgroundColor = UIColor.green.cgColor;
                 }
             }
             if let mid = v["mid"] as? Int {
                 if (mid == 1) {
-                    cell.mid.backgroundColor = UIColor.green;
+                    cell.midimage.image = UIImage(named: "icon-position-middle")
                 }
             }
             if let sup = v["support"] as? Int {
                 if (sup == 1) {
-                    cell.support.backgroundColor = UIColor.green;
+                   cell.supportimage.image = UIImage(named: "icon-position-utility")
                 }
             }
             if let jung = v["jungle"] as? Int {
                 if (jung == 1) {
-                    cell.jungle.backgroundColor = UIColor.green;
+                    cell.jungleimage.image = UIImage(named: "icon-position-jungle")
                 }
             }
             
@@ -108,6 +109,15 @@ class LolMainBoard: UITableViewController{
             }
             if let st = v["startTime"] as? String {
                 cell.startTime.text = "시작시간 : \(st)";
+//                let formatter2 = DateFormatter()
+//                formatter2.dateFormat = "HH:mm"
+//                let timedisplay = formatter.string(from: st)
+//                if (today != timedisplay){
+//                    cell.startTime.text = "내일 \(timedisplay)"
+//                }
+//                else{
+//                    cell.startTime.text = "오늘 \(timedisplay)"
+//                }
             }
             
             if let stTier = v["startTier"] as? Int {
