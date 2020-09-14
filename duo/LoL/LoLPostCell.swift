@@ -29,6 +29,15 @@ class LoLPostCell : UITableViewCell {
         mid.backgroundColor = UIColor.white;
         support.backgroundColor = UIColor.white;
         jungle.backgroundColor = UIColor.white;
+        tier.layer.cornerRadius = 5;
+        gameMode.layer.cornerRadius = 5;
+        headCount.layer.cornerRadius = 5;
+        tier.backgroundColor = UIColor.lightGray;
+        gameMode.backgroundColor = UIColor.lightGray;
+        headCount.backgroundColor = UIColor.lightGray;
+        tier.layer.masksToBounds = true;
+        gameMode.layer.masksToBounds = true;
+        headCount.layer.masksToBounds = true;
     }
     
 }

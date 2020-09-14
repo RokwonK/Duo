@@ -169,6 +169,8 @@ class LolMainBoard: UITableViewController{
         TableViewController.delegate = self
         TableViewController.dataSource = self
         
+        
+        
         upLoadBtn.setTitle("글 쓰기", for: .normal);
         upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         upLoadBtn.setTitleColor(.white, for: .normal)
