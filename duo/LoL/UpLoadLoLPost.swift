@@ -45,6 +45,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
             }
         }
         
+        
         if topBtn.tintColor == UIColor.black { uploadedTop = 2; }
         if bottomBtn.tintColor == UIColor.black { uploadedBottom = 2; }
         if supportBtn.tintColor == UIColor.black { uploadedSupport = 2; }
@@ -356,17 +357,25 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         uploadBtn.layer.cornerRadius = 10;
         uploadBtn.layer.borderWidth = 1;
         
+        
+        // Scroll View 에서 스크린 터치시 키보드 내려가게
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        ScrollView.addGestureRecognizer(singleTapGestureRecognizer)
+
+        
+
+        
+        
     }
     
-    
-    // 스크린 터치시 키보드 내려가게 설정
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        self.ContentView.endEditing(true);
-        self.ScrollView.endEditing(true);
+    // 화면 터치 시 콜백함수
+    @objc func MyTapMethod(sender : UITapGestureRecognizer) {
+        self.view.endEditing(true);
     }
-    
-    
-    
+        
     // statusbar 보이게 설정
     override var prefersStatusBarHidden: Bool {
         return false

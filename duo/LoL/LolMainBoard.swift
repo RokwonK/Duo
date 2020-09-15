@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 
+
 class LolMainBoard: UITableViewController{
     
     @IBOutlet var TableViewController: UITableView!
@@ -41,6 +42,7 @@ class LolMainBoard: UITableViewController{
                 print(error)
             }
         }
+        
     }
     
     // 테이블의 갯수 정의
@@ -59,10 +61,30 @@ class LolMainBoard: UITableViewController{
     // 테이블 cell 하나하나의 값에 무엇이 들어가는지 정의
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+        
+        
         if ad!.record > 0{
             postsData = ad!.filterdata
         }
         let cell = TableViewController.dequeueReusableCell(withIdentifier: "LoLPostCell", for: indexPath) as! LoLPostCell
+        cell.tier.layer.cornerRadius = 10;
+        cell.tier.tintColor = UIColor.white;
+        cell.tier.backgroundColor = UIColor.lightGray;
+        cell.tier.layer.masksToBounds = true;
+        
+        cell.gameMode.layer.cornerRadius = 10;
+        cell.gameMode.tintColor = UIColor.white;
+        cell.gameMode.backgroundColor = UIColor.lightGray;
+        cell.gameMode.layer.masksToBounds = true;
+        
+        cell.headCount.layer.cornerRadius = 10;
+        cell.headCount.tintColor = UIColor.white;
+        cell.headCount.backgroundColor = UIColor.lightGray;
+        cell.headCount.layer.masksToBounds = true;
+        cell.startTime.textColor = UIColor.lightGray;
+        cell.micFillBtn.tintColor = UIColor.orange;
+        cell.micNotBtn.tintColor = UIColor.lightGray;
+        
         print(indexPath)
         let index = indexPath.row;
         if let posts = postsData {
@@ -70,54 +92,76 @@ class LolMainBoard: UITableViewController{
             print(v)
             
             if let top = v["top"] as? Int {
-                if (top == 1) {
-//                    cell.top.backgroundColor = UIColor(patternImage: UIImage(named: "icon-position-top")!)
-                    cell.topimage.image = UIImage(named: "icon-position-top")
+                if (top == 2) {
+                    cell.topBtn.isHidden = true;
                 }
             }
             if let bottom = v["bottom"] as? Int {
-                if (bottom == 1){
-                    cell.bottomimage.image = UIImage(named: "icon-position-bottom")
-                    //cell.bottom.layer.backgroundColor = UIColor.green.cgColor;
+                if (bottom == 2){
+                    cell.bottomBtn.isHidden = true;
                 }
             }
             if let mid = v["mid"] as? Int {
-                if (mid == 1) {
-                    cell.midimage.image = UIImage(named: "icon-position-middle")
+                if (mid == 2) {
+                    cell.midBtn.isHidden = true;
                 }
             }
             if let sup = v["support"] as? Int {
-                if (sup == 1) {
-                   cell.supportimage.image = UIImage(named: "icon-position-utility")
+                if (sup == 2) {
+                    cell.supportBtn.isHidden = true;
                 }
             }
             if let jung = v["jungle"] as? Int {
-                if (jung == 1) {
-                    cell.jungleimage.image = UIImage(named: "icon-position-jungle")
+                if (jung == 2) {
+                    cell.jungleBtn.isHidden = true;
+                }
+            }
+            
+            if let talk = v["talkon"] as? Int {
+                if (talk == 2) {
+                    cell.micFillBtn.isHidden = true;
+                }
+                else {
+                    cell.micNotBtn.isHidden = true;
                 }
             }
             
             if let gm = v["gameMode"] as? String{
-                cell.gameMode.text = gm;
+                cell.gameMode.setTitle("\(gm)", for: .normal);
             }
             if let hc = v["headCount"] as? Int {
-                cell.headCount.text = "인원 \(hc)"
+                cell.headCount.setTitle("인원 \(hc)명", for: .normal);
             }
             if let tit = v["title"] as? String {
                 cell.title.text = tit;
-                cell.title.font = UIFont.boldSystemFont(ofSize: 20)
+                cell.title.font = UIFont.boldSystemFont(ofSize: 18)
             }
             if let st = v["startTime"] as? String {
-                cell.startTime.text = "시작시간 : \(st)";
-//                let formatter2 = DateFormatter()
-//                formatter2.dateFormat = "HH:mm"
-//                let timedisplay = formatter.string(from: st)
-//                if (today != timedisplay){
-//                    cell.startTime.text = "내일 \(timedisplay)"
-//                }
-//                else{
-//                    cell.startTime.text = "오늘 \(timedisplay)"
-//                }
+                //cell.startTime.text = "시작시간 : \(st)";
+                
+                // 각각 뽑기 위해서 Date객체로의 변환이 필요
+                // MM-dd를 뽑고 같으면 오늘 다르면 내일
+                // HH:mm을 뽑아서 사용자에게 보여줌
+                
+                // String => Date로 바꿈;
+                let thisDateFormatter = DateFormatter();
+                thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+                let thisDate = thisDateFormatter.date(from: st)!;
+                thisDateFormatter.dateFormat = "MM-dd";
+                let thisDateMMdd = thisDateFormatter.string(from : thisDate);
+                
+                //let nowDateFormatter = DateFormatter();
+                let nowDate = Date()
+                let nowDateMMdd = thisDateFormatter.string(from : nowDate);
+                
+                thisDateFormatter.dateFormat = "HH:mm";
+                let thisStartTime = thisDateFormatter.string(from : thisDate)
+                if (nowDateMMdd == thisDateMMdd) {
+                    cell.startTime.text = "오늘 \(thisStartTime)"
+                }
+                else {
+                    cell.startTime.text = "내일 \(thisStartTime)"
+                }
             }
             
             if let stTier = v["startTier"] as? Int {
@@ -130,21 +174,88 @@ class LolMainBoard: UITableViewController{
                     if (edRemaind == 0) {edRemaind = 10}
                     
                     if (stTier == 1 && edTier == 100) {
-                        cell.tier.text = "상관x";
+                        cell.tier.setTitle("상관x", for: .normal);
                     }
                     else if (stTier == 1) {
-                        cell.tier.text = "~\(eachTier[edShared] + "\(10-edRemaind)" )";
+                        cell.tier.setTitle("~\(eachTier[edShared] + "\(10-edRemaind)" )", for: .normal);
+                        
                     }
                     else if (edTier == 100) {
-                        cell.tier.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~";
+                        cell.tier.setTitle("\(eachTier[stShared] + "\(10-stRemaind)" )~", for: .normal);
+                        
                     }
                     else {
-                        cell.tier.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~\(eachTier[edShared] + "\(10-edRemaind)" )";
+                        cell.tier.setTitle("\(eachTier[stShared] + "\(10-stRemaind)" )~\(eachTier[edShared] + "\(10-edRemaind)" )", for: .normal);
+                        
                     }
                 }
             }
         }
         return cell
+    }
+    
+    
+ 
+    @IBAction func filter (_sender : UIBarButtonItem){
+        let storyBoard = self.storyboard!
+        let filterpage = storyBoard.instantiateViewController(withIdentifier: "filter") as! Filterpage
+        self.present(filterpage, animated: true, completion: nil)
+    }
+    
+    // 버튼을 직접 작성으로 만든 이유... 스토리보드로 만드니 크기조절을 못함...
+    let upLoadBtn = UIButton()
+    func upLoadBtnStyle() {
+        upLoadBtn.setTitle("글 쓰기", for: .normal);
+        upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
+        upLoadBtn.setTitleColor(.white, for: .normal)
+        upLoadBtn.backgroundColor = UIColor.gray;
+        upLoadBtn.layer.cornerRadius = 18;
+        self.view.addSubview(upLoadBtn);
+        
+        // 코드로 constraint 사용하기
+        upLoadBtn.translatesAutoresizingMaskIntoConstraints = false
+        
+        // 버튼의 x좌표를 superview의 x축 기준 가운데 정렬
+        upLoadBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true;
+        // 크기 조절
+        upLoadBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true;
+        //upLoadBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true;
+        
+        // position : absolute
+        if #available(iOS 11.0, *) {
+            
+            // 오른쪽 -140만큼 띄움 safeAreaLayoutGuid => bar랑 메뉴바 같은거 제외한 뷰
+            upLoadBtn.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: -( (self.view.frame.width - 100)/2 )).isActive = true
+            upLoadBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
+        }
+        else {
+            upLoadBtn.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: 0).isActive = true
+            upLoadBtn.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
+        }
+        
+        // 클릭시 이벤트 지정, 터치한 컴포넌트에서 손을 땟을때 실행
+        upLoadBtn.addTarget(self, action: #selector(upLoadPost), for: .touchUpInside)
+        
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        TableViewController.delegate = self
+        TableViewController.dataSource = self
+        
+        upLoadBtnStyle();
+        
+        
+        self.getPosts();
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+
+        DispatchQueue.main.async {
+            // 테이블 뷰에 그리기
+            self.TableViewController.reloadData();
+        }
     }
     
     // Selection Segue => Show
@@ -165,62 +276,6 @@ class LolMainBoard: UITableViewController{
             }
         }
     }
- 
-    @IBAction func filter (_sender : UIBarButtonItem){
-        let storyBoard = self.storyboard!
-        let filterpage = storyBoard.instantiateViewController(withIdentifier: "filter") as! Filterpage
-        self.present(filterpage, animated: true, completion: nil)
-    }
-    
-    // 버튼을 직접 작성으로 만든 이유... 스토리보드로 만드니 크기조절을 못함...
-    let upLoadBtn = UIButton()
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        TableViewController.delegate = self
-        TableViewController.dataSource = self
-        
-        
-        
-        upLoadBtn.setTitle("글 쓰기", for: .normal);
-        upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
-        upLoadBtn.setTitleColor(.white, for: .normal)
-        upLoadBtn.backgroundColor = UIColor.gray;
-        upLoadBtn.layer.cornerRadius = 18;
-        self.view.addSubview(upLoadBtn);
-        
-        upLoadBtn.translatesAutoresizingMaskIntoConstraints = false
-        
-        // 버튼의 x좌표를 superview의 x축 기준 가운데 정렬
-        upLoadBtn.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true;
-        // 크기 조절
-        upLoadBtn.heightAnchor.constraint(equalToConstant: 40).isActive = true;
-        //upLoadBtn.widthAnchor.constraint(equalToConstant: 80).isActive = true;
-        
-        // position : absolute
-        if #available(iOS 11.0, *) {
-            
-            // 오른쪽 -140만큼 띄움 safeAreaLayoutGuid => bar랑 메뉴바 같은거 제외한 뷰
-            upLoadBtn.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor, constant: 210-self.view.frame.width).isActive = true
-            upLoadBtn.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10).isActive = true
-        }
-        else {
-            upLoadBtn.rightAnchor.constraint(equalTo: view.layoutMarginsGuide.rightAnchor, constant: 0).isActive = true
-            upLoadBtn.bottomAnchor.constraint(equalTo: view.layoutMarginsGuide.bottomAnchor, constant: -10).isActive = true
-        }
-        
-        // 클릭시 이벤트 지정, 터치한 컴포넌트에서 손을 땟을때 실행
-        upLoadBtn.addTarget(self, action: #selector(upLoadPost), for: .touchUpInside)
-        self.getPosts();
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(true)
-
-        DispatchQueue.main.async {
-            // 테이블 뷰에 그리기
-            self.TableViewController.reloadData();
-        }
-    }
     
     //@ogjc => 각각의 변수, 함수 등에 적용하여 ObjectiveC의 접근을 가능하게 해준다.
     @objc func upLoadPost() {
@@ -236,17 +291,7 @@ class LolMainBoard: UITableViewController{
             navController.modalPresentationStyle = .fullScreen
             
             present(navController, animated: true, completion: nil)
-            //present(upLoadView, animated: true, completion: nil)
         }
-        
-        // 제목과 메세지 지정
-//        let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
-//
-//        // 확인버튼 만들기
-//        alert.addAction(UIAlertAction(title: "확인"
-//            , style: .default , handler: nil))
-//
-//        // 화면에 띄우기
-//        present(alert, animated: true, completion: nil)
     }
+    
 }
