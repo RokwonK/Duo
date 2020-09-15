@@ -97,7 +97,7 @@
             </objects>
             <point key="canvasLocation" x="-759.20000000000005" y="467.73399014778329"/>
         </scene>
-        <!--Chat-->
+        <!--채팅-->
         <scene sceneID="QZn-P0-Xc4">
             <objects>
                 <viewController id="2nb-xp-bKu" sceneMemberID="viewController">
@@ -107,20 +107,23 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="NnM-wq-h8i"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Chat" image="message.fill" catalog="system" id="uuK-78-CnX"/>
+                    <tabBarItem key="tabBarItem" title="채팅" image="bubble.left.and.bubble.right" catalog="system" id="uuK-78-CnX"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dK8-Tx-EfN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1420" y="468"/>
         </scene>
-        <!--Game-->
+        <!--홈-->
         <scene sceneID="sdj-vn-MSc">
             <objects>
                 <navigationController id="QPI-6Q-mNC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Game" image="gamecontroller.fill" catalog="system" id="NIe-7B-Icy"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="NIe-7B-Icy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="jat-vK-Hzx">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <connections>
                         <segue destination="EzW-D4-OdM" kind="relationship" relationship="rootViewController" id="XZU-4Y-m1r"/>
@@ -325,6 +328,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="TableViewController" destination="9EZ-Xc-rli" id="JHT-s7-WZp"/>
+                        <outlet property="naviBarOutlet" destination="zKj-t7-SqN" id="g5F-46-Ncc"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1NR-nK-0XT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -617,6 +621,8 @@
                     <tabBar key="tabBar" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CrA-2c-XRE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" systemColor="systemOrangeColor" red="1" green="0.58431372550000005" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </tabBar>
                     <connections>
                         <segue destination="QPI-6Q-mNC" kind="relationship" relationship="viewControllers" id="A0r-Iw-2Dj"/>
@@ -628,11 +634,11 @@
             </objects>
             <point key="canvasLocation" x="612" y="468"/>
         </scene>
-        <!--Account-->
+        <!--내 정보-->
         <scene sceneID="pAt-lG-zya">
             <objects>
                 <navigationController id="dsI-xV-LUg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Account" image="person.fill" catalog="system" id="9LB-ZQ-Wsu"/>
+                    <tabBarItem key="tabBarItem" title="내 정보" image="person" catalog="system" id="9LB-ZQ-Wsu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uak-Cv-E5q">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1266,14 +1272,14 @@
     </scenes>
     <resources>
         <image name="battle" width="795" height="782"/>
-        <image name="gamecontroller.fill" catalog="system" width="128" height="82"/>
+        <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
         <image name="google" width="18" height="18"/>
+        <image name="house" catalog="system" width="128" height="110"/>
         <image name="kakao" width="34" height="35"/>
         <image name="lol" width="300" height="300"/>
-        <image name="message.fill" catalog="system" width="128" height="113"/>
         <image name="naver" width="22" height="20"/>
         <image name="overwatch" width="1200" height="1200"/>
-        <image name="person.fill" catalog="system" width="128" height="120"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
     </resources>
 </document>

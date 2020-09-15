@@ -24,7 +24,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     // 시작 프로세스가 거의 완료되었고, 앱을 실행할 준비가 거의 완료되었음을 알림(true return)
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
-        
         // 네이버 로그인 환경설정
         let loginconn = NaverThirdPartyLoginConnection.getSharedInstance();
         

@@ -12,6 +12,13 @@ import Alamofire
 
 class LolMainBoard: UITableViewController{
     
+    
+    @IBOutlet weak var naviBarOutlet: UINavigationItem!
+    @IBAction func popAction(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true);
+    }
+    @IBOutlet weak var popOutlet: UIBarButtonItem!
+    @IBOutlet weak var filterOutlet: UIBarButtonItem!
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d","q", "m", "gm", "c"];
@@ -67,17 +74,17 @@ class LolMainBoard: UITableViewController{
             postsData = ad!.filterdata
         }
         let cell = TableViewController.dequeueReusableCell(withIdentifier: "LoLPostCell", for: indexPath) as! LoLPostCell
-        cell.tier.layer.cornerRadius = 10;
+        cell.tier.layer.cornerRadius = 7;
         cell.tier.tintColor = UIColor.white;
         cell.tier.backgroundColor = UIColor.lightGray;
         cell.tier.layer.masksToBounds = true;
         
-        cell.gameMode.layer.cornerRadius = 10;
+        cell.gameMode.layer.cornerRadius = 7;
         cell.gameMode.tintColor = UIColor.white;
         cell.gameMode.backgroundColor = UIColor.lightGray;
         cell.gameMode.layer.masksToBounds = true;
         
-        cell.headCount.layer.cornerRadius = 10;
+        cell.headCount.layer.cornerRadius = 7;
         cell.headCount.tintColor = UIColor.white;
         cell.headCount.backgroundColor = UIColor.lightGray;
         cell.headCount.layer.masksToBounds = true;
@@ -208,7 +215,7 @@ class LolMainBoard: UITableViewController{
         upLoadBtn.setTitle("글 쓰기", for: .normal);
         upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         upLoadBtn.setTitleColor(.white, for: .normal)
-        upLoadBtn.backgroundColor = UIColor.gray;
+        upLoadBtn.backgroundColor = UIColor.orange;
         upLoadBtn.layer.cornerRadius = 18;
         self.view.addSubview(upLoadBtn);
         
@@ -243,8 +250,12 @@ class LolMainBoard: UITableViewController{
         TableViewController.delegate = self
         TableViewController.dataSource = self
         
-        upLoadBtnStyle();
+        filterOutlet.tintColor = UIColor.white;
+        popOutlet.tintColor = UIColor.white;
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange;
+        self.navigationController?.navigationBar.backgroundColor = UIColor.orange;
         
+        upLoadBtnStyle();
         
         self.getPosts();
     }

@@ -14,6 +14,8 @@ class TabBarController: UITabBarController,UITabBarControllerDelegate {
         super.viewDidLoad()
         
         delegate = self
+        
+        self.tabBar.barTintColor = UIColor.white;
         // Do any additional setup after loading the view.
     }
     
