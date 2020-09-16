@@ -14,8 +14,14 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     
     var selectDate = Date();
     let toolBarKeyboard = UIToolbar()
-    let gameModeData : [String] = ["normal", "soloRank", "freeRank" , "custom", "knifeWind" ];
-    let tierData : [String] = ["I4 ","I3","I2","I1","B4","B3","B2","B1","S4","S3","S2","S1","G4","G3","G2","G1","P4","P3","P2","P1","D4","D3","D2","D1","Master", "Grand Master", "Challenger"];
+    let gameModeData : [String] = ["일반", "듀오", "자유랭" , "커스텀", "칼바람" ];
+    let tierData : [String] = ["Iron 4","Iron 3","Iron 2","Iron 1",
+                               "Bronze 4","Bronze 3","Bronze 2","Bronze 1",
+                               "Silver 4","Silver 3","Silver 2","Silver 1",
+                               "Gold 4","Gold 3","Gold 2","Gold 1",
+                               "Platinum 4","Platinum 3","Platinum 2","Platinum 1",
+                               "Diamond 4","Diamond 3","Diamond 2","Diamond 1",
+                               "Master", "Grand Master", "Challenger"];
     let tierDataToInt : [Int] = [6,7,8,9,16,17,18,19,26,27,28,29,36,37,38,39,46,47,48,49,56,57,58,59,70,80,90]
     let headCountData : [String] = ["1","2","3","4","5","6","7","8","9"];
     
@@ -241,6 +247,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         gamemodePicker.delegate = self;
         gamemodePicker.dataSource = self;
         gamemodePicker.tag = 1;
+        gamemodePicker.backgroundColor = UIColor.white;
         
         return gamemodePicker;
     }();
@@ -250,6 +257,8 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         tierPicker.delegate = self;
         tierPicker.dataSource = self;
         tierPicker.tag = 2;
+        tierPicker.backgroundColor = UIColor.white;
+        
         return tierPicker;
     }()
     
@@ -258,6 +267,8 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         tierPicker.delegate = self;
         tierPicker.dataSource = self;
         tierPicker.tag = 3;
+        tierPicker.backgroundColor = UIColor.white;
+        
         return tierPicker;
     }()
     
@@ -266,6 +277,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         headCountPicker.delegate = self;
         headCountPicker.dataSource = self;
         headCountPicker.tag = 4;
+        headCountPicker.backgroundColor = UIColor.white;
         
         return headCountPicker;
     }()
@@ -274,6 +286,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         let startTimePicker : UIDatePicker = UIDatePicker();
         startTimePicker.timeZone = NSTimeZone.local;
         startTimePicker.addTarget(self, action: #selector(timeChange), for: .valueChanged)
+        startTimePicker.backgroundColor = UIColor.white;
         
         return startTimePicker;
     }()
