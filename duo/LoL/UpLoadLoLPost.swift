@@ -130,7 +130,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     @IBAction func positionAction(_ sender : UIButton) {
         if (sender.tintColor == UIColor.black) {
             sender.tintColor = UIColor.white;
-            sender.backgroundColor = UIColor.blue;
+            sender.backgroundColor = UIColor.orange;
         }
         else {
             sender.tintColor = UIColor.black;
@@ -286,6 +286,10 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange;
+        self.navigationController?.navigationBar.barStyle = .black;
+        self.navigationController?.navigationBar.isTranslucent = false;
+        
         // 키보드 툴발 만들기
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))
@@ -296,23 +300,23 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // Game Mode
         gameModeField.inputAccessoryView = toolBarKeyboard
         gameModeField.inputView = self.uploadGameMode;
-        gameModeField.textColor = UIColor.blue;
+        gameModeField.textColor = UIColor.orange;
         gameModeField.text = gameModeData[0];
         
         // Tier
         startTierField.inputAccessoryView = toolBarKeyboard
         startTierField.inputView = self.uploadStartTier;
-        startTierField.textColor = UIColor.blue;
+        startTierField.textColor = UIColor.orange;
         startTierField.text = tierData[0];
         endTierField.inputAccessoryView = toolBarKeyboard
         endTierField.inputView = self.uploadEndTier;
-        endTierField.textColor = UIColor.blue;
+        endTierField.textColor = UIColor.orange;
         endTierField.text = tierData[tierData.count-1];
         
         // Head Count
         headCountField.inputAccessoryView = toolBarKeyboard
         headCountField.inputView = self.uploadHeadCount
-        headCountField.textColor = UIColor.blue;
+        headCountField.textColor = UIColor.orange;
         headCountField.text = headCountData[0];
         
         // Start Time
@@ -320,13 +324,13 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         startTimeField.inputAccessoryView = toolBarKeyboard
         startTimeField.inputView = self.uploadStartTime
-        startTimeField.textColor = UIColor.blue;
+        startTimeField.textColor = UIColor.orange;
         startTimeField.text = dateformat.string(from: Date())
         
         // Position
         positionBtn.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = UIColor.blue.cgColor;
+            btn.layer.borderColor = UIColor.orange.cgColor;
             btn.layer.cornerRadius = 5;
             btn.tintColor = UIColor.black;
         }
@@ -334,7 +338,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // talkon
         talkOnBtn.layer.borderWidth = 1
         talkOnBtn.layer.borderWidth = 1;
-        talkOnBtn.layer.borderColor = UIColor.blue.cgColor;
+        talkOnBtn.layer.borderColor = UIColor.orange.cgColor;
         talkOnBtn.layer.cornerRadius = 5;
         talkOnBtn.tintColor = UIColor.black;
         
@@ -356,6 +360,9 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // upload 버튼
         uploadBtn.layer.cornerRadius = 10;
         uploadBtn.layer.borderWidth = 1;
+        uploadBtn.layer.borderColor = UIColor.orange.cgColor;
+        uploadBtn.backgroundColor = UIColor.orange;
+        uploadBtn.tintColor = UIColor.white;
         
         
         // Scroll View 에서 스크린 터치시 키보드 내려가게

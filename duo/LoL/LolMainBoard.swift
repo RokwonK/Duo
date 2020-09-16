@@ -76,18 +76,19 @@ class LolMainBoard: UITableViewController{
         let cell = TableViewController.dequeueReusableCell(withIdentifier: "LoLPostCell", for: indexPath) as! LoLPostCell
         cell.tier.layer.cornerRadius = 7;
         cell.tier.tintColor = UIColor.white;
-        cell.tier.backgroundColor = UIColor.lightGray;
+        cell.tier.backgroundColor = UIColor.orange;
         cell.tier.layer.masksToBounds = true;
         
         cell.gameMode.layer.cornerRadius = 7;
         cell.gameMode.tintColor = UIColor.white;
-        cell.gameMode.backgroundColor = UIColor.lightGray;
+        cell.gameMode.backgroundColor = UIColor.orange;
         cell.gameMode.layer.masksToBounds = true;
         
         cell.headCount.layer.cornerRadius = 7;
         cell.headCount.tintColor = UIColor.white;
-        cell.headCount.backgroundColor = UIColor.lightGray;
+        cell.headCount.backgroundColor = UIColor.orange;
         cell.headCount.layer.masksToBounds = true;
+        
         cell.startTime.textColor = UIColor.lightGray;
         cell.micFillBtn.tintColor = UIColor.orange;
         cell.micNotBtn.tintColor = UIColor.lightGray;
