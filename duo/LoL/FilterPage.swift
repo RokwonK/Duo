@@ -27,12 +27,11 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBOutlet weak var startTimeField: UITextField!
     
     var talkOn = 3 //기본설정 상관없음
-    var gamemodeNum = 0 //게임모드 식별
-    var gamemodeName = "" //게임모드 식별
     var headCount : Int = 1
-    var Position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
+    var Position = ["top":3,"mid":3, "jungle":3,"dealer":3, "support":3]
     var Time : String = ""
     var Mytiernumber : Int?
+    var gameModeName : String =  ""
     
     let AD = UIApplication.shared.delegate as? AppDelegate // appdelegate파일 참조
     let toolBarKeyboard = UIToolbar()
@@ -53,14 +52,14 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         myTier.inputView = self.uploadStartTier;
         myTier.textColor = UIColor.orange;
         myTier.text = tierData[0];
-        
+        //게임모드버튼
         GameModeButtons.forEach{ (btn) in
             btn.layer.borderWidth = 1;
             btn.layer.borderColor = UIColor.orange.cgColor;
             btn.layer.cornerRadius = 5;
             btn.tintColor = UIColor.black;
         }
-        
+        //포지션버튼
         PositionButtons.forEach{ (btn) in
         btn.layer.borderWidth = 1;
         btn.layer.borderColor = UIColor.orange.cgColor;
@@ -100,23 +99,6 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     
     override func viewDidAppear(_ animated: Bool) {
         self.AD!.filterdata = [] // 필터 설정할때마다 빈배열로 초기화
-    }
-    
-    //게임모드 결정
-    func getGameModeType() -> GameModeNumber {
-        for (index, button) in GameModeButtons.enumerated(){
-            if button.tintColor == UIColor.white{
-                return GameModeNumber(rawValue: index) ?? .freeRank
-            }
-        }
-        return .knifeWind
-    }
-    enum GameModeNumber : Int{
-        case soloRank
-        case freeRank
-        case normal
-        case knifeWind
-        case custom
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -186,7 +168,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
         let req = AF.request(url,
                              method:.post,
-                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gamemodeName,"wantTier": Mytiernumber,"startTime": Time, "headCount": headCount,"top": Position["top"],"mid":Position["mid"],"jungle": Position["jungle"],"bottom": Position["bottom"],"support": Position["support"],"talkon":talkOn] as [String : Any],
+                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gameModeName,"wantTier": Mytiernumber,"startTime": Time, "headCount": headCount,"top": Position["top"],"mid":Position["mid"],"jungle": Position["jungle"],"bottom": Position["dealer"],"support": Position["support"],"talkon":talkOn],
                              encoding: JSONEncoding.default)
         // db에서 값 가져오기
         req.responseJSON {res in
@@ -197,6 +179,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
                     for i in datas{
                         self.AD!.filterdata.append(i);
                     }
+                    print(self.AD!.filterdata)
                 }
             case .failure(let error):
                 print(error)
@@ -238,7 +221,6 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             }
             sender.tintColor = UIColor.white;
             sender.backgroundColor = UIColor.orange;
-            
         }
            else {
                sender.tintColor = UIColor.black;
@@ -282,20 +264,25 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             }
         }
         
-        gamemodeNum = getGameModeType().rawValue
-        switch gamemodeNum{
-        case 1:
-            gamemodeName = "soloRank"
-        case 2:
-            gamemodeName = "freeRank"
-        case 3:
-            gamemodeName = "normal"
-        case 4:
-            gamemodeName = "knifeWind"
-        case 5:
-            gamemodeName = "custom"
-        default:
-            gamemodeName = "all"
+        for (index,buttons) in GameModeButtons.enumerated(){
+            if buttons.tintColor == UIColor.white{
+                switch index{
+                case 4:
+                    gameModeName = "soloRank"
+                case 3:
+                    gameModeName = "freeRank"
+                case 2:
+                    gameModeName = "normal"
+                case 1:
+                    gameModeName = "knifeWind"
+                case 0:
+                    gameModeName = "custom"
+                default:
+                    gameModeName = "all"
+                }
+                break
+            }
+            gameModeName = "all"
         }
         if talkOnTrue.tintColor == UIColor.white { talkOn = 1}
         else if talkOnFalse.tintColor == UIColor.white{

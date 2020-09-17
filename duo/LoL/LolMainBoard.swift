@@ -9,9 +9,7 @@
 import UIKit
 import Alamofire
 
-
 class LolMainBoard: UITableViewController{
-    
     
     @IBOutlet weak var naviBarOutlet: UINavigationItem!
     @IBAction func popAction(_ sender: Any) {
@@ -22,7 +20,7 @@ class LolMainBoard: UITableViewController{
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d","q", "m", "gm", "c"];
-    let ad = UIApplication.shared.delegate as? AppDelegate
+    let Ad = UIApplication.shared.delegate as? AppDelegate
     
     func getPosts() {
         BaseFunc.fetch();
@@ -49,14 +47,13 @@ class LolMainBoard: UITableViewController{
                 print(error)
             }
         }
-        
     }
     
     // 테이블의 갯수 정의
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        if ad!.record > 0{
-            postsData = ad!.filterdata
+        if Ad!.record > 0{
+            postsData = Ad!.filterdata
         }
         if let posts = postsData {
             return posts.count;
@@ -64,14 +61,11 @@ class LolMainBoard: UITableViewController{
         return 0;
     }
     
-    
     // 테이블 cell 하나하나의 값에 무엇이 들어가는지 정의
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        
-        
-        if ad!.record > 0{
-            postsData = ad!.filterdata
+        if Ad!.record > 0{
+            postsData = Ad!.filterdata
         }
         let cell = TableViewController.dequeueReusableCell(withIdentifier: "LoLPostCell", for: indexPath) as! LoLPostCell
         cell.tier.layer.cornerRadius = 7;
@@ -202,8 +196,6 @@ class LolMainBoard: UITableViewController{
         return cell
     }
     
-    
- 
     @IBAction func filter (_sender : UIBarButtonItem){
         let storyBoard = self.storyboard!
         let filterpage = storyBoard.instantiateViewController(withIdentifier: "filter") as! Filterpage
@@ -263,7 +255,7 @@ class LolMainBoard: UITableViewController{
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
-
+        
         DispatchQueue.main.async {
             // 테이블 뷰에 그리기
             self.TableViewController.reloadData();
@@ -273,8 +265,8 @@ class LolMainBoard: UITableViewController{
     // Selection Segue => Show
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
-        if ad!.record > 0{
-            postsData = ad!.filterdata
+        if Ad!.record > 0{
+            postsData = Ad!.filterdata
         }
         if let id = segue.identifier, "Select" == id  {
             guard let controller = segue.destination as? SelectBoard else{return}
@@ -293,7 +285,6 @@ class LolMainBoard: UITableViewController{
     @objc func upLoadPost() {
         
         if let upLoadView = self.storyboard?.instantiateViewController(identifier: "UpLoadLoLPost") as? UpLoadLoLPost {
-            
             
             // 네이베이션 바 만들어서 보내기
             let navController = UINavigationController(rootViewController: upLoadView);
