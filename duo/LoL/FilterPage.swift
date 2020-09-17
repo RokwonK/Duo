@@ -12,29 +12,29 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     
     @IBOutlet var GameModeButtons: [UIButton]!
     @IBOutlet var PositionButtons: [UIButton]!
-    @IBOutlet weak var talkOnBtn: UIButton!
-    @IBOutlet weak var peoplenum: UILabel!
-    @IBOutlet weak var top: UIButton!
-    @IBOutlet weak var mid: UIButton!
-    @IBOutlet weak var jungle: UIButton!
-    @IBOutlet weak var dealer: UIButton!
-    @IBOutlet weak var support: UIButton!
+    @IBOutlet var talkOnButtons: [UIButton]!
+    @IBOutlet weak var talkOnTrue: UIButton!
+    @IBOutlet weak var talkOnFalse: UIButton!
+    @IBOutlet weak var talkOnAny: UIButton!
+    @IBOutlet weak var peopleNum: UILabel!
+    @IBOutlet weak var Top: UIButton!
+    @IBOutlet weak var Mid: UIButton!
+    @IBOutlet weak var Jungle: UIButton!
+    @IBOutlet weak var Dealer: UIButton!
+    @IBOutlet weak var Support: UIButton!
     @IBOutlet weak var applyBtn: UIButton!
-    @IBOutlet weak var mytier: UITextField!
+    @IBOutlet weak var myTier: UITextField!
+    @IBOutlet weak var startTimeField: UITextField!
     
-    var talkon = 2 //기본설정 상관없음
-    var record : Int = 0 // 필터화면을 갔다온건지 아닌지 구분하기위한 변수. 0이면 안갔다온거고 1이면 갔다온거.
-    var gamemodenum = 0 //게임모드 식별
-    var gamemodename = "" //게임모드 식별
-    var headcount : Int = 1
-    var position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
-    var time : String = ""
-    var Mytier : String = ""
-    var Mytiernumber : Int = 0
+    var talkOn = 3 //기본설정 상관없음
+    var gamemodeNum = 0 //게임모드 식별
+    var gamemodeName = "" //게임모드 식별
+    var headCount : Int = 1
+    var Position = ["top":3,"mid":3, "jungle":3,"bottom":3,"support":3]
+    var Time : String = ""
+    var Mytiernumber : Int?
     
-    let ad = UIApplication.shared.delegate as? AppDelegate // appdelegate파일 참조
-//    let tier = ["Iron","Bronze","Silver","Gold","Platinum","Dia","Master","GrandMaster","Challenger"]
-//    let tiernumber = [1,2,3,4]
+    let AD = UIApplication.shared.delegate as? AppDelegate // appdelegate파일 참조
     let toolBarKeyboard = UIToolbar()
     let tierData : [String] = ["Iron 4","Iron 3","Iron 2","Iron 1","Bronze 4","Bronze 3","Bronze 2","Bronze 1","Silver 4","Silver 3","Silver 2","Silver 1","Gold 4","Gold 3","Gold 2","Gold 1","Platinum 4","Platinum 3","Platinum 2","Platinum 1","Diamond 4","Diamond 3","Diamond 2","Diamond 1","Master", "Grand Master", "Challenger"]
     let tierDataToInt : [Int] = [6,7,8,9,16,17,18,19,26,27,28,29,36,37,38,39,46,47,48,49,56,57,58,59,70,80,90]
@@ -49,10 +49,10 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         toolBarKeyboard.tintColor = UIColor.gray;
         
         //티어
-        mytier.inputAccessoryView = toolBarKeyboard
-        mytier.inputView = self.uploadStartTier;
-        mytier.textColor = UIColor.orange;
-        mytier.text = tierData[0];
+        myTier.inputAccessoryView = toolBarKeyboard
+        myTier.inputView = self.uploadStartTier;
+        myTier.textColor = UIColor.orange;
+        myTier.text = tierData[0];
         
         GameModeButtons.forEach{ (btn) in
             btn.layer.borderWidth = 1;
@@ -67,18 +67,29 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         btn.layer.cornerRadius = 5;
         btn.tintColor = UIColor.black;
         }
+        //인원수 표시 라벨
+        peopleNum.layer.borderWidth = 1
+        peopleNum.layer.borderColor = UIColor.orange.cgColor;
+        peopleNum.layer.cornerRadius = 5;
+        peopleNum.tintColor = UIColor.black;
         
-        peoplenum.layer.borderWidth = 1
-        peoplenum.layer.borderColor = UIColor.orange.cgColor;
-        peoplenum.layer.cornerRadius = 5;
-        peoplenum.tintColor = UIColor.black;
+        // Start Time
+        let dateformat : DateFormatter = DateFormatter();
+        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
+        startTimeField.inputAccessoryView = toolBarKeyboard
+        startTimeField.inputView = self.uploadStartTime
+        startTimeField.textColor = UIColor.orange;
+        startTimeField.text = dateformat.string(from: Date())
         
         //토크온
-        talkOnBtn.layer.borderWidth = 1
-        talkOnBtn.layer.borderColor = UIColor.orange.cgColor;
-        talkOnBtn.layer.cornerRadius = 5;
-        talkOnBtn.tintColor = UIColor.black;
+        talkOnButtons.forEach{(btn) in
+            btn.layer.borderWidth = 1
+            btn.layer.borderColor = UIColor.orange.cgColor
+            btn.layer.cornerRadius = 5
+            btn.tintColor = UIColor.black
+        }
         
+        //적용버튼
         applyBtn.layer.cornerRadius = 10;
         applyBtn.layer.borderWidth = 1;
         applyBtn.layer.borderColor = UIColor.orange.cgColor;
@@ -88,7 +99,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.ad!.filterdata = [] // 필터 설정할때마다 빈배열로 초기화
+        self.AD!.filterdata = [] // 필터 설정할때마다 빈배열로 초기화
     }
     
     //게임모드 결정
@@ -112,7 +123,6 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         return 1;
     }
     
-    // picker
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         return tierData.count
     }
@@ -122,7 +132,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     }
 
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        mytier.text = tierData[row]
+        myTier.text = tierData[row]
     }
     
     lazy var uploadStartTier : UIPickerView = {
@@ -133,33 +143,42 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         
         return tierPicker;
     }()
+    
+    lazy var uploadStartTime : UIDatePicker = {
+        let startTimePicker : UIDatePicker = UIDatePicker();
+        startTimePicker.timeZone = NSTimeZone.local;
+        startTimePicker.addTarget(self, action: #selector(timeChange), for: .valueChanged)
+        startTimePicker.backgroundColor = UIColor.white;
+        
+        return startTimePicker;
+    }()
 
     //포지션 색상(선택여부)에따라 값 지정
-    func positionresult(){
-        if top.tintColor == UIColor.black{
-            position["top"]=2
+    func positionResult(){
+        if Top.tintColor == UIColor.black{
+            Position["top"]=2
         }
-        else {position["top"]=1}
+        else {Position["top"]=1}
     
-        if mid.tintColor == UIColor.black{
-            position["mid"]=2
+        if Mid.tintColor == UIColor.black{
+            Position["mid"]=2
         }
-        else {position["mid"]=1}
+        else {Position["mid"]=1}
         
-        if jungle.tintColor == UIColor.black{
-            position["jungle"]=2
+        if Jungle.tintColor == UIColor.black{
+            Position["jungle"]=2
         }
-        else {position["jungle"]=1}
+        else {Position["jungle"]=1}
         
-        if dealer.tintColor == UIColor.black{
-            position["dealer"]=2
+        if Dealer.tintColor == UIColor.black{
+            Position["dealer"]=2
         }
-        else {position["dealer"]=1}
+        else {Position["dealer"]=1}
         
-        if support.tintColor == UIColor.black{
-            position["support"]=2
+        if Support.tintColor == UIColor.black{
+            Position["support"]=2
         }
-        else {position["support"]=1}
+        else {Position["support"]=1}
     }
 
     func getPosts() {
@@ -167,7 +186,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
         let req = AF.request(url,
                              method:.post,
-                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gamemodename,"wantTier": Mytiernumber,"startTime": time, "headCount": headcount,"top": position["top"],"mid":position["mid"],"jungle": position["jungle"],"bottom": position["bottom"],"support": position["support"],"talkon":talkon] as [String : Any],
+                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": gamemodeName,"wantTier": Mytiernumber,"startTime": Time, "headCount": headCount,"top": Position["top"],"mid":Position["mid"],"jungle": Position["jungle"],"bottom": Position["bottom"],"support": Position["support"],"talkon":talkOn] as [String : Any],
                              encoding: JSONEncoding.default)
         // db에서 값 가져오기
         req.responseJSON {res in
@@ -176,7 +195,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
                 if let datas = value as? Array<Dictionary<String,Any>> {
                     var i = 0
                     for i in datas{
-                        self.ad!.filterdata.append(i);
+                        self.AD!.filterdata.append(i);
                     }
                 }
             case .failure(let error):
@@ -195,27 +214,20 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     
      @IBAction func sliderValueChanged(sender: UISlider) {
          var value = Int(sender.value)
-         peoplenum.text = "\(value)"
-         headcount = value
+         peopleNum.text = "\(value)"
+         headCount = value
      }
     
-    // 포지션 버튼 누를시 색상변경
-     @IBAction func button_process(sender : UIButton){
-         if sender.backgroundColor == UIColor.white{
-             sender.backgroundColor = UIColor.blue
-         }
-         else if sender.backgroundColor == UIColor.blue{
-             sender.backgroundColor = UIColor.red
-         }
-         else{
-             sender.backgroundColor = UIColor.white
-         }
-     }
-    
-    @IBAction func DatePicker (sender: UIDatePicker){
+    @objc func timeChange(_ sender : UIDatePicker) {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        time =  formatter.string(from: sender.date)
+        Time =  formatter.string(from: sender.date)
+        let dateformat : DateFormatter = DateFormatter();
+        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
+        
+        let selected: String = dateformat.string(from: sender.date)
+        self.startTimeField.text = selected;
+
     }
     
     @IBAction func gameModeAction(_ sender : UIButton) {
@@ -234,8 +246,23 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
            }
        }
     
-    @IBAction func position_talkon_Action(_ sender : UIButton) {
+    @IBAction func positionAction(_ sender : UIButton) {
         if (sender.tintColor == UIColor.black) {
+            sender.tintColor = UIColor.white;
+            sender.backgroundColor = UIColor.orange;
+        }
+           else {
+               sender.tintColor = UIColor.black;
+               sender.backgroundColor = UIColor.white;
+           }
+       }
+    
+    @IBAction func talkOnAction(_ sender : UIButton) {
+        if (sender.tintColor == UIColor.black) {
+           talkOnButtons.forEach{ (btn) in
+                btn.tintColor = UIColor.black
+                btn.backgroundColor = UIColor.white
+            }
             sender.tintColor = UIColor.white;
             sender.backgroundColor = UIColor.orange;
             
@@ -246,54 +273,37 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
            }
        }
     
-    
     //적용버튼
-    @IBAction func apply(sender: UIButton) {
-        switch Mytier{
-        case "Iron":
-            Mytiernumber += 10
-        case "Bronze":
-            Mytiernumber += 20
-        case "Silver":
-            Mytiernumber += 30
-        case "Gold":
-            Mytiernumber += 40
-        case "Platinum":
-            Mytiernumber += 50
-        case "Dia":
-            Mytiernumber += 60
-        case "Master":
-            Mytiernumber += 70
-        case "GrandMaster":
-            Mytiernumber += 80
-        case "Challenger":
-            Mytiernumber += 90
-        default:
-            return
+    @IBAction func applyBtn(sender: UIButton) {
+        
+        for (index, eachtier) in tierData.enumerated() {
+            if (eachtier == myTier.text) {
+                Mytiernumber = tierDataToInt[index];
+            }
         }
-        gamemodenum = getGameModeType().rawValue
-        switch gamemodenum{
+        
+        gamemodeNum = getGameModeType().rawValue
+        switch gamemodeNum{
         case 1:
-            gamemodename = "soloRank"
+            gamemodeName = "soloRank"
         case 2:
-            gamemodename = "freeRank"
+            gamemodeName = "freeRank"
         case 3:
-            gamemodename = "normal"
+            gamemodeName = "normal"
         case 4:
-            gamemodename = "knifeWind"
+            gamemodeName = "knifeWind"
         case 5:
-            gamemodename = "custom"
+            gamemodeName = "custom"
         default:
-            gamemodename = "all"
+            gamemodeName = "all"
         }
-        if talkOnBtn.tintColor == UIColor.black { talkon = 2; }
-        positionresult()
+        if talkOnTrue.tintColor == UIColor.white { talkOn = 1}
+        else if talkOnFalse.tintColor == UIColor.white{
+            talkOn = 2}
+        else{talkOn = 3}
+        positionResult()
         getPosts()
-        ad!.record += 1
+        AD!.record += 1
         self.dismiss(animated: true, completion: nil)
-    }
-    
-    @objc func MyTapMethod(sender : UITapGestureRecognizer) {
-        self.view.endEditing(true);
     }
 }
