@@ -199,7 +199,11 @@ class LolMainBoard: UITableViewController{
     @IBAction func filter (_sender : UIBarButtonItem){
         let storyBoard = self.storyboard!
         let filterpage = storyBoard.instantiateViewController(withIdentifier: "filter") as! Filterpage
-        self.present(filterpage, animated: true, completion: nil)
+        let navController = UINavigationController(rootViewController: filterpage)
+        
+        navController.modalTransitionStyle = UIModalTransitionStyle.coverVertical
+        navController.modalPresentationStyle = .fullScreen
+        self.present(navController, animated: true, completion: nil)
     }
     
     // 버튼을 직접 작성으로 만든 이유... 스토리보드로 만드니 크기조절을 못함...

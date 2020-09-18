@@ -10,6 +10,10 @@ import Alamofire
 
 class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    @IBOutlet weak var exitButton : UIBarButtonItem!
+    @IBAction func popAction(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet var GameModeButtons: [UIButton]!
     @IBOutlet var PositionButtons: [UIButton]!
     @IBOutlet var talkOnButtons: [UIButton]!
@@ -41,6 +45,17 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let frame = self.navigationController?.navigationBar.frame
+        let height: CGFloat = 200
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: (frame?.origin.x)!, y: (frame?.origin.y)!, width: bounds.width, height: bounds.height + height)
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.orange;
+        self.navigationController?.navigationBar.barStyle = .black;
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.topItem?.title = "필터"
+        exitButton.tintColor = UIColor.white
+        
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))
         let nilBar = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
@@ -61,10 +76,10 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         }
         //포지션버튼
         PositionButtons.forEach{ (btn) in
-        btn.layer.borderWidth = 1;
-        btn.layer.borderColor = UIColor.orange.cgColor;
-        btn.layer.cornerRadius = 5;
-        btn.tintColor = UIColor.black;
+            btn.layer.borderWidth = 1;
+            btn.layer.borderColor = UIColor.orange.cgColor;
+            btn.layer.cornerRadius = 5;
+            btn.tintColor = UIColor.black;
         }
         //인원수 표시 라벨
         peopleNum.layer.borderWidth = 1
@@ -112,7 +127,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         return tierData[row];
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         myTier.text = tierData[row]
     }
@@ -134,14 +149,14 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         
         return startTimePicker;
     }()
-
+    
     //포지션 색상(선택여부)에따라 값 지정
     func positionResult(){
         if Top.tintColor == UIColor.black{
             Position["top"]=2
         }
         else {Position["top"]=1}
-    
+        
         if Mid.tintColor == UIColor.black{
             Position["mid"]=2
         }
@@ -162,7 +177,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         }
         else {Position["support"]=1}
     }
-
+    
     func getPosts() {
         BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
@@ -190,16 +205,12 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBAction func doneBtnClicked(sender : Any) {
         self.view.endEditing(true);
     }
-    
-    @IBAction func Exit(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+
+    @IBAction func sliderValueChanged(sender: UISlider) {
+        var value = Int(sender.value)
+        peopleNum.text = "\(value)"
+        headCount = value
     }
-    
-     @IBAction func sliderValueChanged(sender: UISlider) {
-         var value = Int(sender.value)
-         peopleNum.text = "\(value)"
-         headCount = value
-     }
     
     @objc func timeChange(_ sender : UIDatePicker) {
         let formatter = DateFormatter()
@@ -210,7 +221,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         
         let selected: String = dateformat.string(from: sender.date)
         self.startTimeField.text = selected;
-
+        
     }
     
     @IBAction func gameModeAction(_ sender : UIButton) {
@@ -222,26 +233,26 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             sender.tintColor = UIColor.white;
             sender.backgroundColor = UIColor.orange;
         }
-           else {
-               sender.tintColor = UIColor.black;
-               sender.backgroundColor = UIColor.white;
-           }
-       }
+        else {
+            sender.tintColor = UIColor.black;
+            sender.backgroundColor = UIColor.white;
+        }
+    }
     
     @IBAction func positionAction(_ sender : UIButton) {
         if (sender.tintColor == UIColor.black) {
-            sender.tintColor = UIColor.white;
+            sender.tintColor = UIColor.white
             sender.backgroundColor = UIColor.orange;
         }
-           else {
-               sender.tintColor = UIColor.black;
-               sender.backgroundColor = UIColor.white;
-           }
-       }
+        else {
+            sender.tintColor = UIColor.black;
+            sender.backgroundColor = UIColor.white;
+        }
+    }
     
     @IBAction func talkOnAction(_ sender : UIButton) {
         if (sender.tintColor == UIColor.black) {
-           talkOnButtons.forEach{ (btn) in
+            talkOnButtons.forEach{ (btn) in
                 btn.tintColor = UIColor.black
                 btn.backgroundColor = UIColor.white
             }
@@ -249,11 +260,11 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             sender.backgroundColor = UIColor.orange;
             
         }
-           else {
-               sender.tintColor = UIColor.black;
-               sender.backgroundColor = UIColor.white;
-           }
-       }
+        else {
+            sender.tintColor = UIColor.black;
+            sender.backgroundColor = UIColor.white;
+        }
+    }
     
     //적용버튼
     @IBAction func applyBtn(sender: UIButton) {
