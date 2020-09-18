@@ -322,7 +322,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLa-4t-TZ2">
-                                <rect key="frame" x="15" y="623" width="384" height="30"/>
+                                <rect key="frame" x="15" y="802" width="384" height="30"/>
                                 <state key="normal" title="적용"/>
                                 <connections>
                                     <action selector="applyBtnWithSender:" destination="bJf-RR-lwF" eventType="touchUpInside" id="ECx-5U-lc6"/>
@@ -497,11 +497,11 @@
                             <constraint firstItem="f3j-QI-PgD" firstAttribute="top" secondItem="Rsq-b4-PI4" secondAttribute="bottom" constant="30" id="9oX-RE-vIC"/>
                             <constraint firstItem="P7D-s4-H4z" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="BQd-Vm-k0k"/>
                             <constraint firstItem="tv8-K8-fhO" firstAttribute="top" secondItem="fhf-0e-oVo" secondAttribute="bottom" constant="5" id="C9Y-5D-nyc"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="bottom" secondItem="FLa-4t-TZ2" secondAttribute="bottom" constant="30" id="HNo-iQ-mvf"/>
                             <constraint firstItem="amo-q5-yel" firstAttribute="top" secondItem="tv8-K8-fhO" secondAttribute="bottom" constant="30" id="K19-ZQ-Fob"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="FLa-4t-TZ2" secondAttribute="trailing" constant="15" id="MJR-Yr-ejJ"/>
                             <constraint firstItem="P7D-s4-H4z" firstAttribute="top" secondItem="iuZ-TT-AwL" secondAttribute="bottom" constant="5" id="R0e-a7-opk"/>
                             <constraint firstItem="8Uz-M5-D7Q" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="Rxe-6B-w0J"/>
-                            <constraint firstItem="FLa-4t-TZ2" firstAttribute="top" secondItem="a7L-wT-hpH" secondAttribute="bottom" constant="60" id="SOu-rt-h3K"/>
                             <constraint firstItem="tv8-K8-fhO" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="176" id="TPR-Q4-8iz"/>
                             <constraint firstItem="amo-q5-yel" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="UMP-XB-Y8L"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="age-Mm-YsP" secondAttribute="trailing" constant="15" id="URr-pP-6zP"/>

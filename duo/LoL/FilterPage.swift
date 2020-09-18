@@ -113,7 +113,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        self.AD!.filterdata = [] // 필터 설정할때마다 빈배열로 초기화
+        super.viewDidLoad()
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -179,6 +179,8 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     }
     
     func getPosts() {
+        
+        self.AD!.filterdata = []// 필터 설정할때마다 빈배열로 초기화
         BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
         let req = AF.request(url,
@@ -268,6 +270,7 @@ class Filterpage : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     
     //적용버튼
     @IBAction func applyBtn(sender: UIButton) {
+        
         
         for (index, eachtier) in tierData.enumerated() {
             if (eachtier == myTier.text) {
