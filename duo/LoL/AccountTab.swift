@@ -20,7 +20,7 @@ class AccountViewController: UIViewController {
     
     func goto_loginpage () {
         let storyBoard = self.storyboard!
-        let loginpage = storyBoard.instantiateViewController(withIdentifier: "loginpage") as! ViewController
+        let loginpage = storyBoard.instantiateViewController(withIdentifier: "loginpage") as! LoginView
         present(loginpage, animated: true, completion: nil)
     }
     
@@ -30,9 +30,9 @@ class AccountViewController: UIViewController {
     }
     
     @IBAction func Logout(_sender : UIButton){
-        ViewController().naverLogout()
-        ViewController().kakaoLogout()
-        ViewController().googleLogout()
+        LoginView().naverLogout()
+        LoginView().kakaoLogout()
+        LoginView().googleLogout()
         
         goto_loginpage()
     }

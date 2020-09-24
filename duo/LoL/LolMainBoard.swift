@@ -198,7 +198,7 @@ class LolMainBoard: UITableViewController{
     
     @IBAction func filter (_sender : UIBarButtonItem){
         let storyBoard = self.storyboard!
-        let filterpage = storyBoard.instantiateViewController(withIdentifier: "filter") as! Filterpage
+        let filterpage = storyBoard.instantiateViewController(withIdentifier: "Filter") as! FilterView
         let navController = UINavigationController(rootViewController: filterpage)
         
         navController.modalTransitionStyle = UIModalTransitionStyle.coverVertical

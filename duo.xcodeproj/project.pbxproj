@@ -13,20 +13,27 @@
 		0989123C2502338D0006909F /* BaseFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseFunc.swift */; };
 		09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */; };
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
-		09BD7F9324ED038100409033 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9224ED038100409033 /* ViewController.swift */; };
-		09BD7F9624ED038100409033 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9424ED038100409033 /* Main.storyboard */; };
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
 		19077FD624F8DC62000F842F /* Nickname.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19077FD524F8DC62000F842F /* Nickname.swift */; };
 		191CAFB82503BED900933A66 /* MyPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CAFB72503BED900933A66 /* MyPost.swift */; };
 		191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CAFB92503E88200933A66 /* MyPostCell.swift */; };
 		1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943A45D24FD3604001B4092 /* LolMainBoard.swift */; };
+		195A5C83251CF2A700FD352D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C82251CF2A700FD352D /* LoginViewModel.swift */; };
+		195A5C88251CF32F00FD352D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C87251CF32F00FD352D /* LoginView.swift */; };
+		195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C8B251CF42000FD352D /* LoginModel.swift */; };
 		195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195CA9A224F16D2100D1F52A /* Assets.xcassets */; };
+		19713313251A29890085EDEA /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713312251A29890085EDEA /* FilterView.swift */; };
+		19713317251A29A20085EDEA /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713316251A29A20085EDEA /* FilterModel.swift */; };
+		1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713319251A29B00085EDEA /* FilterViewModel.swift */; };
 		1974132F24FD09B7003BB2F3 /* AccountTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1974132E24FD09B7003BB2F3 /* AccountTab.swift */; };
 		1980409924F4B23700ED48B2 /* GameTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1980409824F4B23700ED48B2 /* GameTab.swift */; };
 		1995002E250D12180041BA69 /* GameTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995002D250D12180041BA69 /* GameTab.storyboard */; };
+		19BD2FEF251CFE5D00C52697 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9424ED038100409033 /* Main.storyboard */; };
+		19BD2FF4251D0F9900C52697 /* NicknameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF3251D0F9900C52697 /* NicknameModel.swift */; };
+		19BD2FF7251D0FA300C52697 /* NicknameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF6251D0FA300C52697 /* NicknameView.swift */; };
+		19BD2FFA251D0FAD00C52697 /* NicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF9251D0FAD00C52697 /* NicknameViewModel.swift */; };
 		19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4241C24F20E0A00395657 /* TabBarController.swift */; };
-		19D82EC624FD3D3600FEC53F /* FilterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19D82EC524FD3D3600FEC53F /* FilterPage.swift */; };
 		3B2254EAA5279D13A4A8BB36 /* Pods_duo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */; };
 /* End PBXBuildFile section */
 
@@ -38,7 +45,6 @@
 		09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09BD7F8B24ED038100409033 /* duo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BD7F8E24ED038100409033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		09BD7F9224ED038100409033 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		09BD7F9524ED038100409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		09BD7F9824ED038100409033 /* duo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duo.xcdatamodel; sourceTree = "<group>"; };
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -47,12 +53,20 @@
 		191CAFB72503BED900933A66 /* MyPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPost.swift; sourceTree = "<group>"; };
 		191CAFB92503E88200933A66 /* MyPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostCell.swift; sourceTree = "<group>"; };
 		1943A45D24FD3604001B4092 /* LolMainBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LolMainBoard.swift; sourceTree = "<group>"; };
+		195A5C82251CF2A700FD352D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		195A5C87251CF32F00FD352D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		195A5C8B251CF42000FD352D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		195CA9A224F16D2100D1F52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		19713312251A29890085EDEA /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
+		19713316251A29A20085EDEA /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
+		19713319251A29B00085EDEA /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		1974132E24FD09B7003BB2F3 /* AccountTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountTab.swift; sourceTree = "<group>"; };
 		1980409824F4B23700ED48B2 /* GameTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameTab.swift; sourceTree = "<group>"; };
 		1995002D250D12180041BA69 /* GameTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTab.storyboard; sourceTree = "<group>"; };
+		19BD2FF3251D0F9900C52697 /* NicknameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameModel.swift; sourceTree = "<group>"; };
+		19BD2FF6251D0FA300C52697 /* NicknameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameView.swift; sourceTree = "<group>"; };
+		19BD2FF9251D0FAD00C52697 /* NicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NicknameViewModel.swift; sourceTree = "<group>"; };
 		19C4241C24F20E0A00395657 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		19D82EC524FD3D3600FEC53F /* FilterPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterPage.swift; sourceTree = "<group>"; };
 		2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A22BD3CD5178AD248BABCA6 /* Pods-duo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.debug.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.release.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.release.xcconfig"; sourceTree = "<group>"; };
@@ -99,20 +113,17 @@
 		09BD7F8D24ED038100409033 /* duo */ = {
 			isa = PBXGroup;
 			children = (
-				1995002C250D11930041BA69 /* Views */,
-				0989123A250233570006909F /* Base */,
-				09F139F425022AF600000AE9 /* LoL */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
-				09BD7F9224ED038100409033 /* ViewController.swift */,
-				19077FD524F8DC62000F842F /* Nickname.swift */,
-				19C4241C24F20E0A00395657 /* TabBarController.swift */,
-				1980409824F4B23700ED48B2 /* GameTab.swift */,
-				1974132E24FD09B7003BB2F3 /* AccountTab.swift */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
-				09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */,
+				19BD2FF1251D0D8D00C52697 /* StoryBoard */,
+				195A5C7E251CF1DA00FD352D /* Model */,
+				195A5C7F251CF1E100FD352D /* View */,
+				195A5C81251CF20500FD352D /* ViewModel */,
+				0989123A250233570006909F /* Base */,
+				09F139F425022AF600000AE9 /* LoL */,
 			);
 			path = duo;
 			sourceTree = "<group>";
@@ -121,11 +132,14 @@
 			isa = PBXGroup;
 			children = (
 				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
-				19D82EC524FD3D3600FEC53F /* FilterPage.swift */,
 				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
 				191CAFB72503BED900933A66 /* MyPost.swift */,
 				191CAFB92503E88200933A66 /* MyPostCell.swift */,
+				19077FD524F8DC62000F842F /* Nickname.swift */,
+				19C4241C24F20E0A00395657 /* TabBarController.swift */,
+				1980409824F4B23700ED48B2 /* GameTab.swift */,
+				1974132E24FD09B7003BB2F3 /* AccountTab.swift */,
 				091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */,
 			);
 			path = LoL;
@@ -140,13 +154,44 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		1995002C250D11930041BA69 /* Views */ = {
+		195A5C7E251CF1DA00FD352D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				19713316251A29A20085EDEA /* FilterModel.swift */,
+				195A5C8B251CF42000FD352D /* LoginModel.swift */,
+				19BD2FF3251D0F9900C52697 /* NicknameModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		195A5C7F251CF1E100FD352D /* View */ = {
+			isa = PBXGroup;
+			children = (
+				19713312251A29890085EDEA /* FilterView.swift */,
+				195A5C87251CF32F00FD352D /* LoginView.swift */,
+				19BD2FF6251D0FA300C52697 /* NicknameView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		195A5C81251CF20500FD352D /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				19713319251A29B00085EDEA /* FilterViewModel.swift */,
+				195A5C82251CF2A700FD352D /* LoginViewModel.swift */,
+				19BD2FF9251D0FAD00C52697 /* NicknameViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		19BD2FF1251D0D8D00C52697 /* StoryBoard */ = {
 			isa = PBXGroup;
 			children = (
 				09BD7F9424ED038100409033 /* Main.storyboard */,
 				1995002D250D12180041BA69 /* GameTab.storyboard */,
+				09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */,
 			);
-			path = Views;
+			path = StoryBoard;
 			sourceTree = "<group>";
 		};
 		805CC1D0E5179882B5E8865D /* Frameworks */ = {
@@ -221,7 +266,7 @@
 				09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */,
 				195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */,
 				1995002E250D12180041BA69 /* GameTab.storyboard in Resources */,
-				09BD7F9624ED038100409033 /* Main.storyboard in Resources */,
+				19BD2FEF251CFE5D00C52697 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -293,20 +338,27 @@
 			files = (
 				091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */,
 				09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */,
+				195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
+				195A5C88251CF32F00FD352D /* LoginView.swift in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
 				19077FD624F8DC62000F842F /* Nickname.swift in Sources */,
 				1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */,
+				19BD2FF7251D0FA300C52697 /* NicknameView.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
-				09BD7F9324ED038100409033 /* ViewController.swift in Sources */,
 				0989123C2502338D0006909F /* BaseFunc.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
+				19713317251A29A20085EDEA /* FilterModel.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameTab.swift in Sources */,
+				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
+				19BD2FF4251D0F9900C52697 /* NicknameModel.swift in Sources */,
+				19713313251A29890085EDEA /* FilterView.swift in Sources */,
 				19C4241D24F20E0A00395657 /* TabBarController.swift in Sources */,
 				191CAFB82503BED900933A66 /* MyPost.swift in Sources */,
-				19D82EC624FD3D3600FEC53F /* FilterPage.swift in Sources */,
+				19BD2FFA251D0FAD00C52697 /* NicknameViewModel.swift in Sources */,
 				1974132F24FD09B7003BB2F3 /* AccountTab.swift in Sources */,
+				195A5C83251CF2A700FD352D /* LoginViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

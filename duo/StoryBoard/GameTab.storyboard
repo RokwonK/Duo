@@ -276,10 +276,10 @@
             </objects>
             <point key="canvasLocation" x="2873.913043478261" y="-218.30357142857142"/>
         </scene>
-        <!--Filterpage-->
+        <!--Filter View-->
         <scene sceneID="5xW-Sv-e1O">
             <objects>
-                <viewController storyboardIdentifier="filter" modalPresentationStyle="fullScreen" id="bJf-RR-lwF" customClass="Filterpage" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Filter" modalPresentationStyle="fullScreen" id="bJf-RR-lwF" customClass="FilterView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f2l-ub-s9Q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -294,7 +294,7 @@
                                 <rect key="frame" x="76" y="160" width="262" height="31"/>
                                 <color key="tintColor" red="1" green="0.55020816770000003" blue="0.18415063600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
-                                    <action selector="sliderValueChangedWithSender:" destination="bJf-RR-lwF" eventType="valueChanged" id="rAT-mY-qnH"/>
+                                    <action selector="sliderValueChangedWithSender:" destination="bJf-RR-lwF" eventType="valueChanged" id="g4M-Pk-xeL"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="티어" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="amo-q5-yel">
@@ -316,16 +316,16 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tv8-K8-fhO">
-                                <rect key="frame" x="176" y="195" width="62" height="18"/>
+                                <rect key="frame" x="75" y="195" width="264" height="18"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FLa-4t-TZ2">
-                                <rect key="frame" x="15" y="802" width="384" height="30"/>
+                                <rect key="frame" x="15" y="836" width="384" height="30"/>
                                 <state key="normal" title="적용"/>
                                 <connections>
-                                    <action selector="applyBtnWithSender:" destination="bJf-RR-lwF" eventType="touchUpInside" id="ECx-5U-lc6"/>
+                                    <action selector="applyBtnWithSender:" destination="bJf-RR-lwF" eventType="touchUpInside" id="BW2-CR-fms"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="게임모드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Uz-M5-D7Q">
@@ -350,7 +350,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="솔랭"/>
                                         <connections>
-                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="rcD-Fa-b8f"/>
+                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="ZnH-XG-hTS"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5P-4c-p52">
@@ -360,7 +360,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="자랭"/>
                                         <connections>
-                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="edU-Kx-fdd"/>
+                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="h9r-Bq-FcP"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bh4-nj-imZ">
@@ -370,7 +370,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="일반"/>
                                         <connections>
-                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="VS9-8Q-KDT"/>
+                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="ha5-UI-gXc"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nff-Sb-L6Q">
@@ -380,7 +380,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="칼바람"/>
                                         <connections>
-                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="uWr-gT-TCP"/>
+                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="aQc-Bl-BvZ"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvY-GU-UYn">
@@ -390,24 +390,18 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Cust"/>
                                         <connections>
-                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="QhT-cW-WLh"/>
+                                            <action selector="gameModeAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="8t8-Fh-eeo"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rsq-b4-PI4">
-                                <rect key="frame" x="15" y="268.5" width="97" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="97" id="nzg-ip-4pP"/>
-                                </constraints>
+                                <rect key="frame" x="15" y="268.5" width="32" height="34"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="P7D-s4-H4z">
                                 <rect key="frame" x="15" y="443.5" width="384" height="34"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="384" id="3Zg-1j-Z5W"/>
-                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
@@ -420,7 +414,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="탑"/>
                                         <connections>
-                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="G5B-Px-Gfs"/>
+                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="I9V-3e-cPf"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38V-E5-Mxg">
@@ -429,7 +423,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="정글"/>
                                         <connections>
-                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="gN1-Dx-MEc"/>
+                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="Ade-1q-Bju"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-hg-xBk">
@@ -438,7 +432,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="원딜"/>
                                         <connections>
-                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="6A3-PG-T41"/>
+                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="WvU-qe-mlp"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJ8-41-3gP">
@@ -447,7 +441,7 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="서폿"/>
                                         <connections>
-                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="lq7-3g-Zr3"/>
+                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="atN-dg-MG2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqv-xh-jy0">
@@ -456,33 +450,33 @@
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="미드"/>
                                         <connections>
-                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="3bZ-vN-88o"/>
+                                            <action selector="positionAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="o22-Sm-IUP"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-wT-hpH">
+                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-wT-hpH">
                                 <rect key="frame" x="15" y="533" width="384" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0j-dG-LQ9">
                                         <rect key="frame" x="0.0" y="0.0" width="108" height="30"/>
                                         <state key="normal" title="가능"/>
                                         <connections>
-                                            <action selector="talkOnAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="nLz-dM-fCG"/>
+                                            <action selector="talkOnAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="7V7-tI-vP2"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtC-0j-8If">
                                         <rect key="frame" x="138" y="0.0" width="108" height="30"/>
                                         <state key="normal" title="불가능"/>
                                         <connections>
-                                            <action selector="talkOnAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="pGF-cH-xgC"/>
+                                            <action selector="talkOnAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="vPO-1E-VtA"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4p-gQ-PZW">
                                         <rect key="frame" x="276" y="0.0" width="108" height="30"/>
                                         <state key="normal" title="상관없음"/>
                                         <connections>
-                                            <action selector="talkOnAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="Doh-Bq-JKA"/>
+                                            <action selector="talkOnAction:" destination="bJf-RR-lwF" eventType="touchUpInside" id="UPs-QJ-XHT"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -491,77 +485,79 @@
                         <viewLayoutGuide key="safeArea" id="KhN-Zu-VIv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="age-Mm-YsP" firstAttribute="top" secondItem="8Uz-M5-D7Q" secondAttribute="bottom" constant="5" id="0sR-0q-JV6"/>
-                            <constraint firstItem="f3j-QI-PgD" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="3eA-fU-JFp"/>
-                            <constraint firstItem="a7L-wT-hpH" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="6y7-e3-puH"/>
-                            <constraint firstItem="f3j-QI-PgD" firstAttribute="top" secondItem="Rsq-b4-PI4" secondAttribute="bottom" constant="30" id="9oX-RE-vIC"/>
-                            <constraint firstItem="P7D-s4-H4z" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="BQd-Vm-k0k"/>
-                            <constraint firstItem="tv8-K8-fhO" firstAttribute="top" secondItem="fhf-0e-oVo" secondAttribute="bottom" constant="5" id="C9Y-5D-nyc"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="bottom" secondItem="FLa-4t-TZ2" secondAttribute="bottom" constant="30" id="HNo-iQ-mvf"/>
-                            <constraint firstItem="amo-q5-yel" firstAttribute="top" secondItem="tv8-K8-fhO" secondAttribute="bottom" constant="30" id="K19-ZQ-Fob"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="FLa-4t-TZ2" secondAttribute="trailing" constant="15" id="MJR-Yr-ejJ"/>
-                            <constraint firstItem="P7D-s4-H4z" firstAttribute="top" secondItem="iuZ-TT-AwL" secondAttribute="bottom" constant="5" id="R0e-a7-opk"/>
-                            <constraint firstItem="8Uz-M5-D7Q" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="Rxe-6B-w0J"/>
-                            <constraint firstItem="tv8-K8-fhO" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="176" id="TPR-Q4-8iz"/>
-                            <constraint firstItem="amo-q5-yel" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="UMP-XB-Y8L"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="age-Mm-YsP" secondAttribute="trailing" constant="15" id="URr-pP-6zP"/>
-                            <constraint firstItem="WNX-IV-YSh" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="Ud1-NP-hd5"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="tv8-K8-fhO" secondAttribute="trailing" constant="176" id="WeW-x8-UvF"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="WNX-IV-YSh" secondAttribute="trailing" constant="15" id="Z1A-Xs-Nq3"/>
-                            <constraint firstItem="a7L-wT-hpH" firstAttribute="top" secondItem="9Z4-Im-Ooo" secondAttribute="bottom" constant="5" id="aCB-Nz-xB3"/>
-                            <constraint firstItem="iuZ-TT-AwL" firstAttribute="top" secondItem="WNX-IV-YSh" secondAttribute="bottom" constant="30" id="aSG-0w-CNg"/>
-                            <constraint firstItem="8Uz-M5-D7Q" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="5" id="bon-aw-GMv"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="fhf-0e-oVo" secondAttribute="trailing" constant="78" id="eow-fd-Ios"/>
-                            <constraint firstItem="9Z4-Im-Ooo" firstAttribute="top" secondItem="P7D-s4-H4z" secondAttribute="bottom" constant="30" id="fEu-gj-wy7"/>
-                            <constraint firstItem="Rsq-b4-PI4" firstAttribute="top" secondItem="amo-q5-yel" secondAttribute="bottom" constant="5" id="hPU-F1-C2N"/>
-                            <constraint firstItem="QuI-Om-4F2" firstAttribute="top" secondItem="age-Mm-YsP" secondAttribute="bottom" constant="30" id="if6-GP-rEH"/>
-                            <constraint firstItem="iuZ-TT-AwL" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="kil-mc-ZBy"/>
-                            <constraint firstItem="age-Mm-YsP" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="lgz-Vz-Kqb"/>
-                            <constraint firstItem="Rsq-b4-PI4" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="odE-MI-tUc"/>
-                            <constraint firstItem="fhf-0e-oVo" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="78" id="pyR-q2-1us"/>
-                            <constraint firstItem="WNX-IV-YSh" firstAttribute="top" secondItem="f3j-QI-PgD" secondAttribute="bottom" constant="5" id="rka-lU-J8H"/>
-                            <constraint firstItem="9Z4-Im-Ooo" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="uis-Te-Wsz"/>
-                            <constraint firstItem="QuI-Om-4F2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="xr3-Pd-RUO"/>
-                            <constraint firstItem="fhf-0e-oVo" firstAttribute="top" secondItem="age-Mm-YsP" secondAttribute="bottom" constant="55.5" id="y5m-Ls-m17"/>
-                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="a7L-wT-hpH" secondAttribute="trailing" constant="15" id="yMS-J2-Ofj"/>
-                            <constraint firstItem="FLa-4t-TZ2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="zAd-3r-JV4"/>
+                            <constraint firstItem="QuI-Om-4F2" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="90.5" id="0NY-VL-hSk"/>
+                            <constraint firstItem="age-Mm-YsP" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="2ir-G3-F2y"/>
+                            <constraint firstItem="FLa-4t-TZ2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="2u2-Yg-cnm"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="a7L-wT-hpH" secondAttribute="trailing" constant="15" id="5pQ-Le-Q9f"/>
+                            <constraint firstItem="age-Mm-YsP" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="30.5" id="ARd-wq-fji"/>
+                            <constraint firstItem="f3j-QI-PgD" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="CsD-mE-eGj"/>
+                            <constraint firstItem="a7L-wT-hpH" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="EOX-1y-FEH"/>
+                            <constraint firstItem="QuI-Om-4F2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="Eac-yw-CRb"/>
+                            <constraint firstItem="P7D-s4-H4z" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="H9x-XZ-Lyj"/>
+                            <constraint firstItem="Rsq-b4-PI4" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="Hn2-Wr-apA"/>
+                            <constraint firstItem="fhf-0e-oVo" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="78" id="I7O-P5-1ef"/>
+                            <constraint firstItem="tv8-K8-fhO" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="151" id="JMR-2A-lde"/>
+                            <constraint firstItem="fhf-0e-oVo" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="116" id="Kyw-mI-7hJ"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="FLa-4t-TZ2" secondAttribute="trailing" constant="15" id="NmI-8c-vXe"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="fhf-0e-oVo" secondAttribute="trailing" constant="78" id="QIy-Vh-CK2"/>
+                            <constraint firstItem="amo-q5-yel" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="199" id="Qk0-BJ-rGR"/>
+                            <constraint firstItem="9Z4-Im-Ooo" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="UWj-Ta-toA"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="P7D-s4-H4z" secondAttribute="trailing" constant="15" id="UdE-vq-he4"/>
+                            <constraint firstItem="8Uz-M5-D7Q" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="WGh-ZK-IKp"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="WNX-IV-YSh" secondAttribute="trailing" constant="15" id="XlC-sa-7mB"/>
+                            <constraint firstItem="a7L-wT-hpH" firstAttribute="top" relation="lessThanOrEqual" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="489" id="YU5-4q-pzG"/>
+                            <constraint firstItem="8Uz-M5-D7Q" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="5" id="ceF-fj-AZu"/>
+                            <constraint firstAttribute="bottom" secondItem="FLa-4t-TZ2" secondAttribute="bottom" constant="30" id="cyd-Cq-FXO"/>
+                            <constraint firstItem="P7D-s4-H4z" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="399.5" id="dfU-9Z-vOh"/>
+                            <constraint firstItem="amo-q5-yel" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="g2q-2a-UKh"/>
+                            <constraint firstItem="iuZ-TT-AwL" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="374" id="gfT-a0-DUN"/>
+                            <constraint firstItem="tv8-K8-fhO" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="75" id="h66-sO-oV9"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="tv8-K8-fhO" secondAttribute="trailing" constant="75" id="lsv-mR-VPx"/>
+                            <constraint firstItem="WNX-IV-YSh" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="nac-zq-adR"/>
+                            <constraint firstItem="Rsq-b4-PI4" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="224.5" id="pHb-Kv-jus"/>
+                            <constraint firstItem="WNX-IV-YSh" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="314" id="sxK-3f-N3V"/>
+                            <constraint firstItem="f3j-QI-PgD" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="288.5" id="tQq-kM-YzS"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="age-Mm-YsP" secondAttribute="trailing" constant="15" id="uCO-9w-iEb"/>
+                            <constraint firstItem="iuZ-TT-AwL" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="xhD-uT-fjv"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Rsq-b4-PI4" secondAttribute="trailing" constant="367" id="ygi-ti-gbQ"/>
+                            <constraint firstItem="9Z4-Im-Ooo" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="463.5" id="zPO-52-ZH7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mNn-Xv-Nw8">
                         <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="iwR-Lz-DbY">
                             <connections>
-                                <action selector="popAction:" destination="bJf-RR-lwF" id="qU6-4Y-X80"/>
+                                <action selector="popAction:" destination="bJf-RR-lwF" id="WBf-9p-ar6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <value key="contentSizeForViewInPopover" type="size" width="375" height="812"/>
                     <connections>
-                        <outlet property="Dealer" destination="h5c-hg-xBk" id="bB1-Ds-kgK"/>
-                        <outlet property="Jungle" destination="38V-E5-Mxg" id="90w-zz-Yd0"/>
-                        <outlet property="Mid" destination="Pqv-xh-jy0" id="2ks-IL-FIl"/>
-                        <outlet property="Support" destination="zJ8-41-3gP" id="rhI-QE-XNS"/>
-                        <outlet property="Top" destination="TaQ-Mr-hWw" id="odC-WT-COm"/>
-                        <outlet property="applyBtn" destination="FLa-4t-TZ2" id="0Oo-La-oV0"/>
-                        <outlet property="exitButton" destination="iwR-Lz-DbY" id="WCe-zi-16b"/>
-                        <outlet property="myTier" destination="Rsq-b4-PI4" id="Vy5-yr-p6a"/>
-                        <outlet property="peopleNum" destination="tv8-K8-fhO" id="evP-c4-95k"/>
-                        <outlet property="startTimeField" destination="P7D-s4-H4z" id="Byp-sJ-n26"/>
-                        <outlet property="talkOnAny" destination="v4p-gQ-PZW" id="6Dl-I2-Gge"/>
-                        <outlet property="talkOnFalse" destination="BtC-0j-8If" id="sIk-mg-QYh"/>
-                        <outlet property="talkOnTrue" destination="Y0j-dG-LQ9" id="Pik-aa-7Wy"/>
-                        <outletCollection property="GameModeButtons" destination="dvY-GU-UYn" collectionClass="NSMutableArray" id="4jH-Dc-4BU"/>
-                        <outletCollection property="GameModeButtons" destination="Nff-Sb-L6Q" collectionClass="NSMutableArray" id="Azc-w1-QfS"/>
-                        <outletCollection property="GameModeButtons" destination="bh4-nj-imZ" collectionClass="NSMutableArray" id="GfD-RW-InD"/>
-                        <outletCollection property="GameModeButtons" destination="j5P-4c-p52" collectionClass="NSMutableArray" id="KlW-pP-ech"/>
-                        <outletCollection property="GameModeButtons" destination="jfk-GL-poF" collectionClass="NSMutableArray" id="YlN-Md-YJ3"/>
-                        <outletCollection property="PositionButtons" destination="TaQ-Mr-hWw" collectionClass="NSMutableArray" id="7bb-2K-N7t"/>
-                        <outletCollection property="PositionButtons" destination="38V-E5-Mxg" collectionClass="NSMutableArray" id="xea-Ea-8xH"/>
-                        <outletCollection property="PositionButtons" destination="h5c-hg-xBk" collectionClass="NSMutableArray" id="ir2-k8-F7Q"/>
-                        <outletCollection property="PositionButtons" destination="zJ8-41-3gP" collectionClass="NSMutableArray" id="dAi-Ok-52z"/>
-                        <outletCollection property="PositionButtons" destination="Pqv-xh-jy0" collectionClass="NSMutableArray" id="4I9-Mm-2Y0"/>
-                        <outletCollection property="talkOnButtons" destination="Y0j-dG-LQ9" collectionClass="NSMutableArray" id="VKP-SU-ncy"/>
-                        <outletCollection property="talkOnButtons" destination="BtC-0j-8If" collectionClass="NSMutableArray" id="OKc-Zf-FS5"/>
-                        <outletCollection property="talkOnButtons" destination="v4p-gQ-PZW" collectionClass="NSMutableArray" id="NCq-17-bcy"/>
+                        <outlet property="Dealer" destination="h5c-hg-xBk" id="Xty-uw-FuE"/>
+                        <outlet property="Jungle" destination="38V-E5-Mxg" id="6pl-co-QnB"/>
+                        <outlet property="Mid" destination="Pqv-xh-jy0" id="G0J-B3-aj2"/>
+                        <outlet property="Support" destination="zJ8-41-3gP" id="f3F-lS-j5O"/>
+                        <outlet property="Top" destination="TaQ-Mr-hWw" id="yUY-Nx-Tn3"/>
+                        <outlet property="applyBtn" destination="FLa-4t-TZ2" id="Nw9-Fl-sWW"/>
+                        <outlet property="exitButton" destination="iwR-Lz-DbY" id="a8M-Zu-J6g"/>
+                        <outlet property="myTier" destination="Rsq-b4-PI4" id="EdR-jJ-0c1"/>
+                        <outlet property="peopleNum" destination="tv8-K8-fhO" id="W92-59-nfS"/>
+                        <outlet property="startTimeField" destination="P7D-s4-H4z" id="3m2-hh-Yl7"/>
+                        <outlet property="talkOnAny" destination="v4p-gQ-PZW" id="Y8d-zW-ZT1"/>
+                        <outlet property="talkOnFalse" destination="BtC-0j-8If" id="Vh6-WN-Hko"/>
+                        <outlet property="talkOnTrue" destination="Y0j-dG-LQ9" id="EQR-3Y-Okf"/>
+                        <outletCollection property="GameModeButtons" destination="jfk-GL-poF" collectionClass="NSMutableArray" id="yKk-qJ-t1W"/>
+                        <outletCollection property="GameModeButtons" destination="j5P-4c-p52" collectionClass="NSMutableArray" id="vkQ-gH-WhV"/>
+                        <outletCollection property="GameModeButtons" destination="bh4-nj-imZ" collectionClass="NSMutableArray" id="tOG-5k-rgL"/>
+                        <outletCollection property="GameModeButtons" destination="Nff-Sb-L6Q" collectionClass="NSMutableArray" id="Vpg-54-LwG"/>
+                        <outletCollection property="GameModeButtons" destination="dvY-GU-UYn" collectionClass="NSMutableArray" id="a7L-EY-xB2"/>
+                        <outletCollection property="PositionButtons" destination="TaQ-Mr-hWw" collectionClass="NSMutableArray" id="WeJ-hN-Oa3"/>
+                        <outletCollection property="PositionButtons" destination="38V-E5-Mxg" collectionClass="NSMutableArray" id="Ue4-3G-8MC"/>
+                        <outletCollection property="PositionButtons" destination="h5c-hg-xBk" collectionClass="NSMutableArray" id="Qtx-8z-6Fi"/>
+                        <outletCollection property="PositionButtons" destination="zJ8-41-3gP" collectionClass="NSMutableArray" id="TrC-ii-nkL"/>
+                        <outletCollection property="PositionButtons" destination="Pqv-xh-jy0" collectionClass="NSMutableArray" id="VjF-jP-QWM"/>
+                        <outletCollection property="talkOnButtons" destination="Y0j-dG-LQ9" collectionClass="NSMutableArray" id="C6q-f6-unN"/>
+                        <outletCollection property="talkOnButtons" destination="BtC-0j-8If" collectionClass="NSMutableArray" id="3kn-vf-usb"/>
+                        <outletCollection property="talkOnButtons" destination="v4p-gQ-PZW" collectionClass="NSMutableArray" id="SW5-dY-VMX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cEN-d8-f95" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
