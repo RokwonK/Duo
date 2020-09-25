@@ -20,12 +20,6 @@ class NickNameView : UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-    
-//    func loginSuccess () {
-//        let storyBoard = self.storyboard!
-//        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
-//        present(tabbarcontroller, animated: true, completion: nil)
-//       }
 
     //데이터 저장함수
     func first_save( _ nickName: String, _ userId: Int){
@@ -52,8 +46,8 @@ class NickNameView : UIViewController {
     // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
     func gotoTabBar() {
         let storyBoard = self.storyboard!
-        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
-        present(tabbarcontroller, animated: true, completion: nil)
+        let tabBarController = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
+        present(tabBarController, animated: true, completion: nil)
     }
 
     

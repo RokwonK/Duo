@@ -39,7 +39,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         self.navigationController?.navigationBar.barStyle = .default;
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.topItem?.title = "필터"
-        exitButton.tintColor = UIColor.white
+        exitButton.tintColor = UIColor.orange
         
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))

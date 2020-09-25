@@ -58,8 +58,8 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     
     func loginSuccess () {
         let storyBoard = self.storyboard!
-        let tabbarcontroller = storyBoard.instantiateViewController(withIdentifier: "tabbar") as! TabBarController
-        present(tabbarcontroller, animated: true, completion: nil)
+        let tabBarController = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
+        present(tabBarController, animated: true, completion: nil)
        }
     
     
@@ -100,7 +100,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                     
                     if nickName == "needNickname"{
                         let storyBoard = self.storyboard!
-                        let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "nickname") as! UIViewController
+                        let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
                         self.present(nicknamePage, animated: true, completion: nil)
                     }
                         

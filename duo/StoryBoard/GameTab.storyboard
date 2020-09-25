@@ -24,7 +24,6 @@
                                 </constraints>
                                 <state key="normal" image="lol"/>
                                 <connections>
-                                    <action selector="Lol:" destination="MGd-Kj-89V" eventType="touchUpInside" id="NrV-4F-aBr"/>
                                     <segue destination="GeV-GO-Dgg" kind="show" id="r7F-lV-XM0"/>
                                 </connections>
                             </button>
@@ -34,9 +33,6 @@
                                     <constraint firstAttribute="width" secondItem="ZZx-O2-1aS" secondAttribute="height" multiplier="1:1" id="nNn-7I-yJb"/>
                                 </constraints>
                                 <state key="normal" image="overwatch"/>
-                                <connections>
-                                    <action selector="Overwatch:" destination="MGd-Kj-89V" eventType="touchUpInside" id="lLr-mR-lQh"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-Vu-a9v">
                                 <rect key="frame" x="123" y="396" width="169" height="169"/>
@@ -44,9 +40,6 @@
                                     <constraint firstAttribute="width" secondItem="XAx-Vu-a9v" secondAttribute="height" multiplier="1:1" id="Cpu-Wo-XgK"/>
                                 </constraints>
                                 <state key="normal" image="battle"/>
-                                <connections>
-                                    <action selector="Battleground:" destination="MGd-Kj-89V" eventType="touchUpInside" id="d0w-lW-SD2"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jNk-dg-aQK"/>

@@ -30,9 +30,9 @@ class FilterViewModel {
         else {FilterModel.sharedInstance.Position["jungle"]=1}
         
         if FilterView().Dealer?.tintColor == UIColor.black{
-            FilterModel.sharedInstance.Position["dealer"]=2
+            FilterModel.sharedInstance.Position["bottom"]=2
         }
-        else {FilterModel.sharedInstance.Position["dealer"]=1}
+        else {FilterModel.sharedInstance.Position["bottom"]=1}
         
         if FilterView().Support?.tintColor == UIColor.black{
             FilterModel.sharedInstance.Position["support"]=2
@@ -41,34 +41,32 @@ class FilterViewModel {
     }
     
     func getPosts() {
-
+        
         FilterModel.sharedInstance.AD!.filterdata = []// 필터 설정할때마다 빈배열로 초기화
         BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
         let req = AF.request(url,
                              method:.post,
-                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": FilterModel.sharedInstance.gameModeName,"wantTier": FilterModel.sharedInstance.Mytiernumber,"startTime": FilterModel.sharedInstance.Time, "headCount": FilterModel.sharedInstance.headCount,"top": FilterModel.sharedInstance.Position["top"],"mid":FilterModel.sharedInstance.Position["mid"],"jungle": FilterModel.sharedInstance.Position["jungle"],"bottom": FilterModel.sharedInstance.Position["dealer"],"support": FilterModel.sharedInstance.Position["support"],"talkon":FilterModel.sharedInstance.talkOn],
+                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": FilterModel.sharedInstance.gameModeName,"wantTier": FilterModel.sharedInstance.Mytiernumber,"startTime": FilterModel.sharedInstance.Time, "headCount": FilterModel.sharedInstance.headCount,"top": FilterModel.sharedInstance.Position["top"],"mid":FilterModel.sharedInstance.Position["mid"],"jungle": FilterModel.sharedInstance.Position["jungle"],"bottom": FilterModel.sharedInstance.Position["bottom"],"support": FilterModel.sharedInstance.Position["support"],"talkon":FilterModel.sharedInstance.talkOn],
                              encoding: JSONEncoding.default)
         
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {
             case.success(let value):
-                print("4444)")
                 if let datas = value as? Array<Dictionary<String,Any>> {
                     var i = 0
                     for i in datas{
-                        
                         FilterModel.sharedInstance.AD!.filterdata.append(i);
                     }
                     print(FilterModel.sharedInstance.AD!.filterdata)
                 }
-            case .failure(let error):
+            case.failure(let error):
                 print(error)
             }
         }
     }
-
+    
     
     lazy var uploadStartTime : UIDatePicker = {
         let startTimePicker : UIDatePicker = UIDatePicker();

@@ -12,25 +12,24 @@ import Alamofire
 class MyPostView :  UITableViewController{
     
     @IBOutlet var MyPostTable: UITableView!
-    var postsData : Array<Dictionary<String, Any>>?;
-    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
-
+    
+    
     func getPosts() {
         BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/mypost")!
         print("id : \(BaseFunc.userId)")
         print("id : \(BaseFunc.userNickname)")
         let req = AF.request(url,
-                            method:.post,
-                            parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname],
-                            encoding: JSONEncoding.default)
+                             method:.post,
+                             parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname],
+                             encoding: JSONEncoding.default)
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {
             case.success(let value):
                 
                 if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.postsData = datas;
+                    MyPostModel.sharedInstance.postsData = datas;
                     print("success")
                     DispatchQueue.main.async {
                         // 테이블 뷰에 그리기
@@ -44,37 +43,37 @@ class MyPostView :  UITableViewController{
         }
     }
     
-//    func send(){
-//        BaseFunc.fetch();
-//        let url = URL(string : BaseFunc.baseurl + "/post/lol/uploadpost")!
-//        let req = AF.request(url,
-//                             method:.post,
-//                             parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname, "gameMode" : "soloRank", "title" : "졸려...","startTier":1,"endTier":100,"startTime":"17:00"
-//                                ,"content":"ㅎㅇ", "headCount":3, "top" : 3,
-//                                 "bottom" : 3, "mid" : 3, "jungle" : 3, "support" : 3, "talkon" : 3],
-//                             encoding: JSONEncoding.default)
-//
-//        req.responseJSON { res in
-//            print(res)
-//
-//            switch res.result{
-//            case.success (let value):
-//                do{
-//                    let data1 = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-//                    print(data1)
-//                }
-//                catch{
-//                }
-//            case .failure(let error):
-//                print("error :\(error)")
-//                break;
-//            }
-//        }
-//    }
-
+    //    func send(){
+    //        BaseFunc.fetch();
+    //        let url = URL(string : BaseFunc.baseurl + "/post/lol/uploadpost")!
+    //        let req = AF.request(url,
+    //                             method:.post,
+    //                             parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname, "gameMode" : "soloRank", "title" : "졸려...","startTier":1,"endTier":100,"startTime":"17:00"
+    //                                ,"content":"ㅎㅇ", "headCount":3, "top" : 3,
+    //                                 "bottom" : 3, "mid" : 3, "jungle" : 3, "support" : 3, "talkon" : 3],
+    //                             encoding: JSONEncoding.default)
+    //
+    //        req.responseJSON { res in
+    //            print(res)
+    //
+    //            switch res.result{
+    //            case.success (let value):
+    //                do{
+    //                    let data1 = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+    //                    print(data1)
+    //                }
+    //                catch{
+    //                }
+    //            case .failure(let error):
+    //                print("error :\(error)")
+    //                break;
+    //            }
+    //        }
+    //    }
+    
     // 테이블의 갯수 정의
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let posts = postsData {
+        if let posts = MyPostModel.sharedInstance.postsData {
             return posts.count;
         }
         return 0
@@ -86,7 +85,7 @@ class MyPostView :  UITableViewController{
         let cell = MyPostTable.dequeueReusableCell(withIdentifier: "MyPostCell", for: indexPath) as! MyPostCell
         print(indexPath)
         let index = indexPath.row;
-        if let posts = postsData {
+        if let posts = MyPostModel.sharedInstance.postsData {
             let v = posts[index];
             print(v)
             
@@ -129,7 +128,7 @@ class MyPostView :  UITableViewController{
             if let st = v["startTime"] as? String {
                 cell.startTime.text = "시작시간 : \(st)";
             }
-
+            
             if let stTier = v["startTier"] as? Int {
                 if let edTier = v["endTier"] as? Int {
                     let stShared = stTier/10;
@@ -141,13 +140,13 @@ class MyPostView :  UITableViewController{
                         cell.tier.text = "상관x";
                     }
                     else if (stTier == 1) {
-                        cell.tier.text = "~\(eachTier[edShared] + "\(10-edRemaind)" )";
+                        cell.tier.text = "~\(MyPostModel.sharedInstance.eachTier[edShared] + "\(10-edRemaind)" )";
                     }
                     else if (edTier == 100) {
-                        cell.tier.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~";
+                        cell.tier.text = "\(MyPostModel.sharedInstance.eachTier[stShared] + "\(10-stRemaind)" )~";
                     }
                     else {
-                        cell.tier.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~\(eachTier[edShared] + "\(10-edRemaind)" )";
+                        cell.tier.text = "\(MyPostModel.sharedInstance.eachTier[stShared] + "\(10-stRemaind)" )~\(MyPostModel.sharedInstance.eachTier[edShared] + "\(10-edRemaind)" )";
                     }
                     
                 }
@@ -158,7 +157,6 @@ class MyPostView :  UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        self.send()
         self.getPosts()
         
     }

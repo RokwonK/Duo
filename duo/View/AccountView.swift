@@ -18,15 +18,10 @@ class AccountView: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    func goto_loginpage () {
+    func returnToLogin () {
         let storyBoard = self.storyboard!
         let loginpage = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginView
         present(loginpage, animated: true, completion: nil)
-        
-    }
-    
-    
-    @IBAction func mypost(_ sender: Any) {
         
     }
     
@@ -35,10 +30,10 @@ class AccountView: UIViewController {
         LoginView().kakaoLogout()
         LoginView().googleLogout()
         
-        goto_loginpage()
+        returnToLogin()
     }
     
-    @IBAction func DeleteAccount(_ sender: Any) {
+    @IBAction func deleteAccount(_ sender: Any) {
         
         let ad = UIApplication.shared.delegate as? AppDelegate
         let url = URL(string : BaseFunc.baseurl + "/login/delete_account")!
@@ -61,10 +56,9 @@ class AccountView: UIViewController {
                         LoginView().naverLogout()
                         LoginView().kakaoLogout()
                         LoginView().googleLogout()
-                        self.goto_loginpage()})
+                        self.returnToLogin()})
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
-                    
                 }
                 catch{
                 }
