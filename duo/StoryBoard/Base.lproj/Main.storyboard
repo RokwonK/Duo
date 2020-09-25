@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Nickname-->
+        <!--Nick Name View-->
         <scene sceneID="aQH-Bu-Gdo">
             <objects>
-                <viewController storyboardIdentifier="nickname" modalPresentationStyle="fullScreen" id="q13-U8-yaX" customClass="Nickname" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="nickname" modalPresentationStyle="fullScreen" id="q13-U8-yaX" customClass="NickNameView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ixK-LY-YjN">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -35,7 +35,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="생성하기"/>
                                 <connections>
-                                    <action selector="make_nicknameWithSender:" destination="q13-U8-yaX" eventType="touchUpInside" id="C5x-7Y-7BH"/>
+                                    <action selector="makeNickNameWithSender:" destination="q13-U8-yaX" eventType="touchUpInside" id="rKA-Ta-VQP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -43,7 +43,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <connections>
-                        <outlet property="inputtext" destination="uks-dc-yzf" id="y9W-C9-CBA"/>
+                        <outlet property="inputText" destination="uks-dc-yzf" id="6Yg-WO-qsd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhF-aN-hpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -53,7 +53,7 @@
         <!--Login View-->
         <scene sceneID="oqZ-q3-E4H">
             <objects>
-                <viewController storyboardIdentifier="LoginPageView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DsX-jZ-B1h" customClass="LoginView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DsX-jZ-B1h" customClass="LoginView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tIT-zj-MVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -616,10 +616,10 @@
             </objects>
             <point key="canvasLocation" x="2096" y="-599"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab Bar Controller View-->
         <scene sceneID="8q6-dd-NEh">
             <objects>
-                <tabBarController storyboardIdentifier="tabbar" modalPresentationStyle="fullScreen" id="WMw-nE-IrR" customClass="TabBarController" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="tabbar" modalPresentationStyle="fullScreen" id="WMw-nE-IrR" customClass="TabBarControllerView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <tabBar key="tabBar" autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="CrA-2c-XRE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -653,10 +653,10 @@
             </objects>
             <point key="canvasLocation" x="1420" y="1130"/>
         </scene>
-        <!--Account View Controller-->
+        <!--Account View-->
         <scene sceneID="kOI-TP-tW3">
             <objects>
-                <viewController id="mWa-vB-PSF" customClass="AccountViewController" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="mWa-vB-PSF" customClass="AccountView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gDh-zH-X0W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

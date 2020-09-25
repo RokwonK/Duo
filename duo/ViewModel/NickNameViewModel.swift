@@ -6,4 +6,12 @@
 //  Copyright © 2020 김록원. All rights reserved.
 //
 
-import Foundation
+import UIKit
+import CoreData
+
+class NickNameViewModel : UIViewController{
+    
+    
+
+    
+}

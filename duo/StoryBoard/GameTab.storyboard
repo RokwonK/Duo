@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Game View Controller-->
+        <!--Game Select View-->
         <scene sceneID="8mT-GD-HhJ">
             <objects>
-                <viewController storyboardIdentifier="GameTab" id="MGd-Kj-89V" customClass="GameViewController" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="GameTab" id="MGd-Kj-89V" customClass="GameSelectView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ip5-cW-OPZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

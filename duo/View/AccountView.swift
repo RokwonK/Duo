@@ -8,7 +8,7 @@
 import Alamofire
 import UIKit
 
-class AccountViewController: UIViewController {
+class AccountView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +20,9 @@ class AccountViewController: UIViewController {
     
     func goto_loginpage () {
         let storyBoard = self.storyboard!
-        let loginpage = storyBoard.instantiateViewController(withIdentifier: "loginpage") as! LoginView
+        let loginpage = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginView
         present(loginpage, animated: true, completion: nil)
+        
     }
     
     
@@ -57,9 +58,9 @@ class AccountViewController: UIViewController {
                     let deletedata = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let alert = UIAlertController(title: nil , message: "회원탈퇴 완료", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "꺼져", style: .default, handler : {(alert: UIAlertAction!) in
-                        /*ViewController().naverLogout();
-                         ViewController().kakaoLogout();
-                         ViewController().googleLogout();*/
+                        LoginView().naverLogout()
+                        LoginView().kakaoLogout()
+                        LoginView().googleLogout()
                         self.goto_loginpage()})
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
