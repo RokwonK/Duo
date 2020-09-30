@@ -67,7 +67,7 @@
         <!--메인게시판-->
         <scene sceneID="U6n-ZF-suP">
             <objects>
-                <tableViewController storyboardIdentifier="tableboard" id="GeV-GO-Dgg" customClass="LolMainBoard" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="tableboard" id="GeV-GO-Dgg" customClass="LoLMainBoard" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="ypE-9S-UtW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
