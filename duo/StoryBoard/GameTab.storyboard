@@ -17,8 +17,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83n-cC-1AI">
-                                <rect key="frame" x="123" y="94" width="169" height="169"/>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83n-cC-1AI">
+                                <rect key="frame" x="123" y="364" width="169" height="169"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="83n-cC-1AI" secondAttribute="height" multiplier="1:1" id="RlJ-VT-Lzw"/>
                                 </constraints>
@@ -27,32 +27,12 @@
                                     <segue destination="GeV-GO-Dgg" kind="show" id="r7F-lV-XM0"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZZx-O2-1aS">
-                                <rect key="frame" x="123" y="650" width="169" height="169"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="ZZx-O2-1aS" secondAttribute="height" multiplier="1:1" id="nNn-7I-yJb"/>
-                                </constraints>
-                                <state key="normal" image="overwatch"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XAx-Vu-a9v">
-                                <rect key="frame" x="123" y="396" width="169" height="169"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="XAx-Vu-a9v" secondAttribute="height" multiplier="1:1" id="Cpu-Wo-XgK"/>
-                                </constraints>
-                                <state key="normal" image="battle"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="jNk-dg-aQK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="83n-cC-1AI" firstAttribute="leading" secondItem="jNk-dg-aQK" secondAttribute="leading" constant="123" id="2aF-2o-FZr"/>
-                            <constraint firstItem="ZZx-O2-1aS" firstAttribute="top" secondItem="XAx-Vu-a9v" secondAttribute="bottom" constant="85" id="6d1-DC-Mys"/>
-                            <constraint firstItem="jNk-dg-aQK" firstAttribute="bottom" secondItem="ZZx-O2-1aS" secondAttribute="bottom" constant="43" id="PD3-4C-Hbw"/>
-                            <constraint firstItem="jNk-dg-aQK" firstAttribute="trailing" secondItem="ZZx-O2-1aS" secondAttribute="trailing" constant="122" id="TvR-fK-osI"/>
                             <constraint firstItem="83n-cC-1AI" firstAttribute="top" secondItem="jNk-dg-aQK" secondAttribute="top" constant="50" id="VYC-A4-bWm"/>
-                            <constraint firstItem="ZZx-O2-1aS" firstAttribute="leading" secondItem="jNk-dg-aQK" secondAttribute="leading" constant="123" id="ZM1-l5-0Nl"/>
-                            <constraint firstItem="jNk-dg-aQK" firstAttribute="trailing" secondItem="XAx-Vu-a9v" secondAttribute="trailing" constant="122" id="acR-iW-QnQ"/>
-                            <constraint firstItem="XAx-Vu-a9v" firstAttribute="leading" secondItem="jNk-dg-aQK" secondAttribute="leading" constant="123" id="cws-ml-OJU"/>
                             <constraint firstItem="jNk-dg-aQK" firstAttribute="trailing" secondItem="83n-cC-1AI" secondAttribute="trailing" constant="122" id="rHd-K2-osf"/>
                         </constraints>
                     </view>
@@ -1004,7 +984,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="battle" width="795" height="782"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="icon-position-bottom" width="136" height="136"/>
         <image name="icon-position-jungle" width="136" height="136"/>
@@ -1014,7 +993,6 @@
         <image name="lol" width="300" height="300"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="mic.slash" catalog="system" width="108" height="128"/>
-        <image name="overwatch" width="1200" height="1200"/>
         <image name="slider.horizontal.3" catalog="system" width="128" height="100"/>
         <image name="xmark" catalog="system" width="128" height="113"/>
         <systemColor name="labelColor">

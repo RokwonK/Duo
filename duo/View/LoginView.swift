@@ -12,9 +12,14 @@ import KakaoSDKUser
 import GoogleSignIn
 import CoreData
 import NaverThirdPartyLogin
+import RxSwift
+import RxCocoa
 
 
 class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
+    
+    var disposeBag = DisposeBag()
+    
     
     //데이터 저장함수
     func saveAccountInfo( _ nickName: String, _ userID : Int){
@@ -31,8 +36,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
 
         do{
             try context.save()
-            print(nickName)
-            print(userID)
             
         } catch let error as NSError{
             print("저장 오류 \(error), \(error.userInfo)")
@@ -54,7 +57,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         {
             print ("There was an error")
         }
-    }
+    }   
     
     func loginSuccess () {
         let storyBoard = self.storyboard!
@@ -64,51 +67,133 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     
     
     // 우리 서버와 통신 고유 id값 닉네임 넘겨줌
-    func loginProcess(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
+//    func loginProcess(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
+//
+//        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
+//        let url = URL(string :urlStr)!
+//        var nickName = ""
+//        var userID = 0
+//        let ad = UIApplication.shared.delegate as? AppDelegate
+//        ad?.sns_name = sns            //appdelegate에다 변수저장
+//        ad?.access_token = acToken
+//
+//        //서버에서 받을 json데이터항목정의
+//        struct getInfo : Codable {
+//            var nickname : String
+//            var id : Int
+//        }
+//
+//        //(우리 서버로 인증 하는 부분)
+//        let req = AF.request(url,
+//                            method:.post,
+//                            parameters: ["accesstoken" : acToken],
+//                            encoding: JSONEncoding.default)
+//
+//        req.responseJSON { res in
+//
+//            switch res.result {
+//            case.success (let value):
+//                do{
+//                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+//                    let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
+//
+//                    nickName = loginInfo.nickname
+//                    userID = Int(loginInfo.id)
+//
+//                    if nickName == "needNickname"{
+//                        let storyBoard = self.storyboard!
+//                        let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
+//                        self.present(nicknamePage, animated: true, completion: nil)
+//                    }
+//
+//                    else{
+//                        //resetAllRecords()
+//                        self.saveAccountInfo(nickName, Int(userID))
+//                        self.loginSuccess()
+//                    }
+//                }
+//                catch{
+//                }
+//
+//            case.failure(let error):
+//                print("error :\(error)")
+//                break;
+//            }
+//        }
+//    }
+//
+    func loginProcess(_ acToken : String, _ sns : String) {
         
-        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
+        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns)"
         let url = URL(string :urlStr)!
         var nickName = ""
         var userID = 0
+        var message = ""
+        var code = 0
         let ad = UIApplication.shared.delegate as? AppDelegate
         ad?.sns_name = sns            //appdelegate에다 변수저장
         ad?.access_token = acToken
 
         //서버에서 받을 json데이터항목정의
         struct getInfo : Codable {
+            var userToken : String
             var nickname : String
             var id : Int
+        }
+        
+        struct errorMessage : Codable {
+            var msg : String
+            var code : Int
         }
         
         //(우리 서버로 인증 하는 부분)
         let req = AF.request(url,
                             method:.post,
-                            parameters: ["accesstoken" : acToken],
-                            encoding: JSONEncoding.default)
+                            encoding: JSONEncoding.default,
+                            headers: ["Authorization" : acToken, "Content-Type": "application/json"])
         
         req.responseJSON { res in
+
             print(res)
-    
             switch res.result {
             case.success (let value):
+                print("여기로들어옴")
                 do{
+                    print("dodo")
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
+//                  let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
+                    let eM = try JSONDecoder().decode(errorMessage.self, from: data)
+
                     
-                    nickName = loginInfo.nickname
-                    userID = Int(loginInfo.id)
+//                    nickName = loginInfo.nickname
+//                    userID = Int(loginInfo.id)
                     
-                    if nickName == "needNickname"{
+                    message = eM.msg
+                    code = Int(eM.code)
+                    print(message)
+                    print(code)
+                    
+                    if message == "wrong access"{
                         let storyBoard = self.storyboard!
                         let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
                         self.present(nicknamePage, animated: true, completion: nil)
-                    }
                         
+                    }
+                    
+                    
+                    //                    if nickName == "needNickname"{
+                    //                        let storyBoard = self.storyboard!
+                    //                        let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
+                    //                        self.present(nicknamePage, animated: true, completion: nil)
+                    //                    }
+                    
+                    //
+                    //resetAllRecords()
                     else{
-                        //resetAllRecords()
                         self.saveAccountInfo(nickName, Int(userID))
                         self.loginSuccess()
                     }
+                    
                 }
                 catch{
                 }
@@ -118,26 +203,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                 break;
             }
         }
-        
-        
-//        if fromserver_nickname == "needNickname"{
-//            let storyBoard = self.storyboard!
-//            let make_nickname = storyBoard.instantiateViewController(withIdentifier: "nickname") as! UIViewController
-//            present(make_nickname, animated: true, completion: nil)
-//
-//        }
-//
-//        else{
-//            //resetAllRecords()
-//            save(fromserver_nickname, Int(fromserver_id))
-//        }
-//
     }
-    
     /*
         구글 로그인
     */
-    
     
     let google = GIDSignIn.sharedInstance();
     
@@ -166,21 +235,16 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             return;
         }
         
-        
         guard let idToken = user.authentication.idToken else {return}
-        guard let idTokenExpire = user.authentication.idTokenExpirationDate else {return}
-        guard let rfToken = user.authentication.refreshToken else {return}
-        print(idToken)
-        print(idTokenExpire)
-        print(rfToken)
+//        guard let idTokenExpire = user.authentication.idTokenExpirationDate else {return}
+//        guard let rfToken = user.authentication.refreshToken else {return}
         
-        loginProcess(idToken, idTokenExpire, rfToken, "google")
+        loginProcess(idToken, "google")
     }
     
     // 로그아웃
     func googleLogout() {
         google?.signOut()
-        print("3")
     }
     
     @IBAction func Google_Login (_sender: AnyObject){
@@ -199,13 +263,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     func getNaverEmailFromURL() {
         // 받은 데이터를 이용해서 사용자 정보 가져오기
         guard let ACToken = loginConn?.accessToken else {return }
-        guard let ACExpireDate = loginConn?.accessTokenExpireDate else {return }
-        guard let RFToken = loginConn?.refreshToken else {return }
-        print("ACToken : \(ACToken) ")
-        print("ACEXpireDate : \(ACExpireDate) ")
-        print("ACToken : \(RFToken) ")
-        
-        self.loginProcess(ACToken,ACExpireDate,RFToken, "naver")
+//        guard let ACExpireDate = loginConn?.accessTokenExpireDate else {return }
+//        guard let RFToken = loginConn?.refreshToken else {return }
+
+        self.loginProcess(ACToken, "naver")
     }
     
     // 로그인 후 토큰들을 받아오면 실행되는 함수
@@ -233,7 +294,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         loginConn?.resetToken()
         // 연동해제 네아로 서버의 인증정보까지 삭제
         loginConn?.requestDeleteToken()
-        print("1")
     }
     
     @IBAction func naverSignIn(_sender: UIButton) {
@@ -252,7 +312,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             if let error = err { print(error) }
             else { print("kakaoLogut success") }
         }
-        print("2")
     }
     
     func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) {
@@ -263,11 +322,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             
             print("kakaoLogin success")
             guard let ACToken = auth?.accessToken else {return}
-            guard let ACExpireDate = auth?.expiredAt else {return}
-            guard let RFToken = auth?.refreshToken else {return}
-            print("ACToken : \(ACToken)")
+//            guard let ACExpireDate = auth?.expiredAt else {return}
+//            guard let RFToken = auth?.refreshToken else {return}
             
-            self.loginProcess(ACToken, ACExpireDate, RFToken, "kakao")
+            self.loginProcess(ACToken, "kakao")
         }
     }
     
@@ -326,17 +384,12 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                         self.kakaoLogin(auth, Error)
                     }
                 }
-                
             }
         }
-        
-        
     }
-    
 }
 
 /*
-     
      //저장된 데이터 불러오는 함수
      func fetch() {
          let appDelegate = UIApplication.shared.delegate as! AppDelegate

@@ -17,8 +17,8 @@ target 'duo' do
   pod 'GoogleSignIn', '~> 5.0.2'
 
   # RxSwift
-  pod 'RxSwift', '~> 4.0'
-  pod 'RxCocoa', '~> 4.0'
+  pod 'RxSwift', '~> 5.0'
+  pod 'RxCocoa', '~> 5.0'
   
   # Pods for duo
 
