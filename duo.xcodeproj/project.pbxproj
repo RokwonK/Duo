@@ -167,17 +167,17 @@
 		195A5C7F251CF1E100FD352D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				191CAFB92503E88200933A66 /* MyPostCell.swift */,
-				099669672524AC9000336252 /* LoLMainBoardExtension.swift */,
-				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
-				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
 				195A5C87251CF32F00FD352D /* LoginView.swift */,
-				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
 				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
+				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
+				099669672524AC9000336252 /* LoLMainBoardExtension.swift */,
+				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
+				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
+				19713312251A29890085EDEA /* FilterView.swift */,
 				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
 				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
-				19713312251A29890085EDEA /* FilterView.swift */,
 				1974132E24FD09B7003BB2F3 /* AccountView.swift */,
+				191CAFB92503E88200933A66 /* MyPostCell.swift */,
 				191CAFB72503BED900933A66 /* MyPostView.swift */,
 			);
 			path = View;

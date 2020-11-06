@@ -12,7 +12,8 @@ import CoreData
 class BaseFunc : NSObject{
     static let baseurl = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000";
     static var userId : Int = 0;
-    static var userNickname : String = "";
+    static var userNickname : String = ""
+    static var userToken : String = ""
     
     override init() {
         super.init();
@@ -34,11 +35,14 @@ class BaseFunc : NSObject{
             if let us = user {
                 if let usid = us.value(forKey: "id") as? Int{
                     userId = usid;
-                    print(usid)
+                    
                 }
                 if let usnick = us.value(forKey: "nickname") as? String {
                     userNickname = usnick;
-                    print(usnick)
+                    
+                }
+                if let ustoken = us.value(forKey: "userToken") as? String{
+                    userToken = ustoken
                 }
             }
             //print(user["data"])

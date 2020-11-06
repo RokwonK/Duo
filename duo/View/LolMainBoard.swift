@@ -5,13 +5,10 @@
 //  Created by 황윤재 on 2020/08/31.
 //  Copyright © 2020 김록원. All rights reserved.
 //
-
 import UIKit
 import Alamofire
 
 class LoLMainBoard: UITableViewController{
-    
-    
     
     @IBOutlet weak var naviBarOutlet: UINavigationItem!
     @IBAction func popAction(_ sender: Any) {
@@ -26,15 +23,19 @@ class LoLMainBoard: UITableViewController{
     
     func getPosts() {
         BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost")!
-        print("id : \(BaseFunc.userId)")
-        print("id : \(BaseFunc.userNickname)")
+        print(BaseFunc.userToken)
+        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
+//        print("id : \(BaseFunc.userId)")
+//        print("id : \(BaseFunc.userNickname)")
         let req = AF.request(url,
-                            method:.post,
-                            parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname],
-                            encoding: JSONEncoding.default)
+                            method:.get,
+                            encoding: JSONEncoding.default,
+//                            parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname],
+                            headers: ["Authorization" : BaseFunc.userToken, "Content-Type": "application/json"]
+                            )
         // db에서 값 가져오기
         req.responseJSON {res in
+            print(res)
             switch res.result {
             case.success(let value):
                 
@@ -43,7 +44,6 @@ class LoLMainBoard: UITableViewController{
                     DispatchQueue.main.async {
                         /*
                          didset {
-                            
                          }
                          */
                         self.TableViewController.reloadData();
@@ -95,7 +95,6 @@ class LoLMainBoard: UITableViewController{
             else {
                 cell.micNotBtn.isHidden = true;
             }
-            
             
             
             if let gm = v["gameMode"] as? String{
@@ -159,7 +158,6 @@ class LoLMainBoard: UITableViewController{
                     }
                 }
             }
-            
         }
         return cell
     }
@@ -177,15 +175,12 @@ class LoLMainBoard: UITableViewController{
     let upLoadBtn = UIButton()
     var lolMainBoardViewModel : LoLMainBoardViewModel!;
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         TableViewController.delegate = self
         TableViewController.dataSource = self
         
         lolMainBoardViewModel = LoLMainBoardViewModel();
-        
-        
         
         filterOutlet.tintColor = UIColor.white;
         popOutlet.tintColor = UIColor.white;
@@ -219,14 +214,8 @@ class LoLMainBoard: UITableViewController{
                 }
             }
         }
-        
     }
-    
-    
-    
 }
-
-
 // MVVM
 // LolMainBoard - override 함수 정의
 // LoLMainBoardExtension - 디자인 관련 로직

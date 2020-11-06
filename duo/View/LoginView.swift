@@ -18,11 +18,8 @@ import RxCocoa
 
 class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
-    var disposeBag = DisposeBag()
-    
-    
     //데이터 저장함수
-    func saveAccountInfo( _ nickName: String, _ userID : Int){
+    func saveAccountInfo( _ nickName: String, _ userID : Int, _ userToken : String){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
         // AppDelegate.swift 파일에서 참조얻기
@@ -33,7 +30,8 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         //entity 속성값 설정
         login.setValue(nickName, forKey: "nickname")
         login.setValue(userID, forKey: "id")
-
+        login.setValue(userToken, forKey: "userToken")
+        
         do{
             try context.save()
             
@@ -63,82 +61,25 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         let storyBoard = self.storyboard!
         let tabBarController = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
         present(tabBarController, animated: true, completion: nil)
-       }
+    }
     
-    
-    // 우리 서버와 통신 고유 id값 닉네임 넘겨줌
-//    func loginProcess(_ acToken : String, _ acExpire : Date, _ rfToken : String, _ sns : String) {
-//
-//        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/login/\(sns)"
-//        let url = URL(string :urlStr)!
-//        var nickName = ""
-//        var userID = 0
-//        let ad = UIApplication.shared.delegate as? AppDelegate
-//        ad?.sns_name = sns            //appdelegate에다 변수저장
-//        ad?.access_token = acToken
-//
-//        //서버에서 받을 json데이터항목정의
-//        struct getInfo : Codable {
-//            var nickname : String
-//            var id : Int
-//        }
-//
-//        //(우리 서버로 인증 하는 부분)
-//        let req = AF.request(url,
-//                            method:.post,
-//                            parameters: ["accesstoken" : acToken],
-//                            encoding: JSONEncoding.default)
-//
-//        req.responseJSON { res in
-//
-//            switch res.result {
-//            case.success (let value):
-//                do{
-//                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-//                    let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
-//
-//                    nickName = loginInfo.nickname
-//                    userID = Int(loginInfo.id)
-//
-//                    if nickName == "needNickname"{
-//                        let storyBoard = self.storyboard!
-//                        let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
-//                        self.present(nicknamePage, animated: true, completion: nil)
-//                    }
-//
-//                    else{
-//                        //resetAllRecords()
-//                        self.saveAccountInfo(nickName, Int(userID))
-//                        self.loginSuccess()
-//                    }
-//                }
-//                catch{
-//                }
-//
-//            case.failure(let error):
-//                print("error :\(error)")
-//                break;
-//            }
-//        }
-//    }
-//
     func loginProcess(_ acToken : String, _ sns : String) {
         
-        let urlStr = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns)"
-        let url = URL(string :urlStr)!
         var nickName = ""
         var userID = 0
+        var userToken = ""
+        
         var message = ""
         var code = 0
+        
         let ad = UIApplication.shared.delegate as? AppDelegate
-        ad?.sns_name = sns            //appdelegate에다 변수저장
-        ad?.access_token = acToken
-
+        ad?.sns_name = sns
+        
         //서버에서 받을 json데이터항목정의
         struct getInfo : Codable {
             var userToken : String
             var nickname : String
-            var id : Int
+            var userId : Int
         }
         
         struct errorMessage : Codable {
@@ -147,66 +88,114 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         }
         
         //(우리 서버로 인증 하는 부분)
-        let req = AF.request(url,
-                            method:.post,
-                            encoding: JSONEncoding.default,
-                            headers: ["Authorization" : acToken, "Content-Type": "application/json"])
+        let req = AF.request(URL(string :"\(BaseFunc.baseurl)/auth/\(sns)")!,
+                             method:.post,
+                             encoding: JSONEncoding.default,
+                             headers: ["Authorization" : acToken, "Content-Type": "application/json"])
         
         req.responseJSON { res in
-
-            print(res)
+            
             switch res.result {
             case.success (let value):
-                print("여기로들어옴")
                 do{
-                    print("dodo")
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-//                  let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
-                    let eM = try JSONDecoder().decode(errorMessage.self, from: data)
-
                     
-//                    nickName = loginInfo.nickname
-//                    userID = Int(loginInfo.id)
+                    let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
+                    //                    let eM = try JSONDecoder().decode(errorMessage.self, from: data)
                     
-                    message = eM.msg
-                    code = Int(eM.code)
-                    print(message)
-                    print(code)
+                    nickName = loginInfo.nickname
+                    userID = Int(loginInfo.userId)
+                    userToken = loginInfo.userToken
+                    
+                    ad?.access_token = userToken
+                    //                    message = eM.msg
+                    //                    code = Int(eM.code)
                     
                     if message == "wrong access"{
                         let storyBoard = self.storyboard!
                         let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
                         self.present(nicknamePage, animated: true, completion: nil)
-                        
                     }
                     
-                    
-                    //                    if nickName == "needNickname"{
-                    //                        let storyBoard = self.storyboard!
-                    //                        let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
-                    //                        self.present(nicknamePage, animated: true, completion: nil)
-                    //                    }
-                    
-                    //
-                    //resetAllRecords()
-                    else{
-                        self.saveAccountInfo(nickName, Int(userID))
+                    if loginInfo.userToken != "" {
+                        self.saveAccountInfo(nickName, Int(userID), userToken)
                         self.loginSuccess()
                     }
-                    
                 }
                 catch{
                 }
-                
             case.failure(let error):
                 print("error :\(error)")
                 break;
             }
         }
     }
+    
+//    struct getInfo : Codable {
+//        var userToken : String
+//        var nickname : String
+//        var userId : Int
+//    }
+    
+    //    func loginProcess(_ acToken : String, _ sns : String) -> Observable<getInfo>{
+    //
+    //        var nickName = ""
+    //        var userID = 0
+    //        var userToken = ""
+    //
+    //        var message = ""
+    //        var code = 0
+    //
+    //        let ad = UIApplication.shared.delegate as? AppDelegate
+    //        ad?.sns_name = sns
+    //
+    //        struct errorMessage : Codable {
+    //            var msg : String
+    //            var code : Int
+    //        }
+    //        let req = AF.request(URL(string :"\(BaseFunc.baseurl)/auth/\(sns)")!,
+    //                             method:.post,
+    //                             encoding: JSONEncoding.default,
+    //                             headers: ["Authorization" : acToken, "Content-Type": "application/json"])
+    //
+    //        return Observable.create{ observer -> Disposable in req.validate().responseJSON{ res in
+    //            switch res.result {
+    //
+    //            case.success(let value):
+    //                print("here")
+    //                do{
+    //                    print("dodo")
+    //                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+    //
+    //                    let loginInfo = try JSONDecoder().decode(getInfo.self, from: data)
+    //                    observer.onNext(loginInfo)
+    //                    nickName = loginInfo.nickname
+    //                    userID = Int(loginInfo.userId)
+    //                    userToken = loginInfo.userToken
+    //
+    //                    ad?.access_token = userToken
+    //                    print("dgfgf")
+    //                    if loginInfo.userToken != "" {
+    //                        self.saveAccountInfo(nickName, Int(userID), userToken)
+    //                        print("gdagfgfgfdgfd")
+    //                    }
+    //                }catch{observer.onError(error)}
+    //
+    //            case.failure(let error):
+    //                observer.onError(error)
+    //
+    //            }
+    //            observer.onCompleted()
+    //        }
+    //        return Disposables.create(){
+    //            req.cancel()
+    //        }
+    //        }
+    //    }
+    
     /*
-        구글 로그인
-    */
+     구글 로그인
+     */
     
     let google = GIDSignIn.sharedInstance();
     
@@ -216,7 +205,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             print(error)
         }
     }
-
+    
     // 구글 로그인 후 실행
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
         
@@ -236,9 +225,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         }
         
         guard let idToken = user.authentication.idToken else {return}
-//        guard let idTokenExpire = user.authentication.idTokenExpirationDate else {return}
-//        guard let rfToken = user.authentication.refreshToken else {return}
-        
         loginProcess(idToken, "google")
     }
     
@@ -252,10 +238,9 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         google?.signIn()
     }
     
-
     /*
-        네이버 로그인
-    */
+     네이버 로그인
+     */
     
     // 네이버 로그인 버튼 클릭 시
     let loginConn = NaverThirdPartyLoginConnection.getSharedInstance();
@@ -263,9 +248,9 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     func getNaverEmailFromURL() {
         // 받은 데이터를 이용해서 사용자 정보 가져오기
         guard let ACToken = loginConn?.accessToken else {return }
-//        guard let ACExpireDate = loginConn?.accessTokenExpireDate else {return }
-//        guard let RFToken = loginConn?.refreshToken else {return }
-
+        //        guard let ACExpireDate = loginConn?.accessTokenExpireDate else {return }
+        //        guard let RFToken = loginConn?.refreshToken else {return }
+        
         self.loginProcess(ACToken, "naver")
     }
     
@@ -302,10 +287,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         // 로그인 시작 네이버/사파리 연결
         loginConn?.requestThirdPartyLogin()
     }
-
+    
     /*
      카카오 로그인
-    */
+     */
     
     func kakaoLogout() {
         UserApi.shared.logout {err in
@@ -319,12 +304,8 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             print(error)
         }
         else {
-            
             print("kakaoLogin success")
             guard let ACToken = auth?.accessToken else {return}
-//            guard let ACExpireDate = auth?.expiredAt else {return}
-//            guard let RFToken = auth?.refreshToken else {return}
-            
             self.loginProcess(ACToken, "kakao")
         }
     }
@@ -350,7 +331,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
-
+        
         //네이버 accesstoken 만료일 확인
         guard let naverToken : Bool = loginConn?.isValidAccessTokenExpireTimeNow() else {return}
         
@@ -359,14 +340,14 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { loginConn?.requestAccessTokenWithRefreshToken() }
             else { self.getNaverEmailFromURL() }
-
+            
             return
         }
-
+        
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)
         google?.restorePreviousSignIn();
-
-
+        
+        
         // 카카오 캐시에 로그인 기록이 있을때 => 자동로그인
         let kakaoManager = TokenManager.manager;
         
@@ -376,7 +357,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                     print("Occur Eror \(error)")
                     return;
                 }
-
+                
                 if (AccessTokenInfo != nil) {
                     // 토큰 갱신
                     AuthApi.shared.refreshAccessToken { auth, Error in
@@ -388,20 +369,3 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         }
     }
 }
-
-/*
-     //저장된 데이터 불러오는 함수
-     func fetch() {
-         let appDelegate = UIApplication.shared.delegate as! AppDelegate
-         let context = appDelegate.persistentContainer.viewContext
-         let fetch_request = NSFetchRequest<NSManagedObject>(entityName: "Login") //Login entity 불러오는 동작
-         fetch_request.returnsObjectsAsFaults = false //데이터참조 오류 방지
-         
-         do {
-             loginlist = try context.fetch(fetch_request) //처음에 선언한 배열에 넣기
-         }
-         catch let error as NSError{ print("불러올수 없습니다. \(error), \(error.userInfo)")
-         }
-     }
-
- */

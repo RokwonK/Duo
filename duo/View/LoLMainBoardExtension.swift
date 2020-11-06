@@ -47,8 +47,7 @@ extension LoLMainBoard {
             present(navController, animated: true, completion: nil)
         }
     }
-    
-    
+
     func extension_cellSetting(_ cell : LoLPostCell) {
         cell.tier.layer.cornerRadius = 7;
         cell.tier.tintColor = UIColor.white;

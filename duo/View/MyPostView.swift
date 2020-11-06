@@ -158,6 +158,5 @@ class MyPostView :  UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         self.getPosts()
-        
     }
 }

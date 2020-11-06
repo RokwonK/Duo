@@ -12,7 +12,6 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     
     var boardInfo : Dictionary<String,Any>?;
     
-    
     @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var nickname: UILabel!

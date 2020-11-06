@@ -10,7 +10,6 @@ import UIKit
 
 class LoLPostCell : UITableViewCell {
     
-    
     @IBOutlet weak var gameMode: UIButton!
     @IBOutlet weak var tier: UIButton!
     @IBOutlet weak var headCount: UIButton!
@@ -27,7 +26,6 @@ class LoLPostCell : UITableViewCell {
     @IBOutlet weak var micFillBtn: UIButton!
     @IBOutlet weak var micNotBtn: UIButton!
     
-    
     override func prepareForReuse() {
         super.prepareForReuse();
         self.topBtn.isHidden = false;
@@ -38,5 +36,4 @@ class LoLPostCell : UITableViewCell {
         self.micFillBtn.isHidden = false;
         self.micNotBtn.isHidden = false;
     }
-    
 }
