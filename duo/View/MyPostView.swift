@@ -13,16 +13,14 @@ class MyPostView :  UITableViewController{
     
     @IBOutlet var MyPostTable: UITableView!
     
-    
     func getPosts() {
         BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/mypost")!
-        print("id : \(BaseFunc.userId)")
-        print("id : \(BaseFunc.userNickname)")
+        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
-                             method:.post,
-                             parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname],
-                             encoding: JSONEncoding.default)
+                             method:.get,
+                             parameters: ["userId" : BaseFunc.userId],
+                             encoding: URLEncoding.queryString,
+                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {
@@ -42,6 +40,38 @@ class MyPostView :  UITableViewController{
             }
         }
     }
+    
+    struct Message : Codable {
+        var msg : String
+    }
+    
+    @IBAction func delete (){
+        BaseFunc.fetch();
+        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
+        let req = AF.request(url,
+                             method:.get,
+                             parameters: ["userId" : BaseFunc.userId],
+                             encoding: JSONEncoding.default,
+                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
+        
+        req.responseJSON { res in
+            switch res.result {
+            case.success (let value):
+                do{
+                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+                    let message = try JSONDecoder().decode(Message.self, from: data)
+
+                    print(message)
+                }
+                catch{
+                }
+            case.failure(let error):
+                print("error :\(error)")
+                break;
+            }
+        }
+    }
+    
     
     //    func send(){
     //        BaseFunc.fetch();
@@ -81,7 +111,6 @@ class MyPostView :  UITableViewController{
     
     // 테이블 cell 하나하나의 값에 무엇이 들어가는지 정의
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        print("들어옴")
         let cell = MyPostTable.dequeueReusableCell(withIdentifier: "MyPostCell", for: indexPath) as! MyPostCell
         print(indexPath)
         let index = indexPath.row;
@@ -148,7 +177,6 @@ class MyPostView :  UITableViewController{
                     else {
                         cell.tier.text = "\(MyPostModel.sharedInstance.eachTier[stShared] + "\(10-stRemaind)" )~\(MyPostModel.sharedInstance.eachTier[edShared] + "\(10-edRemaind)" )";
                     }
-                    
                 }
             }
         }

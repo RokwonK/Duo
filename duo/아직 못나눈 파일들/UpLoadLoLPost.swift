@@ -28,7 +28,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     
     @IBAction func uploadAction(_ sender: Any) {
         //BaseFunc.baseurl;
-        let url = URL(string : BaseFunc.baseurl + "/post/lol/uploadpost")!
+        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         
@@ -99,7 +99,8 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
                                 "title" : uploadTitle.text!,
                                 "content" : textContentView.text!
                             ],
-                            encoding: JSONEncoding.default)
+                            encoding: JSONEncoding.default,
+                            headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {

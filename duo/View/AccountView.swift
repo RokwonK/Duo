@@ -13,8 +13,6 @@ class AccountView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         BaseFunc.fetch()
-        
-        
         // Do any additional setup after loading the view.
     }
     
@@ -26,36 +24,46 @@ class AccountView: UIViewController {
     }
     
     @IBAction func Logout(_sender : UIButton){
-        LoginView().naverLogout()
-        LoginView().kakaoLogout()
-        LoginView().googleLogout()
+        LoginViewModel().naverLogout()
+        LoginViewModel().kakaoLogout()
+        LoginViewModel().googleLogout()
         
         returnToLogin()
     }
     
+    struct resultMessage : Codable {
+        var msg : String
+        var code : Int
+    }
+    
+    @IBAction func changeNickname (_sender : UIButton){
+        
+        let storyBoard = self.storyboard
+        let NickNameChange = storyBoard!.instantiateViewController(withIdentifier: "NickNameChange")
+        self.present(NickNameChange, animated: true, completion: nil)
+    }
+    
     @IBAction func deleteAccount(_ sender: Any) {
         
-        let ad = UIApplication.shared.delegate as? AppDelegate
-        let url = URL(string : BaseFunc.baseurl + "/login/delete_account")!
-        var acToken = ad?.access_token
-        var sns = ad?.sns_name
-        print(acToken)
-        print(sns)
+        let url = URL(string : BaseFunc.baseurl + "/auth")!
+
         let req = AF.request(url,
-                             method:.post,
-                             parameters: ["accesstoken" : acToken, "sns" : sns ,"userId": BaseFunc.userId ],
-                             encoding: JSONEncoding.default)
+                             method:.delete,
+                             parameters: ["userId": BaseFunc.userId],
+                             encoding: JSONEncoding.default,
+                             headers: ["Authorization" : BaseFunc.userToken, "Content-Type": "application/json"])
+        
         req.responseJSON { res in
-            print(res)
+    
             switch res.result {
             case.success (let value):
                 do{
                     let deletedata = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let alert = UIAlertController(title: nil , message: "회원탈퇴 완료", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "꺼져", style: .default, handler : {(alert: UIAlertAction!) in
-                        LoginView().naverLogout()
-                        LoginView().kakaoLogout()
-                        LoginView().googleLogout()
+                    let okAction = UIAlertAction(title: "회원탈퇴완료, 재로그인 필요", style: .default, handler : {(alert: UIAlertAction!) in
+                        LoginViewModel().naverLogout()
+                        LoginViewModel().kakaoLogout()
+                        LoginViewModel().googleLogout()
                         self.returnToLogin()})
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)

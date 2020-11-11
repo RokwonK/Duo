@@ -1,20 +1,16 @@
 //
-//  NicknameView.swift
+//  NickNameChange.swift
 //  duo
 //
-//  Created by 황윤재 on 2020/09/25.
+//  Created by 황윤재 on 2020/11/10.
 //  Copyright © 2020 김록원. All rights reserved.
 //
 
 import UIKit
 import Alamofire
 import CoreData
-import RxSwift
-import RxCocoa
 
-class NickNameView : UIViewController {
-    
-    static let sharedInstance = NickNameView()
+class NickNameChange : UIViewController {
     
     @IBOutlet weak var inputText: UITextField!
     
@@ -22,9 +18,7 @@ class NickNameView : UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    //데이터 저장함수
-    func first_save( _ nickName: String, _ userId: Int, _ userToken : String){
+    func save( _ nickName: String){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
         // AppDelegate.swift 파일에서 참조얻기
@@ -34,53 +28,48 @@ class NickNameView : UIViewController {
         
         //entity 속성값 설정
         login.setValue(nickName, forKey: "nickname")
-        login.setValue(userId, forKey: "id")
-        login.setValue(userToken, forKey: "userToken")
         
         do{
             try context.save()
-            gotoTabBar()
         } catch let error as NSError{
             print("저장 오류 \(error), \(error.userInfo)")
         }
     }
     
-    // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
-    func gotoTabBar() {
+    func gobackToAccountView() {
         let storyBoard = self.storyboard!
-        let tabBarController = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
-        present(tabBarController, animated: true, completion: nil)
+        let AccountView = storyBoard.instantiateViewController(withIdentifier: "AccountView")
+        present(AccountView, animated: true, completion: nil)
     }
-
+    
     //닉네임생성완료 버튼누르면 실행
-    @IBAction func makeNickName(sender: UIButton) {
+    @IBAction func changeNickName(sender: UIButton) {
         
-        let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
-        var sns_name = ad!.sns_name!
-        var snsToken = ad!.access_token!
+//        let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
+//        var sns_name = ad!.sns_name!
+//        var snsToken = ad!.access_token!
         //닉네임 서버로 송신하는코드
-        let urlString = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns_name)"
+        let urlString = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth"
         let url = URL(string :urlString)!
         
-        var nickName = ""
-        var userId = 0
-        var userToken = ""
+        var r_msg = ""
+        var r_code = 0
         
         //서버에서 받을 json 구조체
-        struct getInfo : Codable {
-            var userToken : String
-            var nickname : String
-            var id : Int
+        struct resultMessage : Codable {
+            var msg : String
+            var code : Int
         }
         
         //서버로 생성할 닉네임 보내고 nickname,id json데이터 받아오기
         let req = AF.request(url,
-                             method:.post,
-                             parameters: ["nickname" : inputText.text],
+                             method:.put,
+                             parameters: ["nickname" : inputText.text,
+                                          "userID" : BaseFunc.userId],
                              encoding: JSONEncoding.default,
-                             headers: ["Authorization": snsToken, "Content-Type": "application/json"])
+                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
 
-        req.responseJSON { res in
+        req.responseJSON { [self] res in
             print(res)
 
             switch res.result{
@@ -88,24 +77,22 @@ class NickNameView : UIViewController {
             case.success (let value):
                 do{
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    let logininfo = try JSONDecoder().decode(getInfo.self, from: data)
-
-                    userToken = logininfo.userToken
-                    nickName = logininfo.nickname
-                    userId = Int(logininfo.id)
-                
+                    let result = try JSONDecoder().decode(resultMessage.self, from: data)
+                    self.save(self.inputText.text!)
+                    r_msg = result.msg
+                    r_code = result.code
+                    self.gobackToAccountView()
                 }
                 catch{
                 }
-
+                
             case .failure(let error):
                 print("error :\(error)")
                 break;
             }
-
+            
         }
-        first_save(nickName, Int(userId),userToken)
-}
+    }
+    
     
 }
-

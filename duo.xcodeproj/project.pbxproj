@@ -36,6 +36,7 @@
 		19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF6251D0FA300C52697 /* NickNameView.swift */; };
 		19BD2FFA251D0FAD00C52697 /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */; };
 		19C4241D24F20E0A00395657 /* TabBarControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4241C24F20E0A00395657 /* TabBarControllerView.swift */; };
+		19EF8FF0255A883300767CC8 /* NickNameChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF8FEF255A883300767CC8 /* NickNameChange.swift */; };
 		19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4BB7F251DE8860092F928 /* MyPostModel.swift */; };
 		3B2254EAA5279D13A4A8BB36 /* Pods_duo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */; };
 /* End PBXBuildFile section */
@@ -72,6 +73,7 @@
 		19BD2FF6251D0FA300C52697 /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
 		19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		19C4241C24F20E0A00395657 /* TabBarControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerView.swift; sourceTree = "<group>"; };
+		19EF8FEF255A883300767CC8 /* NickNameChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameChange.swift; sourceTree = "<group>"; };
 		19F4BB7F251DE8860092F928 /* MyPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostModel.swift; sourceTree = "<group>"; };
 		2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A22BD3CD5178AD248BABCA6 /* Pods-duo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.debug.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,16 +171,17 @@
 			children = (
 				195A5C87251CF32F00FD352D /* LoginView.swift */,
 				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
+				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
+				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
 				099669672524AC9000336252 /* LoLMainBoardExtension.swift */,
 				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
 				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
 				19713312251A29890085EDEA /* FilterView.swift */,
-				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
-				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
 				1974132E24FD09B7003BB2F3 /* AccountView.swift */,
 				191CAFB92503E88200933A66 /* MyPostCell.swift */,
 				191CAFB72503BED900933A66 /* MyPostView.swift */,
+				19EF8FEF255A883300767CC8 /* NickNameChange.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				0989123C2502338D0006909F /* BaseFunc.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
 				19713317251A29A20085EDEA /* FilterModel.swift in Sources */,
+				19EF8FF0255A883300767CC8 /* NickNameChange.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */,
 				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
 				099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */,

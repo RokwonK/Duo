@@ -25,12 +25,9 @@ class LoLMainBoard: UITableViewController{
         BaseFunc.fetch();
         print(BaseFunc.userToken)
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
-//        print("id : \(BaseFunc.userId)")
-//        print("id : \(BaseFunc.userNickname)")
         let req = AF.request(url,
                             method:.get,
                             encoding: JSONEncoding.default,
-//                            parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname],
                             headers: ["Authorization" : BaseFunc.userToken, "Content-Type": "application/json"]
                             )
         // db에서 값 가져오기
@@ -202,7 +199,6 @@ class LoLMainBoard: UITableViewController{
     
     // Selection Segue => Show
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
         if let id = segue.identifier, "Select" == id  {
             guard let controller = segue.destination as? SelectBoard else{return}
             if let posts = postsData {

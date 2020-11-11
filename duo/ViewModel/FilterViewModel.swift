@@ -44,18 +44,28 @@ class FilterViewModel {
         
         FilterModel.sharedInstance.AD!.filterdata = []// 필터 설정할때마다 빈배열로 초기화
         BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/lol/getpost/filter")!
+        let url = URL(string : BaseFunc.baseurl + "/post/lol/filter")!
         let req = AF.request(url,
-                             method:.post,
-                             parameters: ["userId": BaseFunc.userId, "userNickname": BaseFunc.userNickname,"gameMode": FilterModel.sharedInstance.gameModeName,"wantTier": FilterModel.sharedInstance.Mytiernumber,"startTime": FilterModel.sharedInstance.Time, "headCount": FilterModel.sharedInstance.headCount,"top": FilterModel.sharedInstance.Position["top"],"mid":FilterModel.sharedInstance.Position["mid"],"jungle": FilterModel.sharedInstance.Position["jungle"],"bottom": FilterModel.sharedInstance.Position["bottom"],"support": FilterModel.sharedInstance.Position["support"],"talkon":FilterModel.sharedInstance.talkOn],
-                             encoding: JSONEncoding.default)
+                             method:.get,
+                             parameters: [
+                                "gameMode": FilterModel.sharedInstance.gameModeName,
+                                "wantTier": FilterModel.sharedInstance.Mytiernumber,
+                                "startTime": FilterModel.sharedInstance.Time,
+                                "headCount": FilterModel.sharedInstance.headCount,
+                                "top": FilterModel.sharedInstance.Position["top"],
+                                "mid":FilterModel.sharedInstance.Position["mid"],
+                                "jungle": FilterModel.sharedInstance.Position["jungle"],
+                                "bottom": FilterModel.sharedInstance.Position["bottom"],
+                                "support": FilterModel.sharedInstance.Position["support"],
+                                "talkon":FilterModel.sharedInstance.talkOn],
+                             encoding: URLEncoding.queryString,
+                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
         
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {
             case.success(let value):
                 if let datas = value as? Array<Dictionary<String,Any>> {
-                    var i = 0
                     for i in datas{
                         FilterModel.sharedInstance.AD!.filterdata.append(i);
                     }
