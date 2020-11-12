@@ -33,6 +33,7 @@ class BaseFunc : NSObject{
             try userData = context.fetch(fetch_request) //처음에 선언한 배열에 넣기
             user = userData[userData.count-1];
             if let us = user {
+                
                 if let usid = us.value(forKey: "id") as? Int{
                     userId = usid;
                     

@@ -24,7 +24,7 @@ class NickNameView : UIViewController {
     }
 
     //데이터 저장함수
-    func first_save( _ nickName: String, _ userId: Int, _ userToken : String){
+    func data_save( _ nickName: String, _ userId: Int, _ userToken : String){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
         // AppDelegate.swift 파일에서 참조얻기
@@ -38,7 +38,9 @@ class NickNameView : UIViewController {
         login.setValue(userToken, forKey: "userToken")
         
         do{
+            print("여기")
             try context.save()
+            self.dismiss(animated: true, completion: nil)
             gotoTabBar()
         } catch let error as NSError{
             print("저장 오류 \(error), \(error.userInfo)")
@@ -80,7 +82,7 @@ class NickNameView : UIViewController {
                              encoding: JSONEncoding.default,
                              headers: ["Authorization": snsToken, "Content-Type": "application/json"])
 
-        req.responseJSON { res in
+        req.responseJSON { [self] res in
             print(res)
 
             switch res.result{
@@ -93,7 +95,6 @@ class NickNameView : UIViewController {
                     userToken = logininfo.userToken
                     nickName = logininfo.nickname
                     userId = Int(logininfo.id)
-                
                 }
                 catch{
                 }
@@ -104,8 +105,6 @@ class NickNameView : UIViewController {
             }
 
         }
-        first_save(nickName, Int(userId),userToken)
 }
-    
 }
 

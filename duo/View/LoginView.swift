@@ -17,7 +17,7 @@ import RxCocoa
 
 
 class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
-    var message = ""
+    
     
     func loginProcess(_ snsToken : String, _ sns_name : String) {
         
@@ -25,7 +25,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         var userID = 0
         var userToken = ""
         
-        
+        var msg = ""
         var code = 0
         
         let ad = UIApplication.shared.delegate as? AppDelegate
@@ -59,7 +59,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                     
                     guard let loginInfo = try? JSONDecoder().decode(getInfo.self, from: data) else{
                         let eM = try JSONDecoder().decode(errorMessage.self, from: data)
-                        self.message = eM.msg
+                        msg = eM.msg
                         code = Int(eM.code)
                         return
                     }
@@ -77,13 +77,11 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                         }
                     }
                 catch{
-                    print("here")
                 }
                 
             case.failure(let error):
                 print("error :\(error)")
                 break;
-                
             }
         }
     }
@@ -107,12 +105,12 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         
         guard let idToken = user.authentication.idToken else {return}
         self.loginProcess(idToken, "google")
+        
         if BaseFunc.userNickname == "" {
-            
             let storyBoard = self.storyboard!
             let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
             self.present(nicknamePage, animated: true, completion: nil)
-            
+
         }
     }
     
@@ -240,8 +238,9 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     override func viewDidLoad() {
         super.viewDidLoad();
         // restorePreviousSignIn 함수를 위해 필요
-        print(BaseFunc.userId
-              ,BaseFunc.userToken, BaseFunc.userNickname)
+        BaseFunc.fetch()
+        print(BaseFunc.userNickname)
+        print("plz")
         google?.delegate = self
         google?.presentingViewController = self
     }
@@ -256,12 +255,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
             if (!naverToken) { self.naver?.requestAccessTokenWithRefreshToken() }
             else { LoginViewModel().getNaverEmailFromURL() }
-            
-            if BaseFunc.userNickname == "" {
-                let storyBoard = self.storyboard!
-                let nicknamePage = storyBoard.instantiateViewController(withIdentifier: "NickName") as! UIViewController
-                self.present(nicknamePage, animated: true, completion: nil)
-            }
         }
         
         // 구글 자동 로그인 (refresh도 자동으로 됨, 성공하면 sign함수 호출함)

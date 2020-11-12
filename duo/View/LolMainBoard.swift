@@ -177,6 +177,7 @@ class LoLMainBoard: UITableViewController{
         TableViewController.delegate = self
         TableViewController.dataSource = self
         
+        
         lolMainBoardViewModel = LoLMainBoardViewModel();
         
         filterOutlet.tintColor = UIColor.white;
