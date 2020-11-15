@@ -14,7 +14,7 @@ class MyPostView :  UITableViewController{
     @IBOutlet var MyPostTable: UITableView!
     
     func getPosts() {
-        BaseFunc.fetch();
+//        BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
                              method:.get,
@@ -46,7 +46,7 @@ class MyPostView :  UITableViewController{
     }
     
     @IBAction func delete (){
-        BaseFunc.fetch();
+//        BaseFunc.fetch();
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
                              method:.get,

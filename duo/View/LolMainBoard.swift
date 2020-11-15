@@ -9,6 +9,7 @@ import UIKit
 import Alamofire
 
 class LoLMainBoard: UITableViewController{
+    static let sharedInstance = LoLMainBoard()
     
     @IBOutlet weak var naviBarOutlet: UINavigationItem!
     @IBAction func popAction(_ sender: Any) {
@@ -22,7 +23,7 @@ class LoLMainBoard: UITableViewController{
     let Ad = UIApplication.shared.delegate as? AppDelegate
     
     func getPosts() {
-        BaseFunc.fetch();
+//        BaseFunc.fetch();
         print(BaseFunc.userToken)
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,

@@ -17,10 +17,12 @@ import GoogleSignIn
 class AppDelegate: UIResponder, UIApplicationDelegate{
     
     var sns_name : String?
-    var access_token : String?
+    var access_token : String = ""
     var filterdata : Array<Dictionary<String, Any>> = []
     var record : Int = 0
     var idtoken : String?
+    var userID : Int = 0
+    var nickname : String?
     
     
     // 어플리 케이션이 실행 되었을때, 호출됨

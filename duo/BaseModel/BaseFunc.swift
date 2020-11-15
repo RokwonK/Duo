@@ -36,11 +36,9 @@ class BaseFunc : NSObject{
                 
                 if let usid = us.value(forKey: "id") as? Int{
                     userId = usid;
-                    
                 }
                 if let usnick = us.value(forKey: "nickname") as? String {
                     userNickname = usnick;
-                    
                 }
                 if let ustoken = us.value(forKey: "userToken") as? String{
                     userToken = ustoken

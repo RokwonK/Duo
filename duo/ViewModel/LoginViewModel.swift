@@ -48,30 +48,24 @@ class LoginViewModel : UIViewController{
         }
     }
     
-
     /*
      구글 로그인
      */
-    
     let google = GIDSignIn.sharedInstance();
     // 로그아웃
     func googleLogout() {
         google?.signOut()
     }
+    
     /*
      네이버 로그인
      */
-    
     // 네이버 로그인 버튼 클릭 시
     let loginConn = NaverThirdPartyLoginConnection.getSharedInstance();
     
-    func getNaverEmailFromURL() {
+    func getNaverEmailFromURL() -> String {
         // 받은 데이터를 이용해서 사용자 정보 가져오기
-        guard let snsToken = loginConn?.accessToken else {return }
-        //        guard let ACExpireDate = loginConn?.accessTokenExpireDate else {return }
-        //        guard let RFToken = loginConn?.refreshToken else {return }
-        
-        LoginView().loginProcess(snsToken, "naver")
+        return (loginConn?.accessToken)!
     }
 
     // 로그아웃 => 저장된 토큰정보 삭제
@@ -84,7 +78,6 @@ class LoginViewModel : UIViewController{
     /*
      카카오 로그인
      */
-    
     func kakaoLogout() {
         UserApi.shared.logout {err in
             if let error = err { print(error) }
@@ -92,14 +85,11 @@ class LoginViewModel : UIViewController{
         }
     }
     
-    func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) {
+    func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) -> String {
         if let error = error {
             print(error)
         }
-        else {
             print("kakaoLogin success")
-            guard let snsToken = auth?.accessToken else {return}
-            LoginView().loginProcess(snsToken, "kakao")
-        }
+            return auth!.accessToken
     }
 }

@@ -11,7 +11,7 @@ import Alamofire
 
 class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    
+    let ad = UIApplication.shared.delegate as? AppDelegate
     var selectDate = Date();
     let toolBarKeyboard = UIToolbar()
     let gameModeData : [String] = ["일반", "듀오", "자유랭" , "커스텀", "칼바람" ];
@@ -83,9 +83,10 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         let req = AF.request(url,
                             method:.post,
                             parameters: [
-                                "userId" : BaseFunc.userId,
-                                "userNickname" : BaseFunc.userNickname,
+                                "userId" : ad?.userID,
+                                "userNickname" : ad?.nickname,
                                 "gameMode" : gameModeField.text!,
+                                "title" : uploadTitle.text!,
                                 "startTier" : uploadedStartTier,
                                 "endTier" : uploadedEndTier,
                                 "startTime" : uploadedStartTime,
@@ -96,11 +97,10 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
                                 "support" : uploadedSupport,
                                 "jungle" : uploadedJungle,
                                 "talkon" : uploadedTalkon,
-                                "title" : uploadTitle.text!,
                                 "content" : textContentView.text!
                             ],
                             encoding: JSONEncoding.default,
-                            headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
+                            headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {

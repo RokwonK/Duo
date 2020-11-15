@@ -12,7 +12,7 @@ class AccountView: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        BaseFunc.fetch()
+//        BaseFunc.fetch()
         // Do any additional setup after loading the view.
     }
     

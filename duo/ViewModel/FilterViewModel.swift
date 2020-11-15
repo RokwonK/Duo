@@ -12,6 +12,8 @@ class FilterViewModel {
     
     static let sharedInstance = FilterViewModel()
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
+    
     func positionResult(){
         
         if FilterView().Top?.tintColor == UIColor.black{
@@ -42,16 +44,17 @@ class FilterViewModel {
     
     func getPosts() {
         
-        FilterModel.sharedInstance.AD!.filterdata = []// 필터 설정할때마다 빈배열로 초기화
-        BaseFunc.fetch();
+        self.ad!.filterdata = []// 필터 설정할때마다 빈배열로 초기화
+//        BaseFunc.fetch();
+        print("도착")
         let url = URL(string : BaseFunc.baseurl + "/post/lol/filter")!
         let req = AF.request(url,
                              method:.get,
                              parameters: [
                                 "gameMode": FilterModel.sharedInstance.gameModeName,
+                                "headCount": FilterModel.sharedInstance.headCount,
                                 "wantTier": FilterModel.sharedInstance.Mytiernumber,
                                 "startTime": FilterModel.sharedInstance.Time,
-                                "headCount": FilterModel.sharedInstance.headCount,
                                 "top": FilterModel.sharedInstance.Position["top"],
                                 "mid":FilterModel.sharedInstance.Position["mid"],
                                 "jungle": FilterModel.sharedInstance.Position["jungle"],
@@ -59,17 +62,25 @@ class FilterViewModel {
                                 "support": FilterModel.sharedInstance.Position["support"],
                                 "talkon":FilterModel.sharedInstance.talkOn],
                              encoding: URLEncoding.queryString,
-                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
+                             headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
         
         // db에서 값 가져오기
         req.responseJSON {res in
             switch res.result {
             case.success(let value):
+                print("here")
                 if let datas = value as? Array<Dictionary<String,Any>> {
-                    for i in datas{
-                        FilterModel.sharedInstance.AD!.filterdata.append(i);
-                    }
-                    print(FilterModel.sharedInstance.AD!.filterdata)
+                    
+                    LoLMainBoard().postsData = datas
+//                    for i in datas{
+//                        self.ad!.filterdata.append(i);
+//                        print("추가됨")
+//                    }
+                    print("온다여기")
+                }
+                else{
+                    LoLMainBoard().postsData = []
+                    print("else here")
                 }
             case.failure(let error):
                 print(error)

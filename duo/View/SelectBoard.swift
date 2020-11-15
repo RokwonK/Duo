@@ -11,7 +11,7 @@ import UIKit
 class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
     var boardInfo : Dictionary<String,Any>?;
-    
+    var postID : Int = 0
     @IBOutlet weak var tableview: UITableView!
     
     @IBOutlet weak var nickname: UILabel!
@@ -37,6 +37,8 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         tableview.delegate = self
         tableview.dataSource = self
         
+        postID = boardInfo?["id"] as! Int
+        print(postID)
         var talkon = boardInfo?["talkon"] as! Int
         var startt = boardInfo?["startTier"] as! Int
         var endt = boardInfo?["endTier"] as! Int
@@ -105,6 +107,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 30
     }
@@ -123,5 +126,6 @@ class CommentTable: UITableViewCell{
     
     @IBOutlet weak var comment: UILabel!
     @IBOutlet weak var gotochat: UIButton!
+    
     
 }

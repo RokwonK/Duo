@@ -59,10 +59,9 @@ class NickNameView : UIViewController {
         
         let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
         var sns_name = ad!.sns_name!
-        var snsToken = ad!.access_token!
+        var snsToken = ad!.access_token
         //닉네임 서버로 송신하는코드
-        let urlString = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns_name)"
-        let url = URL(string :urlString)!
+        let url = URL(string :"http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns_name)")!
         
         var nickName = ""
         var userId = 0
@@ -82,7 +81,7 @@ class NickNameView : UIViewController {
                              encoding: JSONEncoding.default,
                              headers: ["Authorization": snsToken, "Content-Type": "application/json"])
 
-        req.responseJSON { [self] res in
+        req.responseJSON { res in
             print(res)
 
             switch res.result{
@@ -95,6 +94,7 @@ class NickNameView : UIViewController {
                     userToken = logininfo.userToken
                     nickName = logininfo.nickname
                     userId = Int(logininfo.id)
+                    self.gotoTabBar()
                 }
                 catch{
                 }

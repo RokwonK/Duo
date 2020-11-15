@@ -43,7 +43,7 @@ class NickNameChange : UIViewController {
     }
     
     //닉네임생성완료 버튼누르면 실행
-    @IBAction func changeNickName(sender: UIButton) {
+    @IBAction func changeNickName(sender: Any) {
         
 //        let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
 //        var sns_name = ad!.sns_name!
@@ -69,7 +69,7 @@ class NickNameChange : UIViewController {
                              encoding: JSONEncoding.default,
                              headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
 
-        req.responseJSON { [self] res in
+        req.responseJSON { res in
             print(res)
 
             switch res.result{
@@ -81,7 +81,7 @@ class NickNameChange : UIViewController {
                     self.save(self.inputText.text!)
                     r_msg = result.msg
                     r_code = result.code
-                    self.gobackToAccountView()
+                    self.dismiss(animated: true, completion: nil)
                 }
                 catch{
                 }
