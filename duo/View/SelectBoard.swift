@@ -31,7 +31,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var supportlabel: UILabel!
     
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
-    testtest
+    
     override func viewDidLoad() {
         super.viewDidLoad();
         tableview.delegate = self
