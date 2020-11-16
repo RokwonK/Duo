@@ -43,7 +43,6 @@ class Comment : UITableViewController{
                 print(error)
             }
         }
-        
 }
     
     override func viewDidAppear(_ animated: Bool) {
