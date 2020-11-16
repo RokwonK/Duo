@@ -10,6 +10,7 @@ import UIKit
 
 class AccountView: UIViewController {
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 //        BaseFunc.fetch()
@@ -45,16 +46,21 @@ class AccountView: UIViewController {
     
     @IBAction func deleteAccount(_ sender: Any) {
         
+        struct resultMessage : Codable {
+            var msg : String
+            var code : Int
+        }
+        
         let url = URL(string : BaseFunc.baseurl + "/auth")!
 
         let req = AF.request(url,
                              method:.delete,
-                             parameters: ["userId": BaseFunc.userId],
+                             parameters: ["userId": ad!.userID],
                              encoding: JSONEncoding.default,
-                             headers: ["Authorization" : BaseFunc.userToken, "Content-Type": "application/json"])
+                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
         
         req.responseJSON { res in
-    
+            print(res)
             switch res.result {
             case.success (let value):
                 do{

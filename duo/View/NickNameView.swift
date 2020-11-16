@@ -14,6 +14,7 @@ import RxCocoa
 
 class NickNameView : UIViewController {
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
     static let sharedInstance = NickNameView()
     
     @IBOutlet weak var inputText: UITextField!
@@ -71,7 +72,7 @@ class NickNameView : UIViewController {
         struct getInfo : Codable {
             var userToken : String
             var nickname : String
-            var id : Int
+            var userId : Int
         }
         
         //서버로 생성할 닉네임 보내고 nickname,id json데이터 받아오기
@@ -91,9 +92,10 @@ class NickNameView : UIViewController {
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let logininfo = try JSONDecoder().decode(getInfo.self, from: data)
 
-                    userToken = logininfo.userToken
-                    nickName = logininfo.nickname
-                    userId = Int(logininfo.id)
+                    ad!.access_token = logininfo.userToken
+                    ad!.nickname = logininfo.nickname
+                    ad!.userID = Int(logininfo.userId)
+                    print("오는디")
                     self.gotoTabBar()
                 }
                 catch{

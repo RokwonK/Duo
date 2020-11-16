@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
     var record : Int = 0
     var idtoken : String?
     var userID : Int = 0
-    var nickname : String?
+    var nickname : String = ""
     
     
     // 어플리 케이션이 실행 되었을때, 호출됨

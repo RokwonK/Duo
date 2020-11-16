@@ -77,8 +77,8 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                         msg = eM!.msg
                         code = Int(eM!.code)
                         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let tabBarController = storyBoard.instantiateViewController(withIdentifier: "NickName")
-                        self.present(tabBarController, animated: true, completion: nil)
+                        let nicknameviewcontroller = storyBoard.instantiateViewController(withIdentifier: "NickName")
+                        self.present(nicknameviewcontroller, animated: true, completion: nil)
                         //LoginViewModel().saveAccountInfo(nickName, Int(userID), userToken)
                     }
                 }

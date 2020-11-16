@@ -12,6 +12,7 @@ import CoreData
 
 class NickNameChange : UIViewController {
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
     @IBOutlet weak var inputText: UITextField!
     
     override func viewDidLoad() {
@@ -65,9 +66,9 @@ class NickNameChange : UIViewController {
         let req = AF.request(url,
                              method:.put,
                              parameters: ["nickname" : inputText.text,
-                                          "userID" : BaseFunc.userId],
+                                          "userId" : ad!.userID],
                              encoding: JSONEncoding.default,
-                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
+                             headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
 
         req.responseJSON { res in
             print(res)
@@ -78,7 +79,7 @@ class NickNameChange : UIViewController {
                 do{
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let result = try JSONDecoder().decode(resultMessage.self, from: data)
-                    self.save(self.inputText.text!)
+//                    self.save(self.inputText.text!)
                     r_msg = result.msg
                     r_code = result.code
                     self.dismiss(animated: true, completion: nil)

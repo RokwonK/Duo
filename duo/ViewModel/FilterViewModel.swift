@@ -45,8 +45,7 @@ class FilterViewModel {
     func getPosts() {
         
         self.ad!.filterdata = []// 필터 설정할때마다 빈배열로 초기화
-//        BaseFunc.fetch();
-        print("도착")
+//        BaseFunc.fetch()
         let url = URL(string : BaseFunc.baseurl + "/post/lol/filter")!
         let req = AF.request(url,
                              method:.get,
@@ -66,17 +65,17 @@ class FilterViewModel {
         
         // db에서 값 가져오기
         req.responseJSON {res in
+            print(res)
             switch res.result {
             case.success(let value):
-                print("here")
                 if let datas = value as? Array<Dictionary<String,Any>> {
-                    
                     LoLMainBoard().postsData = datas
 //                    for i in datas{
 //                        self.ad!.filterdata.append(i);
 //                        print("추가됨")
 //                    }
                     print("온다여기")
+                    print(datas)
                 }
                 else{
                     LoLMainBoard().postsData = []

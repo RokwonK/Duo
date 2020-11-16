@@ -10,6 +10,7 @@ import Alamofire
 
 class LoLMainBoard: UITableViewController{
     static let sharedInstance = LoLMainBoard()
+    let ad = UIApplication.shared.delegate as? AppDelegate
     
     @IBOutlet weak var naviBarOutlet: UINavigationItem!
     @IBAction func popAction(_ sender: Any) {
@@ -24,12 +25,12 @@ class LoLMainBoard: UITableViewController{
     
     func getPosts() {
 //        BaseFunc.fetch();
-        print(BaseFunc.userToken)
+
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
                             method:.get,
                             encoding: JSONEncoding.default,
-                            headers: ["Authorization" : BaseFunc.userToken, "Content-Type": "application/json"]
+                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
                             )
         // db에서 값 가져오기
         req.responseJSON {res in
