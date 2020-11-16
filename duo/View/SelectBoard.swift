@@ -7,9 +7,13 @@
 //
 
 import UIKit
+import Alamofire
 
 class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
+    var commentsData : Array<Dictionary<String, Any>>?;
+
     var boardInfo : Dictionary<String,Any>?;
     var postID : Int = 0
     @IBOutlet weak var tableview: UITableView!
@@ -30,6 +34,28 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var bottomlabel: UILabel!
     @IBOutlet weak var supportlabel: UILabel!
     
+    @IBAction func temp(_ sender: Any) {
+        let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
+        let req = AF.request(url,
+                            method:.post,
+                            parameters: ["content": "임시테스트",
+                                         "userId": ad!.userID,
+                                         "postId": postID,
+                                         "nickname" : ad!.nickname],
+                            encoding: JSONEncoding.default,
+                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+        // db에서 값 가져오기
+        req.responseJSON {res in
+            print(res)
+            switch res.result {
+            case.success(let value): break
+                
+            case .failure(let error):
+                print(error)
+            }
+    }
+    }
+    
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
     
     override func viewDidLoad() {
@@ -39,6 +65,28 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         
         postID = boardInfo?["id"] as! Int
         print(postID)
+        let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
+        let req = AF.request(url,
+                            method:.get,
+                            parameters: ["postId": postID],
+                            encoding: URLEncoding.queryString,
+                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+        // db에서 값 가져오기
+        req.responseJSON {res in
+            print(res)
+            switch res.result {
+            case.success(let value):
+                if let datas = value as? Array<Dictionary<String,Any>> {
+                    self.commentsData = datas;
+                    DispatchQueue.main.async {
+                        self.tableview.reloadData();
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
         var talkon = boardInfo?["talkon"] as! Int
         var startt = boardInfo?["startTier"] as! Int
         var endt = boardInfo?["endTier"] as! Int
@@ -85,7 +133,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         nickname.text = "닉네임: \(boardInfo?["nickname"] as! String)"
         boardtitle.text = boardInfo?["title"] as! String
         gamemode.text = boardInfo?["gameMode"] as! String
-        time.text = "시작시간: \(boardInfo?["startTime"] as! String)"
+        time.text = "마감시간: \(boardInfo?["endTime"] as! String)"
         boardtext.text = boardInfo?["content"] as! String
         peoplenum.text = "인원:\(headcount)명모집"
         
@@ -107,25 +155,33 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        
+        DispatchQueue.main.async {
+            self.tableview.reloadData();
+        }
+    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 30
+        if let comments = commentsData {
+            return comments.count;
+        }
+        return 0;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableview.dequeueReusableCell(withIdentifier: "comment", for: indexPath) as! CommentTable
-        cell.comment.text = "댓글"
+        let cell = tableview.dequeueReusableCell(withIdentifier: "comment", for: indexPath) as! CommentCell
+        
+        if let comments = commentsData {
+            let v = comments[indexPath.row];
+            if let cm = v["content"] as? String {
+                cell.CommentTable.text = cm
+                cell.CommentTable.font = UIFont.boldSystemFont(ofSize: 18)
+            }
+        }
         return cell
         
     }
-}
-
-//댓글
-class CommentTable: UITableViewCell{
-    
-    @IBOutlet weak var comment: UILabel!
-    @IBOutlet weak var gotochat: UIButton!
-    
-    
 }

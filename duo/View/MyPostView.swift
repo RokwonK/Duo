@@ -124,7 +124,7 @@ class MyPostView :  UITableViewController{
         
         print(indexPath)
         let index = indexPath.row;
-        if let posts = MyPostModel.sharedInstance.postsData {
+        if let posts = self.postsData {
             let v = posts[indexPath.row]
             
             if let top = v["top"] as? Int, top == 2 {

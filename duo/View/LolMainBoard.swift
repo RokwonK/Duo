@@ -106,7 +106,7 @@ class LoLMainBoard: UITableViewController{
                 cell.title.text = tit;
                 cell.title.font = UIFont.boldSystemFont(ofSize: 18)
             }
-            if let st = v["startTime"] as? String {
+            if let et = v["endTime"] as? String {
                 //cell.startTime.text = "시작시간 : \(st)";
                 
                 // 각각 뽑기 위해서 Date객체로의 변환이 필요
@@ -116,7 +116,7 @@ class LoLMainBoard: UITableViewController{
                 // String => Date로 바꿈;
                 let thisDateFormatter = DateFormatter();
                 thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                let thisDate = thisDateFormatter.date(from: st)!;
+                let thisDate = thisDateFormatter.date(from: et)!;
                 thisDateFormatter.dateFormat = "MM-dd";
                 let thisDateMMdd = thisDateFormatter.string(from : thisDate);
                 
@@ -125,12 +125,12 @@ class LoLMainBoard: UITableViewController{
                 let nowDateMMdd = thisDateFormatter.string(from : nowDate);
                 
                 thisDateFormatter.dateFormat = "HH:mm";
-                let thisStartTime = thisDateFormatter.string(from : thisDate)
+                let thisEndTime = thisDateFormatter.string(from : thisDate)
                 if (nowDateMMdd == thisDateMMdd) {
-                    cell.startTime.text = "오늘 \(thisStartTime)"
+                    cell.endTime.text = "오늘 \(thisEndTime)"
                 }
                 else {
-                    cell.startTime.text = "내일 \(thisStartTime)"
+                    cell.endTime.text = "내일 \(thisEndTime)"
                 }
             }
             

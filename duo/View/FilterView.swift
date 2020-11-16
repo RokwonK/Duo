@@ -24,7 +24,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBOutlet weak var Support: UIButton!
     @IBOutlet weak var applyBtn: UIButton!
     @IBOutlet weak var myTier: UITextField!
-    @IBOutlet weak var startTimeField: UITextField!
+
     let toolBarKeyboard = UIToolbar()
 
     override func viewDidLoad() {
@@ -73,12 +73,9 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         peopleNum.tintColor = UIColor.black;
         
         // Start Time
-        let dateformat : DateFormatter = DateFormatter();
-        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
-        startTimeField.inputAccessoryView = toolBarKeyboard
-        startTimeField.inputView = FilterViewModel().uploadStartTime
-        startTimeField.textColor = UIColor.orange;
-        startTimeField.text = dateformat.string(from: Date())
+//        let dateformat : DateFormatter = DateFormatter();
+//        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
+        
         
         //토크온
         talkOnButtons.forEach{(btn) in
@@ -114,17 +111,17 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         FilterModel.sharedInstance.headCount = value
     }
     
-    @objc func timeChange(_ sender : UIDatePicker) {
-        let formatter = DateFormatter()
-        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-        FilterModel.sharedInstance.Time =  formatter.string(from: sender.date)
-        let dateformat : DateFormatter = DateFormatter();
-        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
-        
-        let selected: String = dateformat.string(from: sender.date)
-        self.startTimeField.text = selected;
-        
-    }
+//    @objc func timeChange(_ sender : UIDatePicker) {
+//        let formatter = DateFormatter()
+//        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+//        FilterModel.sharedInstance.Time =  formatter.string(from: sender.date)
+//        let dateformat : DateFormatter = DateFormatter();
+//        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
+//
+//        let selected: String = dateformat.string(from: sender.date)
+//
+//
+//    }
     
     @IBAction func gameModeAction(_ sender : UIButton) {
         if (sender.tintColor == UIColor.black) {

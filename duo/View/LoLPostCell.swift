@@ -15,7 +15,7 @@ class LoLPostCell : UITableViewCell {
     @IBOutlet weak var headCount: UIButton!
     
     @IBOutlet weak var title: UILabel!
-    @IBOutlet weak var startTime: UILabel!
+    @IBOutlet weak var endTime: UILabel!
     
     
     @IBOutlet weak var topBtn: UIButton!

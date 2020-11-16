@@ -53,7 +53,7 @@ class FilterViewModel {
                                 "gameMode": FilterModel.sharedInstance.gameModeName,
                                 "headCount": FilterModel.sharedInstance.headCount,
                                 "wantTier": FilterModel.sharedInstance.Mytiernumber,
-                                "startTime": FilterModel.sharedInstance.Time,
+//                                "startTime": FilterModel.sharedInstance.Time,
                                 "top": FilterModel.sharedInstance.Position["top"],
                                 "mid":FilterModel.sharedInstance.Position["mid"],
                                 "jungle": FilterModel.sharedInstance.Position["jungle"],
@@ -88,13 +88,13 @@ class FilterViewModel {
     }
     
     
-    lazy var uploadStartTime : UIDatePicker = {
-        let startTimePicker : UIDatePicker = UIDatePicker();
-        startTimePicker.timeZone = NSTimeZone.local;
-        startTimePicker.addTarget(self, action: #selector(FilterView().timeChange), for: .valueChanged)
-        startTimePicker.backgroundColor = UIColor.white;
-        
-        return startTimePicker;
-    }()
-    
+//    lazy var uploadStartTime : UIDatePicker = {
+//        let startTimePicker : UIDatePicker = UIDatePicker();
+//        startTimePicker.timeZone = NSTimeZone.local;
+//        startTimePicker.addTarget(self, action: #selector(FilterView().timeChange), for: .valueChanged)
+//        startTimePicker.backgroundColor = UIColor.white;
+//
+//        return startTimePicker;
+//    }()
+//
 }

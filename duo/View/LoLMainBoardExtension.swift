@@ -64,7 +64,7 @@ extension LoLMainBoard {
         cell.headCount.backgroundColor = UIColor.orange;
         cell.headCount.layer.masksToBounds = true;
         
-        cell.startTime.textColor = UIColor.lightGray;
+        cell.endTime.textColor = UIColor.lightGray;
         cell.micFillBtn.tintColor = UIColor.orange;
         cell.micNotBtn.tintColor = UIColor.lightGray;
         

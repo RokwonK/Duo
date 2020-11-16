@@ -78,5 +78,4 @@ class Comment : UITableViewController{
         return cell
     }
 
-    
 }

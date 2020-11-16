@@ -32,7 +32,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         let dateformat = DateFormatter()
         dateformat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         
-        let uploadedStartTime = dateformat.string(from: selectDate)
+        let uploadedEndTime = dateformat.string(from: selectDate)
         var uploadedStartTier = 6;
         var uploadedEndTier = 90;
         var uploadedTop = 1;
@@ -89,7 +89,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
                                 "title" : uploadTitle.text!,
                                 "startTier" : uploadedStartTier,
                                 "endTier" : uploadedEndTier,
-                                "startTime" : uploadedStartTime,
+                                "endTime" : uploadedEndTime,
                                 "headCount" : Int(headCountField.text!)!,
                                 "top" : uploadedTop,
                                 "mid" : uploadedMid,
@@ -145,7 +145,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         }
     }
     @IBOutlet var positionBtn : [UIButton]!
-    @IBOutlet weak var startTimeField: UITextField!
+    @IBOutlet weak var endTimeField: UITextField!
     @IBOutlet weak var headCountField: UITextField!
     @IBOutlet weak var endTierField: UITextField!
     @IBOutlet weak var startTierField: UITextField!
@@ -214,7 +214,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         
         let selected: String = dateformat.string(from: sender.date)
-        self.startTimeField.text = selected;
+        self.endTimeField.text = selected;
 
     }
     
@@ -283,13 +283,13 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         return headCountPicker;
     }()
     
-    lazy var uploadStartTime : UIDatePicker = {
-        let startTimePicker : UIDatePicker = UIDatePicker();
-        startTimePicker.timeZone = NSTimeZone.local;
-        startTimePicker.addTarget(self, action: #selector(timeChange), for: .valueChanged)
-        startTimePicker.backgroundColor = UIColor.white;
+    lazy var uploadendTime : UIDatePicker = {
+        let endTimePicker : UIDatePicker = UIDatePicker();
+        endTimePicker.timeZone = NSTimeZone.local;
+        endTimePicker.addTarget(self, action: #selector(timeChange), for: .valueChanged)
+        endTimePicker.backgroundColor = UIColor.white;
         
-        return startTimePicker;
+        return endTimePicker;
     }()
     
     
@@ -336,10 +336,10 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // Start Time
         let dateformat : DateFormatter = DateFormatter();
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
-        startTimeField.inputAccessoryView = toolBarKeyboard
-        startTimeField.inputView = self.uploadStartTime
-        startTimeField.textColor = UIColor.orange;
-        startTimeField.text = dateformat.string(from: Date())
+        endTimeField.inputAccessoryView = toolBarKeyboard
+        endTimeField.inputView = self.uploadendTime
+        endTimeField.textColor = UIColor.orange;
+        endTimeField.text = dateformat.string(from: Date())
         
         // Position
         positionBtn.forEach{ (btn) in

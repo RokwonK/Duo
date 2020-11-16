@@ -15,7 +15,7 @@ class FilterModel {
     var talkOn = 3 //기본설정 상관없음
     var headCount : Int = 1
     var Position = ["top":3,"mid":3, "jungle":3,"bottom":3, "support":3]
-    var Time : String = ""
+//    var Time : String = ""
     var Mytiernumber : Int?
     var gameModeName : String =  ""
     
