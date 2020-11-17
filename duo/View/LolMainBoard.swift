@@ -12,7 +12,7 @@ class LoLMainBoard: UITableViewController{
     static let sharedInstance = LoLMainBoard()
     let ad = UIApplication.shared.delegate as? AppDelegate
     
-    @IBOutlet weak var naviBarOutlet: UINavigationItem!
+//    @IBOutlet weak var naviBarOutlet: UINavigationItem!
     @IBAction func popAction(_ sender: Any) {
         self.navigationController?.popViewController(animated: true);
     }

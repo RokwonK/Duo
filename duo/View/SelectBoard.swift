@@ -11,9 +11,10 @@ import Alamofire
 
 class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource {
     
+    
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
-
+    
     var boardInfo : Dictionary<String,Any>?;
     var postID : Int = 0
     @IBOutlet weak var tableview: UITableView!
@@ -62,6 +63,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
+        self.navigationController?.navigationBar.tintColor = UIColor.white
         
         postID = boardInfo?["id"] as! Int
         print(postID)
@@ -182,6 +184,23 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             }
         }
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if let indexPath = tableView.indexPathForSelectedRow {
+        let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
+            
+
+        popover.modalPresentationStyle = UIModalPresentationStyle.popover
+            
+//        popover.popoverPresentationController?.delegate = self
+//        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
+//        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
+//        popover.popoverPresentationController?.permittedArrowDirections = .any
+        self.present(popover, animated: true, completion: nil)
+        }
         
     }
+
 }

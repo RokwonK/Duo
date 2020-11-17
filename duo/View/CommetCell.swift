@@ -8,8 +8,17 @@
 
 import UIKit
 
+
+
 class CommentCell : UITableViewCell {
     
     @IBOutlet weak var CommentTable : UILabel!
     
+    @IBAction func showPopup (_sender: AnyObject){
+        
+        
+    }
+    
+
+
 }

@@ -19,7 +19,6 @@
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
 		1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909BB812561994D00C44CFA /* MyPostViewExtension.swift */; };
-		1910CC9D256148D2008DFC20 /* Comment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910CC9C256148D2008DFC20 /* Comment.swift */; };
 		1910CCA0256156B8008DFC20 /* CommetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910CC9F256156B8008DFC20 /* CommetCell.swift */; };
 		191CAFB82503BED900933A66 /* MyPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CAFB72503BED900933A66 /* MyPostView.swift */; };
 		191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CAFB92503E88200933A66 /* MyPostCell.swift */; };
@@ -60,7 +59,6 @@
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1909BB812561994D00C44CFA /* MyPostViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewExtension.swift; sourceTree = "<group>"; };
-		1910CC9C256148D2008DFC20 /* Comment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comment.swift; sourceTree = "<group>"; };
 		1910CC9F256156B8008DFC20 /* CommetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommetCell.swift; sourceTree = "<group>"; };
 		191CAFB72503BED900933A66 /* MyPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostView.swift; sourceTree = "<group>"; };
 		191CAFB92503E88200933A66 /* MyPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostCell.swift; sourceTree = "<group>"; };
@@ -188,7 +186,6 @@
 				191CAFB92503E88200933A66 /* MyPostCell.swift */,
 				191CAFB72503BED900933A66 /* MyPostView.swift */,
 				19EF8FEF255A883300767CC8 /* NickNameChange.swift */,
-				1910CC9C256148D2008DFC20 /* Comment.swift */,
 				1910CC9F256156B8008DFC20 /* CommetCell.swift */,
 				1909BB812561994D00C44CFA /* MyPostViewExtension.swift */,
 			);
@@ -361,7 +358,6 @@
 				091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */,
 				09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */,
 				195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */,
-				1910CC9D256148D2008DFC20 /* Comment.swift in Sources */,
 				1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
 				195A5C88251CF32F00FD352D /* LoginView.swift in Sources */,
