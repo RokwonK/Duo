@@ -39,7 +39,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         self.navigationController?.navigationBar.barStyle = .default;
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.topItem?.title = "필터"
-        exitButton.tintColor = UIColor.orange
+        exitButton.tintColor = UIColor.blue
         
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))
@@ -50,27 +50,27 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         //티어
         myTier.inputAccessoryView = toolBarKeyboard
         myTier.inputView = uploadStartTier;
-        myTier.textColor = UIColor.orange;
+        myTier.textColor = UIColor.blue;
         myTier.text = FilterModel().tierData[0];
         //게임모드버튼
         GameModeButtons.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = UIColor.orange.cgColor;
+            btn.layer.borderColor = UIColor.blue.cgColor;
             btn.layer.cornerRadius = 5;
-            btn.tintColor = UIColor.black;
+            btn.tintColor = UIColor.blue;
         }
         //포지션버튼
         PositionButtons.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = UIColor.orange.cgColor;
+            btn.layer.borderColor = UIColor.blue.cgColor;
             btn.layer.cornerRadius = 5;
-            btn.tintColor = UIColor.black;
+            btn.tintColor = UIColor.blue;
         }
         //인원수 표시 라벨
         peopleNum.layer.borderWidth = 1
-        peopleNum.layer.borderColor = UIColor.orange.cgColor;
+        peopleNum.layer.borderColor = UIColor.blue.cgColor;
         peopleNum.layer.cornerRadius = 5;
-        peopleNum.tintColor = UIColor.black;
+        peopleNum.tintColor = UIColor.blue;
         
         // Start Time
 //        let dateformat : DateFormatter = DateFormatter();
@@ -80,16 +80,16 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         //토크온
         talkOnButtons.forEach{(btn) in
             btn.layer.borderWidth = 1
-            btn.layer.borderColor = UIColor.orange.cgColor
+            btn.layer.borderColor = UIColor.blue.cgColor
             btn.layer.cornerRadius = 5
-            btn.tintColor = UIColor.black
+            btn.tintColor = UIColor.blue
         }
         
         //적용버튼
         applyBtn.layer.cornerRadius = 10;
         applyBtn.layer.borderWidth = 1;
-        applyBtn.layer.borderColor = UIColor.orange.cgColor;
-        applyBtn.backgroundColor = UIColor.orange;
+        applyBtn.layer.borderColor = UIColor.blue.cgColor;
+        applyBtn.backgroundColor = UIColor.blue;
         applyBtn.tintColor = UIColor.white;
         
     }
@@ -124,43 +124,43 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
 //    }
     
     @IBAction func gameModeAction(_ sender : UIButton) {
-        if (sender.tintColor == UIColor.black) {
+        if (sender.tintColor == UIColor.blue) {
             GameModeButtons.forEach{ (btn) in
-                btn.tintColor = UIColor.black
+                btn.tintColor = UIColor.blue
                 btn.backgroundColor = UIColor.white
             }
             sender.tintColor = UIColor.white;
-            sender.backgroundColor = UIColor.orange;
+            sender.backgroundColor = UIColor.blue;
         }
         else {
-            sender.tintColor = UIColor.black;
+            sender.tintColor = UIColor.blue;
             sender.backgroundColor = UIColor.white;
         }
     }
     
     @IBAction func positionAction(_ sender : UIButton) {
-        if (sender.tintColor == UIColor.black) {
+        if (sender.tintColor == UIColor.blue) {
             sender.tintColor = UIColor.white
-            sender.backgroundColor = UIColor.orange;
+            sender.backgroundColor = UIColor.blue;
         }
         else {
-            sender.tintColor = UIColor.black;
+            sender.tintColor = UIColor.blue;
             sender.backgroundColor = UIColor.white;
         }
     }
     
     @IBAction func talkOnAction(_ sender : UIButton) {
-        if (sender.tintColor == UIColor.black) {
+        if (sender.tintColor == UIColor.blue) {
             talkOnButtons.forEach{ (btn) in
-                btn.tintColor = UIColor.black
+                btn.tintColor = UIColor.blue
                 btn.backgroundColor = UIColor.white
             }
             sender.tintColor = UIColor.white;
-            sender.backgroundColor = UIColor.orange;
+            sender.backgroundColor = UIColor.blue;
             
         }
         else {
-            sender.tintColor = UIColor.black;
+            sender.tintColor = UIColor.blue;
             sender.backgroundColor = UIColor.white;
         }
     }

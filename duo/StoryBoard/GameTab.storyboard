@@ -671,27 +671,40 @@
                                     <action selector="temp:" destination="51F-3C-B3Q" eventType="touchUpInside" id="UNr-AE-TgX"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="댓글 입력" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFi-ih-I3d">
-                                <rect key="frame" x="0.0" y="828" width="375" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="댓글 입력" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DFi-ih-I3d">
+                                <rect key="frame" x="0.0" y="828" width="358" height="34"/>
                                 <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="3Yu-Ct-B5e"/>
+                                    <constraint firstAttribute="width" constant="358" id="Deo-Ty-rqC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUy-Jk-QaN">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kUy-Jk-QaN">
                                 <rect key="frame" x="375" y="828" width="39" height="34"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray4Color"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="39" id="8Zq-lQ-CBv"/>
+                                    <constraint firstAttribute="height" constant="34" id="CbG-Pi-DUT"/>
+                                </constraints>
                                 <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" image="arrowtriangle.right.fill" catalog="system">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="postComment:" destination="51F-3C-B3Q" eventType="touchUpInside" id="ILn-ow-EJL"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fTP-1b-wvm"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="DFi-ih-I3d" firstAttribute="bottom" secondItem="fTP-1b-wvm" secondAttribute="bottom" id="Nwo-9m-mMt"/>
-                            <constraint firstItem="DFi-ih-I3d" firstAttribute="leading" secondItem="fTP-1b-wvm" secondAttribute="leading" id="bFH-gi-TyY"/>
+                            <constraint firstItem="DFi-ih-I3d" firstAttribute="leading" secondItem="fTP-1b-wvm" secondAttribute="leading" id="3az-mR-YeU"/>
+                            <constraint firstItem="kUy-Jk-QaN" firstAttribute="trailing" secondItem="fTP-1b-wvm" secondAttribute="trailing" id="RpR-Pn-CLZ"/>
+                            <constraint firstItem="DFi-ih-I3d" firstAttribute="bottom" secondItem="fTP-1b-wvm" secondAttribute="bottom" id="nxc-2F-Fdc"/>
+                            <constraint firstItem="kUy-Jk-QaN" firstAttribute="bottom" secondItem="fTP-1b-wvm" secondAttribute="bottom" id="sJd-35-Lyt"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="E51-RC-5RY"/>
@@ -699,6 +712,7 @@
                         <outlet property="boardtext" destination="xJO-he-xma" id="ORa-4c-9Aa"/>
                         <outlet property="boardtitle" destination="VY0-GD-2sv" id="GhZ-xy-oFc"/>
                         <outlet property="bottomlabel" destination="Oae-FI-VIa" id="qzA-sb-amf"/>
+                        <outlet property="commentField" destination="DFi-ih-I3d" id="te8-kS-Kb8"/>
                         <outlet property="end" destination="ttK-ZY-smU" id="ecs-Dm-Rwl"/>
                         <outlet property="gamemode" destination="YYc-2T-cG3" id="SgI-SH-soq"/>
                         <outlet property="junglelabel" destination="tCB-gx-M7U" id="BSA-d1-ibb"/>
@@ -706,6 +720,7 @@
                         <outlet property="midlabel" destination="bgm-ya-HHr" id="4C7-CT-Wuw"/>
                         <outlet property="nickname" destination="fmV-bZ-jVf" id="CFt-Ie-2Bj"/>
                         <outlet property="peoplenum" destination="9mh-SD-nR3" id="xah-Cp-8KO"/>
+                        <outlet property="postComment" destination="kUy-Jk-QaN" id="Fq1-TU-bLh"/>
                         <outlet property="start" destination="ZiJ-y7-aql" id="kiK-Dg-N6w"/>
                         <outlet property="supportlabel" destination="y5q-cY-9gP" id="IGy-Pg-FIo"/>
                         <outlet property="tableview" destination="fsc-f4-goQ" id="NeB-nF-4fM"/>

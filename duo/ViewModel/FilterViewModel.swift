@@ -16,27 +16,27 @@ class FilterViewModel {
     
     func positionResult(){
         
-        if FilterView().Top?.tintColor == UIColor.black{
+        if FilterView().Top?.tintColor == UIColor.blue{
             FilterModel.sharedInstance.Position["top"]=2
         }
         else {FilterModel.sharedInstance.Position["top"]=1}
         
-        if FilterView().Mid?.tintColor == UIColor.black{
+        if FilterView().Mid?.tintColor == UIColor.blue{
             FilterModel.sharedInstance.Position["mid"]=2
         }
         else {FilterModel.sharedInstance.Position["mid"]=1}
         
-        if FilterView().Jungle?.tintColor == UIColor.black{
+        if FilterView().Jungle?.tintColor == UIColor.blue{
             FilterModel.sharedInstance.Position["jungle"]=2
         }
         else {FilterModel.sharedInstance.Position["jungle"]=1}
         
-        if FilterView().Dealer?.tintColor == UIColor.black{
+        if FilterView().Dealer?.tintColor == UIColor.blue{
             FilterModel.sharedInstance.Position["bottom"]=2
         }
         else {FilterModel.sharedInstance.Position["bottom"]=1}
         
-        if FilterView().Support?.tintColor == UIColor.black{
+        if FilterView().Support?.tintColor == UIColor.blue{
             FilterModel.sharedInstance.Position["support"]=2
         }
         else {FilterModel.sharedInstance.Position["support"]=1}

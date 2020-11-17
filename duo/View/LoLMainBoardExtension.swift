@@ -8,7 +8,7 @@ extension LoLMainBoard {
         upLoadBtn.setTitle("글 쓰기", for: .normal);
         upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         upLoadBtn.setTitleColor(.white, for: .normal)
-        upLoadBtn.backgroundColor = UIColor.orange;
+        upLoadBtn.backgroundColor = UIColor.blue;
         upLoadBtn.layer.cornerRadius = 18;
         self.view.addSubview(upLoadBtn);
         
@@ -51,22 +51,22 @@ extension LoLMainBoard {
     func extension_cellSetting(_ cell : LoLPostCell) {
         cell.tier.layer.cornerRadius = 7;
         cell.tier.tintColor = UIColor.white;
-        cell.tier.backgroundColor = UIColor.orange;
+        cell.tier.backgroundColor = UIColor.blue;
         cell.tier.layer.masksToBounds = true;
         
         cell.gameMode.layer.cornerRadius = 7;
         cell.gameMode.tintColor = UIColor.white;
-        cell.gameMode.backgroundColor = UIColor.orange;
+        cell.gameMode.backgroundColor = UIColor.blue;
         cell.gameMode.layer.masksToBounds = true;
         
         cell.headCount.layer.cornerRadius = 7;
         cell.headCount.tintColor = UIColor.white;
-        cell.headCount.backgroundColor = UIColor.orange;
+        cell.headCount.backgroundColor = UIColor.blue;
         cell.headCount.layer.masksToBounds = true;
         
-        cell.endTime.textColor = UIColor.lightGray;
-        cell.micFillBtn.tintColor = UIColor.orange;
-        cell.micNotBtn.tintColor = UIColor.lightGray;
+        cell.endTime.textColor = UIColor.blue;
+        cell.micFillBtn.tintColor = UIColor.blue;
+        cell.micNotBtn.tintColor = UIColor.blue;
         
     }
     

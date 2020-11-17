@@ -52,12 +52,12 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         }
         
         
-        if topBtn.tintColor == UIColor.black { uploadedTop = 2; }
-        if bottomBtn.tintColor == UIColor.black { uploadedBottom = 2; }
-        if supportBtn.tintColor == UIColor.black { uploadedSupport = 2; }
-        if jungleBtn.tintColor == UIColor.black { uploadedJungle = 2; }
-        if midBtn.tintColor == UIColor.black { uploadedMid = 2; }
-        if talkOnBtn.tintColor == UIColor.black { uploadedTalkon = 2; }
+        if topBtn.tintColor == UIColor.blue { uploadedTop = 2; }
+        if bottomBtn.tintColor == UIColor.blue { uploadedBottom = 2; }
+        if supportBtn.tintColor == UIColor.blue { uploadedSupport = 2; }
+        if jungleBtn.tintColor == UIColor.blue { uploadedJungle = 2; }
+        if midBtn.tintColor == UIColor.blue { uploadedMid = 2; }
+        if talkOnBtn.tintColor == UIColor.blue { uploadedTalkon = 2; }
         
         if (uploadedTop + uploadedMid + uploadedJungle + uploadedSupport + uploadedBottom == 10) {
             let alert = UIAlertController(title: "포지션을 하나 이상 선택해주세요", message: "", preferredStyle: .alert)
@@ -135,12 +135,12 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     @IBOutlet weak var talkOnBtn: UIButton!
     
     @IBAction func positionAction(_ sender : UIButton) {
-        if (sender.tintColor == UIColor.black) {
+        if (sender.tintColor == UIColor.blue) {
             sender.tintColor = UIColor.white;
-            sender.backgroundColor = UIColor.orange;
+            sender.backgroundColor = UIColor.blue;
         }
         else {
-            sender.tintColor = UIColor.black;
+            sender.tintColor = UIColor.blue;
             sender.backgroundColor = UIColor.white;
         }
     }
@@ -221,11 +221,11 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     func textViewSetup() {
         if textContentView.text == "내용 입력" {
             textContentView.text = "";
-            textContentView.textColor = UIColor.black;
+            textContentView.textColor = UIColor.blue;
         }
         else if textContentView.text == "" {
             textContentView.text = "내용 입력";
-            textContentView.textColor = UIColor.lightGray;
+            textContentView.textColor = UIColor.blue;
         }
     }
     
@@ -300,7 +300,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.orange;
+        self.navigationController?.navigationBar.barTintColor = UIColor.blue;
         self.navigationController?.navigationBar.barStyle = .black;
         self.navigationController?.navigationBar.isTranslucent = false;
         
@@ -314,23 +314,23 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // Game Mode
         gameModeField.inputAccessoryView = toolBarKeyboard
         gameModeField.inputView = self.uploadGameMode;
-        gameModeField.textColor = UIColor.orange;
+        gameModeField.textColor = UIColor.blue;
         gameModeField.text = gameModeData[0];
         
         // Tier
         startTierField.inputAccessoryView = toolBarKeyboard
         startTierField.inputView = self.uploadStartTier;
-        startTierField.textColor = UIColor.orange;
+        startTierField.textColor = UIColor.blue;
         startTierField.text = tierData[0];
         endTierField.inputAccessoryView = toolBarKeyboard
         endTierField.inputView = self.uploadEndTier;
-        endTierField.textColor = UIColor.orange;
+        endTierField.textColor = UIColor.blue;
         endTierField.text = tierData[tierData.count-1];
         
         // Head Count
         headCountField.inputAccessoryView = toolBarKeyboard
         headCountField.inputView = self.uploadHeadCount
-        headCountField.textColor = UIColor.orange;
+        headCountField.textColor = UIColor.blue;
         headCountField.text = headCountData[0];
         
         // Start Time
@@ -338,23 +338,23 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         endTimeField.inputAccessoryView = toolBarKeyboard
         endTimeField.inputView = self.uploadendTime
-        endTimeField.textColor = UIColor.orange;
+        endTimeField.textColor = UIColor.blue;
         endTimeField.text = dateformat.string(from: Date())
         
         // Position
         positionBtn.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = UIColor.orange.cgColor;
+            btn.layer.borderColor = UIColor.blue.cgColor;
             btn.layer.cornerRadius = 5;
-            btn.tintColor = UIColor.black;
+            btn.tintColor = UIColor.blue;
         }
         
         // talkon
         talkOnBtn.layer.borderWidth = 1
         talkOnBtn.layer.borderWidth = 1;
-        talkOnBtn.layer.borderColor = UIColor.orange.cgColor;
+        talkOnBtn.layer.borderColor = UIColor.blue.cgColor;
         talkOnBtn.layer.cornerRadius = 5;
-        talkOnBtn.tintColor = UIColor.black;
+        talkOnBtn.tintColor = UIColor.blue;
         
         // 제목 textField
         uploadTitle.attributedPlaceholder = NSAttributedString(string : "제목");
@@ -363,19 +363,19 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         
         // 내용
         textContentView.text = "내용 입력"
-        textContentView.textColor = UIColor.lightGray;
+        textContentView.textColor = UIColor.blue;
         textContentView.textAlignment = NSTextAlignment.left;
         textContentView.layer.borderWidth = 1;
         textContentView.layer.cornerRadius = 5;
-        textContentView.layer.borderColor = UIColor.lightGray.cgColor;
+        textContentView.layer.borderColor = UIColor.blue.cgColor;
         textContentView.inputAccessoryView = toolBarKeyboard;
         textContentView.delegate = self;
         
         // upload 버튼
         uploadBtn.layer.cornerRadius = 10;
         uploadBtn.layer.borderWidth = 1;
-        uploadBtn.layer.borderColor = UIColor.orange.cgColor;
-        uploadBtn.backgroundColor = UIColor.orange;
+        uploadBtn.layer.borderColor = UIColor.blue.cgColor;
+        uploadBtn.backgroundColor = UIColor.blue;
         uploadBtn.tintColor = UIColor.white;
         
         

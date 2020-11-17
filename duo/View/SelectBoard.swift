@@ -9,11 +9,17 @@
 import UIKit
 import Alamofire
 
-class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource {
+class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
+    
+    @IBOutlet weak var commentField: UITextField!
+    @IBOutlet weak var postComment: UIButton!
+    @IBAction func postComment(_ sender: Any) {
+        
+    }
     
     var boardInfo : Dictionary<String,Any>?;
     var postID : Int = 0
@@ -35,16 +41,36 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var bottomlabel: UILabel!
     @IBOutlet weak var supportlabel: UILabel!
     
+    @objc
+    func keyboardWillShow(_ sender: Notification) {
+        self.view.frame.origin.y = -150 // Move view 150 points upward
+        postComment.frame.origin.y = -150
+    }
+    
+    @objc func keyboardWillHide(_ sender:Notification){
+        self.view.frame.origin.y = 0
+        postComment.frame.origin.y = 0
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    @objc func endEditing(){
+        commentField.resignFirstResponder()
+    }
+    
     @IBAction func temp(_ sender: Any) {
         let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
         let req = AF.request(url,
-                            method:.post,
-                            parameters: ["content": "임시테스트",
-                                         "userId": ad!.userID,
-                                         "postId": postID,
-                                         "nickname" : ad!.nickname],
-                            encoding: JSONEncoding.default,
-                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+                             method:.post,
+                             parameters: ["content": "임시테스트",
+                                          "userId": ad!.userID,
+                                          "postId": postID,
+                                          "nickname" : ad!.nickname],
+                             encoding: JSONEncoding.default,
+                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
         // db에서 값 가져오기
         req.responseJSON {res in
             print(res)
@@ -54,7 +80,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             case .failure(let error):
                 print(error)
             }
-    }
+        }
     }
     
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
@@ -63,16 +89,26 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
+        commentField.delegate = self
+        
         self.navigationController?.navigationBar.tintColor = UIColor.white
+        
+        //댓글입력시 키보드 올라오면서 숨겨지는것을 막기위한코드
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
+        
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
         
         postID = boardInfo?["id"] as! Int
         print(postID)
         let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
         let req = AF.request(url,
-                            method:.get,
-                            parameters: ["postId": postID],
-                            encoding: URLEncoding.queryString,
-                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+                             method:.get,
+                             parameters: ["postId": postID],
+                             encoding: URLEncoding.queryString,
+                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
         // db에서 값 가져오기
         req.responseJSON {res in
             print(res)
@@ -98,7 +134,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         var Mid = boardInfo?["mid"] as! Int
         var Bottom = boardInfo?["bottom"] as! Int
         var Support = boardInfo?["support"] as! Int
-    
+        
         switch talkon{
         case 1:
             mic.text = "토크온: 가능"
@@ -152,7 +188,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             bottomlabel.backgroundColor = UIColor.green
         }
         if (Support == 1 || Support == 3) {
-           supportlabel.backgroundColor = UIColor.green
+            supportlabel.backgroundColor = UIColor.green
         }
         
     }
@@ -189,18 +225,18 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
         if let indexPath = tableView.indexPathForSelectedRow {
-        let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
+            let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
             
-
-        popover.modalPresentationStyle = UIModalPresentationStyle.popover
             
-//        popover.popoverPresentationController?.delegate = self
-//        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
-//        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
-//        popover.popoverPresentationController?.permittedArrowDirections = .any
-        self.present(popover, animated: true, completion: nil)
+            popover.modalPresentationStyle = UIModalPresentationStyle.popover
+            
+            //        popover.popoverPresentationController?.delegate = self
+            //        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
+            //        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
+            //        popover.popoverPresentationController?.permittedArrowDirections = .any
+            self.present(popover, animated: true, completion: nil)
         }
         
     }
-
+    
 }
