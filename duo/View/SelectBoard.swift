@@ -18,7 +18,25 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var postComment: UIButton!
     @IBAction func postComment(_ sender: Any) {
-        
+        let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
+        let req = AF.request(url,
+                             method:.post,
+                             parameters: ["content": "댓글추가",
+                                          "userId": ad!.userID,
+                                          "postId": postID,
+                                          "nickname" : ad!.nickname],
+                             encoding: JSONEncoding.default,
+                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+        // db에서 값 가져오기
+        req.responseJSON {res in
+            print(res)
+            switch res.result {
+            case.success(let value): break
+                
+            case .failure(let error):
+                print(error)
+            }
+        }
     }
     
     var boardInfo : Dictionary<String,Any>?;
