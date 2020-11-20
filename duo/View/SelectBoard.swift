@@ -83,6 +83,7 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         }
     }
     
+    
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
     
     override func viewDidLoad() {
