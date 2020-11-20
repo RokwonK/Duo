@@ -9,9 +9,11 @@
 import UIKit
 import Alamofire
 
-class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var heightConstant: NSLayoutConstraint!
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
     
@@ -59,26 +61,6 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var bottomlabel: UILabel!
     @IBOutlet weak var supportlabel: UILabel!
     
-    @objc
-    func keyboardWillShow(_ sender: Notification) {
-        self.view.frame.origin.y = -150 // Move view 150 points upward
-        postComment.frame.origin.y = -150
-    }
-    
-    @objc func keyboardWillHide(_ sender:Notification){
-        self.view.frame.origin.y = 0
-        postComment.frame.origin.y = 0
-    }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool{
-        textField.resignFirstResponder()
-        return true
-    }
-    
-    @objc func endEditing(){
-        commentField.resignFirstResponder()
-    }
-    
     @IBAction func temp(_ sender: Any) {
         let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
         let req = AF.request(url,
@@ -107,17 +89,11 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
-        commentField.delegate = self
+//        ScrollView.delegate = self
+        
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
-        
-        //댓글입력시 키보드 올라오면서 숨겨지는것을 막기위한코드
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(_:)), name: UIResponder.keyboardWillShowNotification, object: nil)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(_:)), name: UIResponder.keyboardWillHideNotification, object: nil)
-        
-        
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(endEditing)))
+      
         
         postID = boardInfo?["id"] as! Int
         print(postID)
