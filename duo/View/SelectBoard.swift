@@ -17,6 +17,8 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
     
+    @IBOutlet weak var tableviewheight: NSLayoutConstraint!
+    
     @IBOutlet weak var commentField: UITextField!
     @IBOutlet weak var postComment: UIButton!
     @IBAction func postComment(_ sender: Any) {
@@ -92,6 +94,9 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         tableview.dataSource = self
 //        ScrollView.delegate = self
         
+        DispatchQueue.main.async {
+            self.tableviewheight.constant = self.tableview.contentSize.height
+           }
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
       
@@ -197,10 +202,11 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let comments = commentsData {
-            return comments.count;
-        }
-        return 0;
+//        if let comments = commentsData {
+//            return comments.count;
+//        }
+//        return 0;
+        return 40
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

@@ -543,10 +543,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GH0-e3-Rpy">
-                                        <rect key="frame" x="0.0" y="365" width="414" height="317"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GH0-e3-Rpy">
+                                        <rect key="frame" x="0.0" y="458" width="414" height="371"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="371" id="7li-2H-I9X"/>
+                                        </constraints>
                                         <prototypes>
                                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="comment" rowHeight="73" id="5WA-cW-c0k" customClass="CommentCell" customModule="duo" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="28" width="414" height="73"/>
@@ -682,6 +684,7 @@
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="Q65-8U-6bz" firstAttribute="leading" secondItem="cSc-Ca-m49" secondAttribute="leading" id="KFa-Hz-qe4"/>
+                                    <constraint firstAttribute="bottom" secondItem="GH0-e3-Rpy" secondAttribute="bottom" id="KTA-ho-0ZI"/>
                                     <constraint firstAttribute="trailing" secondItem="Q65-8U-6bz" secondAttribute="trailing" id="WNS-DL-A09"/>
                                     <constraint firstItem="Q65-8U-6bz" firstAttribute="top" secondItem="cSc-Ca-m49" secondAttribute="top" id="X3r-4a-ZIj"/>
                                     <constraint firstAttribute="bottom" secondItem="Q65-8U-6bz" secondAttribute="bottom" constant="37" id="l6Q-PE-Jii"/>
@@ -707,6 +710,7 @@
                         <outlet property="bottomlabel" destination="awc-bF-qyB" id="z9q-QE-tNR"/>
                         <outlet property="end" destination="LTR-L4-fKn" id="whk-wx-2hp"/>
                         <outlet property="gamemode" destination="Zir-cm-sVO" id="Wsv-SD-bgJ"/>
+                        <outlet property="heightConstant" destination="7li-2H-I9X" id="z4z-Nb-7lF"/>
                         <outlet property="junglelabel" destination="2M7-6b-8wb" id="EBV-Sg-R38"/>
                         <outlet property="mic" destination="Ukv-uP-ccO" id="5YQ-cv-3Qw"/>
                         <outlet property="midlabel" destination="dSG-Kc-6EO" id="dm8-aH-RPm"/>
@@ -715,6 +719,7 @@
                         <outlet property="start" destination="TZT-3Y-m3e" id="HY1-3S-5i8"/>
                         <outlet property="supportlabel" destination="nhb-NM-xfX" id="IUF-2f-X6l"/>
                         <outlet property="tableview" destination="GH0-e3-Rpy" id="KYJ-Tb-Ssa"/>
+                        <outlet property="tableviewheight" destination="7li-2H-I9X" id="nri-1B-VIb"/>
                         <outlet property="time" destination="uek-G4-7ap" id="TG8-0N-CI0"/>
                         <outlet property="toplabel" destination="zP8-0R-h9e" id="sdf-7m-e3X"/>
                     </connections>
