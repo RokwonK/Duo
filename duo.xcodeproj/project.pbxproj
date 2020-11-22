@@ -40,6 +40,7 @@
 		19C4241D24F20E0A00395657 /* TabBarControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4241C24F20E0A00395657 /* TabBarControllerView.swift */; };
 		19EF8FF0255A883300767CC8 /* NickNameChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF8FEF255A883300767CC8 /* NickNameChange.swift */; };
 		19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4BB7F251DE8860092F928 /* MyPostModel.swift */; };
+		19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F82B72256A75BA00DFEB4E /* MyComment.swift */; };
 		3B2254EAA5279D13A4A8BB36 /* Pods_duo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 		19C4241C24F20E0A00395657 /* TabBarControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerView.swift; sourceTree = "<group>"; };
 		19EF8FEF255A883300767CC8 /* NickNameChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameChange.swift; sourceTree = "<group>"; };
 		19F4BB7F251DE8860092F928 /* MyPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostModel.swift; sourceTree = "<group>"; };
+		19F82B72256A75BA00DFEB4E /* MyComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyComment.swift; sourceTree = "<group>"; };
 		2CD8DE695F80422D60D7DBE7 /* Pods_duo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_duo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A22BD3CD5178AD248BABCA6 /* Pods-duo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.debug.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.debug.xcconfig"; sourceTree = "<group>"; };
 		E8E52C42FD0FCAD5FBFA879F /* Pods-duo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-duo.release.xcconfig"; path = "Target Support Files/Pods-duo/Pods-duo.release.xcconfig"; sourceTree = "<group>"; };
@@ -188,6 +190,7 @@
 				19EF8FEF255A883300767CC8 /* NickNameChange.swift */,
 				1910CC9F256156B8008DFC20 /* CommetCell.swift */,
 				1909BB812561994D00C44CFA /* MyPostViewExtension.swift */,
+				19F82B72256A75BA00DFEB4E /* MyComment.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				19713313251A29890085EDEA /* FilterView.swift in Sources */,
 				19C4241D24F20E0A00395657 /* TabBarControllerView.swift in Sources */,
 				191CAFB82503BED900933A66 /* MyPostView.swift in Sources */,
+				19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */,
 				19BD2FFA251D0FAD00C52697 /* NickNameViewModel.swift in Sources */,
 				1910CCA0256156B8008DFC20 /* CommetCell.swift in Sources */,
 				1974132F24FD09B7003BB2F3 /* AccountView.swift in Sources */,

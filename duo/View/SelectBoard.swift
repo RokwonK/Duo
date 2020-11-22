@@ -92,7 +92,7 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
-//        ScrollView.delegate = self
+        ScrollView.delegate = self
         
         DispatchQueue.main.async {
             self.tableviewheight.constant = self.tableview.contentSize.height
@@ -198,15 +198,15 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         
         DispatchQueue.main.async {
             self.tableview.reloadData();
+            self.tableviewheight.constant = self.tableview.contentSize.height
         }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        if let comments = commentsData {
-//            return comments.count;
-//        }
-//        return 0;
-        return 40
+        if let comments = commentsData {
+            return comments.count;
+        }
+        return 0;
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

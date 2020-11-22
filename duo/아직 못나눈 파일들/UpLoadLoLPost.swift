@@ -27,98 +27,115 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     
     
     @IBAction func uploadAction(_ sender: Any) {
-        //BaseFunc.baseurl;
-        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
-        let dateformat = DateFormatter()
-        dateformat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
         
-        let uploadedEndTime = dateformat.string(from: selectDate)
-        var uploadedStartTier = 6;
-        var uploadedEndTier = 90;
-        var uploadedTop = 1;
-        var uploadedBottom = 1;
-        var uploadedMid = 1;
-        var uploadedSupport = 1;
-        var uploadedJungle = 1;
-        var uploadedTalkon = 1;
+        if (textContentView.text!.count > 200){
+            let alert = UIAlertController(title: nil , message: "게시글 최대 200자. 현재 \(textContentView.text!.count)자", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
         
-        for (index, eachtier) in tierData.enumerated() {
-            if (eachtier == startTierField.text) {
-                uploadedStartTier = tierDataToInt[index];
+        else if (uploadTitle.text!.count > 30){
+            let alert = UIAlertController(title: nil , message: "제목 최대 30자. 현재 \(uploadTitle.text!.count)자", preferredStyle: UIAlertController.Style.alert)
+            let okAction = UIAlertAction(title: "OK", style: .default)
+            alert.addAction(okAction)
+            self.present(alert, animated: true, completion: nil)
+        }
+        
+        else{
+            //BaseFunc.baseurl;
+            let url = URL(string : BaseFunc.baseurl + "/post/lol")!
+            let dateformat = DateFormatter()
+            dateformat.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            
+            let uploadedEndTime = dateformat.string(from: selectDate)
+            var uploadedStartTier = 6;
+            var uploadedEndTier = 90;
+            var uploadedTop = 1;
+            var uploadedBottom = 1;
+            var uploadedMid = 1;
+            var uploadedSupport = 1;
+            var uploadedJungle = 1;
+            var uploadedTalkon = 1;
+            
+            for (index, eachtier) in tierData.enumerated() {
+                if (eachtier == startTierField.text) {
+                    uploadedStartTier = tierDataToInt[index];
+                }
+                if (eachtier == endTierField.text) {
+                    uploadedEndTier = tierDataToInt[index];
+                }
             }
-            if (eachtier == endTierField.text) {
-                uploadedEndTier = tierDataToInt[index];
+            
+            
+            if topBtn.tintColor == UIColor.blue { uploadedTop = 2; }
+            if bottomBtn.tintColor == UIColor.blue { uploadedBottom = 2; }
+            if supportBtn.tintColor == UIColor.blue { uploadedSupport = 2; }
+            if jungleBtn.tintColor == UIColor.blue { uploadedJungle = 2; }
+            if midBtn.tintColor == UIColor.blue { uploadedMid = 2; }
+            if talkOnBtn.tintColor == UIColor.blue { uploadedTalkon = 2; }
+            
+            if (uploadedTop + uploadedMid + uploadedJungle + uploadedSupport + uploadedBottom == 10) {
+                let alert = UIAlertController(title: "포지션을 하나 이상 선택해주세요", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
+                present(alert, animated: true, completion: nil)
+                return;
             }
-        }
-        
-        
-        if topBtn.tintColor == UIColor.blue { uploadedTop = 2; }
-        if bottomBtn.tintColor == UIColor.blue { uploadedBottom = 2; }
-        if supportBtn.tintColor == UIColor.blue { uploadedSupport = 2; }
-        if jungleBtn.tintColor == UIColor.blue { uploadedJungle = 2; }
-        if midBtn.tintColor == UIColor.blue { uploadedMid = 2; }
-        if talkOnBtn.tintColor == UIColor.blue { uploadedTalkon = 2; }
-        
-        if (uploadedTop + uploadedMid + uploadedJungle + uploadedSupport + uploadedBottom == 10) {
-            let alert = UIAlertController(title: "포지션을 하나 이상 선택해주세요", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
-            present(alert, animated: true, completion: nil)
-            return;
-        }
-        if (uploadTitle.text == "") {
-            let alert = UIAlertController(title: "제목을 입력해주세요", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
-            present(alert, animated: true, completion: nil)
-            return;
-        }
-        if (textContentView.text == "" || textContentView.text == "내용 입력") {
-            let alert = UIAlertController(title: "내용을 작성해주세요", message: "", preferredStyle: .alert)
-            alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
-            present(alert, animated: true, completion: nil)
-            return;
-        }
-        
-        
-        
-        let req = AF.request(url,
-                            method:.post,
-                            parameters: [
-                                "userId" : ad?.userID,
-                                "userNickname" : ad?.nickname,
-                                "gameMode" : gameModeField.text!,
-                                "title" : uploadTitle.text!,
-                                "startTier" : uploadedStartTier,
-                                "endTier" : uploadedEndTier,
-                                "endTime" : uploadedEndTime,
-                                "headCount" : Int(headCountField.text!)!,
-                                "top" : uploadedTop,
-                                "mid" : uploadedMid,
-                                "bottom" : uploadedBottom,
-                                "support" : uploadedSupport,
-                                "jungle" : uploadedJungle,
-                                "talkon" : uploadedTalkon,
-                                "content" : textContentView.text!
-                            ],
-                            encoding: JSONEncoding.default,
-                            headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            switch res.result {
-            case.success(let value):
-                print(value)
-                if let datas = value as? Dictionary<String,Any> {
-                    if let msg = datas["msg"] as? String  {
-                        if (msg == "create success") {
-                            let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
-                            alert.addAction(UIAlertAction(title: "확인", style: .default ) { (action) in
-                                self.dismiss(animated: true, completion: nil)
-                            })
-                            self.present(alert, animated: true, completion: nil)
+            if (uploadTitle.text == "") {
+                let alert = UIAlertController(title: "제목을 입력해주세요", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
+                present(alert, animated: true, completion: nil)
+                return;
+            }
+            if (textContentView.text == "" || textContentView.text == "내용 입력") {
+                let alert = UIAlertController(title: "내용을 작성해주세요", message: "", preferredStyle: .alert)
+                alert.addAction(UIAlertAction(title: "확인", style: .default , handler: nil))
+                present(alert, animated: true, completion: nil)
+                return;
+            }
+            
+            
+            
+            let req = AF.request(url,
+                                 method:.post,
+                                 parameters: [
+                                    "userId" : ad?.userID,
+                                    "userNickname" : ad?.nickname,
+                                    "gameMode" : gameModeField.text!,
+                                    "title" : uploadTitle.text!,
+                                    "startTier" : uploadedStartTier,
+                                    "endTier" : uploadedEndTier,
+                                    "endTime" : uploadedEndTime,
+                                    "headCount" : Int(headCountField.text!)!,
+                                    "top" : uploadedTop,
+                                    "mid" : uploadedMid,
+                                    "bottom" : uploadedBottom,
+                                    "support" : uploadedSupport,
+                                    "jungle" : uploadedJungle,
+                                    "talkon" : uploadedTalkon,
+                                    "content" : textContentView.text!
+                                 ],
+                                 encoding: JSONEncoding.default,
+                                 headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
+            // db에서 값 가져오기
+            req.responseJSON {res in
+                switch res.result {
+                case.success(let value):
+                    print(value)
+                    if let datas = value as? Dictionary<String,Any> {
+                        if let msg = datas["msg"] as? String  {
+                            if (msg == "create success") {
+                                let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
+                                alert.addAction(UIAlertAction(title: "확인", style: .default ) { (action) in
+                                    self.dismiss(animated: true, completion: nil)
+                                })
+                                self.present(alert, animated: true, completion: nil)
+                            }
                         }
                     }
+                case .failure(let error):
+                    print(error)
                 }
-            case .failure(let error):
-                print(error)
             }
         }
     }
@@ -192,7 +209,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         }
         return "d"
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         if (pickerView.tag == 1) {
             gameModeField.text = gameModeData[row];
@@ -215,7 +232,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         
         let selected: String = dateformat.string(from: sender.date)
         self.endTimeField.text = selected;
-
+        
     }
     
     func textViewSetup() {
@@ -236,7 +253,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     func textViewDidEndEditing(_ textView: UITextView) {
         if textContentView.text == "" { textViewSetup() }
     }
-
+    
     
     
     
@@ -385,9 +402,9 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         singleTapGestureRecognizer.isEnabled = true
         singleTapGestureRecognizer.cancelsTouchesInView = false
         ScrollView.addGestureRecognizer(singleTapGestureRecognizer)
-
         
-
+        
+        
         
         
     }
@@ -396,7 +413,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     @objc func MyTapMethod(sender : UITapGestureRecognizer) {
         self.view.endEditing(true);
     }
-        
+    
     // statusbar 보이게 설정
     override var prefersStatusBarHidden: Bool {
         return false
@@ -406,5 +423,5 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
 
 
 /*
-  
-*/
+ 
+ */

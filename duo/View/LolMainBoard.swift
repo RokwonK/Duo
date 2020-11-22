@@ -21,7 +21,6 @@ class LoLMainBoard: UITableViewController{
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
     let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d","q", "m", "gm", "c"];
-    let Ad = UIApplication.shared.delegate as? AppDelegate
     
     func getPosts() {
 //        BaseFunc.fetch();
