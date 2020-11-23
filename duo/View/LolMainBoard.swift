@@ -28,7 +28,8 @@ class LoLMainBoard: UITableViewController{
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
                             method:.get,
-                            encoding: JSONEncoding.default,
+                            parameters: ["limit": 20, "offset" : 0],
+                            encoding: URLEncoding.queryString,
                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
                             )
         // db에서 값 가져오기
