@@ -59,7 +59,9 @@ class FilterViewModel {
                                 "jungle": FilterModel.sharedInstance.Position["jungle"],
                                 "bottom": FilterModel.sharedInstance.Position["bottom"],
                                 "support": FilterModel.sharedInstance.Position["support"],
-                                "talkon":FilterModel.sharedInstance.talkOn],
+                                "talkon":FilterModel.sharedInstance.talkOn,
+                                "limit":20,
+                                "offset" : 0],
                              encoding: URLEncoding.queryString,
                              headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
         

@@ -9,11 +9,11 @@
 import UIKit
 import Alamofire
 
-class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
+class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
-    @IBOutlet weak var ScrollView: UIScrollView!
-    @IBOutlet weak var heightConstant: NSLayoutConstraint!
+//    @IBOutlet weak var ScrollView: UIScrollView!
+    
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
     
@@ -92,11 +92,15 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
-        ScrollView.delegate = self
+//        ScrollView.delegate = self
         
-        DispatchQueue.main.async {
-            self.tableviewheight.constant = self.tableview.contentSize.height
-           }
+        
+        
+//        DispatchQueue.main.async {
+//            var frame : CGRect = self.tableview.frame
+//            frame.size.height = self.tableview.contentSize.height
+//            self.tableview.frame = frame
+//           }
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
       
@@ -199,6 +203,9 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         DispatchQueue.main.async {
             self.tableview.reloadData();
             self.tableviewheight.constant = self.tableview.contentSize.height
+//            var frame : CGRect = self.tableview.frame
+//            frame.size.height = self.tableview.contentSize.height
+//            self.tableview.frame = frame
         }
     }
     
@@ -223,21 +230,25 @@ class SelectBoard : UIViewController, UIScrollViewDelegate, UITableViewDelegate,
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let indexPath = tableView.indexPathForSelectedRow {
-            let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
-            
-            
-            popover.modalPresentationStyle = UIModalPresentationStyle.popover
-            
-            //        popover.popoverPresentationController?.delegate = self
-            //        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
-            //        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
-            //        popover.popoverPresentationController?.permittedArrowDirections = .any
-            self.present(popover, animated: true, completion: nil)
-        }
-        
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        self.tableviewheight.constant = self.tableview.contentSize.height
     }
+    
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//        if let indexPath = tableView.indexPathForSelectedRow {
+//            let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
+//
+//
+//            popover.modalPresentationStyle = UIModalPresentationStyle.popover
+//
+//            //        popover.popoverPresentationController?.delegate = self
+//            //        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
+//            //        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
+//            //        popover.popoverPresentationController?.permittedArrowDirections = .any
+//            self.present(popover, animated: true, completion: nil)
+//        }
+//
+//    }
     
 }
