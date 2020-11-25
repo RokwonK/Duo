@@ -12,7 +12,7 @@ import Alamofire
 class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
-//    @IBOutlet weak var ScrollView: UIScrollView!
+    //    @IBOutlet weak var ScrollView: UIScrollView!
     
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
@@ -92,18 +92,18 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
-//        ScrollView.delegate = self
+        //        ScrollView.delegate = self
         
         
         
-//        DispatchQueue.main.async {
-//            var frame : CGRect = self.tableview.frame
-//            frame.size.height = self.tableview.contentSize.height
-//            self.tableview.frame = frame
-//           }
+        //        DispatchQueue.main.async {
+        //            var frame : CGRect = self.tableview.frame
+        //            frame.size.height = self.tableview.contentSize.height
+        //            self.tableview.frame = frame
+        //           }
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
-      
+        
         
         postID = boardInfo?["id"] as! Int
         print(postID)
@@ -197,16 +197,35 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.tableview.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
+        self.tableview.reloadData();
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        self.tableview.removeObserver(self, forKeyPath: "contentSize")
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "contentSize"{
+                if let newvalue = change?[.newKey]{
+                    let newsize = newvalue as! CGSize
+                    self.tableviewheight.constant = newsize.height
+                }
+            }
+        }
+        
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(true)
         
-        DispatchQueue.main.async {
-            self.tableview.reloadData();
-            self.tableviewheight.constant = self.tableview.contentSize.height
-//            var frame : CGRect = self.tableview.frame
-//            frame.size.height = self.tableview.contentSize.height
-//            self.tableview.frame = frame
-        }
+//        DispatchQueue.main.async {
+            
+            //            self.tableviewheight.constant = self.tableview.contentSize.height
+            //            var frame : CGRect = self.tableview.frame
+            //            frame.size.height = self.tableview.contentSize.height
+            //            self.tableview.frame = frame
+//        }
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -230,25 +249,33 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         return cell
     }
     
-    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-        self.tableviewheight.constant = self.tableview.contentSize.height
+    //    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    //        self.tableviewheight.constant = self.tableview.contentSize.height
+    //    }
+    
+    func tableView(_ tableView: UITableView,
+                   heightForRowAt indexPath: IndexPath) -> CGFloat{
+        return UITableView.automaticDimension
     }
     
-//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-//
-//        if let indexPath = tableView.indexPathForSelectedRow {
-//            let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
-//
-//
-//            popover.modalPresentationStyle = UIModalPresentationStyle.popover
-//
-//            //        popover.popoverPresentationController?.delegate = self
-//            //        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
-//            //        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
-//            //        popover.popoverPresentationController?.permittedArrowDirections = .any
-//            self.present(popover, animated: true, completion: nil)
-//        }
-//
-//    }
+    func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
+    //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    //
+    //        if let indexPath = tableView.indexPathForSelectedRow {
+    //            let popover = UIStoryboard(name: "GameTab", bundle: nil).instantiateViewController(withIdentifier: "popup")
+    //
+    //
+    //            popover.modalPresentationStyle = UIModalPresentationStyle.popover
+    //
+    //            //        popover.popoverPresentationController?.delegate = self
+    //            //        popover.popoverPresentationController?.sourceView = tableView.cellForRow(at: indexPath)
+    //            //        popover.popoverPresentationController?.sourceRect = devicesTableView.bounds
+    //            //        popover.popoverPresentationController?.permittedArrowDirections = .any
+    //            self.present(popover, animated: true, completion: nil)
+    //        }
+    //
+    //    }
     
 }

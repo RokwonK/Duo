@@ -529,210 +529,237 @@
         <scene sceneID="THT-dc-BxO">
             <objects>
                 <viewController storyboardIdentifier="Select" modalPresentationStyle="fullScreen" id="51F-3C-B3Q" customClass="SelectBoard" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="iOB-5J-XUt">
+                    <view key="view" contentMode="scaleToFill" id="UsS-Q5-paZ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="nTN-kg-RGM">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="59J-D5-M4H">
+                                <rect key="frame" x="1" y="45" width="414" height="769"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ldQ-8N-TaH">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="769"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RHz-Mx-BrS">
+                                        <rect key="frame" x="1" y="1" width="414" height="708"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글내용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ny3-w9-5w0">
-                                                <rect key="frame" x="8" y="275" width="398" height="21"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Tj4-L0-MCd">
-                                                <rect key="frame" x="0.0" y="345" width="414" height="388"/>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jxc-Q9-GDd">
+                                                <rect key="frame" x="1" y="1" width="412" height="420"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글내용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVc-kR-GG7">
+                                                        <rect key="frame" x="0.0" y="362" width="398" height="21"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="미드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lZJ-al-JaU">
+                                                        <rect key="frame" x="202" y="305" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마감시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lgv-UG-r1D">
+                                                        <rect key="frame" x="8" y="233" width="162" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="서폿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mlB-Lo-LD4">
+                                                        <rect key="frame" x="307" y="305" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="티어범위" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M3F-3n-zjM">
+                                                        <rect key="frame" x="197" y="140" width="162" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="인원수" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEF-Zy-D9Q">
+                                                        <rect key="frame" x="8" y="184" width="162" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게임모드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-BP-VzB">
+                                                        <rect key="frame" x="8" y="104" width="162" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDE-bC-iJa">
+                                                        <rect key="frame" x="6" y="54" width="398" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="원딜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hS8-W6-PT2">
+                                                        <rect key="frame" x="264" y="305" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="티어범위" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6uM-6x-Z6y">
+                                                        <rect key="frame" x="8" y="140" width="162" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hPb-rd-BOM">
+                                                        <rect key="frame" x="8" y="18" width="120" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Ck-Eh-BWi">
+                                                        <rect key="frame" x="178" y="140" width="11" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="정글" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sFk-5H-gJH">
+                                                        <rect key="frame" x="135" y="305" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wAh-cA-Nvi">
+                                                        <rect key="frame" x="303" y="183" width="95" height="30"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <state key="normal" title="댓글업로드 임시">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="temp:" destination="51F-3C-B3Q" eventType="touchUpInside" id="HSR-np-Iuu"/>
+                                                        </connections>
+                                                    </button>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="토크온여부" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apF-LK-xMT">
+                                                        <rect key="frame" x="8" y="269" width="162" height="28"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="탑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lgc-es-8ki">
+                                                        <rect key="frame" x="72" y="305" width="35" height="35"/>
+                                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="420" id="dTr-f1-pbd"/>
+                                                </constraints>
+                                            </view>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="giT-AR-5Zg">
+                                                <rect key="frame" x="1" y="422" width="414" height="285"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="285" id="SRE-Oy-63g"/>
+                                                </constraints>
                                                 <prototypes>
-                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="comment" rowHeight="73" id="2G3-1R-gGb" customClass="CommentCell" customModule="duo" customModuleProvider="target">
+                                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="comment" rowHeight="73" id="xVw-IX-JZH" customClass="CommentCell" customModule="duo" customModuleProvider="target">
                                                         <rect key="frame" x="0.0" y="28" width="414" height="73"/>
                                                         <autoresizingMask key="autoresizingMask"/>
-                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="2G3-1R-gGb" id="k7f-5W-0KH" customClass="CommentTable" customModule="duo" customModuleProvider="target">
+                                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xVw-IX-JZH" id="sAM-GK-2Yj" customClass="CommentTable" customModule="duo" customModuleProvider="target">
                                                             <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
                                                             <autoresizingMask key="autoresizingMask"/>
                                                             <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="댓글" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-UW-IWy">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="댓글" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dpT-vR-Thf">
                                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="73"/>
-                                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="height" constant="75" id="7tZ-iA-8Ht"/>
+                                                                    </constraints>
                                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
+                                                            <constraints>
+                                                                <constraint firstItem="dpT-vR-Thf" firstAttribute="top" secondItem="sAM-GK-2Yj" secondAttribute="top" id="9tL-LA-U2C"/>
+                                                                <constraint firstAttribute="trailing" secondItem="dpT-vR-Thf" secondAttribute="trailing" id="e6Q-kg-nsm"/>
+                                                                <constraint firstAttribute="bottom" secondItem="dpT-vR-Thf" secondAttribute="bottom" id="q6c-AZ-aIN"/>
+                                                                <constraint firstItem="dpT-vR-Thf" firstAttribute="leading" secondItem="sAM-GK-2Yj" secondAttribute="leading" id="qoX-k2-qu4"/>
+                                                            </constraints>
                                                         </tableViewCellContentView>
                                                         <connections>
-                                                            <outlet property="CommentTable" destination="OTo-UW-IWy" id="1mp-Hl-qDs"/>
+                                                            <outlet property="CommentTable" destination="dpT-vR-Thf" id="1Wl-Iz-3Lw"/>
                                                         </connections>
                                                     </tableViewCell>
                                                 </prototypes>
                                                 <connections>
-                                                    <outlet property="delegate" destination="51F-3C-B3Q" id="RDb-Vk-ZhI"/>
+                                                    <outlet property="delegate" destination="51F-3C-B3Q" id="ku9-07-ntD"/>
                                                 </connections>
                                             </tableView>
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="Tj4-L0-MCd" firstAttribute="height" secondItem="ldQ-8N-TaH" secondAttribute="height" multiplier="0.504551" id="G9e-fD-88U"/>
+                                            <constraint firstItem="Jxc-Q9-GDd" firstAttribute="top" secondItem="RHz-Mx-BrS" secondAttribute="top" constant="1" id="2h8-zS-0GW"/>
+                                            <constraint firstItem="giT-AR-5Zg" firstAttribute="leading" secondItem="RHz-Mx-BrS" secondAttribute="leading" constant="1" id="DFu-DP-SNI"/>
+                                            <constraint firstItem="Jxc-Q9-GDd" firstAttribute="leading" secondItem="RHz-Mx-BrS" secondAttribute="leading" constant="1" id="Nyi-ah-n20"/>
+                                            <constraint firstAttribute="trailing" secondItem="giT-AR-5Zg" secondAttribute="trailing" constant="-1" id="Q1w-89-Rcq"/>
+                                            <constraint firstItem="giT-AR-5Zg" firstAttribute="top" secondItem="Jxc-Q9-GDd" secondAttribute="bottom" constant="1" id="UNv-Yl-H9W"/>
+                                            <constraint firstAttribute="bottom" secondItem="giT-AR-5Zg" secondAttribute="bottom" constant="1" id="i9e-jq-fla"/>
+                                            <constraint firstAttribute="trailing" secondItem="Jxc-Q9-GDd" secondAttribute="trailing" constant="1" id="ola-hU-DCe"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="탑" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6Q-id-OoZ">
-                                        <rect key="frame" x="87" y="229" width="35" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="미드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a6X-r6-QAU">
-                                        <rect key="frame" x="175" y="229" width="35" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="마감시간" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1bg-rS-u7z">
-                                        <rect key="frame" x="8" y="193" width="162" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="서폿" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JW2-AR-Nwh">
-                                        <rect key="frame" x="271" y="229" width="35" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="티어범위" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vea-8F-hhD">
-                                        <rect key="frame" x="209" y="121" width="162" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="인원수" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3N9-Td-lMR">
-                                        <rect key="frame" x="8" y="157" width="162" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게임모드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cAx-rw-FVd">
-                                        <rect key="frame" x="8" y="85" width="162" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ICH-MU-0UA">
-                                        <rect key="frame" x="8" y="47" width="398" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="원딜" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdK-z5-ffC">
-                                        <rect key="frame" x="224" y="229" width="35" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="티어범위" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RwN-kF-A5r">
-                                        <rect key="frame" x="8" y="121" width="162" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ea9-ta-MQI">
-                                        <rect key="frame" x="8" y="11" width="120" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="~" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OdC-zZ-9up">
-                                        <rect key="frame" x="182" y="121" width="11" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="정글" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qWw-7u-2We">
-                                        <rect key="frame" x="130" y="229" width="35" height="35"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HdV-n0-yHX">
-                                        <rect key="frame" x="290" y="157" width="95" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="댓글업로드 임시">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="temp:" destination="51F-3C-B3Q" eventType="touchUpInside" id="xCM-k0-NVD"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="토크온여부" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pFL-sW-tSA">
-                                        <rect key="frame" x="182" y="193" width="162" height="28"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="ldQ-8N-TaH" firstAttribute="top" secondItem="nTN-kg-RGM" secondAttribute="top" id="TOU-4M-nCn"/>
-                                    <constraint firstAttribute="trailing" secondItem="ldQ-8N-TaH" secondAttribute="trailing" id="Xiv-c1-kKA"/>
-                                    <constraint firstAttribute="bottom" secondItem="ldQ-8N-TaH" secondAttribute="bottom" id="Y2J-u7-fvA"/>
-                                    <constraint firstItem="ldQ-8N-TaH" firstAttribute="leading" secondItem="nTN-kg-RGM" secondAttribute="leading" id="igH-nj-r6s"/>
+                                    <constraint firstItem="RHz-Mx-BrS" firstAttribute="trailing" secondItem="59J-D5-M4H" secondAttribute="trailing" constant="1" id="D2J-0c-cD9"/>
+                                    <constraint firstItem="RHz-Mx-BrS" firstAttribute="bottom" secondItem="59J-D5-M4H" secondAttribute="bottom" constant="1" id="Mqc-xQ-a1O"/>
+                                    <constraint firstItem="RHz-Mx-BrS" firstAttribute="top" secondItem="59J-D5-M4H" secondAttribute="top" constant="1" id="VaC-4d-I5y"/>
+                                    <constraint firstItem="RHz-Mx-BrS" firstAttribute="width" secondItem="59J-D5-M4H" secondAttribute="width" id="W5F-q3-8W0"/>
+                                    <constraint firstItem="RHz-Mx-BrS" firstAttribute="leading" secondItem="59J-D5-M4H" secondAttribute="leading" constant="1" id="q3Z-Re-RQj"/>
                                 </constraints>
+                                <viewLayoutGuide key="contentLayoutGuide" id="geu-So-bcS"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="kxd-hO-1Ph"/>
                             </scrollView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="fTP-1b-wvm"/>
+                        <viewLayoutGuide key="safeArea" id="xAB-T0-Iqb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="nTN-kg-RGM" firstAttribute="leading" secondItem="fTP-1b-wvm" secondAttribute="leading" id="7PL-Uj-uhk"/>
-                            <constraint firstItem="nTN-kg-RGM" firstAttribute="top" secondItem="fTP-1b-wvm" secondAttribute="top" id="Frq-S6-veR"/>
-                            <constraint firstItem="nTN-kg-RGM" firstAttribute="bottom" secondItem="fTP-1b-wvm" secondAttribute="bottom" id="G3M-Qc-Fl6"/>
-                            <constraint firstItem="nTN-kg-RGM" firstAttribute="trailing" secondItem="fTP-1b-wvm" secondAttribute="trailing" id="sfG-jL-w5M"/>
+                            <constraint firstItem="59J-D5-M4H" firstAttribute="trailing" secondItem="xAB-T0-Iqb" secondAttribute="trailing" constant="1" id="2Qo-ei-jfi"/>
+                            <constraint firstItem="59J-D5-M4H" firstAttribute="top" secondItem="xAB-T0-Iqb" secondAttribute="top" constant="1" id="VbF-vB-Oj8"/>
+                            <constraint firstItem="59J-D5-M4H" firstAttribute="leading" secondItem="xAB-T0-Iqb" secondAttribute="leading" constant="1" id="f6M-bk-Nnz"/>
+                            <constraint firstItem="59J-D5-M4H" firstAttribute="bottom" secondItem="xAB-T0-Iqb" secondAttribute="bottom" constant="1" id="gUk-nn-sD6"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="kAg-mf-V6C"/>
                     <navigationItem key="navigationItem" id="E51-RC-5RY"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="boardtext" destination="ny3-w9-5w0" id="ihp-xa-BoJ"/>
-                        <outlet property="boardtitle" destination="ICH-MU-0UA" id="GJS-zP-DDl"/>
-                        <outlet property="bottomlabel" destination="xdK-z5-ffC" id="h38-Iy-Uhr"/>
-                        <outlet property="end" destination="vea-8F-hhD" id="ACB-ZS-AE7"/>
-                        <outlet property="gamemode" destination="cAx-rw-FVd" id="Xsj-rX-NGC"/>
-                        <outlet property="junglelabel" destination="qWw-7u-2We" id="gAh-eK-nsk"/>
-                        <outlet property="mic" destination="pFL-sW-tSA" id="tgZ-Dr-gx8"/>
-                        <outlet property="midlabel" destination="a6X-r6-QAU" id="eOz-hg-uJ3"/>
-                        <outlet property="nickname" destination="ea9-ta-MQI" id="oJl-c0-eff"/>
-                        <outlet property="peoplenum" destination="3N9-Td-lMR" id="h9g-d4-iSl"/>
-                        <outlet property="start" destination="RwN-kF-A5r" id="kYt-NI-3ZB"/>
-                        <outlet property="supportlabel" destination="JW2-AR-Nwh" id="mAo-vN-gLQ"/>
-                        <outlet property="tableview" destination="Tj4-L0-MCd" id="aYb-wM-g2w"/>
-                        <outlet property="tableviewheight" destination="G9e-fD-88U" id="zzh-bM-vOL"/>
-                        <outlet property="time" destination="1bg-rS-u7z" id="uhw-3h-TGZ"/>
-                        <outlet property="toplabel" destination="z6Q-id-OoZ" id="VNf-Jc-zTU"/>
+                        <outlet property="boardtext" destination="BVc-kR-GG7" id="6U9-yV-Q6h"/>
+                        <outlet property="boardtitle" destination="JDE-bC-iJa" id="vWY-hu-HAi"/>
+                        <outlet property="bottomlabel" destination="hS8-W6-PT2" id="zKV-xy-MJt"/>
+                        <outlet property="end" destination="M3F-3n-zjM" id="xgv-Ds-ZJn"/>
+                        <outlet property="gamemode" destination="4Nq-BP-VzB" id="akx-Ln-lql"/>
+                        <outlet property="junglelabel" destination="sFk-5H-gJH" id="FDZ-Yt-z3P"/>
+                        <outlet property="mic" destination="apF-LK-xMT" id="Z87-G9-GFk"/>
+                        <outlet property="midlabel" destination="lZJ-al-JaU" id="JLV-8b-T8t"/>
+                        <outlet property="nickname" destination="hPb-rd-BOM" id="zbX-JE-Hv0"/>
+                        <outlet property="peoplenum" destination="TEF-Zy-D9Q" id="rQw-jB-XaZ"/>
+                        <outlet property="start" destination="6uM-6x-Z6y" id="HL2-QG-961"/>
+                        <outlet property="supportlabel" destination="mlB-Lo-LD4" id="SpG-FN-dvx"/>
+                        <outlet property="tableview" destination="giT-AR-5Zg" id="2gk-fe-RY0"/>
+                        <outlet property="tableviewheight" destination="SRE-Oy-63g" id="QrA-cf-6SL"/>
+                        <outlet property="time" destination="lgv-UG-r1D" id="tzE-4M-wP9"/>
+                        <outlet property="toplabel" destination="Lgc-es-8ki" id="xm7-Ec-s3A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6Td-1Y-gsY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3666.666666666667" y="454.6875"/>
+            <point key="canvasLocation" x="3523.1884057971015" y="462.05357142857139"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="5uV-f7-zpu">
@@ -741,6 +768,13 @@
                     <view key="view" contentMode="scaleToFill" id="elt-Da-JaP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="hBq-gh-Qn6">
+                                <rect key="frame" x="0.0" y="44" width="414" height="899"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="icA-1G-qFg"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <accessibility key="accessibilityConfiguration">
