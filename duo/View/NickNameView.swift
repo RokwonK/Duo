@@ -18,9 +18,13 @@ class NickNameView : UIViewController {
     static let sharedInstance = NickNameView()
     
     @IBOutlet weak var inputText: UITextField!
+    @IBOutlet weak var nicknameButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        nicknameButton.layer.cornerRadius = 7;
+        nicknameButton.layer.masksToBounds = true;
         // Do any additional setup after loading the view.
     }
     

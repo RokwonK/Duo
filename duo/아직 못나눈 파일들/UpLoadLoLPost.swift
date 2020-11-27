@@ -11,6 +11,7 @@ import Alamofire
 
 class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
+    let customcolor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
     let ad = UIApplication.shared.delegate as? AppDelegate
     var selectDate = Date();
     let toolBarKeyboard = UIToolbar()
@@ -68,12 +69,12 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
             }
             
             
-            if topBtn.tintColor == UIColor.blue { uploadedTop = 2; }
-            if bottomBtn.tintColor == UIColor.blue { uploadedBottom = 2; }
-            if supportBtn.tintColor == UIColor.blue { uploadedSupport = 2; }
-            if jungleBtn.tintColor == UIColor.blue { uploadedJungle = 2; }
-            if midBtn.tintColor == UIColor.blue { uploadedMid = 2; }
-            if talkOnBtn.tintColor == UIColor.blue { uploadedTalkon = 2; }
+            if topBtn.tintColor == customcolor { uploadedTop = 2; }
+            if bottomBtn.tintColor == customcolor { uploadedBottom = 2; }
+            if supportBtn.tintColor == customcolor { uploadedSupport = 2; }
+            if jungleBtn.tintColor == customcolor { uploadedJungle = 2; }
+            if midBtn.tintColor == customcolor { uploadedMid = 2; }
+            if talkOnBtn.tintColor == customcolor { uploadedTalkon = 2; }
             
             if (uploadedTop + uploadedMid + uploadedJungle + uploadedSupport + uploadedBottom == 10) {
                 let alert = UIAlertController(title: "포지션을 하나 이상 선택해주세요", message: "", preferredStyle: .alert)
@@ -152,12 +153,12 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     @IBOutlet weak var talkOnBtn: UIButton!
     
     @IBAction func positionAction(_ sender : UIButton) {
-        if (sender.tintColor == UIColor.blue) {
+        if (sender.tintColor == customcolor) {
             sender.tintColor = UIColor.white;
-            sender.backgroundColor = UIColor.blue;
+            sender.backgroundColor = customcolor;
         }
         else {
-            sender.tintColor = UIColor.blue;
+            sender.tintColor = customcolor;
             sender.backgroundColor = UIColor.white;
         }
     }
@@ -238,11 +239,11 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     func textViewSetup() {
         if textContentView.text == "내용 입력" {
             textContentView.text = "";
-            textContentView.textColor = UIColor.blue;
+            textContentView.textColor = UIColor.black;
         }
         else if textContentView.text == "" {
             textContentView.text = "내용 입력";
-            textContentView.textColor = UIColor.blue;
+            textContentView.textColor = UIColor.lightGray;
         }
     }
     
@@ -317,7 +318,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.navigationController?.navigationBar.barTintColor = UIColor.blue;
+        self.navigationController?.navigationBar.barTintColor = customcolor;
         self.navigationController?.navigationBar.barStyle = .black;
         self.navigationController?.navigationBar.isTranslucent = false;
         
@@ -331,23 +332,23 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // Game Mode
         gameModeField.inputAccessoryView = toolBarKeyboard
         gameModeField.inputView = self.uploadGameMode;
-        gameModeField.textColor = UIColor.blue;
+        gameModeField.textColor = customcolor;
         gameModeField.text = gameModeData[0];
         
         // Tier
         startTierField.inputAccessoryView = toolBarKeyboard
         startTierField.inputView = self.uploadStartTier;
-        startTierField.textColor = UIColor.blue;
+        startTierField.textColor = customcolor;
         startTierField.text = tierData[0];
         endTierField.inputAccessoryView = toolBarKeyboard
         endTierField.inputView = self.uploadEndTier;
-        endTierField.textColor = UIColor.blue;
+        endTierField.textColor = customcolor;
         endTierField.text = tierData[tierData.count-1];
         
         // Head Count
         headCountField.inputAccessoryView = toolBarKeyboard
         headCountField.inputView = self.uploadHeadCount
-        headCountField.textColor = UIColor.blue;
+        headCountField.textColor = customcolor;
         headCountField.text = headCountData[0];
         
         // Start Time
@@ -355,23 +356,23 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         endTimeField.inputAccessoryView = toolBarKeyboard
         endTimeField.inputView = self.uploadendTime
-        endTimeField.textColor = UIColor.blue;
+        endTimeField.textColor = customcolor;
         endTimeField.text = dateformat.string(from: Date())
         
         // Position
         positionBtn.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = UIColor.blue.cgColor;
+            btn.layer.borderColor = customcolor.cgColor;
             btn.layer.cornerRadius = 5;
-            btn.tintColor = UIColor.blue;
+            btn.tintColor = customcolor;
         }
         
         // talkon
         talkOnBtn.layer.borderWidth = 1
         talkOnBtn.layer.borderWidth = 1;
-        talkOnBtn.layer.borderColor = UIColor.blue.cgColor;
+        talkOnBtn.layer.borderColor = customcolor.cgColor;
         talkOnBtn.layer.cornerRadius = 5;
-        talkOnBtn.tintColor = UIColor.blue;
+        talkOnBtn.tintColor = customcolor;
         
         // 제목 textField
         uploadTitle.attributedPlaceholder = NSAttributedString(string : "제목");
@@ -380,19 +381,19 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         
         // 내용
         textContentView.text = "내용 입력"
-        textContentView.textColor = UIColor.blue;
+        textContentView.textColor = UIColor.lightGray;
         textContentView.textAlignment = NSTextAlignment.left;
         textContentView.layer.borderWidth = 1;
         textContentView.layer.cornerRadius = 5;
-        textContentView.layer.borderColor = UIColor.blue.cgColor;
+        textContentView.layer.borderColor = UIColor.lightGray.cgColor;
         textContentView.inputAccessoryView = toolBarKeyboard;
         textContentView.delegate = self;
         
         // upload 버튼
         uploadBtn.layer.cornerRadius = 10;
         uploadBtn.layer.borderWidth = 1;
-        uploadBtn.layer.borderColor = UIColor.blue.cgColor;
-        uploadBtn.backgroundColor = UIColor.blue;
+        uploadBtn.layer.borderColor = customcolor.cgColor;
+        uploadBtn.backgroundColor = customcolor;
         uploadBtn.tintColor = UIColor.white;
         
         

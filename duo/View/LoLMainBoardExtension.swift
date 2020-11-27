@@ -8,7 +8,7 @@ extension LoLMainBoard {
         upLoadBtn.setTitle("글 쓰기", for: .normal);
         upLoadBtn.titleLabel?.font = UIFont.systemFont(ofSize: 18)
         upLoadBtn.setTitleColor(.white, for: .normal)
-        upLoadBtn.backgroundColor = UIColor.blue;
+        upLoadBtn.backgroundColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
         upLoadBtn.layer.cornerRadius = 18;
         self.view.addSubview(upLoadBtn);
         
@@ -50,23 +50,30 @@ extension LoLMainBoard {
 
     func extension_cellSetting(_ cell : LoLPostCell) {
         cell.tier.layer.cornerRadius = 7;
-        cell.tier.tintColor = UIColor.white;
-        cell.tier.backgroundColor = UIColor.blue;
+        cell.tier.tintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+//        cell.tier.backgroundColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+        cell.tier.backgroundColor = UIColor.white
         cell.tier.layer.masksToBounds = true;
+        cell.tier.layer.borderColor =  UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1).cgColor
+        cell.tier.layer.borderWidth = 1
         
         cell.gameMode.layer.cornerRadius = 7;
-        cell.gameMode.tintColor = UIColor.white;
-        cell.gameMode.backgroundColor = UIColor.blue;
+        cell.gameMode.tintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+        cell.gameMode.backgroundColor = UIColor.white
         cell.gameMode.layer.masksToBounds = true;
+        cell.gameMode.layer.borderColor =  UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1).cgColor
+        cell.gameMode.layer.borderWidth = 1
         
         cell.headCount.layer.cornerRadius = 7;
-        cell.headCount.tintColor = UIColor.white;
-        cell.headCount.backgroundColor = UIColor.blue;
+        cell.headCount.tintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+        cell.headCount.backgroundColor = UIColor.white
         cell.headCount.layer.masksToBounds = true;
+        cell.headCount.layer.borderColor =  UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1).cgColor
+        cell.headCount.layer.borderWidth = 1
         
-        cell.endTime.textColor = UIColor.blue;
-        cell.micFillBtn.tintColor = UIColor.blue;
-        cell.micNotBtn.tintColor = UIColor.blue;
+        cell.endTime.textColor = UIColor.black
+        cell.micFillBtn.tintColor = UIColor.black
+        cell.micNotBtn.tintColor = UIColor.black
         
     }
     

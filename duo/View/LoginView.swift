@@ -18,6 +18,10 @@ import RxCocoa
 
 class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
+    @IBOutlet weak var naverButton: UIButton!
+    @IBOutlet weak var kakaoButton: UIButton!
+    @IBOutlet weak var googleButton: UIButton!
+    
     let ad = UIApplication.shared.delegate as? AppDelegate
     
     func loginProcess(_ snsToken : String, _ sns_name : String) {
@@ -176,6 +180,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
 //        BaseFunc.fetch()
         google?.delegate = self
         google?.presentingViewController = self
+        
+        kakaoButton.layer.cornerRadius = 18;
+        naverButton.layer.cornerRadius = 18;
+        googleButton.layer.cornerRadius = 18;
     }
 
     override func viewDidAppear(_ animated: Bool) {

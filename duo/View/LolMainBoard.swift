@@ -184,8 +184,8 @@ class LoLMainBoard: UITableViewController{
         
         filterOutlet.tintColor = UIColor.white;
         popOutlet.tintColor = UIColor.white;
-        self.navigationController?.navigationBar.barTintColor = UIColor.blue;
-        self.navigationController?.navigationBar.backgroundColor = UIColor.blue;
+        self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+//        self.navigationController?.navigationBar.backgroundColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
         
         extension_upLoadBtnStyle(upLoadBtn);
         

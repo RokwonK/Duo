@@ -17,31 +17,44 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uks-dc-yzf">
-                                <rect key="frame" x="94" y="389" width="198" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="닉네임입력" textAlignment="natural" minimumFontSize="17" clearButtonMode="always" translatesAutoresizingMaskIntoConstraints="NO" id="uks-dc-yzf">
+                                <rect key="frame" x="16" y="140" width="198" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임 생성" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5kW-Je-OSQ">
-                                <rect key="frame" x="94" y="333" width="198" height="48"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fP5-uD-2EJ">
-                                <rect key="frame" x="167" y="476" width="52" height="30"/>
+                                <rect key="frame" x="16" y="231" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="생성하기"/>
+                                <color key="backgroundColor" red="0.284963578" green="0.47595798969999997" blue="0.81965023280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <state key="normal" title="닉네임 설정">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="makeNickNameWithSender:" destination="q13-U8-yaX" eventType="touchUpInside" id="yGI-Hs-vgt"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="※닉네임 길이는 2~8자입니다" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2w-Ne-X20">
-                                <rect key="frame" x="16" y="431" width="343" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="※닉네임의 최대 길이는 8자입니다." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2w-Ne-X20">
+                                <rect key="frame" x="16" y="191" width="343" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임 생성" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CJI-7e-N1C">
+                                <rect key="frame" x="16" y="68" width="198" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r6S-py-6OY">
+                                <rect key="frame" x="16" y="113" width="198" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -51,6 +64,7 @@
                     </view>
                     <connections>
                         <outlet property="inputText" destination="uks-dc-yzf" id="6Yg-WO-qsd"/>
+                        <outlet property="nicknameButton" destination="fP5-uD-2EJ" id="D2i-hU-dbs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhF-aN-hpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -65,21 +79,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-vZ-qpa">
-                                <rect key="frame" x="76" y="319" width="223" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4h2-vZ-qpa">
+                                <rect key="frame" x="82" y="562" width="211" height="55"/>
+                                <color key="backgroundColor" red="0.99768596890000005" green="0.92671209570000002" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="g6y-wE-O0I"/>
+                                    <constraint firstAttribute="width" constant="211" id="iZ1-xz-CQ9"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="-15" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     카카오 아이디로 로그인" image="kakao">
-                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="Kakao_Login:" destination="DsX-jZ-B1h" eventType="touchUpInside" id="QWy-Hh-kDu"/>
                                 </connections>
                             </button>
-                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-6n-bv2">
-                                <rect key="frame" x="76" y="416" width="223" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <button autoresizesSubviews="NO" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1ua-6n-bv2">
+                                <rect key="frame" x="82" y="637" width="211" height="55"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="Bya-dD-UG1"/>
+                                    <constraint firstAttribute="width" constant="211" id="Yo4-of-hei"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <inset key="titleEdgeInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="3" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     구글 아이디로 로그인" image="google">
                                     <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
@@ -87,20 +112,66 @@
                                     <action selector="Google_LoginWith_sender:" destination="DsX-jZ-B1h" eventType="touchUpInside" id="YJM-BR-yj7"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTf-wK-Hci">
-                                <rect key="frame" x="82" y="208" width="211" height="56"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BTf-wK-Hci">
+                                <rect key="frame" x="82" y="487" width="211" height="55"/>
+                                <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="18Z-RI-pq7"/>
+                                    <constraint firstAttribute="width" constant="211" id="Aoz-vt-C9h"/>
+                                </constraints>
+                                <inset key="titleEdgeInsets" minX="-6" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="9" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     네이버 아이디로 로그인" image="naver">
-                                    <color key="titleColor" systemColor="darkTextColor"/>
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
                                     <action selector="naverSignIn_sender:" destination="DsX-jZ-B1h" eventType="touchUpInside" id="d6R-TA-wYp"/>
                                 </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="sk3-HP-hEX">
+                                <rect key="frame" x="16" y="205" width="343" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="Nc9-Xw-eV1"/>
+                                    <constraint firstAttribute="width" constant="343" id="eWB-YA-i0P"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="편리한 유저 매칭 서비스" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hdH-hs-mFC">
+                                <rect key="frame" x="16" y="341" width="343" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="64" id="2L0-zd-enJ"/>
+                                    <constraint firstAttribute="width" constant="343" id="chJ-Cl-7Hi"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="JCfg" family="PilGi" pointSize="25"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fc2-AK-YmB"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" red="0.32650610800000002" green="0.47655552629999998" blue="0.79611855750000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="4h2-vZ-qpa" secondAttribute="trailing" constant="82" id="0mx-6F-yP2"/>
+                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="hdH-hs-mFC" secondAttribute="trailing" constant="16" id="0r1-So-7Ew"/>
+                            <constraint firstItem="BTf-wK-Hci" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="82" id="3fk-66-LGo"/>
+                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="BTf-wK-Hci" secondAttribute="trailing" constant="82" id="5nf-b4-QfA"/>
+                            <constraint firstItem="1ua-6n-bv2" firstAttribute="top" secondItem="4h2-vZ-qpa" secondAttribute="bottom" constant="20" id="6L6-Zl-Udg"/>
+                            <constraint firstItem="BTf-wK-Hci" firstAttribute="top" secondItem="hdH-hs-mFC" secondAttribute="bottom" constant="82" id="71y-Vg-cln"/>
+                            <constraint firstItem="sk3-HP-hEX" firstAttribute="top" secondItem="fc2-AK-YmB" secondAttribute="top" constant="161" id="LCP-WC-TRC"/>
+                            <constraint firstItem="1ua-6n-bv2" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="82" id="NeW-Jc-AL0"/>
+                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="sk3-HP-hEX" secondAttribute="trailing" constant="16" id="TJx-7H-yTi"/>
+                            <constraint firstItem="4h2-vZ-qpa" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="82" id="eV5-qV-Gnm"/>
+                            <constraint firstItem="4h2-vZ-qpa" firstAttribute="top" secondItem="BTf-wK-Hci" secondAttribute="bottom" constant="20" id="ftg-yR-bmU"/>
+                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="1ua-6n-bv2" secondAttribute="trailing" constant="82" id="lLE-E2-V9k"/>
+                            <constraint firstItem="sk3-HP-hEX" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="16" id="o2C-uJ-ESh"/>
+                            <constraint firstItem="hdH-hs-mFC" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="16" id="pTZ-Pq-sfj"/>
+                            <constraint firstItem="BTf-wK-Hci" firstAttribute="top" secondItem="hdH-hs-mFC" secondAttribute="bottom" constant="82" id="rb5-sA-l8G"/>
+                            <constraint firstItem="hdH-hs-mFC" firstAttribute="top" secondItem="sk3-HP-hEX" secondAttribute="bottom" constant="8" symbolic="YES" id="xER-bF-lTJ"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="googleButton" destination="1ua-6n-bv2" id="0AR-Fb-FFi"/>
+                        <outlet property="kakaoButton" destination="4h2-vZ-qpa" id="1f9-JI-bQD"/>
+                        <outlet property="naverButton" destination="BTf-wK-Hci" id="LVS-3J-8MM"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xyt-h7-5Lk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,7 +231,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="barTintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <color key="selectedImageTintColor" systemColor="systemOrangeColor"/>
+                        <color key="selectedImageTintColor" red="0.284963578" green="0.47595798969999997" blue="0.81965023280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </tabBar>
                     <connections>
                         <segue destination="QPI-6Q-mNC" kind="relationship" relationship="viewControllers" id="A0r-Iw-2Dj"/>
@@ -15453,23 +15524,18 @@ oY4
         <image name="icon-position-top" width="136" height="136"/>
         <image name="icon-position-utility" width="136" height="136"/>
         <image name="kakao" width="34" height="35"/>
+        <image name="logo" width="950" height="179"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
-        <image name="naver" width="22" height="20"/>
+        <image name="naver" width="24" height="24"/>
         <image name="person" catalog="system" width="128" height="117"/>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="darkTextColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
         <systemColor name="darkTextColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
-        <systemColor name="systemOrangeColor">
-            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

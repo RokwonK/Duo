@@ -270,7 +270,7 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="fhf-0e-oVo">
                                 <rect key="frame" x="76" y="160" width="262" height="31"/>
-                                <color key="tintColor" red="1" green="0.55020816770000003" blue="0.18415063600000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="tintColor" red="0.284963578" green="0.47595798969999997" blue="0.81965023280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="sliderValueChangedWithSender:" destination="bJf-RR-lwF" eventType="valueChanged" id="g4M-Pk-xeL"/>
                                 </connections>
@@ -307,7 +307,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="토크온" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Z4-Im-Ooo">
-                                <rect key="frame" x="15" y="507.5" width="44.5" height="20.5"/>
+                                <rect key="frame" x="15" y="422.5" width="44.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -422,8 +422,8 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-wT-hpH">
-                                <rect key="frame" x="15" y="533" width="384" height="30"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="a7L-wT-hpH">
+                                <rect key="frame" x="15" y="448" width="384" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0j-dG-LQ9">
                                         <rect key="frame" x="0.0" y="0.0" width="108" height="30"/>
@@ -456,7 +456,9 @@
                             <constraint firstItem="age-Mm-YsP" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="2ir-G3-F2y"/>
                             <constraint firstItem="FLa-4t-TZ2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="2u2-Yg-cnm"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="a7L-wT-hpH" secondAttribute="trailing" constant="15" id="5pQ-Le-Q9f"/>
+                            <constraint firstItem="a7L-wT-hpH" firstAttribute="top" secondItem="9Z4-Im-Ooo" secondAttribute="bottom" constant="5" id="8gH-6l-8CQ"/>
                             <constraint firstItem="age-Mm-YsP" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="30.5" id="ARd-wq-fji"/>
+                            <constraint firstItem="9Z4-Im-Ooo" firstAttribute="top" secondItem="WNX-IV-YSh" secondAttribute="bottom" constant="34.5" id="CHu-hQ-3jE"/>
                             <constraint firstItem="f3j-QI-PgD" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="CsD-mE-eGj"/>
                             <constraint firstItem="a7L-wT-hpH" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="EOX-1y-FEH"/>
                             <constraint firstItem="QuI-Om-4F2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="Eac-yw-CRb"/>
@@ -470,9 +472,9 @@
                             <constraint firstItem="9Z4-Im-Ooo" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="UWj-Ta-toA"/>
                             <constraint firstItem="8Uz-M5-D7Q" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="WGh-ZK-IKp"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="WNX-IV-YSh" secondAttribute="trailing" constant="15" id="XlC-sa-7mB"/>
-                            <constraint firstItem="a7L-wT-hpH" firstAttribute="top" relation="lessThanOrEqual" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="489" id="YU5-4q-pzG"/>
                             <constraint firstItem="8Uz-M5-D7Q" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="5" id="ceF-fj-AZu"/>
                             <constraint firstAttribute="bottom" secondItem="FLa-4t-TZ2" secondAttribute="bottom" constant="30" id="cyd-Cq-FXO"/>
+                            <constraint firstItem="a7L-wT-hpH" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="404" id="f1l-z7-2BB"/>
                             <constraint firstItem="amo-q5-yel" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="15" id="g2q-2a-UKh"/>
                             <constraint firstItem="tv8-K8-fhO" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="75" id="h66-sO-oV9"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="tv8-K8-fhO" secondAttribute="trailing" constant="75" id="lsv-mR-VPx"/>
@@ -482,7 +484,6 @@
                             <constraint firstItem="f3j-QI-PgD" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="288.5" id="tQq-kM-YzS"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="age-Mm-YsP" secondAttribute="trailing" constant="15" id="uCO-9w-iEb"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" relation="lessThanOrEqual" secondItem="Rsq-b4-PI4" secondAttribute="trailing" constant="367" id="ygi-ti-gbQ"/>
-                            <constraint firstItem="9Z4-Im-Ooo" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="463.5" id="zPO-52-ZH7"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mNn-Xv-Nw8">
@@ -941,10 +942,10 @@
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hh3-fa-1Pn">
                                                 <rect key="frame" x="15" y="564" width="384" height="250"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="Dnq-ru-JEu"/>
                                                 </constraints>
-                                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit </string>
                                                 <color key="textColor" systemColor="labelColor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
