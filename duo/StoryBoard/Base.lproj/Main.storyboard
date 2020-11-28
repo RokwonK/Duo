@@ -198,7 +198,7 @@
             <objects>
                 <navigationController id="QPI-6Q-mNC" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="NIe-7B-Icy"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" barStyle="black" translucent="NO" id="jat-vK-Hzx">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jat-vK-Hzx">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
@@ -252,6 +252,9 @@
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="lMy-WG-Xzv">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
                     <connections>
                         <segue destination="mWa-vB-PSF" kind="relationship" relationship="rootViewController" id="qoV-Cu-h50"/>
                     </connections>
@@ -260,25 +263,16 @@
             </objects>
             <point key="canvasLocation" x="1420" y="1208"/>
         </scene>
-        <!--Account View-->
+        <!--닉네임-->
         <scene sceneID="kOI-TP-tW3">
             <objects>
-                <viewController id="mWa-vB-PSF" customClass="AccountView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="닉네임" id="mWa-vB-PSF" customClass="AccountView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="gDh-zH-X0W">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pr9-7Z-LGx">
-                                <rect key="frame" x="100" y="478" width="166" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="로그아웃"/>
-                                <connections>
-                                    <action selector="LogoutWith_sender:" destination="mWa-vB-PSF" eventType="touchUpInside" id="pyb-51-U6F"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6iV-4S-CI7">
-                                <rect key="frame" x="100" y="575" width="166" height="66"/>
+                                <rect key="frame" x="100" y="655" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="회원탈퇴"/>
@@ -286,27 +280,8 @@
                                     <action selector="deleteAccount:" destination="mWa-vB-PSF" eventType="touchUpInside" id="bcD-sM-2I4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2p7-Xi-dNa">
-                                <rect key="frame" x="100" y="271" width="166" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="내가 쓴 게시물"/>
-                                <connections>
-                                    <segue destination="QnL-KU-eVh" kind="show" id="pWe-Dt-shI"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVG-mW-qvi">
-                                <rect key="frame" x="100" y="177" width="166" height="66"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                <state key="normal" title="닉네임변경"/>
-                                <connections>
-                                    <action selector="changeNicknameWith_sender:" destination="mWa-vB-PSF" eventType="touchUpInside" id="9X0-e8-NKr"/>
-                                    <segue destination="Gnb-vd-EYM" kind="show" id="2nr-EI-OnR"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="baS-GX-jQe">
-                                <rect key="frame" x="100" y="373" width="166" height="66"/>
+                                <rect key="frame" x="100" y="460" width="166" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <state key="normal" title="내가 쓴 댓글"/>
@@ -314,17 +289,70 @@
                                     <segue destination="kk3-Zf-NuT" kind="show" id="sWo-9F-Cul"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pr9-7Z-LGx">
+                                <rect key="frame" x="104" y="553" width="166" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <state key="normal" title="로그아웃"/>
+                                <connections>
+                                    <action selector="LogoutWith_sender:" destination="mWa-vB-PSF" eventType="touchUpInside" id="pyb-51-U6F"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eDb-V7-HaB">
+                                <rect key="frame" x="16" y="162" width="343" height="136"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="24" translatesAutoresizingMaskIntoConstraints="NO" id="CAg-tX-1MH">
+                                        <rect key="frame" x="8" y="14" width="141" height="108"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aVG-mW-qvi">
+                                                <rect key="frame" x="0.0" y="0.0" width="141" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="닉네임변경"/>
+                                                <connections>
+                                                    <segue destination="Gnb-vd-EYM" kind="show" id="cgL-Qk-UnG"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2p7-Xi-dNa">
+                                                <rect key="frame" x="0.0" y="66" width="141" height="42"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                                <state key="normal" title="내가 쓴 게시물"/>
+                                                <connections>
+                                                    <segue destination="QnL-KU-eVh" kind="show" id="pWe-Dt-shI"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="CAg-tX-1MH" firstAttribute="top" secondItem="eDb-V7-HaB" secondAttribute="top" constant="14" id="CED-H3-umk"/>
+                                    <constraint firstAttribute="trailing" secondItem="CAg-tX-1MH" secondAttribute="trailing" constant="194" id="oTf-0s-ylW"/>
+                                    <constraint firstAttribute="bottom" secondItem="CAg-tX-1MH" secondAttribute="bottom" constant="14" id="plc-S9-oat"/>
+                                    <constraint firstItem="CAg-tX-1MH" firstAttribute="leading" secondItem="eDb-V7-HaB" secondAttribute="leading" constant="8" id="yTA-ke-r1M"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1Id-yj-Nu2"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="eDb-V7-HaB" firstAttribute="top" secondItem="1Id-yj-Nu2" secondAttribute="top" constant="74" id="M5a-iM-w81"/>
+                            <constraint firstItem="1Id-yj-Nu2" firstAttribute="bottom" secondItem="eDb-V7-HaB" secondAttribute="bottom" constant="431" id="QuQ-gW-osq"/>
+                            <constraint firstItem="eDb-V7-HaB" firstAttribute="leading" secondItem="1Id-yj-Nu2" secondAttribute="leading" constant="16" id="dgU-dE-dhG"/>
+                            <constraint firstItem="1Id-yj-Nu2" firstAttribute="trailing" secondItem="eDb-V7-HaB" secondAttribute="trailing" constant="16" id="wxa-Ud-1re"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="Q3N-G0-0vu">
+                    <tabBarItem key="tabBarItem" title="Item" id="8ku-IV-BWC"/>
+                    <navigationItem key="navigationItem" title="ㅓㅓㅓ" id="Q3N-G0-0vu">
                         <barButtonItem key="backBarButtonItem" title="내 계정" id="ckJ-4r-NlS"/>
                     </navigationItem>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="view1" destination="eDb-V7-HaB" id="XIG-We-Plp"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sww-sQ-nIO" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2096.8000000000002" y="1206.6502463054187"/>
+            <point key="canvasLocation" x="2097" y="1207"/>
         </scene>
         <!--내가 쓴 게시물-->
         <scene sceneID="Nnq-Jf-3cV">
@@ -515,7 +543,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cWu-Zc-eCt" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2814" y="1208"/>
+            <point key="canvasLocation" x="2814" y="1207"/>
         </scene>
         <!--Nick Name Change-->
         <scene sceneID="F3f-1e-7u9">
@@ -526,29 +554,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Mac-B4-n3B">
-                                <rect key="frame" x="15" y="162" width="343" height="34"/>
+                                <rect key="frame" x="15" y="131" width="199" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="닉네임" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cRd-fb-9DL">
-                                <rect key="frame" x="16" y="120" width="198" height="30"/>
+                                <rect key="frame" x="16" y="96" width="198" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="※닉네임의 최대 길이는 10자입니다" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jM8-Gm-XJx">
-                                <rect key="frame" x="15" y="210" width="343" height="21"/>
+                                <rect key="frame" x="15" y="179" width="343" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LWF-te-4TN">
-                                <rect key="frame" x="15" y="260" width="343" height="30"/>
+                                <rect key="frame" x="15" y="219" width="343" height="45"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemRedColor"/>
+                                <color key="backgroundColor" red="0.2254485786" green="0.4752314091" blue="0.84710377449999996" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <state key="normal" title="닉네임 설정">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -562,6 +591,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="ex3-4w-DjT"/>
                     <connections>
+                        <outlet property="changeButton" destination="LWF-te-4TN" id="OuG-JY-pFF"/>
                         <outlet property="inputText" destination="Mac-B4-n3B" id="gey-ZY-mcO"/>
                     </connections>
                 </viewController>
@@ -15536,9 +15566,6 @@ oY4
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemRedColor">
-            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

@@ -14,9 +14,12 @@ class NickNameChange : UIViewController {
     
     let ad = UIApplication.shared.delegate as? AppDelegate
     @IBOutlet weak var inputText: UITextField!
+    @IBOutlet weak var changeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        changeButton.layer.cornerRadius = 7;
+        
         // Do any additional setup after loading the view.
     }
     func save( _ nickName: String){
@@ -82,7 +85,14 @@ class NickNameChange : UIViewController {
 //                    self.save(self.inputText.text!)
                     r_msg = result.msg
                     r_code = result.code
-                    self.dismiss(animated: true, completion: nil)
+//                    self.dismiss(animated: true, completion: nil)
+                    
+                    let alert = UIAlertController(title: nil , message: "닉네임 변경 완료", preferredStyle: UIAlertController.Style.alert)
+                    let okAction = UIAlertAction(title: "확인", style: .default, handler: {action in self.navigationController?.popToRootViewController(animated: true)})
+                    alert.addAction(okAction)
+                    self.present(alert, animated: true, completion: nil)
+                    
+                    
                 }
                 catch{
                 }

@@ -10,10 +10,23 @@ import UIKit
 
 class AccountView: UIViewController {
     
+    @IBOutlet weak var view1: UIView!
+    
     let ad = UIApplication.shared.delegate as? AppDelegate
     override func viewDidLoad() {
         super.viewDidLoad()
 //        BaseFunc.fetch()
+        
+        view1.layer.cornerRadius = 12
+        
+        view1.layer.borderWidth = 1.0
+        view1.layer.borderColor = UIColor.white.cgColor
+
+        // shadow
+        view1.layer.shadowColor = UIColor.lightGray.cgColor
+        view1.layer.shadowOffset = CGSize(width: 0, height: 0)
+        view1.layer.shadowOpacity = 0.7
+        view1.layer.shadowRadius = 4.0
         // Do any additional setup after loading the view.
     }
     
@@ -37,12 +50,12 @@ class AccountView: UIViewController {
         var code : Int
     }
     
-    @IBAction func changeNickname (_sender : UIButton){
-        
-        let storyBoard = self.storyboard
-        let NickNameChange = storyBoard!.instantiateViewController(withIdentifier: "NickNameChange")
-        self.present(NickNameChange, animated: true, completion: nil)
-    }
+//    @IBAction func changeNickname (_sender : UIButton){
+//        
+//        let storyBoard = self.storyboard
+//        let NickNameChange = storyBoard!.instantiateViewController(withIdentifier: "NickNameChange")
+//        self.present(NickNameChange, animated: true, completion: nil)
+//    }
     
     @IBAction func deleteAccount(_ sender: Any) {
         
