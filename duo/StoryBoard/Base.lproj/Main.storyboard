@@ -167,6 +167,7 @@
                             <constraint firstItem="hdH-hs-mFC" firstAttribute="top" secondItem="sk3-HP-hEX" secondAttribute="bottom" constant="8" symbolic="YES" id="xER-bF-lTJ"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="ySZ-eL-4Ib"/>
                     <connections>
                         <outlet property="googleButton" destination="1ua-6n-bv2" id="0AR-Fb-FFi"/>
                         <outlet property="kakaoButton" destination="4h2-vZ-qpa" id="1f9-JI-bQD"/>
@@ -177,25 +178,40 @@
             </objects>
             <point key="canvasLocation" x="-932" y="467.73399014778329"/>
         </scene>
-        <!--View Controller-->
+        <!--First Page-->
         <scene sceneID="yCR-DY-HbO">
             <objects>
-                <viewController id="S5N-Ds-d3F" sceneMemberID="viewController">
+                <viewController id="S5N-Ds-d3F" customClass="FirstPage" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="0do-bS-K1I">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sXP-6F-7uG">
-                                <rect key="frame" x="88" y="303" width="181" height="206"/>
+                                <rect key="frame" x="47" y="586" width="283" height="52"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button">
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="로그인">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="DsX-jZ-B1h" kind="show" id="l3y-Yj-p82"/>
+                                </connections>
                             </button>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="ic_small_logo" translatesAutoresizingMaskIntoConstraints="NO" id="SIQ-F5-Hy8">
+                                <rect key="frame" x="63" y="157" width="250" height="126"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="monster" translatesAutoresizingMaskIntoConstraints="NO" id="8mj-QI-X5K">
+                                <rect key="frame" x="54" y="344" width="266" height="204"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9cX-Uu-5TV"/>
                         <color key="backgroundColor" red="0.284963578" green="0.47595798969999997" blue="0.81965023280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                     </view>
+                    <connections>
+                        <outlet property="loginButton" destination="sXP-6F-7uG" id="Wde-63-LFo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X2N-Ij-R2M" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -15572,6 +15588,7 @@ oY4
         </image>
         <image name="google" width="18" height="18"/>
         <image name="house" catalog="system" width="128" height="106"/>
+        <image name="ic_small_logo" width="265" height="50"/>
         <image name="icon-position-bottom" width="136" height="136"/>
         <image name="icon-position-jungle" width="136" height="136"/>
         <image name="icon-position-middle" width="136" height="136"/>
@@ -15580,6 +15597,7 @@ oY4
         <image name="kakao" width="34" height="35"/>
         <image name="logo" width="950" height="179"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
+        <image name="monster" width="245" height="252"/>
         <image name="naver" width="24" height="24"/>
         <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="darkTextColor">

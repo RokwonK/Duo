@@ -162,6 +162,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         // 로그인 시작 네이버/사파리 연결
         naver?.requestThirdPartyLogin()
     }
+
     // 카카오 로그인 버튼
     @IBAction func Kakao_Login(_ sender: Any) {
         if (AuthApi.isKakaoTalkLoginAvailable()) {

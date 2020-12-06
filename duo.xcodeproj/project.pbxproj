@@ -32,6 +32,7 @@
 		1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713319251A29B00085EDEA /* FilterViewModel.swift */; };
 		1974132F24FD09B7003BB2F3 /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1974132E24FD09B7003BB2F3 /* AccountView.swift */; };
 		1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1980409824F4B23700ED48B2 /* GameSelectView.swift */; };
+		198E812B257CF64700499F1E /* FirstPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 198E812A257CF64700499F1E /* FirstPage.swift */; };
 		1995002E250D12180041BA69 /* GameTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995002D250D12180041BA69 /* GameTab.storyboard */; };
 		19BD2FEF251CFE5D00C52697 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9424ED038100409033 /* Main.storyboard */; };
 		19BD2FF4251D0F9900C52697 /* NickNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF3251D0F9900C52697 /* NickNameModel.swift */; };
@@ -73,6 +74,7 @@
 		19713319251A29B00085EDEA /* FilterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterViewModel.swift; sourceTree = "<group>"; };
 		1974132E24FD09B7003BB2F3 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		1980409824F4B23700ED48B2 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
+		198E812A257CF64700499F1E /* FirstPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstPage.swift; sourceTree = "<group>"; };
 		1995002D250D12180041BA69 /* GameTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTab.storyboard; sourceTree = "<group>"; };
 		19BD2FF3251D0F9900C52697 /* NickNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameModel.swift; sourceTree = "<group>"; };
 		19BD2FF6251D0FA300C52697 /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
@@ -175,6 +177,7 @@
 		195A5C7F251CF1E100FD352D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				198E812A257CF64700499F1E /* FirstPage.swift */,
 				195A5C87251CF32F00FD352D /* LoginView.swift */,
 				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
 				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
@@ -366,6 +369,7 @@
 				195A5C88251CF32F00FD352D /* LoginView.swift in Sources */,
 				099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
+				198E812B257CF64700499F1E /* FirstPage.swift in Sources */,
 				1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */,
 				19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */,
 				19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */,
