@@ -19,8 +19,10 @@ import RxCocoa
 class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
     @IBOutlet weak var naverButton: UIButton!
-    @IBOutlet weak var kakaoButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
+    @IBOutlet weak var kakaoBtn: UIImageView!
+    @IBOutlet weak var appleBtn: UIButton!
+    
     
     let ad = UIApplication.shared.delegate as? AppDelegate
     
@@ -162,16 +164,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         // 로그인 시작 네이버/사파리 연결
         naver?.requestThirdPartyLogin()
     }
-
-    // 카카오 로그인 버튼
-    @IBAction func Kakao_Login(_ sender: Any) {
-        if (AuthApi.isKakaoTalkLoginAvailable()) {
-            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
-        }
-        else {
-            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
-        }
-    }
     
     //------------------------앱 실행시 동작--------------------------------
     
@@ -179,12 +171,48 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         super.viewDidLoad();
         // restorePreviousSignIn 함수를 위해 필요
 //        BaseFunc.fetch()
+        
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(kakaoBtnTapped))
+        kakaoBtn.addGestureRecognizer(tapGestureRecognizer)
+        
+        
+        kakaoBtn.layer.shadowColor = UIColor.black.cgColor
+        kakaoBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        kakaoBtn.layer.shadowOpacity = 0.2
+        kakaoBtn.layer.shadowRadius = 2.0
+        
+        naverButton.layer.shadowColor = UIColor.black.cgColor
+        naverButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        naverButton.layer.shadowOpacity = 0.2
+        naverButton.layer.shadowRadius = 2.0
+        
+//        googleButton.layer.borderWidth = 1.0
+//        googleButton.layer.borderColor = UIColor.black.cgColor
+        googleButton.layer.shadowColor = UIColor.black.cgColor
+        googleButton.layer.shadowOffset = CGSize(width: 3, height: 3)
+        googleButton.layer.shadowOpacity = 0.2
+        googleButton.layer.shadowRadius = 2.0
+        
+        appleBtn.layer.shadowColor = UIColor.black.cgColor
+        appleBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
+        appleBtn.layer.shadowOpacity = 0.2
+        appleBtn.layer.shadowRadius = 2.0
+        
         google?.delegate = self
         google?.presentingViewController = self
         
-        kakaoButton.layer.cornerRadius = 18;
-        naverButton.layer.cornerRadius = 18;
-        googleButton.layer.cornerRadius = 18;
+//        kakaoButton.layer.cornerRadius = 18;
+//        naverButton.layer.cornerRadius = 18;
+//        googleButton.layer.cornerRadius = 18;
+    }
+    
+    @objc func kakaoBtnTapped(sender: UITapGestureRecognizer) { // 원하는 대로 코드 구성 }
+        if (AuthApi.isKakaoTalkLoginAvailable()) {
+            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
+        }
+        else {
+            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
+        }
     }
 
     override func viewDidAppear(_ animated: Bool) {

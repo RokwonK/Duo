@@ -89,6 +89,7 @@ class LoginViewModel : UIViewController{
         if let error = error {
             print(error)
         }
+        
             print("kakaoLogin success")
             return auth!.accessToken
     }
