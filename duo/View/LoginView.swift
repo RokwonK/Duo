@@ -18,13 +18,12 @@ import RxCocoa
 
 class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
     
+    let ad = UIApplication.shared.delegate as? AppDelegate
+    
     @IBOutlet weak var naverButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var kakaoBtn: UIImageView!
     @IBOutlet weak var appleBtn: UIButton!
-    
-    
-    let ad = UIApplication.shared.delegate as? AppDelegate
     
     func loginProcess(_ snsToken : String, _ sns_name : String) {
         
@@ -116,7 +115,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         }
         
         guard let idToken = user.authentication.idToken else {return}
-        
         self.loginProcess(idToken, "google")
     }
     
@@ -181,6 +179,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         kakaoBtn.layer.shadowOpacity = 0.2
         kakaoBtn.layer.shadowRadius = 2.0
         
+        naverButton.layer.cornerRadius = 7
         naverButton.layer.shadowColor = UIColor.black.cgColor
         naverButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         naverButton.layer.shadowOpacity = 0.2
@@ -188,11 +187,13 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         
 //        googleButton.layer.borderWidth = 1.0
 //        googleButton.layer.borderColor = UIColor.black.cgColor
+        googleButton.layer.cornerRadius = 7
         googleButton.layer.shadowColor = UIColor.black.cgColor
         googleButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         googleButton.layer.shadowOpacity = 0.2
         googleButton.layer.shadowRadius = 2.0
         
+        appleBtn.layer.cornerRadius = 7
         appleBtn.layer.shadowColor = UIColor.black.cgColor
         appleBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
         appleBtn.layer.shadowOpacity = 0.2
@@ -200,10 +201,6 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         
         google?.delegate = self
         google?.presentingViewController = self
-        
-//        kakaoButton.layer.cornerRadius = 18;
-//        naverButton.layer.cornerRadius = 18;
-//        googleButton.layer.cornerRadius = 18;
     }
     
     @objc func kakaoBtnTapped(sender: UITapGestureRecognizer) { // 원하는 대로 코드 구성 }

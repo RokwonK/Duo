@@ -86,9 +86,9 @@
                                     <constraint firstAttribute="height" constant="45" id="8wA-PG-nBq"/>
                                     <constraint firstAttribute="width" constant="325" id="XCz-Vr-OrG"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-157" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-176" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     네이버 로그인" image="naver">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -110,9 +110,9 @@
                                     <constraint firstAttribute="width" constant="325" id="Urt-dF-2ms"/>
                                     <constraint firstAttribute="height" constant="45" id="ker-zM-XsD"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="-21" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-174" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-188" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     구글 로그인" image="google">
                                     <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
@@ -127,14 +127,14 @@
                                     <constraint firstAttribute="height" constant="45" id="HwW-0j-5Ps"/>
                                     <constraint firstAttribute="width" constant="325" id="oEn-Lj-wIP"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-195" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-210" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="애플 로그인" image="white-logo-masked-circular_2x-3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakao_login_large_wide" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-mG-wgd">
+                            <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakao_login_large_wide" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-mG-wgd">
                                 <rect key="frame" x="25" y="412" width="325" height="45"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="45" id="0He-9f-wJ4"/>
