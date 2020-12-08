@@ -60,6 +60,7 @@ class LoginViewModel : UIViewController{
     /*
      네이버 로그인
      */
+    
     // 네이버 로그인 버튼 클릭 시
     let loginConn = NaverThirdPartyLoginConnection.getSharedInstance();
     
