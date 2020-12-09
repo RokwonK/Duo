@@ -22,7 +22,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     
     @IBOutlet weak var naverButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var kakaoBtn: UIImageView!
+    @IBOutlet weak var kakaoBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
     
     func loginProcess(_ snsToken : String, _ sns_name : String) {
@@ -115,6 +115,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         }
         
         guard let idToken = user.authentication.idToken else {return}
+        print("googlegooglegooglegooglegooglegooglegooglegooglegooglegooglegooglegooglegooglegoogle")
         self.loginProcess(idToken, "google")
     }
     
@@ -170,10 +171,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         // restorePreviousSignIn 함수를 위해 필요
 //        BaseFunc.fetch()
         
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(kakaoBtnTapped))
-        kakaoBtn.addGestureRecognizer(tapGestureRecognizer)
+//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(kakaoBtnTapped))
+//        kakaoBtn.addGestureRecognizer(tapGestureRecognizer)
         
-        
+        kakaoBtn.layer.cornerRadius = 7
         kakaoBtn.layer.shadowColor = UIColor.black.cgColor
         kakaoBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
         kakaoBtn.layer.shadowOpacity = 0.2
@@ -184,15 +185,16 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         naverButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         naverButton.layer.shadowOpacity = 0.2
         naverButton.layer.shadowRadius = 2.0
+
+        googleButton.layer.borderWidth = 1.0
+        googleButton.layer.borderColor = UIColor.black.cgColor
         
-//        googleButton.layer.borderWidth = 1.0
-//        googleButton.layer.borderColor = UIColor.black.cgColor
         googleButton.layer.cornerRadius = 7
         googleButton.layer.shadowColor = UIColor.black.cgColor
         googleButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         googleButton.layer.shadowOpacity = 0.2
         googleButton.layer.shadowRadius = 2.0
-        
+
         appleBtn.layer.cornerRadius = 7
         appleBtn.layer.shadowColor = UIColor.black.cgColor
         appleBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
@@ -203,15 +205,27 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         google?.presentingViewController = self
     }
     
-    @objc func kakaoBtnTapped(sender: UITapGestureRecognizer) { // 원하는 대로 코드 구성 }
+//    @objc func kakaoBtnTapped(sender: UITapGestureRecognizer) { // 원하는 대로 코드 구성 }
+//        if (AuthApi.isKakaoTalkLoginAvailable()) {
+//            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
+//        }
+//        else {
+//            AuthApi.shared.loginWithKakaoAccount
+//            { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
+//        }
+//    }
+    @IBAction func kakaoBtnTapped() {
+        
         if (AuthApi.isKakaoTalkLoginAvailable()) {
-            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
-        }
-        else {
-            AuthApi.shared.loginWithKakaoAccount { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
-        }
+                  AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
+              }
+              else {
+                  AuthApi.shared.loginWithKakaoAccount
+                  { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
+              }
     }
-
+    
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(false)
         
@@ -224,6 +238,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
             else {
                 let snsToken = LoginViewModel().getNaverEmailFromURL()
                 print(snsToken)
+                print("navernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernavernaver")
                 self.loginProcess(snsToken, "naver")
             }
         }
@@ -246,6 +261,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
                         // 자동 로그인 실행
                         let snsToken = LoginViewModel().kakaoLogin(auth, Error)
                         print(snsToken)
+                        print("kakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakaokakao")
                         self.loginProcess(snsToken, "kakao")
                     }
                 }

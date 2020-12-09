@@ -88,7 +88,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-176" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-165" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     네이버 로그인" image="naver">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -112,7 +112,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="-21" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-188" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-178" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="     구글 로그인" image="google">
                                     <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
@@ -129,18 +129,11 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                <inset key="imageEdgeInsets" minX="-210" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-203" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 <state key="normal" title="애플 로그인" image="white-logo-masked-circular_2x-3">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <imageView contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="kakao_login_large_wide" translatesAutoresizingMaskIntoConstraints="NO" id="pEE-mG-wgd">
-                                <rect key="frame" x="25" y="412" width="325" height="45"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="45" id="0He-9f-wJ4"/>
-                                    <constraint firstAttribute="width" constant="325" id="ZiT-3O-JOX"/>
-                                </constraints>
-                            </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="지금 모여라에서 함께 게임할 친구를 찾아보세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1MW-3T-5sx">
                                 <rect key="frame" x="25" y="670" width="325" height="21"/>
                                 <constraints>
@@ -151,27 +144,44 @@
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nxW-yq-6iB">
+                                <rect key="frame" x="25" y="412" width="325" height="45"/>
+                                <color key="backgroundColor" red="0.97829657790000002" green="0.9025920033" blue="0.30176746850000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="325" id="gFp-NK-PSY"/>
+                                    <constraint firstAttribute="height" constant="45" id="ojl-Ir-e0S"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <inset key="titleEdgeInsets" minX="-17" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <inset key="imageEdgeInsets" minX="-184" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                <state key="normal" title="카카오 로그인" image="kakao">
+                                    <color key="titleColor" red="0.113858901" green="0.1253279746" blue="0.13725820180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="kakaoBtnTapped" destination="DsX-jZ-B1h" eventType="touchUpInside" id="qaT-Mu-Ha3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fc2-AK-YmB"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="BTf-wK-Hci" firstAttribute="top" secondItem="pEE-mG-wgd" secondAttribute="bottom" constant="13" id="0gc-4N-btK"/>
                             <constraint firstItem="sk3-HP-hEX" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="16" id="21g-e3-lvA"/>
                             <constraint firstItem="1MW-3T-5sx" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="25" id="9x3-wm-VbQ"/>
                             <constraint firstItem="sk3-HP-hEX" firstAttribute="top" secondItem="fc2-AK-YmB" secondAttribute="top" constant="94" id="DV2-5Q-seR"/>
                             <constraint firstItem="prg-09-ZmI" firstAttribute="top" secondItem="1ua-6n-bv2" secondAttribute="bottom" constant="13" id="EP1-AV-nLu"/>
-                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="pEE-mG-wgd" secondAttribute="trailing" constant="25" id="Eld-zW-Mte"/>
                             <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="1ua-6n-bv2" secondAttribute="trailing" constant="25" id="Uc1-SQ-pWF"/>
                             <constraint firstItem="BTf-wK-Hci" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="25" id="VIM-lk-jUm"/>
                             <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="BTf-wK-Hci" secondAttribute="trailing" constant="25" id="YM1-DF-uwA"/>
+                            <constraint firstItem="nxW-yq-6iB" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="25" id="YaQ-MD-bmK"/>
+                            <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="nxW-yq-6iB" secondAttribute="trailing" constant="25" id="ZKu-Rk-1NN"/>
+                            <constraint firstItem="nxW-yq-6iB" firstAttribute="top" secondItem="fc2-AK-YmB" secondAttribute="top" constant="368" id="ZdG-l8-w5Q"/>
                             <constraint firstItem="1MW-3T-5sx" firstAttribute="top" secondItem="prg-09-ZmI" secondAttribute="bottom" constant="39" id="aEo-Bq-HYo"/>
                             <constraint firstItem="1ua-6n-bv2" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="25" id="bKk-uK-RFQ"/>
                             <constraint firstItem="prg-09-ZmI" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="25" id="cl1-uf-G06"/>
                             <constraint firstItem="1ua-6n-bv2" firstAttribute="top" secondItem="BTf-wK-Hci" secondAttribute="bottom" constant="13" id="exF-2f-53z"/>
                             <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="sk3-HP-hEX" secondAttribute="trailing" constant="16" id="iD2-pw-dLE"/>
                             <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="prg-09-ZmI" secondAttribute="trailing" constant="25" id="n0r-pZ-qey"/>
-                            <constraint firstItem="pEE-mG-wgd" firstAttribute="top" secondItem="sk3-HP-hEX" secondAttribute="bottom" constant="69" id="pci-7D-k9X"/>
-                            <constraint firstItem="pEE-mG-wgd" firstAttribute="leading" secondItem="fc2-AK-YmB" secondAttribute="leading" constant="25" id="rmX-Fb-JaJ"/>
+                            <constraint firstItem="BTf-wK-Hci" firstAttribute="top" secondItem="nxW-yq-6iB" secondAttribute="bottom" constant="13" id="q4a-fW-5Ga"/>
                             <constraint firstItem="fc2-AK-YmB" firstAttribute="bottom" secondItem="sk3-HP-hEX" secondAttribute="bottom" constant="435" id="utR-Jc-MvW"/>
                             <constraint firstItem="fc2-AK-YmB" firstAttribute="trailing" secondItem="1MW-3T-5sx" secondAttribute="trailing" constant="25" id="wbl-dT-scy"/>
                         </constraints>
@@ -180,7 +190,7 @@
                     <connections>
                         <outlet property="appleBtn" destination="prg-09-ZmI" id="U9J-zg-YCt"/>
                         <outlet property="googleButton" destination="1ua-6n-bv2" id="0AR-Fb-FFi"/>
-                        <outlet property="kakaoBtn" destination="pEE-mG-wgd" id="FFw-RA-faP"/>
+                        <outlet property="kakaoBtn" destination="nxW-yq-6iB" id="ywr-bL-V6o"/>
                         <outlet property="naverButton" destination="BTf-wK-Hci" id="LVS-3J-8MM"/>
                     </connections>
                 </viewController>
@@ -15565,7 +15575,7 @@ oY4
         <image name="icon-position-middle" width="136" height="136"/>
         <image name="icon-position-top" width="136" height="136"/>
         <image name="icon-position-utility" width="136" height="136"/>
-        <image name="kakao_login_large_wide" width="600" height="90"/>
+        <image name="kakao" width="34" height="35"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
         <image name="naver" width="24" height="24"/>
         <image name="person" catalog="system" width="128" height="117"/>

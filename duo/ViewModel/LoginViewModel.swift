@@ -89,9 +89,11 @@ class LoginViewModel : UIViewController{
     func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) -> String {
         if let error = error {
             print(error)
+            return "failed"
         }
+        print("kakaoLogin success")
+        LoginView().loginProcess(auth!.accessToken, "kakao")
+        return auth!.accessToken
         
-            print("kakaoLogin success")
-            return auth!.accessToken
     }
 }
