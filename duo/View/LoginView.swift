@@ -25,6 +25,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     @IBOutlet weak var kakaoBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
     
+    
     func loginProcess(_ snsToken : String, _ sns_name : String) {
         
         var nickName = ""
@@ -169,10 +170,10 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     override func viewDidLoad() {
         super.viewDidLoad();
         // restorePreviousSignIn 함수를 위해 필요
-//        BaseFunc.fetch()
+        //        BaseFunc.fetch()
         
-//        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(kakaoBtnTapped))
-//        kakaoBtn.addGestureRecognizer(tapGestureRecognizer)
+        //        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(kakaoBtnTapped))
+        //        kakaoBtn.addGestureRecognizer(tapGestureRecognizer)
         
         kakaoBtn.layer.cornerRadius = 7
         kakaoBtn.layer.shadowColor = UIColor.black.cgColor
@@ -185,7 +186,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         naverButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         naverButton.layer.shadowOpacity = 0.2
         naverButton.layer.shadowRadius = 2.0
-
+        
         googleButton.layer.borderWidth = 1.0
         googleButton.layer.borderColor = UIColor.black.cgColor
         
@@ -194,35 +195,44 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
         googleButton.layer.shadowOffset = CGSize(width: 3, height: 3)
         googleButton.layer.shadowOpacity = 0.2
         googleButton.layer.shadowRadius = 2.0
-
+        
         appleBtn.layer.cornerRadius = 7
         appleBtn.layer.shadowColor = UIColor.black.cgColor
         appleBtn.layer.shadowOffset = CGSize(width: 3, height: 3)
         appleBtn.layer.shadowOpacity = 0.2
         appleBtn.layer.shadowRadius = 2.0
         
+//        let attributedString = NSMutableAttributedString(string: introText.text!, attributes:[ .font: UIFont.systemFont(ofSize: 15, weight: .bold), .foregroundColor: UIColor(white: 0.0, alpha: 1.0), .kern: -0.01])
+//                                                                                               
+//                                            
+//        attributedString.addAttribute(.font, value: UIFont.systemFont(ofSize: 20, weight: .medium), range: (introText.text! as NSString).range(of: "모여라"))
+//                                                            
+//        attributedString.addAttribute(.foregroundColor, value: #colorLiteral(red: 0.2196078431, green: 0.1333333333, blue: 0.4862745098, alpha: 1), range: (introText.text! as NSString).range(of: "모여라"))
+//        
+//        self.introText.attributedText = attributedString
+                                                            
         google?.delegate = self
         google?.presentingViewController = self
-    }
+        }
     
-//    @objc func kakaoBtnTapped(sender: UITapGestureRecognizer) { // 원하는 대로 코드 구성 }
-//        if (AuthApi.isKakaoTalkLoginAvailable()) {
-//            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
-//        }
-//        else {
-//            AuthApi.shared.loginWithKakaoAccount
-//            { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
-//        }
-//    }
+    //    @objc func kakaoBtnTapped(sender: UITapGestureRecognizer) { // 원하는 대로 코드 구성 }
+    //        if (AuthApi.isKakaoTalkLoginAvailable()) {
+    //            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
+    //        }
+    //        else {
+    //            AuthApi.shared.loginWithKakaoAccount
+    //            { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
+    //        }
+    //    }
     @IBAction func kakaoBtnTapped() {
         
         if (AuthApi.isKakaoTalkLoginAvailable()) {
-                  AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
-              }
-              else {
-                  AuthApi.shared.loginWithKakaoAccount
-                  { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
-              }
+            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
+        }
+        else {
+            AuthApi.shared.loginWithKakaoAccount
+            { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
+        }
     }
     
     
