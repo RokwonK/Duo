@@ -15,6 +15,7 @@ class AccountView: UIViewController {
     @IBOutlet weak var appNotification: UILabel!
     @IBOutlet weak var userSupport: UILabel!
     @IBOutlet weak var account: UILabel!
+    @IBOutlet weak var userNickname: UILabel!
     
     func addBottomBorder() {
         let thickness: CGFloat = 1.0
@@ -48,6 +49,7 @@ class AccountView: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //BaseFunc.fetch()
+        userNickname.text = "\(ad!.nickname)님"
         addBottomBorder()
         addBottomBorder2()
         addBottomBorder3()
@@ -65,20 +67,17 @@ class AccountView: UIViewController {
         LoginViewModel().kakaoLogout()
         LoginViewModel().googleLogout()
         
-        returnToLogin()
+        let alert = UIAlertController(title: nil , message: "로그아웃 완료", preferredStyle: UIAlertController.Style.alert)
+        let okAction = UIAlertAction(title: "Ok", style: .default, handler : {(alert: UIAlertAction!) in
+                                        self.returnToLogin()})
+        alert.addAction(okAction)
+        self.present(alert, animated: true, completion: nil)
     }
     
     struct resultMessage : Codable {
         var msg : String
         var code : Int
     }
-    
-    //    @IBAction func changeNickname (_sender : UIButton){
-    //
-    //        let storyBoard = self.storyboard
-    //        let NickNameChange = storyBoard!.instantiateViewController(withIdentifier: "NickNameChange")
-    //        self.present(NickNameChange, animated: true, completion: nil)
-    //    }
     
     @IBAction func deleteAccount(_ sender: Any) {
         

@@ -19,9 +19,8 @@ class NickNameChange : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeButton.layer.cornerRadius = 7;
-        
-        // Do any additional setup after loading the view.
     }
+    
     func save( _ nickName: String){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
@@ -49,9 +48,9 @@ class NickNameChange : UIViewController {
     //닉네임생성완료 버튼누르면 실행
     @IBAction func changeNickName(sender: Any) {
         
-//        let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
-//        var sns_name = ad!.sns_name!
-//        var snsToken = ad!.access_token!
+        //        let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
+        //        var sns_name = ad!.sns_name!
+        //        var snsToken = ad!.access_token!
         //닉네임 서버로 송신하는코드
         let urlString = "http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth"
         let url = URL(string :urlString)!
@@ -72,38 +71,32 @@ class NickNameChange : UIViewController {
                                           "userId" : ad!.userID],
                              encoding: JSONEncoding.default,
                              headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
-
+        
         req.responseJSON { res in
             print(res)
-
+            
             switch res.result{
-
+            
             case.success (let value):
                 do{
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let result = try JSONDecoder().decode(resultMessage.self, from: data)
-//                    self.save(self.inputText.text!)
+                    //                    self.save(self.inputText.text!)
                     r_msg = result.msg
                     r_code = result.code
-//                    self.dismiss(animated: true, completion: nil)
+                    //                    self.dismiss(animated: true, completion: nil)
                     
                     let alert = UIAlertController(title: nil , message: "닉네임 변경 완료", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "확인", style: .default, handler: {action in self.navigationController?.popToRootViewController(animated: true)})
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
-                    
-                    
                 }
                 catch{
                 }
-                
             case .failure(let error):
                 print("error :\(error)")
                 break;
             }
-            
         }
     }
-    
-    
 }
