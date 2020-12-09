@@ -17,6 +17,8 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
     
+    @IBOutlet weak var topView: UIView!
+    
     @IBOutlet weak var tableviewheight: NSLayoutConstraint!
     
     @IBOutlet weak var commentField: UITextField!
@@ -42,7 +44,15 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             }
         }
     }
-    
+    func addBottomBorder() {
+        let thickness: CGFloat = 1.0
+        
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x:0, y: self.topView.frame.size.height - thickness, width: self.topView.frame.size.width, height:thickness)
+        bottomBorder.backgroundColor = UIColor.lightGray.cgColor
+        topView.layer.addSublayer(bottomBorder)
+        
+    }
     var boardInfo : Dictionary<String,Any>?;
     var postID : Int = 0
     @IBOutlet weak var tableview: UITableView!
@@ -51,11 +61,12 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var boardtitle: UILabel!
     @IBOutlet weak var gamemode: UILabel!
     @IBOutlet weak var time: UILabel!
-    @IBOutlet weak var start: UILabel!
+//    @IBOutlet weak var start: UILabel!
     @IBOutlet weak var mic: UILabel!
     @IBOutlet weak var peoplenum: UILabel!
     @IBOutlet weak var boardtext: UILabel!
-    @IBOutlet weak var end: UILabel!
+//    @IBOutlet weak var end: UILabel!
+    @IBOutlet weak var tierRangeField: UILabel!
     
     @IBOutlet weak var toplabel: UILabel!
     @IBOutlet weak var junglelabel: UILabel!
@@ -122,7 +133,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         //           }
         
         
-        self.navigationController?.navigationBar.tintColor = UIColor.white
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         
         
         postID = boardInfo?["id"] as! Int
@@ -177,37 +188,45 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         let edRemaind = endt % 10;
         
         if (startt == 1 && endt == 100) {
-            start.text = "모든티어"
-            end.text = "모든 티어"
+            tierRangeField.text = "모든티어"
         }
         else if (startt == 1) {
-            end.text = "\(eachTier[edShared] + "\(10-edRemaind)" )"
+            tierRangeField.text = "~\(eachTier[edShared] + "\(10-edRemaind)" )"
         }
         else if (endt == 100) {
-            start.text = "\(eachTier[stShared] + "\(10-stRemaind)" )";
+            tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~";
         }
         else {
-            start.text = "\(eachTier[stShared] + "\(10-stRemaind)" )"
-            end.text = "\(eachTier[edShared] + "\(10-edRemaind)" )"
+//            tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" ) ~ \(eachTier[edShared] + "\(10-edRemaind)" )"
         }
         
         let format = DateFormatter()
-        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
-        let string : String = boardInfo?["endTime"] as! String
+        format.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        let startTime = format.date(from: boardInfo?["endTime"] as! String)
+        
+        let currentDate = Date()
+        var useTime = Int(startTime!.timeIntervalSince(currentDate))
+        if (useTime >= 0){
+            if (useTime>=3600){
+                if (useTime>=86400){
+                    time.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 마감"
+                }
+                else{
+                    time.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 마감"
+                }
+            }
+            else{
+                time.text = "\(useTime/60)분후 마감"
+            }
+        }
+        else{
+            time.text = "모집마감"
+        }
 
-        let startTime = format.date(from: string)
-        let endTime = Date()
-        
-        var useTime = Int(startTime!.timeIntervalSince(endTime))
-
-        
-        
-
-        
         nickname.text = "\(boardInfo?["nickname"] as! String)"
         boardtitle.text = boardInfo?["title"] as! String
         gamemode.text = boardInfo?["gameMode"] as! String
-        time.text = "\(boardInfo?["endTime"] as! String)"
+        
         boardtext.text = boardInfo?["content"] as! String
         peoplenum.text = "\(headcount)명"
         
@@ -232,6 +251,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     override func viewWillAppear(_ animated: Bool) {
         self.tableview.addObserver(self, forKeyPath: "contentSize", options: .new, context: nil)
         self.tableview.reloadData();
+        addBottomBorder()
     }
     
     override func viewWillDisappear(_ animated: Bool) {
@@ -260,6 +280,8 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
 //        }
     }
     
+    
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let comments = commentsData {
             return comments.count;
@@ -275,7 +297,11 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             let v = comments[indexPath.row];
             if let cm = v["content"] as? String {
                 cell.CommentTable.text = cm
-                cell.CommentTable.font = UIFont.boldSystemFont(ofSize: 18)
+//                cell.CommentTable.font = UIFont.boldSystemFont(ofSize: 18)
+            }
+            if let nn = v["nickname"] as? String{
+                cell.nicknameCell.text = nn
+                cell.nicknameCell.font = UIFont.boldSystemFont(ofSize: 18)
             }
         }
         return cell

@@ -28,7 +28,7 @@ class LoLMainBoard: UITableViewController{
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
                             method:.get,
-                            parameters: ["limit": 20, "offset" : 0],
+                            parameters: ["limit": 100, "offset" : 0],
                             encoding: URLEncoding.queryString,
                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
                             )
@@ -106,33 +106,51 @@ class LoLMainBoard: UITableViewController{
                 cell.title.text = tit;
                 cell.title.font = UIFont.boldSystemFont(ofSize: 18)
             }
-            if let et = v["endTime"] as? String {
+            
                 //cell.startTime.text = "시작시간 : \(st)";
                 
                 // 각각 뽑기 위해서 Date객체로의 변환이 필요
-                // MM-dd를 뽑고 같으면 오늘 다르면 내일
-                // HH:mm을 뽑아서 사용자에게 보여줌
-                
-                // String => Date로 바꿈;
-                let thisDateFormatter = DateFormatter();
-                thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                let thisDate = thisDateFormatter.date(from: et)!;
-                thisDateFormatter.dateFormat = "MM-dd";
-                let thisDateMMdd = thisDateFormatter.string(from : thisDate);
-                
-                //let nowDateFormatter = DateFormatter();
-                let nowDate = Date()
-                let nowDateMMdd = thisDateFormatter.string(from : nowDate);
-                
-                thisDateFormatter.dateFormat = "HH:mm";
-                let thisEndTime = thisDateFormatter.string(from : thisDate)
-                if (nowDateMMdd == thisDateMMdd) {
-                    cell.endTime.text = "오늘 \(thisEndTime)"
+            // MM-dd를 뽑고 같으면 오늘 다르면 내일
+            // HH:mm을 뽑아서 사용자에게 보여줌
+            
+            // String => Date로 바꿈;
+            let thisDateFormatter = DateFormatter();
+            thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            let et = thisDateFormatter.date(from: v["endTime"] as! String)
+            //                let thisDate = thisDateFormatter.date(from: et)!;
+            //                thisDateFormatter.dateFormat = "MM-dd";
+            //                let thisDateMMdd = thisDateFormatter.string(from : thisDate);
+            
+            //let nowDateFormatter = DateFormatter();
+            let nowDate = Date()
+            //                let nowDateMMdd = thisDateFormatter.string(from : nowDate);
+            
+            var useTime = Int(et!.timeIntervalSince(nowDate))
+            if (useTime >= 0){
+                if (useTime>=3600){
+                    if (useTime>=86400){
+                        cell.endTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 마감"
+                    }
+                    else{
+                        cell.endTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 마감"
+                    }
                 }
-                else {
-                    cell.endTime.text = "내일 \(thisEndTime)"
+                else{
+                    cell.endTime.text = "\(useTime/60)분후 마감"
                 }
             }
+            else{
+                cell.endTime.text = "모집마감"
+            }
+            
+//                thisDateFormatter.dateFormat = "HH:mm";
+//                let thisEndTime = thisDateFormatter.string(from : thisDate)
+//                if (nowDateMMdd == thisDateMMdd) {
+//                    cell.endTime.text = "오늘 \(thisEndTime)"
+//                }
+//                else {
+//                    cell.endTime.text = "내일 \(thisEndTime)"
+//                }
             
             if let stTier = v["startTier"] as? Int {
                 if let edTier = v["endTier"] as? Int {
@@ -182,11 +200,13 @@ class LoLMainBoard: UITableViewController{
         
         lolMainBoardViewModel = LoLMainBoardViewModel();
         
-        filterOutlet.tintColor = UIColor.white;
-        popOutlet.tintColor = UIColor.white;
-        self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
-//        self.navigationController?.navigationBar.backgroundColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+        filterOutlet.tintColor = UIColor.black;
+        popOutlet.tintColor = UIColor.black;
+//        self.navigationController?.navigationBar.barTintColor = UIColor.black
+//        self.navigationController?.navigationItem.
         
+//        self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         extension_upLoadBtnStyle(upLoadBtn);
         
         self.getPosts();

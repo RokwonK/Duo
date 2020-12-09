@@ -14,6 +14,8 @@ class CommentCell : UITableViewCell {
     
     @IBOutlet weak var CommentTable : UILabel!
     @IBOutlet weak var MyCommentCell: UILabel!
+    @IBOutlet weak var nicknameCell: UILabel!
+    
     @IBAction func showPopup (_sender: AnyObject){
     
     }
