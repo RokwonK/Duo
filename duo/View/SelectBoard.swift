@@ -63,6 +63,14 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var bottomlabel: UILabel!
     @IBOutlet weak var supportlabel: UILabel!
     
+    
+    @IBOutlet weak var gameMode: UILabel!
+    @IBOutlet weak var people: UILabel!
+    @IBOutlet weak var tierRange: UILabel!
+    @IBOutlet weak var position: UILabel!
+    @IBOutlet weak var micBool: UILabel!
+    
+    
     @IBAction func temp(_ sender: Any) {
         let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
         let req = AF.request(url,
@@ -92,6 +100,17 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
+        
+        gameMode.clipsToBounds = true
+        gameMode.layer.cornerRadius = 13
+        people.clipsToBounds = true
+        people.layer.cornerRadius = 13
+        tierRange.clipsToBounds = true
+        tierRange.layer.cornerRadius = 13
+        position.clipsToBounds = true
+        position.layer.cornerRadius = 13
+        micBool.clipsToBounds = true
+        micBool.layer.cornerRadius = 13
         //        ScrollView.delegate = self
         
         
@@ -101,6 +120,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         //            frame.size.height = self.tableview.contentSize.height
         //            self.tableview.frame = frame
         //           }
+        
         
         self.navigationController?.navigationBar.tintColor = UIColor.white
         
@@ -141,11 +161,11 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         
         switch talkon{
         case 1:
-            mic.text = "토크온: 가능"
+            mic.text = "가능"
         case 2:
-            mic.text = "토크온: 불가능"
+            mic.text = "불가능"
         case 3:
-            mic.text = "토크온: 상관없음"
+            mic.text = "상관없음"
         default:
             return
         }
@@ -171,13 +191,25 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             end.text = "\(eachTier[edShared] + "\(10-edRemaind)" )"
         }
         
+        let format = DateFormatter()
+        format.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        let string : String = boardInfo?["endTime"] as! String
+
+        let startTime = format.date(from: string)
+        let endTime = Date()
         
-        nickname.text = "닉네임: \(boardInfo?["nickname"] as! String)"
+        var useTime = Int(startTime!.timeIntervalSince(endTime))
+
+        
+        
+
+        
+        nickname.text = "\(boardInfo?["nickname"] as! String)"
         boardtitle.text = boardInfo?["title"] as! String
         gamemode.text = boardInfo?["gameMode"] as! String
-        time.text = "마감시간: \(boardInfo?["endTime"] as! String)"
+        time.text = "\(boardInfo?["endTime"] as! String)"
         boardtext.text = boardInfo?["content"] as! String
-        peoplenum.text = "인원:\(headcount)명모집"
+        peoplenum.text = "\(headcount)명"
         
         if (Top == 1 || Top == 3) {
             toplabel.backgroundColor = UIColor.green

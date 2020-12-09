@@ -598,7 +598,7 @@
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jxc-Q9-GDd">
                                                 <rect key="frame" x="1" y="1" width="412" height="420"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글내용" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVc-kR-GG7">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글내용" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BVc-kR-GG7">
                                                         <rect key="frame" x="8" y="316" width="398" height="96"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
@@ -626,7 +626,7 @@
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="모집인원" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEF-Zy-D9Q">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="모집인원" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TEF-Zy-D9Q">
                                                         <rect key="frame" x="121" y="169" width="105" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -634,17 +634,17 @@
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게임모드" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-BP-VzB">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="게임모드" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nq-BP-VzB">
                                                         <rect key="frame" x="121" y="133" width="105" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글제목" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDE-bC-iJa">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="글제목" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JDE-bC-iJa">
                                                         <rect key="frame" x="8" y="94" width="396" height="28"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                                         <color key="textColor" red="0.50195431710000005" green="0.49798840280000001" blue="0.50196599959999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -845,16 +845,21 @@
                         <outlet property="boardtitle" destination="JDE-bC-iJa" id="vWY-hu-HAi"/>
                         <outlet property="bottomlabel" destination="hS8-W6-PT2" id="zKV-xy-MJt"/>
                         <outlet property="end" destination="M3F-3n-zjM" id="xgv-Ds-ZJn"/>
+                        <outlet property="gameMode" destination="aZg-y7-9uy" id="dOM-M0-2Hf"/>
                         <outlet property="gamemode" destination="4Nq-BP-VzB" id="akx-Ln-lql"/>
                         <outlet property="junglelabel" destination="sFk-5H-gJH" id="FDZ-Yt-z3P"/>
                         <outlet property="mic" destination="apF-LK-xMT" id="Z87-G9-GFk"/>
+                        <outlet property="micBool" destination="oPw-3F-Pd3" id="aAd-n4-eNi"/>
                         <outlet property="midlabel" destination="lZJ-al-JaU" id="JLV-8b-T8t"/>
                         <outlet property="nickname" destination="hPb-rd-BOM" id="zbX-JE-Hv0"/>
+                        <outlet property="people" destination="csY-bH-N4j" id="aPB-UW-ibP"/>
                         <outlet property="peoplenum" destination="TEF-Zy-D9Q" id="rQw-jB-XaZ"/>
+                        <outlet property="position" destination="njh-eS-A3b" id="vqJ-zD-cm1"/>
                         <outlet property="start" destination="6uM-6x-Z6y" id="HL2-QG-961"/>
                         <outlet property="supportlabel" destination="mlB-Lo-LD4" id="SpG-FN-dvx"/>
                         <outlet property="tableview" destination="giT-AR-5Zg" id="2gk-fe-RY0"/>
                         <outlet property="tableviewheight" destination="SRE-Oy-63g" id="QrA-cf-6SL"/>
+                        <outlet property="tierRange" destination="ll1-bA-onF" id="g9k-5y-CPu"/>
                         <outlet property="time" destination="lgv-UG-r1D" id="tzE-4M-wP9"/>
                         <outlet property="toplabel" destination="Lgc-es-8ki" id="xm7-Ec-s3A"/>
                     </connections>
