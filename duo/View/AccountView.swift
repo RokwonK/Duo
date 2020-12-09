@@ -10,24 +10,47 @@ import UIKit
 
 class AccountView: UIViewController {
     
-    @IBOutlet weak var view1: UIView!
-    
     let ad = UIApplication.shared.delegate as? AppDelegate
+    
+    @IBOutlet weak var appNotification: UILabel!
+    @IBOutlet weak var userSupport: UILabel!
+    @IBOutlet weak var account: UILabel!
+    
+    func addBottomBorder() {
+        let thickness: CGFloat = 1.0
+        
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x:0, y: self.appNotification.frame.size.height - thickness, width: self.appNotification.frame.size.width, height:thickness)
+        bottomBorder.backgroundColor = UIColor.lightGray.cgColor
+        appNotification.layer.addSublayer(bottomBorder)
+        
+    }
+    
+    func addBottomBorder2() {
+        let thickness: CGFloat = 1.0
+        
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x:0, y: self.appNotification.frame.size.height - thickness, width: self.appNotification.frame.size.width, height:thickness)
+        bottomBorder.backgroundColor = UIColor.lightGray.cgColor
+       
+        userSupport.layer.addSublayer(bottomBorder)
+    }
+    
+    func addBottomBorder3() {
+        let thickness: CGFloat = 1.0
+        
+        let bottomBorder = CALayer()
+        bottomBorder.frame = CGRect(x:0, y: self.appNotification.frame.size.height - thickness, width: self.appNotification.frame.size.width, height:thickness)
+        bottomBorder.backgroundColor = UIColor.lightGray.cgColor
+       
+        account.layer.addSublayer(bottomBorder)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-//        BaseFunc.fetch()
-        
-        view1.layer.cornerRadius = 12
-        
-        view1.layer.borderWidth = 1.0
-        view1.layer.borderColor = UIColor.white.cgColor
-
-        // shadow
-        view1.layer.shadowColor = UIColor.lightGray.cgColor
-        view1.layer.shadowOffset = CGSize(width: 0, height: 0)
-        view1.layer.shadowOpacity = 0.7
-        view1.layer.shadowRadius = 4.0
-        // Do any additional setup after loading the view.
+        //BaseFunc.fetch()
+        addBottomBorder()
+        addBottomBorder2()
+        addBottomBorder3()
     }
     
     func returnToLogin () {
@@ -50,12 +73,12 @@ class AccountView: UIViewController {
         var code : Int
     }
     
-//    @IBAction func changeNickname (_sender : UIButton){
-//        
-//        let storyBoard = self.storyboard
-//        let NickNameChange = storyBoard!.instantiateViewController(withIdentifier: "NickNameChange")
-//        self.present(NickNameChange, animated: true, completion: nil)
-//    }
+    //    @IBAction func changeNickname (_sender : UIButton){
+    //
+    //        let storyBoard = self.storyboard
+    //        let NickNameChange = storyBoard!.instantiateViewController(withIdentifier: "NickNameChange")
+    //        self.present(NickNameChange, animated: true, completion: nil)
+    //    }
     
     @IBAction func deleteAccount(_ sender: Any) {
         
@@ -65,7 +88,7 @@ class AccountView: UIViewController {
         }
         
         let url = URL(string : BaseFunc.baseurl + "/auth")!
-
+        
         let req = AF.request(url,
                              method:.delete,
                              parameters: ["userId": ad!.userID],
@@ -80,10 +103,10 @@ class AccountView: UIViewController {
                     let deletedata = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let alert = UIAlertController(title: nil , message: "회원탈퇴 완료", preferredStyle: UIAlertController.Style.alert)
                     let okAction = UIAlertAction(title: "회원탈퇴완료, 재로그인 필요", style: .default, handler : {(alert: UIAlertAction!) in
-                        LoginViewModel().naverLogout()
-                        LoginViewModel().kakaoLogout()
-                        LoginViewModel().googleLogout()
-                        self.returnToLogin()})
+                                                    LoginViewModel().naverLogout()
+                                                    LoginViewModel().kakaoLogout()
+                                                    LoginViewModel().googleLogout()
+                                                    self.returnToLogin()})
                     alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                 }
