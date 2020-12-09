@@ -102,6 +102,31 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
                 print(error)
             }
         }
+        
+        postID = boardInfo?["id"] as! Int
+        print(postID)
+        let url2 = URL(string : BaseFunc.baseurl + "/comment/lol")!
+        let req2 = AF.request(url2,
+                             method:.get,
+                             parameters: ["postId": postID],
+                             encoding: URLEncoding.queryString,
+                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+        // db에서 값 가져오기
+        req2.responseJSON {res in
+            print(res)
+            switch res.result {
+            case.success(let value):
+                if let datas = value as? Array<Dictionary<String,Any>> {
+                    self.commentsData = datas;
+                    DispatchQueue.main.async {
+                        self.tableview.reloadData();
+                    }
+                }
+            case .failure(let error):
+                print(error)
+            }
+        }
+        
     }
     
     

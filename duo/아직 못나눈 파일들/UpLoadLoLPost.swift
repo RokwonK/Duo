@@ -11,7 +11,7 @@ import Alamofire
 
 class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
     
-    let customcolor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+    let customcolor = UIColor(displayP3Red: 250/255, green: 90/255, blue: 90/255, alpha: 1)
     let ad = UIApplication.shared.delegate as? AppDelegate
     var selectDate = Date();
     let toolBarKeyboard = UIToolbar()
@@ -318,10 +318,16 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     override func viewDidLoad() {
         super.viewDidLoad();
         
-        self.navigationController?.navigationBar.barTintColor = customcolor;
-        self.navigationController?.navigationBar.barStyle = .black;
-        self.navigationController?.navigationBar.isTranslucent = false;
+        let frame = self.navigationController?.navigationBar.frame
+        let height: CGFloat = 200
+        let bounds = self.navigationController!.navigationBar.bounds
+        self.navigationController?.navigationBar.frame = CGRect(x: (frame?.origin.x)!, y: (frame?.origin.y)!, width: bounds.width, height: bounds.height + height)
         
+        self.navigationController?.navigationBar.barTintColor = UIColor.white;
+        self.navigationController?.navigationBar.barStyle = .default;
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
+
         // 키보드 툴발 만들기
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))
@@ -332,23 +338,23 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         // Game Mode
         gameModeField.inputAccessoryView = toolBarKeyboard
         gameModeField.inputView = self.uploadGameMode;
-        gameModeField.textColor = customcolor;
+        gameModeField.textColor = UIColor.lightGray;
         gameModeField.text = gameModeData[0];
         
         // Tier
         startTierField.inputAccessoryView = toolBarKeyboard
         startTierField.inputView = self.uploadStartTier;
-        startTierField.textColor = customcolor;
+        startTierField.textColor = UIColor.lightGray;
         startTierField.text = tierData[0];
         endTierField.inputAccessoryView = toolBarKeyboard
         endTierField.inputView = self.uploadEndTier;
-        endTierField.textColor = customcolor;
+        endTierField.textColor = UIColor.lightGray;
         endTierField.text = tierData[tierData.count-1];
         
         // Head Count
         headCountField.inputAccessoryView = toolBarKeyboard
         headCountField.inputView = self.uploadHeadCount
-        headCountField.textColor = customcolor;
+        headCountField.textColor = UIColor.lightGray;
         headCountField.text = headCountData[0];
         
         // Start Time
@@ -356,7 +362,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         endTimeField.inputAccessoryView = toolBarKeyboard
         endTimeField.inputView = self.uploadendTime
-        endTimeField.textColor = customcolor;
+        endTimeField.textColor = UIColor.lightGray;
         endTimeField.text = dateformat.string(from: Date())
         
         // Position

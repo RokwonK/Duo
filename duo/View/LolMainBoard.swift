@@ -202,13 +202,12 @@ class LoLMainBoard: UITableViewController{
         
         filterOutlet.tintColor = UIColor.black;
         popOutlet.tintColor = UIColor.black;
-//        self.navigationController?.navigationBar.barTintColor = UIColor.black
-//        self.navigationController?.navigationItem.
-        
-//        self.navigationController?.navigationBar.barTintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         extension_upLoadBtnStyle(upLoadBtn);
         
+        self.getPosts();
+    }
+    override func viewWillAppear(_ animated: Bool) {
         self.getPosts();
     }
     

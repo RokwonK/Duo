@@ -326,7 +326,7 @@
                             </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="fhf-0e-oVo">
                                 <rect key="frame" x="76" y="160" width="262" height="31"/>
-                                <color key="tintColor" red="0.284963578" green="0.47595798969999997" blue="0.81965023280000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="tintColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <action selector="sliderValueChangedWithSender:" destination="bJf-RR-lwF" eventType="valueChanged" id="g4M-Pk-xeL"/>
                                 </connections>
@@ -1145,7 +1145,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="글 쓰기" id="DNF-9F-zVA">
                         <barButtonItem key="rightBarButtonItem" title="Cancel" image="xmark" catalog="system" id="tDW-NV-f59">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="uploadCancel:" destination="7Rr-qB-wLn" id="CIX-0m-NPQ"/>
                             </connections>

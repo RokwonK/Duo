@@ -16,7 +16,6 @@ class MyPostCell : UITableViewCell {
     @IBOutlet weak var title: UILabel!
     @IBOutlet weak var startTime: UILabel!
     
-    
     @IBOutlet weak var topBtn: UIButton!
     @IBOutlet weak var jungleBtn: UIButton!
     @IBOutlet weak var midBtn: UIButton!

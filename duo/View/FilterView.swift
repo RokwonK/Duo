@@ -26,7 +26,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBOutlet weak var myTier: UITextField!
 
     let toolBarKeyboard = UIToolbar()
-    let customcolor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
+    let customcolor = UIColor(displayP3Red: 250/255, green: 90/255, blue: 90/255, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         self.navigationController?.navigationBar.barStyle = .default;
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.topItem?.title = "필터"
-        exitButton.tintColor = customcolor
+        exitButton.tintColor = UIColor.black
         
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))
@@ -51,7 +51,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         //티어
         myTier.inputAccessoryView = toolBarKeyboard
         myTier.inputView = uploadStartTier;
-        myTier.textColor = customcolor
+        myTier.textColor = UIColor.lightGray
         myTier.text = FilterModel().tierData[0];
         //게임모드버튼
         GameModeButtons.forEach{ (btn) in
@@ -69,9 +69,9 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         }
         //인원수 표시 라벨
         peopleNum.layer.borderWidth = 1
-        peopleNum.layer.borderColor = customcolor.cgColor;
+        peopleNum.layer.borderColor = UIColor.lightGray.cgColor;
         peopleNum.layer.cornerRadius = 5;
-        peopleNum.tintColor = customcolor
+        peopleNum.tintColor = UIColor.lightGray
         
         // Start Time
 //        let dateformat : DateFormatter = DateFormatter();

@@ -161,32 +161,34 @@ class MyPostView :  UITableViewController{
                 cell.title.text = tit;
                 cell.title.font = UIFont.boldSystemFont(ofSize: 18)
             }
-            if let st = v["startTime"] as? String {
-                //cell.startTime.text = "시작시간 : \(st)";
-                
-                // 각각 뽑기 위해서 Date객체로의 변환이 필요
-                // MM-dd를 뽑고 같으면 오늘 다르면 내일
-                // HH:mm을 뽑아서 사용자에게 보여줌
-                
-                // String => Date로 바꿈;
-                let thisDateFormatter = DateFormatter();
-                thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
-                let thisDate = thisDateFormatter.date(from: st)!;
-                thisDateFormatter.dateFormat = "MM-dd";
-                let thisDateMMdd = thisDateFormatter.string(from : thisDate);
-                
-                //let nowDateFormatter = DateFormatter();
-                let nowDate = Date()
-                let nowDateMMdd = thisDateFormatter.string(from : nowDate);
-                
-                thisDateFormatter.dateFormat = "HH:mm";
-                let thisStartTime = thisDateFormatter.string(from : thisDate)
-                if (nowDateMMdd == thisDateMMdd) {
-                    cell.startTime.text = "오늘 \(thisStartTime)"
+            
+            let thisDateFormatter = DateFormatter();
+            thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+            let et = thisDateFormatter.date(from: v["endTime"] as! String)
+            //                let thisDate = thisDateFormatter.date(from: et)!;
+            //                thisDateFormatter.dateFormat = "MM-dd";
+            //                let thisDateMMdd = thisDateFormatter.string(from : thisDate);
+            
+            //let nowDateFormatter = DateFormatter();
+            let nowDate = Date()
+            //                let nowDateMMdd = thisDateFormatter.string(from : nowDate);
+            
+            var useTime = Int(et!.timeIntervalSince(nowDate))
+            if (useTime >= 0){
+                if (useTime>=3600){
+                    if (useTime>=86400){
+                        cell.startTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 마감"
+                    }
+                    else{
+                        cell.startTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 마감"
+                    }
                 }
-                else {
-                    cell.startTime.text = "내일 \(thisStartTime)"
+                else{
+                    cell.startTime.text = "\(useTime/60)분후 마감"
                 }
+            }
+            else{
+                cell.startTime.text = "모집마감"
             }
             
             if let stTier = v["startTier"] as? Int {
@@ -221,7 +223,6 @@ class MyPostView :  UITableViewController{
         MyPostTable.delegate = self
         MyPostTable.dataSource = self
         self.getPosts()
-        print("오냐?")
     }
     
     override func viewDidAppear(_ animated: Bool) {
