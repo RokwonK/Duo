@@ -10,5 +10,5 @@ struct LoLMainBoardModel {
             // etc...
         }
     };
-    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d","q", "m", "gm", "c"];
+    let eachTier : Array<String> = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Master", "GrandMaster", "Challenger"];
 }

@@ -218,7 +218,7 @@
         <scene sceneID="sdj-vn-MSc">
             <objects>
                 <navigationController id="QPI-6Q-mNC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" id="NIe-7B-Icy"/>
+                    <tabBarItem key="tabBarItem" title="홈" image="house" catalog="system" selectedImage="gamecontroller" id="NIe-7B-Icy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jat-vK-Hzx">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -15654,6 +15654,7 @@ oV4ADaFhAA2hbgANoXMADaF7AA2hfgANoYMADaGLAAAAAAAABAEAAAAAAAAAVgAAAAAAAAAAAAAAAAAN
 oY4
 </mutableData>
         </image>
+        <image name="gamecontroller" catalog="system" width="128" height="80"/>
         <image name="google" width="18" height="18"/>
         <image name="house" catalog="system" width="128" height="106"/>
         <image name="icon-position-bottom" width="136" height="136"/>

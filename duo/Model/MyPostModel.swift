@@ -13,5 +13,5 @@ class MyPostModel {
     static let sharedInstance = MyPostModel()
     
     var postsData : Array<Dictionary<String, Any>>?;
-    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
+    let eachTier : Array<String> = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Master", "GrandMaster", "Challenger"];
 }

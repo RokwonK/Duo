@@ -177,18 +177,18 @@ class MyPostView :  UITableViewController{
             if (useTime >= 0){
                 if (useTime>=3600){
                     if (useTime>=86400){
-                        cell.startTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 마감"
+                        cell.startTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 만료"
                     }
                     else{
-                        cell.startTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 마감"
+                        cell.startTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 만료"
                     }
                 }
                 else{
-                    cell.startTime.text = "\(useTime/60)분후 마감"
+                    cell.startTime.text = "\(useTime/60)분후 만료"
                 }
             }
             else{
-                cell.startTime.text = "모집마감"
+                cell.startTime.text = "모집만료"
             }
             
             if let stTier = v["startTier"] as? Int {

@@ -68,12 +68,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
 //    @IBOutlet weak var end: UILabel!
     @IBOutlet weak var tierRangeField: UILabel!
     
-    @IBOutlet weak var toplabel: UILabel!
-    @IBOutlet weak var junglelabel: UILabel!
-    @IBOutlet weak var midlabel: UILabel!
-    @IBOutlet weak var bottomlabel: UILabel!
-    @IBOutlet weak var supportlabel: UILabel!
-    
+    @IBOutlet weak var positionLabel: UILabel!
     
     @IBOutlet weak var gameMode: UILabel!
     @IBOutlet weak var people: UILabel!
@@ -130,7 +125,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     }
     
     
-    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d", "m", "gm", "c"];
+    let eachTier : Array<String> = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Master", "GrandMaster", "Challenger"];
     
     override func viewDidLoad() {
         super.viewDidLoad();
@@ -222,7 +217,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~";
         }
         else {
-//            tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" ) ~ \(eachTier[edShared] + "\(10-edRemaind)" )"
+            tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" ) ~ \(eachTier[edShared] + "\(10-edRemaind)" )"
         }
         
         let format = DateFormatter()
@@ -234,18 +229,18 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         if (useTime >= 0){
             if (useTime>=3600){
                 if (useTime>=86400){
-                    time.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 마감"
+                    time.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 만료"
                 }
                 else{
-                    time.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 마감"
+                    time.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 만료"
                 }
             }
             else{
-                time.text = "\(useTime/60)분후 마감"
+                time.text = "\(useTime/60)분후 만료"
             }
         }
         else{
-            time.text = "모집마감"
+            time.text = "모집만료"
         }
 
         nickname.text = "\(boardInfo?["nickname"] as! String)"
@@ -256,19 +251,20 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         peoplenum.text = "\(headcount)명"
         
         if (Top == 1 || Top == 3) {
-            toplabel.backgroundColor = UIColor.green
+            positionLabel.text?.append("  탑")
         }
         if (Jungle == 1 || Jungle == 3) {
-            junglelabel.backgroundColor = UIColor.green
+           
+            positionLabel.text?.append("  정글")
         }
         if (Mid == 1 || Mid == 3) {
-            midlabel.backgroundColor = UIColor.green
+            positionLabel.text?.append("  미드")
         }
         if (Bottom == 1 || Bottom == 3) {
-            bottomlabel.backgroundColor = UIColor.green
+            positionLabel.text?.append("  원딜")
         }
         if (Support == 1 || Support == 3) {
-            supportlabel.backgroundColor = UIColor.green
+            positionLabel.text?.append("  서폿")
         }
         
     }

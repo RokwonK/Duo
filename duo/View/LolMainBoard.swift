@@ -129,18 +129,18 @@ class LoLMainBoard: UITableViewController{
             if (useTime >= 0){
                 if (useTime>=3600){
                     if (useTime>=86400){
-                        cell.endTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 마감"
+                        cell.endTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 만료"
                     }
                     else{
-                        cell.endTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 마감"
+                        cell.endTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 만료"
                     }
                 }
                 else{
-                    cell.endTime.text = "\(useTime/60)분후 마감"
+                    cell.endTime.text = "\(useTime/60)분후 만료"
                 }
             }
             else{
-                cell.endTime.text = "모집마감"
+                cell.endTime.text = "모집만료"
             }
             
 //                thisDateFormatter.dateFormat = "HH:mm";
