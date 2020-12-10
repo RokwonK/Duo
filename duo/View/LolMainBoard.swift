@@ -20,7 +20,7 @@ class LoLMainBoard: UITableViewController{
     @IBOutlet weak var filterOutlet: UIBarButtonItem!
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
-    let eachTier : Array<String> = ["i", "b", "s", "g", "p", "d","q", "m", "gm", "c"];
+    let eachTier : Array<String> = ["I", "B", "S", "G", "P", "D","q", "M", "GM", "Ch"];
     
     func getPosts() {
 //        BaseFunc.fetch();

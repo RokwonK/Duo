@@ -962,13 +962,15 @@
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="tIN-NU-Cac">
                                 <rect key="frame" x="0.0" y="779" width="414.5" height="34"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="댓글 입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOv-QR-85e">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="댓글 입력" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cOv-QR-85e">
                                         <rect key="frame" x="0.0" y="0.0" width="364.5" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SnO-gk-NA0">
                                         <rect key="frame" x="364.5" y="0.0" width="50" height="34"/>
+                                        <color key="backgroundColor" systemColor="systemGray5Color"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="50" id="6Ad-hh-jyi"/>
                                         </constraints>
@@ -979,6 +981,7 @@
                                         </connections>
                                     </button>
                                 </subviews>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="cOv-QR-85e" secondAttribute="bottom" id="9cd-Tu-VsI"/>
                                     <constraint firstAttribute="width" constant="414.5" id="KdJ-Rg-aXe"/>
@@ -1017,6 +1020,8 @@
                         <outlet property="peoplenum" destination="TEF-Zy-D9Q" id="rQw-jB-XaZ"/>
                         <outlet property="position" destination="njh-eS-A3b" id="vqJ-zD-cm1"/>
                         <outlet property="positionLabel" destination="5fY-Ia-xAC" id="51q-hd-lvf"/>
+                        <outlet property="stack" destination="tIN-NU-Cac" id="4W0-2M-nRX"/>
+                        <outlet property="superview" destination="UsS-Q5-paZ" id="rrJ-Fd-vFo"/>
                         <outlet property="tableview" destination="giT-AR-5Zg" id="2gk-fe-RY0"/>
                         <outlet property="tableviewheight" destination="SRE-Oy-63g" id="QrA-cf-6SL"/>
                         <outlet property="tierRange" destination="ll1-bA-onF" id="du1-Ta-gum"/>
@@ -1352,6 +1357,9 @@
         </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGray5Color">
+            <color red="0.89803921568627454" green="0.89803921568627454" blue="0.91764705882352937" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
