@@ -12,7 +12,9 @@ import Alamofire
 class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate {
     
     
-    //    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var commentTextfield: UITextField!
+    @IBOutlet weak var ScrollView: UIScrollView!
+    @IBOutlet weak var uploadComment: UIButton!
     
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
@@ -20,14 +22,12 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var topView: UIView!
     
     @IBOutlet weak var tableviewheight: NSLayoutConstraint!
-    
-    @IBOutlet weak var commentField: UITextField!
-    @IBOutlet weak var postComment: UIButton!
+
     @IBAction func postComment(_ sender: Any) {
         let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
         let req = AF.request(url,
                              method:.post,
-                             parameters: ["content": "댓글추가",
+                             parameters: ["content": commentTextfield.text!,
                                           "userId": ad!.userID,
                                           "postId": postID,
                                           "nickname" : ad!.nickname],
@@ -131,6 +131,12 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         super.viewDidLoad();
         tableview.delegate = self
         tableview.dataSource = self
+        
+        let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
+        singleTapGestureRecognizer.numberOfTapsRequired = 1
+        singleTapGestureRecognizer.isEnabled = true
+        singleTapGestureRecognizer.cancelsTouchesInView = false
+        ScrollView.addGestureRecognizer(singleTapGestureRecognizer)
         
         gameMode.clipsToBounds = true
         gameMode.layer.cornerRadius = 13
@@ -267,6 +273,10 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
             positionLabel.text?.append("  서폿")
         }
         
+    }
+    
+    @objc func MyTapMethod(sender : UITapGestureRecognizer) {
+        self.view.endEditing(true);
     }
     
     override func viewWillAppear(_ animated: Bool) {
