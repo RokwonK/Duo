@@ -128,15 +128,15 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         ScrollView.addGestureRecognizer(singleTapGestureRecognizer)
         
         gameMode.clipsToBounds = true
-        gameMode.layer.cornerRadius = 13
+        gameMode.layer.cornerRadius = 10
         people.clipsToBounds = true
-        people.layer.cornerRadius = 13
+        people.layer.cornerRadius = 10
         tierRange.clipsToBounds = true
-        tierRange.layer.cornerRadius = 13
+        tierRange.layer.cornerRadius = 10
         position.clipsToBounds = true
-        position.layer.cornerRadius = 13
+        position.layer.cornerRadius = 10
         micBool.clipsToBounds = true
-        micBool.layer.cornerRadius = 13
+        micBool.layer.cornerRadius = 10
 
         self.navigationController?.navigationBar.tintColor = UIColor.black
         

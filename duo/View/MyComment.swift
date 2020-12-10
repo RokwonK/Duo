@@ -47,6 +47,8 @@ class MyComment: UITableViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        
         let url = URL(string : BaseFunc.baseurl + "/comment/me")!
         let req = AF.request(url,
                             method:.get,

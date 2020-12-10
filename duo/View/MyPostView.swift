@@ -79,35 +79,6 @@ class MyPostView :  UITableViewController{
         }
     }
     
-    
-    //    func send(){
-    //        BaseFunc.fetch();
-    //        let url = URL(string : BaseFunc.baseurl + "/post/lol/uploadpost")!
-    //        let req = AF.request(url,
-    //                             method:.post,
-    //                             parameters: ["userId" : BaseFunc.userId, "userNickname" : BaseFunc.userNickname, "gameMode" : "soloRank", "title" : "졸려...","startTier":1,"endTier":100,"startTime":"17:00"
-    //                                ,"content":"ㅎㅇ", "headCount":3, "top" : 3,
-    //                                 "bottom" : 3, "mid" : 3, "jungle" : 3, "support" : 3, "talkon" : 3],
-    //                             encoding: JSONEncoding.default)
-    //
-    //        req.responseJSON { res in
-    //            print(res)
-    //
-    //            switch res.result{
-    //            case.success (let value):
-    //                do{
-    //                    let data1 = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-    //                    print(data1)
-    //                }
-    //                catch{
-    //                }
-    //            case .failure(let error):
-    //                print("error :\(error)")
-    //                break;
-    //            }
-    //        }
-    //    }
-    
     // 테이블의 갯수 정의
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if let posts = postsData {
@@ -222,6 +193,7 @@ class MyPostView :  UITableViewController{
         super.viewDidLoad()
         MyPostTable.delegate = self
         MyPostTable.dataSource = self
+        self.navigationController?.navigationBar.tintColor = UIColor.black
         self.getPosts()
     }
     

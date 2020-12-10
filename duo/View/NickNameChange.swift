@@ -19,6 +19,7 @@ class NickNameChange : UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         changeButton.layer.cornerRadius = 7;
+        self.navigationController?.navigationBar.tintColor = UIColor.black
     }
     
     func save( _ nickName: String){
