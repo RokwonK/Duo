@@ -962,6 +962,9 @@
                                                                     </constraints>
                                                                     <color key="tintColor" red="0.97835487129999998" green="0.3537040353" blue="0.35292130710000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                     <state key="normal" image="message" catalog="system"/>
+                                                                    <connections>
+                                                                        <segue destination="2YI-qq-0Cf" kind="show" id="hTN-iT-wgK"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="닉네임" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6tG-Md-Unm">
                                                                     <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
@@ -1038,7 +1041,6 @@
                                         <state key="normal" image="arrowtriangle.right" catalog="system"/>
                                         <connections>
                                             <action selector="postComment:" destination="51F-3C-B3Q" eventType="touchUpInside" id="GJM-8U-mST"/>
-                                            <segue destination="2YI-qq-0Cf" kind="show" id="mWh-4G-2it"/>
                                         </connections>
                                     </button>
                                 </subviews>
