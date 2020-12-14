@@ -42,6 +42,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
                 print(error)
             }
         }
+        
         self.view.endEditing(true);
         commentTextfield.text = ""
         postID = boardInfo?["id"] as! Int
