@@ -14,6 +14,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var ScrollView: UIScrollView!
     @IBOutlet weak var uploadComment: UIButton!
     
+    
     let ad = UIApplication.shared.delegate as? AppDelegate
     var commentsData : Array<Dictionary<String, Any>>?;
     
