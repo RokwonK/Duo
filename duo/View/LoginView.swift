@@ -24,6 +24,7 @@ class LoginView: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate
     @IBOutlet weak var googleButton: UIButton!
     @IBOutlet weak var kakaoBtn: UIButton!
     @IBOutlet weak var appleBtn: UIButton!
+    @IBOutlet weak var appleButton: UIButton!
     
     
     func loginProcess(_ snsToken : String, _ sns_name : String) {
