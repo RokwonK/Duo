@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904E0AA259A357900184DC0 /* UIButton+Extension.swift */; };
+		0904E0B0259A37EE00184DC0 /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0904E0AF259A37EE00184DC0 /* ViewModel.swift */; };
 		090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090EF50D24FFE55700ADC959 /* SelectBoard.swift */; };
 		091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */; };
 		09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */; };
@@ -26,7 +28,7 @@
 		192DB5232582863B0037BF39 /* NewChat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 192DB5222582863B0037BF39 /* NewChat.swift */; };
 		1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943A45D24FD3604001B4092 /* LolMainBoard.swift */; };
 		195A5C83251CF2A700FD352D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C82251CF2A700FD352D /* LoginViewModel.swift */; };
-		195A5C88251CF32F00FD352D /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C87251CF32F00FD352D /* LoginView.swift */; };
+		195A5C88251CF32F00FD352D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C87251CF32F00FD352D /* LoginViewController.swift */; };
 		195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C8B251CF42000FD352D /* LoginModel.swift */; };
 		195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195CA9A224F16D2100D1F52A /* Assets.xcassets */; };
 		19713313251A29890085EDEA /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713312251A29890085EDEA /* FilterView.swift */; };
@@ -47,6 +49,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0904E0AA259A357900184DC0 /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
+		0904E0AF259A37EE00184DC0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		090EF50D24FFE55700ADC959 /* SelectBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBoard.swift; sourceTree = "<group>"; };
 		091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpLoadLoLPost.swift; sourceTree = "<group>"; };
 		09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLPostCell.swift; sourceTree = "<group>"; };
@@ -69,7 +73,7 @@
 		192DB5222582863B0037BF39 /* NewChat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewChat.swift; sourceTree = "<group>"; };
 		1943A45D24FD3604001B4092 /* LolMainBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LolMainBoard.swift; sourceTree = "<group>"; };
 		195A5C82251CF2A700FD352D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
-		195A5C87251CF32F00FD352D /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
+		195A5C87251CF32F00FD352D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		195A5C8B251CF42000FD352D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		195CA9A224F16D2100D1F52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19713312251A29890085EDEA /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
@@ -102,9 +106,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0904E0A8259A345100184DC0 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				0904E0AA259A357900184DC0 /* UIButton+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		0904E0AD259A379500184DC0 /* 로그인 */ = {
+			isa = PBXGroup;
+			children = (
+				195A5C87251CF32F00FD352D /* LoginViewController.swift */,
+				195A5C82251CF2A700FD352D /* LoginViewModel.swift */,
+			);
+			name = "로그인";
+			path = "로그인";
+			sourceTree = "<group>";
+		};
 		09825E8E259A1C4E003BA409 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				0904E0A8259A345100184DC0 /* Extension */,
+				0904E0AF259A37EE00184DC0 /* ViewModel.swift */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
 			);
@@ -187,7 +211,7 @@
 		195A5C7F251CF1E100FD352D /* View */ = {
 			isa = PBXGroup;
 			children = (
-				195A5C87251CF32F00FD352D /* LoginView.swift */,
+				0904E0AD259A379500184DC0 /* 로그인 */,
 				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
 				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
 				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
@@ -212,7 +236,6 @@
 		195A5C81251CF20500FD352D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				195A5C82251CF2A700FD352D /* LoginViewModel.swift */,
 				19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */,
 				19713319251A29B00085EDEA /* FilterViewModel.swift */,
 				0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */,
@@ -377,15 +400,17 @@
 				195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */,
 				1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
-				195A5C88251CF32F00FD352D /* LoginView.swift in Sources */,
+				195A5C88251CF32F00FD352D /* LoginViewController.swift in Sources */,
 				099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
 				1924FBF225827A700031BB60 /* Chat.swift in Sources */,
 				1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */,
 				19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */,
+				0904E0B0259A37EE00184DC0 /* ViewModel.swift in Sources */,
 				19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */,
 				0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
+				0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */,
 				0989123C2502338D0006909F /* BaseFunc.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
 				19713317251A29A20085EDEA /* FilterModel.swift in Sources */,
