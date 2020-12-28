@@ -102,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		09825E8E259A1C4E003BA409 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
+				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		0989123A250233570006909F /* BaseModel */ = {
 			isa = PBXGroup;
 			children = (
@@ -131,8 +140,7 @@
 		09BD7F8D24ED038100409033 /* duo */ = {
 			isa = PBXGroup;
 			children = (
-				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
-				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
+				09825E8E259A1C4E003BA409 /* Common */,
 				19BD2FF1251D0D8D00C52697 /* StoryBoard */,
 				195A5C7E251CF1DA00FD352D /* Model */,
 				195A5C7F251CF1E100FD352D /* View */,
@@ -541,7 +549,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UATBUBRVBN;
+				DEVELOPMENT_TEAM = 35Z5L89946;
 				INFOPLIST_FILE = duo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -561,7 +569,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = UATBUBRVBN;
+				DEVELOPMENT_TEAM = 35Z5L89946;
 				INFOPLIST_FILE = duo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (

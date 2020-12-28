@@ -71,10 +71,10 @@
             </objects>
             <point key="canvasLocation" x="-143.19999999999999" y="467.73399014778329"/>
         </scene>
-        <!--Login View-->
+        <!--Login View Controller-->
         <scene sceneID="oqZ-q3-E4H">
             <objects>
-                <viewController storyboardIdentifier="LoginView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DsX-jZ-B1h" customClass="LoginView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="DsX-jZ-B1h" customClass="LoginViewController" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tIT-zj-MVF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -157,9 +157,6 @@
                                 <state key="normal" title="카카오 로그인" image="kakao">
                                     <color key="titleColor" red="0.113858901" green="0.1253279746" blue="0.13725820180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
-                                <connections>
-                                    <action selector="kakaoBtnTapped" destination="DsX-jZ-B1h" eventType="touchUpInside" id="qaT-Mu-Ha3"/>
-                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fc2-AK-YmB"/>
@@ -190,7 +187,7 @@
                     <connections>
                         <outlet property="appleBtn" destination="prg-09-ZmI" id="U9J-zg-YCt"/>
                         <outlet property="googleButton" destination="1ua-6n-bv2" id="0AR-Fb-FFi"/>
-                        <outlet property="kakaoBtn" destination="nxW-yq-6iB" id="ywr-bL-V6o"/>
+                        <outlet property="kakaoBtn" destination="nxW-yq-6iB" id="Jfc-1y-vS6"/>
                         <outlet property="naverButton" destination="BTf-wK-Hci" id="LVS-3J-8MM"/>
                     </connections>
                 </viewController>

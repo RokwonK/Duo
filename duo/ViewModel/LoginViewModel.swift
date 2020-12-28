@@ -92,7 +92,7 @@ class LoginViewModel : UIViewController{
             return "failed"
         }
         print("kakaoLogin success")
-        LoginView().loginProcess(auth!.accessToken, "kakao")
+        //LoginView().loginProcess(auth!.accessToken, "kakao")
         return auth!.accessToken
         
     }

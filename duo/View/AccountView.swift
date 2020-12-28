@@ -57,7 +57,7 @@ class AccountView: UIViewController {
     
     func returnToLogin () {
         let storyBoard = self.storyboard!
-        let loginpage = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginView
+        let loginpage = storyBoard.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
         present(loginpage, animated: true, completion: nil)
         
     }
