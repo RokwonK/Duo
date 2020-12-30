@@ -13,12 +13,6 @@ class LoginViewModel : ViewModel{
     
     
     
-    init() {
-        super.init()
-    }
-    
-    
-    
     
     /*######################
      네이버 로그인
