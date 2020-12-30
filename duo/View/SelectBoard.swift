@@ -105,7 +105,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet var superview: UIView!
     @IBOutlet weak var stack: UIStackView!
     
-    let eachTier : Array<String> = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond", "Master", "GrandMaster", "Challenger"];
+    let eachTier : Array<String> = ["Iron", "Bronze", "Silver", "Gold", "Platinum", "Diamond","empty", "Master", "GrandMaster", "Challenger"];
     
     @objc func textViewMoveUp(_ notification: NSNotification){ if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue)?.cgRectValue { UIView.animate(withDuration: 0.3, animations: { self.superview.transform = CGAffineTransform(translationX: 0, y: -keyboardSize.height+83) }) } }
     
@@ -200,6 +200,9 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         }
         else if (endt == 100) {
             tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" )~";
+        }
+        else if (endt == 70 || endt == 80 || endt == 90){
+            tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" ) ~ \(eachTier[edShared])"
         }
         else {
             tierRangeField.text = "\(eachTier[stShared] + "\(10-stRemaind)" ) ~ \(eachTier[edShared] + "\(10-edRemaind)" )"

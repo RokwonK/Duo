@@ -59,7 +59,7 @@ class LoLMainBoard: UITableViewController{
         let url = URL(string : BaseFunc.baseurl + "/post/lol")!
         let req = AF.request(url,
                             method:.get,
-                            parameters: ["limit": 4, "offset" : 25],
+                            parameters: ["limit": 100, "offset" : 0],
                             encoding: URLEncoding.queryString,
                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
                             )
@@ -196,6 +196,10 @@ class LoLMainBoard: UITableViewController{
                     }
                     else if (edTier == 100) {
                         cell.tier.setTitle("\(eachTier[stShared] + "\(10-stRemaind)" )~", for: .normal);
+                    }
+                    else if (edTier == 70 || edTier == 80 || edTier == 90)
+                    {
+                        cell.tier.setTitle("\(eachTier[stShared] + "\(10-stRemaind)" )~\(eachTier[edShared])", for: .normal);
                     }
                     else {
                         cell.tier.setTitle("\(eachTier[stShared] + "\(10-stRemaind)" )~\(eachTier[edShared] + "\(10-edRemaind)" )", for: .normal);
