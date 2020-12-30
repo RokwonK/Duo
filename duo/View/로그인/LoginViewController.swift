@@ -16,38 +16,45 @@ import RxSwift
 import RxCocoa
 
 
-class LoginViewController: UIViewController,  UITabBarControllerDelegate,GIDSignInDelegate ,NaverThirdPartyLoginConnectionDelegate {
+class LoginViewController: UIViewController{
     
-    /* @@@@@@@@@@ Realm으로 @@@@@@@@@@ */
-    let ad = UIApplication.shared.delegate as? AppDelegate
     let viewModel = LoginViewModel()
-    let google = LoginViewModel().googleShared
-    let naver = LoginViewModel().naverShared
+    let googleShared = GIDSignIn.sharedInstance();
+    let naverShared = NaverThirdPartyLoginConnection.getSharedInstance();
     
+    @IBOutlet weak var kakaoButton: UIButton!
     @IBOutlet weak var naverButton: UIButton!
     @IBOutlet weak var googleButton: UIButton!
-    @IBOutlet weak var kakaoBtn: UIButton!
-    @IBOutlet weak var appleBtn: UIButton!
+    @IBOutlet weak var appleButton: UIButton!
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         // 자동 로그인
         naverAutomaticLogin()
-        self.google?.restorePreviousSignIn();
+        self.googleShared?.restorePreviousSignIn();
         kakaoAutomaticLogin()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad();
         
+        // UI직접관련 작업
         setupUI()
+        // viewModel과 연동 작업
         setupBinding()
     }
     
     func setupUI() {
-        kakaoBtn.layer.cornerRadius = 7
-        kakaoBtn.setShadow(color: UIColor.black.cgColor, width: 3, height: 3, opacity: 0.2, radius: 2.0)
+        
+        googleShared?.delegate = self
+        googleShared?.presentingViewController = self
+        naverShared?.delegate = self
+        
+        // setShadow는 내가 만든 extension
+        kakaoButton.layer.cornerRadius = 7
+        kakaoButton.setShadow(color: UIColor.black.cgColor, width: 3, height: 3, opacity: 0.2, radius: 2.0)
         
         naverButton.layer.cornerRadius = 7
         naverButton.setShadow(color: UIColor.black.cgColor, width: 3, height: 3, opacity: 0.2, radius: 2.0)
@@ -57,14 +64,63 @@ class LoginViewController: UIViewController,  UITabBarControllerDelegate,GIDSign
         googleButton.layer.borderColor = UIColor.black.cgColor
         googleButton.layer.borderWidth = 1.0
         
-        appleBtn.layer.cornerRadius = 7
-        appleBtn.setShadow(color: UIColor.black.cgColor, width: 3, height: 3, opacity: 0.2, radius: 2.0)
+        appleButton.layer.cornerRadius = 7
+        appleButton.setShadow(color: UIColor.black.cgColor, width: 3, height: 3, opacity: 0.2, radius: 2.0)
+        
+        // RX, kakao button 클릭 시 실행
+        kakaoButton.rx.tap.subscribe(onNext : {
+            if (AuthApi.isKakaoTalkLoginAvailable()) {
+                AuthApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
+                    print("kakaoTalk login oauthToken : ", oauthToken ?? "없음")
+                    self?.socialLogin(accessToken: oauthToken?.accessToken ?? "", sns: "kakao")
+                }
+            }
+            else {
+                AuthApi.shared.loginWithKakaoAccount { [weak self] (oauthToken, error) in
+                    print("kakaoAccount login oauthToken : ", oauthToken ?? "없음")
+                    self?.socialLogin(accessToken: oauthToken?.accessToken ?? "", sns: "kakao")
+                }
+            }
+        }).disposed(by: viewModel.disposeBag)
+        
+        // RX, naver button 클릭 시 실행
+        naverButton.rx.tap.subscribe(onNext : {[weak self] in
+            self?.naverShared?.requestThirdPartyLogin()
+        }).disposed(by: viewModel.disposeBag)
+        
+        // RX, google button 클릭 시 실행
+        googleButton.rx.tap.subscribe(onNext : {[weak self] in
+            self?.googleShared?.signIn()
+        }).disposed(by: viewModel.disposeBag)
+        
+        // RX, apple button 클릭 시 실행
+        appleButton.rx.tap.subscribe(onNext : {
+            // 애플 버튼 클릭 시 처리
+        }).disposed(by: viewModel.disposeBag)
+    
     }
     
     func setupBinding() {
-        google?.delegate = self
-        google?.presentingViewController = self
-        naver?.delegate = self
+        viewModel.loginComplete.subscribe(onNext : {[weak self] (result) in
+            guard let `self` = self else { return }
+            
+            if result == "needNickname" {
+                let storyBoard = self.storyboard
+                let tabBarController = storyBoard!.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
+                self.present(tabBarController, animated: true, completion: nil)
+            }
+            else if result == "loginSuccess" {
+                let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+                let nicknameviewcontroller = storyBoard.instantiateViewController(withIdentifier: "NickName")
+                self.present(nicknameviewcontroller, animated: true, completion: nil)
+            }
+            
+        }).disposed(by: viewModel.disposeBag)
+    }
+    
+    private func socialLogin(accessToken : String, sns : String) {
+        var entity = RequestUserEntity(token: accessToken, sns: sns)
+        viewModel.loginExecute.onNext(entity)
     }
     
     
@@ -72,36 +128,40 @@ class LoginViewController: UIViewController,  UITabBarControllerDelegate,GIDSign
         // 네이버 accesstoken 만료일 확인
         // 네이버로 로그인한 기록이 있을때 => 자동로그인
         // 토큰 만료일자가 지남 => 갱신토큰으로 다시 받아옴
-        guard let naverToken : Bool = self.naver?.isValidAccessTokenExpireTimeNow() else {return}
-        if (self.naver?.accessToken != nil) {
+        guard let naverToken : Bool = naverShared?.isValidAccessTokenExpireTimeNow() else {return}
+        
+        if (self.naverShared?.accessToken != nil) {
             if (!naverToken) {
-                self.naver?.requestAccessTokenWithRefreshToken()
+                self.naverShared?.requestAccessTokenWithRefreshToken()
             }
             else {
-                let snsToken = LoginViewModel().getNaverEmailFromURL()
-                viewModel.loginProcess(snsToken, "naver")
+                let snsToken = naverShared?.accessToken ?? ""
+                self.socialLogin(accessToken: snsToken, sns: "naver")
+            }
+        }
+    }
+
+    
+    func kakaoAutomaticLogin() {
+        // 카카오 캐시에 로그인 기록이 있을때 => 자동로그인
+        guard TokenManager.manager.getToken() != nil else { return }
+        
+        UserApi.shared.accessTokenInfo{ (AccessTokenInfo, error) in
+            guard error == nil else { return }
+            
+            AuthApi.shared.refreshAccessToken { auth, Error in
+                let snsToken = auth?.accessToken ?? ""
+                self.socialLogin(accessToken: snsToken, sns: "kakao")
             }
         }
     }
     
-    func kakaoAutomaticLogin() {
-        // 카카오 캐시에 로그인 기록이 있을때 => 자동로그인
-        let kakaoManager = TokenManager.manager;
-        if (kakaoManager.getToken() != nil) {
-            UserApi.shared.accessTokenInfo { AccessTokenInfo, Error in
-                if let error = Error {
-                    print("Occur Eror \(error)")
-                    return;
-                }
-                if (AccessTokenInfo != nil) {
-                    AuthApi.shared.refreshAccessToken { auth, Error in
-                        let snsToken = LoginViewModel().kakaoLogin(auth, Error)
-                        self.viewModel.loginProcess(snsToken, "kakao")
-                    }
-                }
-            }
-        }
-    }
+}
+
+
+
+// MARK: Google Login
+extension LoginViewController : GIDSignInDelegate {
     
     // 구글 로그인 후 실행
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!,withError error: Error!) {
@@ -122,24 +182,23 @@ class LoginViewController: UIViewController,  UITabBarControllerDelegate,GIDSign
         }
         
         guard let idToken = user.authentication.idToken else {return}
-        viewModel.loginProcess(idToken, "google")
+        self.socialLogin(accessToken: idToken, sns: "google")
     }
     
-    // 구글 로그아웃이 실행되고 난 후 호출
-    func sign(_ signIn: GIDSignIn!, didDisconnectWith user: GIDGoogleUser!, withError error: Error!) {
-        if (error != nil) {
-            print(error)
-        }
-    }
+}
+
+
+
+// MARK: Naver Login
+extension LoginViewController : NaverThirdPartyLoginConnectionDelegate {
     
     // 로그인 후 토큰들을 받아오면 실행되는 함수
     func oauth20ConnectionDidFinishRequestACTokenWithAuthCode() {
-        LoginViewModel().getNaverEmailFromURL()
+        naverAutomaticLogin()
     }
     
     // 액세스토큰 갱신 시 호출되는 함수
     func oauth20ConnectionDidFinishRequestACTokenWithRefreshToken() {
-        LoginViewModel().getNaverEmailFromURL()
     }
     
     // 연동해제시 호출되는 함수
@@ -151,32 +210,4 @@ class LoginViewController: UIViewController,  UITabBarControllerDelegate,GIDSign
     func oauth20Connection(_ oauthConnection: NaverThirdPartyLoginConnection!, didFailWithError error: Error!) {
         print("Error \(error.localizedDescription)")
     }
-    
-    
-    @IBAction func Google_Login (_sender: AnyObject){
-        
-        google?.signIn()
-    }
-    // 네이버 로그인 버튼
-    @IBAction func naverSignIn(_sender: UIButton) {
-        // login 기능 수행을 이곳으로 위임
-        
-        // 로그인 시작 네이버/사파리 연결
-        naver?.requestThirdPartyLogin()
-    }
-    
-    @IBAction func kakaoBtnTapped() {
-        
-        if (AuthApi.isKakaoTalkLoginAvailable()) {
-            AuthApi.shared.loginWithKakaoTalk {(oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error) }
-        }
-        else {
-            AuthApi.shared.loginWithKakaoAccount
-            { (oauthToken, error) in LoginViewModel().kakaoLogin(oauthToken, error)}
-        }
-    }
-    
-    
-    
-        
 }

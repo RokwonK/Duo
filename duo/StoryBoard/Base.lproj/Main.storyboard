@@ -92,9 +92,6 @@
                                 <state key="normal" title="     네이버 로그인" image="naver">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="naverSignIn_sender:" destination="DsX-jZ-B1h" eventType="touchUpInside" id="d6R-TA-wYp"/>
-                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="로고1-1" translatesAutoresizingMaskIntoConstraints="NO" id="sk3-HP-hEX">
                                 <rect key="frame" x="16" y="138" width="343" height="205"/>
@@ -116,9 +113,6 @@
                                 <state key="normal" title="     구글 로그인" image="google">
                                     <color key="titleColor" systemColor="darkTextColor"/>
                                 </state>
-                                <connections>
-                                    <action selector="Google_LoginWith_sender:" destination="DsX-jZ-B1h" eventType="touchUpInside" id="YJM-BR-yj7"/>
-                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prg-09-ZmI">
                                 <rect key="frame" x="25" y="586" width="325" height="45"/>
@@ -185,9 +179,9 @@
                     </view>
                     <navigationItem key="navigationItem" id="ySZ-eL-4Ib"/>
                     <connections>
-                        <outlet property="appleBtn" destination="prg-09-ZmI" id="U9J-zg-YCt"/>
+                        <outlet property="appleButton" destination="prg-09-ZmI" id="yiH-iC-qjy"/>
                         <outlet property="googleButton" destination="1ua-6n-bv2" id="0AR-Fb-FFi"/>
-                        <outlet property="kakaoBtn" destination="nxW-yq-6iB" id="Jfc-1y-vS6"/>
+                        <outlet property="kakaoButton" destination="nxW-yq-6iB" id="bhH-MU-es5"/>
                         <outlet property="naverButton" destination="BTf-wK-Hci" id="LVS-3J-8MM"/>
                     </connections>
                 </viewController>

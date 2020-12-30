@@ -63,9 +63,9 @@ class AccountView: UIViewController {
     }
     
     @IBAction func Logout(_sender : UIButton){
-        LoginViewModel().naverLogout()
-        LoginViewModel().kakaoLogout()
-        LoginViewModel().googleLogout()
+        //LoginViewModel().naverLogout()
+        //LoginViewModel().kakaoLogout()
+        //LoginViewModel().googleLogout()
         
         let alert = UIAlertController(title: nil , message: "로그아웃 완료", preferredStyle: UIAlertController.Style.alert)
         let okAction = UIAlertAction(title: "Ok", style: .default, handler : {(alert: UIAlertAction!) in
@@ -101,12 +101,12 @@ class AccountView: UIViewController {
                 do{
                     let deletedata = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     let alert = UIAlertController(title: nil , message: "회원탈퇴 완료", preferredStyle: UIAlertController.Style.alert)
-                    let okAction = UIAlertAction(title: "회원탈퇴완료, 재로그인 필요", style: .default, handler : {(alert: UIAlertAction!) in
-                                                    LoginViewModel().naverLogout()
-                                                    LoginViewModel().kakaoLogout()
-                                                    LoginViewModel().googleLogout()
-                                                    self.returnToLogin()})
-                    alert.addAction(okAction)
+//                    let okAction = UIAlertAction(title: "회원탈퇴완료, 재로그인 필요", style: .default, handler : {(alert: UIAlertAction!) in
+//                                                    LoginViewModel().naverLogout()
+//                                                    LoginViewModel().kakaoLogout()
+//                                                    LoginViewModel().googleLogout()
+//                                                    self.returnToLogin()})
+//                    alert.addAction(okAction)
                     self.present(alert, animated: true, completion: nil)
                 }
                 catch{

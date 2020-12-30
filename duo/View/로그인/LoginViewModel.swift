@@ -1,44 +1,33 @@
 import UIKit
 import Alamofire
-import KakaoSDKAuth
-import KakaoSDKUser
-import GoogleSignIn
 import CoreData
-import NaverThirdPartyLogin
+import RxSwift
+import RxCocoa
 
 class LoginViewModel : ViewModel{
     
-    let googleShared = GIDSignIn.sharedInstance();
-    let naverShared = NaverThirdPartyLoginConnection.getSharedInstance();
+    // Realm으로 바꾸기
+    let ad = UIApplication.shared.delegate as? AppDelegate
+    let loginExecute = PublishSubject<RequestUserEntity>()
+    let loginComplete = PublishSubject<String>()
+
     
-    
-    
-    
-    /*######################
-     네이버 로그인
-     #####################*/
-    // 네이버 로그인 버튼 클릭 시
-    func getNaverEmailFromURL() -> String {
-        // 받은 데이터를 이용해서 사용자 정보 가져오기
-        return (naverShared?.accessToken)!
+    override init() {
+        super.init()
+        
+        setupBinding()
     }
-
-
-
-    /*#######################
-     카카오 로그인
-     ########################*/
-    func kakaoLogin(_ auth : OAuthToken?, _ error : Error?) -> String {
-        if let error = error {
-            print(error)
-            return "failed"
-        }
-        print("kakaoLogin success")
-        return auth!.accessToken
+    
+    private func setupBinding() {
+        loginExecute.subscribe(onNext : {[weak self] entity in
+            self?.requestUserInfo(entity.snsToken ?? "", entity.sns ?? "")
+        }).disposed(by: disposeBag)
+        
     }
     
     
-    func loginProcess(_ snsToken : String, _ sns_name : String) {
+    
+    private func requestUserInfo(_ snsToken : String, _ sns_name : String) {
         
         var nickName = ""
         var userID = 0
@@ -75,6 +64,7 @@ class LoginViewModel : ViewModel{
                     print("success")
                     let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
                     
+                    
                     if let loginInfo = try? JSONDecoder().decode(getInfo.self, from: data){
                         nickName = loginInfo.nickname
                         userID = Int(loginInfo.userId)
@@ -84,20 +74,15 @@ class LoginViewModel : ViewModel{
                         self.ad?.nickname = loginInfo.nickname
                         
                         if userToken != "" {
-                            let storyBoard = self.storyboard
-                            let tabBarController = storyBoard!.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
-                            self.present(tabBarController, animated: true, completion: nil)
+                            self.loginComplete.onNext("loginSuccess")
                         }
-                        break
                     }
                     else{
                         let eM = try? JSONDecoder().decode(errorMessage.self, from: data)
                         msg = eM!.msg
                         code = Int(eM!.code)
-                        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
-                        let nicknameviewcontroller = storyBoard.instantiateViewController(withIdentifier: "NickName")
-                        self.present(nicknameviewcontroller, animated: true, completion: nil)
-                        //LoginViewModel().saveAccountInfo(nickName, Int(userID), userToken)
+                        
+                        self.loginComplete.onNext("needNickname")
                     }
                 }
                 catch{
@@ -115,7 +100,7 @@ class LoginViewModel : ViewModel{
     
     /* Model 만들기 */
     //데이터 저장함수
-    func saveAccountInfo( _ nickName: String, _ userID : Int, _ userToken : String){
+    private func saveAccountInfo( _ nickName: String, _ userID : Int, _ userToken : String){
         
         guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else{return}
         // AppDelegate.swift 파일에서 참조얻기
@@ -137,7 +122,7 @@ class LoginViewModel : ViewModel{
     }
     
     //코어데이터 저장된 엔티티 초기화
-    func resetRecords()
+    private func resetRecords()
     {
         let context = ( UIApplication.shared.delegate as! AppDelegate ).persistentContainer.viewContext
         let deleteFetch = NSFetchRequest<NSFetchRequestResult>(entityName: "Login")
@@ -151,5 +136,16 @@ class LoginViewModel : ViewModel{
         {
             print ("There was an error")
         }
+    }
+}
+
+
+struct RequestUserEntity {
+    var snsToken : String?
+    var sns : String?
+    
+    init(token : String, sns : String) {
+        self.snsToken = token
+        self.sns = sns
     }
 }
