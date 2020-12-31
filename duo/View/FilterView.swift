@@ -195,14 +195,40 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             }
             FilterModel.sharedInstance.gameModeName = "all"
         }
+        
+        if Top.tintColor == UIColor.white{
+            FilterModel.sharedInstance.Position["top"]=1
+        }
+        else {FilterModel.sharedInstance.Position["top"]=2}
+        
+        if Mid.tintColor == UIColor.white{
+            FilterModel.sharedInstance.Position["mid"]=1
+        }
+        else {FilterModel.sharedInstance.Position["mid"]=2}
+        
+        if Jungle.tintColor == UIColor.white{
+            FilterModel.sharedInstance.Position["jungle"]=1
+        }
+        else {FilterModel.sharedInstance.Position["jungle"]=2}
+        
+        if Dealer.tintColor == UIColor.white{
+            FilterModel.sharedInstance.Position["bottom"]=1
+        }
+        else {FilterModel.sharedInstance.Position["bottom"]=2}
+        
+        if Support.tintColor == UIColor.white{
+            FilterModel.sharedInstance.Position["support"]=1
+        }
+        else {FilterModel.sharedInstance.Position["support"]=2}
+        
+        
         if talkOnTrue.tintColor == UIColor.white { FilterModel.sharedInstance.talkOn = 1}
         else if talkOnFalse.tintColor == UIColor.white{
             FilterModel.sharedInstance.talkOn = 2}
         else{FilterModel.sharedInstance.talkOn = 3}
-        FilterViewModel().positionResult()
         FilterViewModel().getPosts()
         FilterModel.sharedInstance.AD!.record += 1
-        self.dismiss(animated: true, completion: nil)
+//        self.dismiss(animated: true, completion: nil)
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
