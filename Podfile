@@ -5,21 +5,19 @@ target 'duo' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
 
-  # Naver Login
-  pod 'Alamofire'
+  # Social Login
   pod 'naveridlogin-sdk-ios'
-
-  # Kakao Login
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'
-
-  # Google Login
   pod 'GoogleSignIn', '~> 5.0.2'
+
+
+  # Network
+  pod 'Alamofire'
 
   # RxSwift
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
   
   # Pods for duo
-
 end
