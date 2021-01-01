@@ -15,6 +15,9 @@ target 'duo' do
   # Network
   pod 'Alamofire'
 
+  # DB
+  pod 'RealmSwift'
+
   # RxSwift
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'

@@ -27,6 +27,11 @@ PODS:
     - KakaoSDKAuth (= 2.0.0)
     - KakaoSDKCommon (= 2.0.0)
   - naveridlogin-sdk-ios (4.1.2)
+  - Realm (10.1.4):
+    - Realm/Headers (= 10.1.4)
+  - Realm/Headers (10.1.4)
+  - RealmSwift (10.1.4):
+    - Realm (= 10.1.4)
   - RxCocoa (5.1.1):
     - RxRelay (~> 5)
     - RxSwift (~> 5)
@@ -40,6 +45,7 @@ DEPENDENCIES:
   - KakaoSDKAuth
   - KakaoSDKUser
   - naveridlogin-sdk-ios
+  - RealmSwift
   - RxCocoa (~> 5.0)
   - RxSwift (~> 5.0)
 
@@ -55,6 +61,8 @@ SPEC REPOS:
     - KakaoSDKCommon
     - KakaoSDKUser
     - naveridlogin-sdk-ios
+    - Realm
+    - RealmSwift
     - RxCocoa
     - RxRelay
     - RxSwift
@@ -70,10 +78,12 @@ SPEC CHECKSUMS:
   KakaoSDKCommon: 0273f3c70e1334baa8396d63981bd3e9ad236950
   KakaoSDKUser: 15ae4cfde8d85f15a5c74fe72b7f8b1ef574b966
   naveridlogin-sdk-ios: cf8afccdb1793d4ecfcd5d46aa8729d8b5058c70
+  Realm: 80f4fb2971ccb9adc27a47d0955ae8e533a7030b
+  RealmSwift: 0e566ca714edb377bba8ea0811eafcea0b93734e
   RxCocoa: 32065309a38d29b5b0db858819b5bf9ef038b601
   RxRelay: d77f7d771495f43c556cbc43eebd1bb54d01e8e9
   RxSwift: 81470a2074fa8780320ea5fe4102807cb7118178
 
-PODFILE CHECKSUM: ebd176d771d0f861c849c0268248045535c04773
+PODFILE CHECKSUM: 06a82f2645d92ffb6dfa72deb2f3a512f9b2d31a
 
 COCOAPODS: 1.10.0

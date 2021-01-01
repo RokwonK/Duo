@@ -160,7 +160,7 @@ class LoginViewController: UIViewController{
 
 
 
-// MARK: Google Login
+// MARK: LoginViewController - Google Login
 extension LoginViewController : GIDSignInDelegate {
     
     // 구글 로그인 후 실행
@@ -189,7 +189,7 @@ extension LoginViewController : GIDSignInDelegate {
 
 
 
-// MARK: Naver Login
+// MARK: LoginViewController - Naver Login
 extension LoginViewController : NaverThirdPartyLoginConnectionDelegate {
     
     // 로그인 후 토큰들을 받아오면 실행되는 함수

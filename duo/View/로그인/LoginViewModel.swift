@@ -6,6 +6,8 @@ import RxCocoa
 
 class LoginViewModel : ViewModel{
     
+    // UseCase => User 가져오기, User 통신하기
+    
     // Realm으로 바꾸기
     let ad = UIApplication.shared.delegate as? AppDelegate
     let loginExecute = PublishSubject<RequestUserEntity>()
@@ -22,10 +24,7 @@ class LoginViewModel : ViewModel{
         loginExecute.subscribe(onNext : {[weak self] entity in
             self?.requestUserInfo(entity.snsToken ?? "", entity.sns ?? "")
         }).disposed(by: disposeBag)
-        
     }
-    
-    
     
     private func requestUserInfo(_ snsToken : String, _ sns_name : String) {
         

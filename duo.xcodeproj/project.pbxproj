@@ -29,7 +29,6 @@
 		1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1943A45D24FD3604001B4092 /* LolMainBoard.swift */; };
 		195A5C83251CF2A700FD352D /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C82251CF2A700FD352D /* LoginViewModel.swift */; };
 		195A5C88251CF32F00FD352D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C87251CF32F00FD352D /* LoginViewController.swift */; };
-		195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 195A5C8B251CF42000FD352D /* LoginModel.swift */; };
 		195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 195CA9A224F16D2100D1F52A /* Assets.xcassets */; };
 		19713313251A29890085EDEA /* FilterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713312251A29890085EDEA /* FilterView.swift */; };
 		19713317251A29A20085EDEA /* FilterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19713316251A29A20085EDEA /* FilterModel.swift */; };
@@ -38,7 +37,6 @@
 		1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1980409824F4B23700ED48B2 /* GameSelectView.swift */; };
 		1995002E250D12180041BA69 /* GameTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995002D250D12180041BA69 /* GameTab.storyboard */; };
 		19BD2FEF251CFE5D00C52697 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9424ED038100409033 /* Main.storyboard */; };
-		19BD2FF4251D0F9900C52697 /* NickNameModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF3251D0F9900C52697 /* NickNameModel.swift */; };
 		19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF6251D0FA300C52697 /* NickNameView.swift */; };
 		19BD2FFA251D0FAD00C52697 /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */; };
 		19C4241D24F20E0A00395657 /* TabBarControllerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19C4241C24F20E0A00395657 /* TabBarControllerView.swift */; };
@@ -74,7 +72,6 @@
 		1943A45D24FD3604001B4092 /* LolMainBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LolMainBoard.swift; sourceTree = "<group>"; };
 		195A5C82251CF2A700FD352D /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		195A5C87251CF32F00FD352D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		195A5C8B251CF42000FD352D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		195CA9A224F16D2100D1F52A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		19713312251A29890085EDEA /* FilterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterView.swift; sourceTree = "<group>"; };
 		19713316251A29A20085EDEA /* FilterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterModel.swift; sourceTree = "<group>"; };
@@ -82,7 +79,6 @@
 		1974132E24FD09B7003BB2F3 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		1980409824F4B23700ED48B2 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
 		1995002D250D12180041BA69 /* GameTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTab.storyboard; sourceTree = "<group>"; };
-		19BD2FF3251D0F9900C52697 /* NickNameModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameModel.swift; sourceTree = "<group>"; };
 		19BD2FF6251D0FA300C52697 /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
 		19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		19C4241C24F20E0A00395657 /* TabBarControllerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarControllerView.swift; sourceTree = "<group>"; };
@@ -106,6 +102,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		090457D9259F6EB10017DEC8 /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
 		0904E0A8259A345100184DC0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -128,6 +131,7 @@
 			isa = PBXGroup;
 			children = (
 				0904E0A8259A345100184DC0 /* Extension */,
+				19BD2FF1251D0D8D00C52697 /* StoryBoard */,
 				0904E0AF259A37EE00184DC0 /* ViewModel.swift */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
@@ -141,6 +145,25 @@
 				0989123B2502338D0006909F /* BaseFunc.swift */,
 			);
 			path = BaseModel;
+			sourceTree = "<group>";
+		};
+		099259C9259DEE8B0068FCF1 /* 회원가입( 닉네임 설정 ) */ = {
+			isa = PBXGroup;
+			children = (
+				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
+				19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */,
+			);
+			name = "회원가입( 닉네임 설정 )";
+			path = "회원가입( 닉네임 설정 )";
+			sourceTree = "<group>";
+		};
+		099259CD259DF1410068FCF1 /* 메인 */ = {
+			isa = PBXGroup;
+			children = (
+				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
+			);
+			name = "메인";
+			path = "메인( 게임 선택창 )";
 			sourceTree = "<group>";
 		};
 		09BD7F8224ED038100409033 = {
@@ -165,10 +188,10 @@
 			isa = PBXGroup;
 			children = (
 				09825E8E259A1C4E003BA409 /* Common */,
-				19BD2FF1251D0D8D00C52697 /* StoryBoard */,
 				195A5C7E251CF1DA00FD352D /* Model */,
 				195A5C7F251CF1E100FD352D /* View */,
 				195A5C81251CF20500FD352D /* ViewModel */,
+				090457D9259F6EB10017DEC8 /* UseCase */,
 				0989123A250233570006909F /* BaseModel */,
 				09F139F425022AF600000AE9 /* 아직 못나눈 파일들 */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
@@ -199,8 +222,6 @@
 		195A5C7E251CF1DA00FD352D /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				195A5C8B251CF42000FD352D /* LoginModel.swift */,
-				19BD2FF3251D0F9900C52697 /* NickNameModel.swift */,
 				19713316251A29A20085EDEA /* FilterModel.swift */,
 				19F4BB7F251DE8860092F928 /* MyPostModel.swift */,
 				099669632524AC7200336252 /* LoLMainBoardModel.swift */,
@@ -211,10 +232,10 @@
 		195A5C7F251CF1E100FD352D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				099259C9259DEE8B0068FCF1 /* 회원가입( 닉네임 설정 ) */,
 				0904E0AD259A379500184DC0 /* 로그인 */,
-				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
+				099259CD259DF1410068FCF1 /* 메인 */,
 				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
-				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
 				1924FBF125827A700031BB60 /* Chat.swift */,
 				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
 				099669672524AC9000336252 /* LoLMainBoardExtension.swift */,
@@ -236,7 +257,6 @@
 		195A5C81251CF20500FD352D /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */,
 				19713319251A29B00085EDEA /* FilterViewModel.swift */,
 				0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */,
 			);
@@ -397,7 +417,6 @@
 			files = (
 				091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */,
 				09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */,
-				195A5C8C251CF42000FD352D /* LoginModel.swift in Sources */,
 				1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
 				195A5C88251CF32F00FD352D /* LoginViewController.swift in Sources */,
@@ -420,7 +439,6 @@
 				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
 				099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
-				19BD2FF4251D0F9900C52697 /* NickNameModel.swift in Sources */,
 				19713313251A29890085EDEA /* FilterView.swift in Sources */,
 				19C4241D24F20E0A00395657 /* TabBarControllerView.swift in Sources */,
 				191CAFB82503BED900933A66 /* MyPostView.swift in Sources */,
