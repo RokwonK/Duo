@@ -12,6 +12,9 @@
 		090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 090EF50D24FFE55700ADC959 /* SelectBoard.swift */; };
 		091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */ = {isa = PBXBuildFile; fileRef = 091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */; };
 		09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */; };
+		096E157625A06EF100F2A55C /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E157525A06EF100F2A55C /* SplashViewController.swift */; };
+		096E157D25A0791D00F2A55C /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E157C25A0791D00F2A55C /* SplashViewModel.swift */; };
+		096E158025A079D600F2A55C /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 096E157F25A079D600F2A55C /* UIViewController+Extension.swift */; };
 		0989123C2502338D0006909F /* BaseFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseFunc.swift */; };
 		099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669632524AC7200336252 /* LoLMainBoardModel.swift */; };
 		099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669672524AC9000336252 /* LoLMainBoardExtension.swift */; };
@@ -52,6 +55,9 @@
 		090EF50D24FFE55700ADC959 /* SelectBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBoard.swift; sourceTree = "<group>"; };
 		091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpLoadLoLPost.swift; sourceTree = "<group>"; };
 		09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLPostCell.swift; sourceTree = "<group>"; };
+		096E157525A06EF100F2A55C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
+		096E157C25A0791D00F2A55C /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		096E157F25A079D600F2A55C /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		0989123B2502338D0006909F /* BaseFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFunc.swift; sourceTree = "<group>"; };
 		099669632524AC7200336252 /* LoLMainBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardModel.swift; sourceTree = "<group>"; };
 		099669672524AC9000336252 /* LoLMainBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardExtension.swift; sourceTree = "<group>"; };
@@ -112,6 +118,7 @@
 		0904E0A8259A345100184DC0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				096E157F25A079D600F2A55C /* UIViewController+Extension.swift */,
 				0904E0AA259A357900184DC0 /* UIButton+Extension.swift */,
 			);
 			path = Extension;
@@ -127,6 +134,16 @@
 			path = "로그인";
 			sourceTree = "<group>";
 		};
+		096E157425A06ED000F2A55C /* 스플래쉬 */ = {
+			isa = PBXGroup;
+			children = (
+				096E157525A06EF100F2A55C /* SplashViewController.swift */,
+				096E157C25A0791D00F2A55C /* SplashViewModel.swift */,
+			);
+			name = "스플래쉬";
+			path = "스플래쉬";
+			sourceTree = "<group>";
+		};
 		09825E8E259A1C4E003BA409 /* Common */ = {
 			isa = PBXGroup;
 			children = (
@@ -135,16 +152,10 @@
 				0904E0AF259A37EE00184DC0 /* ViewModel.swift */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
+				0989123B2502338D0006909F /* BaseFunc.swift */,
+				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		0989123A250233570006909F /* BaseModel */ = {
-			isa = PBXGroup;
-			children = (
-				0989123B2502338D0006909F /* BaseFunc.swift */,
-			);
-			path = BaseModel;
 			sourceTree = "<group>";
 		};
 		099259C9259DEE8B0068FCF1 /* 회원가입( 닉네임 설정 ) */ = {
@@ -161,6 +172,7 @@
 			isa = PBXGroup;
 			children = (
 				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
+				09DEF76125A09D6E001A320B /* 롤 */,
 			);
 			name = "메인";
 			path = "메인( 게임 선택창 )";
@@ -190,10 +202,7 @@
 				09825E8E259A1C4E003BA409 /* Common */,
 				195A5C7E251CF1DA00FD352D /* Model */,
 				195A5C7F251CF1E100FD352D /* View */,
-				195A5C81251CF20500FD352D /* ViewModel */,
 				090457D9259F6EB10017DEC8 /* UseCase */,
-				0989123A250233570006909F /* BaseModel */,
-				09F139F425022AF600000AE9 /* 아직 못나눈 파일들 */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
@@ -201,13 +210,61 @@
 			path = duo;
 			sourceTree = "<group>";
 		};
-		09F139F425022AF600000AE9 /* 아직 못나눈 파일들 */ = {
+		09DEF75F25A09D4A001A320B /* 채팅 */ = {
 			isa = PBXGroup;
 			children = (
-				091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */,
+				192DB5222582863B0037BF39 /* NewChat.swift */,
+				1924FBF125827A700031BB60 /* Chat.swift */,
 			);
-			name = "아직 못나눈 파일들";
-			path = "아직 못나눈 파일들";
+			name = "채팅";
+			path = "채팅";
+			sourceTree = "<group>";
+		};
+		09DEF76025A09D56001A320B /* 프로필 */ = {
+			isa = PBXGroup;
+			children = (
+				1974132E24FD09B7003BB2F3 /* AccountView.swift */,
+				191CAFB72503BED900933A66 /* MyPostView.swift */,
+				1909BB812561994D00C44CFA /* MyPostViewExtension.swift */,
+				19EF8FEF255A883300767CC8 /* NickNameChange.swift */,
+				19F82B72256A75BA00DFEB4E /* MyComment.swift */,
+				09DEF76325A09E55001A320B /* Cell */,
+			);
+			name = "프로필";
+			path = "설정";
+			sourceTree = "<group>";
+		};
+		09DEF76125A09D6E001A320B /* 롤 */ = {
+			isa = PBXGroup;
+			children = (
+				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
+				19713312251A29890085EDEA /* FilterView.swift */,
+				19713319251A29B00085EDEA /* FilterViewModel.swift */,
+				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
+				0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */,
+				099669672524AC9000336252 /* LoLMainBoardExtension.swift */,
+				091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */,
+				09DEF76225A09D95001A320B /* Cell */,
+			);
+			name = "롤";
+			path = "롤";
+			sourceTree = "<group>";
+		};
+		09DEF76225A09D95001A320B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		09DEF76325A09E55001A320B /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				191CAFB92503E88200933A66 /* MyPostCell.swift */,
+				1910CC9F256156B8008DFC20 /* CommetCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		0C2A884A61E9B8B9736785C2 /* Pods */ = {
@@ -232,35 +289,14 @@
 		195A5C7F251CF1E100FD352D /* View */ = {
 			isa = PBXGroup;
 			children = (
+				096E157425A06ED000F2A55C /* 스플래쉬 */,
 				099259C9259DEE8B0068FCF1 /* 회원가입( 닉네임 설정 ) */,
 				0904E0AD259A379500184DC0 /* 로그인 */,
 				099259CD259DF1410068FCF1 /* 메인 */,
-				19C4241C24F20E0A00395657 /* TabBarControllerView.swift */,
-				1924FBF125827A700031BB60 /* Chat.swift */,
-				1943A45D24FD3604001B4092 /* LolMainBoard.swift */,
-				099669672524AC9000336252 /* LoLMainBoardExtension.swift */,
-				09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */,
-				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
-				19713312251A29890085EDEA /* FilterView.swift */,
-				1974132E24FD09B7003BB2F3 /* AccountView.swift */,
-				191CAFB92503E88200933A66 /* MyPostCell.swift */,
-				191CAFB72503BED900933A66 /* MyPostView.swift */,
-				19EF8FEF255A883300767CC8 /* NickNameChange.swift */,
-				1910CC9F256156B8008DFC20 /* CommetCell.swift */,
-				1909BB812561994D00C44CFA /* MyPostViewExtension.swift */,
-				19F82B72256A75BA00DFEB4E /* MyComment.swift */,
-				192DB5222582863B0037BF39 /* NewChat.swift */,
+				09DEF75F25A09D4A001A320B /* 채팅 */,
+				09DEF76025A09D56001A320B /* 프로필 */,
 			);
 			path = View;
-			sourceTree = "<group>";
-		};
-		195A5C81251CF20500FD352D /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				19713319251A29B00085EDEA /* FilterViewModel.swift */,
-				0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		19BD2FF1251D0D8D00C52697 /* StoryBoard */ = {
@@ -426,16 +462,19 @@
 				1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */,
 				19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */,
 				0904E0B0259A37EE00184DC0 /* ViewModel.swift in Sources */,
+				096E157D25A0791D00F2A55C /* SplashViewModel.swift in Sources */,
 				19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */,
 				0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
 				0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */,
 				0989123C2502338D0006909F /* BaseFunc.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
+				096E158025A079D600F2A55C /* UIViewController+Extension.swift in Sources */,
 				19713317251A29A20085EDEA /* FilterModel.swift in Sources */,
 				19EF8FF0255A883300767CC8 /* NickNameChange.swift in Sources */,
 				192DB5232582863B0037BF39 /* NewChat.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */,
+				096E157625A06EF100F2A55C /* SplashViewController.swift in Sources */,
 				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
 				099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
