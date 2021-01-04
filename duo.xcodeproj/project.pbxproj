@@ -23,6 +23,8 @@
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
+		09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A7F25A1D3C0003B596F /* RealmManager.swift */; };
+		09FD4A8425A1D792003B596F /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A8325A1D792003B596F /* RealmUser.swift */; };
 		1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909BB812561994D00C44CFA /* MyPostViewExtension.swift */; };
 		1910CCA0256156B8008DFC20 /* CommetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1910CC9F256156B8008DFC20 /* CommetCell.swift */; };
 		191CAFB82503BED900933A66 /* MyPostView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 191CAFB72503BED900933A66 /* MyPostView.swift */; };
@@ -69,6 +71,8 @@
 		09BD7F9824ED038100409033 /* duo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duo.xcdatamodel; sourceTree = "<group>"; };
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09FD4A7F25A1D3C0003B596F /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
+		09FD4A8325A1D792003B596F /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		1909BB812561994D00C44CFA /* MyPostViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewExtension.swift; sourceTree = "<group>"; };
 		1910CC9F256156B8008DFC20 /* CommetCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommetCell.swift; sourceTree = "<group>"; };
 		191CAFB72503BED900933A66 /* MyPostView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostView.swift; sourceTree = "<group>"; };
@@ -108,13 +112,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		090457D9259F6EB10017DEC8 /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
 		0904E0A8259A345100184DC0 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -200,9 +197,10 @@
 			isa = PBXGroup;
 			children = (
 				09825E8E259A1C4E003BA409 /* Common */,
-				195A5C7E251CF1DA00FD352D /* Model */,
 				195A5C7F251CF1E100FD352D /* View */,
-				090457D9259F6EB10017DEC8 /* UseCase */,
+				09FD4A7925A1CD77003B596F /* Domain */,
+				09FD4A7C25A1CE6F003B596F /* Data */,
+				195A5C7E251CF1DA00FD352D /* Model */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
@@ -265,6 +263,62 @@
 				1910CC9F256156B8008DFC20 /* CommetCell.swift */,
 			);
 			path = Cell;
+			sourceTree = "<group>";
+		};
+		09FD4A7925A1CD77003B596F /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				09FD4A7A25A1CDBB003B596F /* UseCase */,
+				09FD4A7B25A1CDC2003B596F /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		09FD4A7A25A1CDBB003B596F /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		09FD4A7B25A1CDC2003B596F /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
+		09FD4A7C25A1CE6F003B596F /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				09FD4A7E25A1D288003B596F /* Network */,
+				09FD4A7D25A1D282003B596F /* Database */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		09FD4A7D25A1D282003B596F /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				09FD4A7F25A1D3C0003B596F /* RealmManager.swift */,
+				09FD4A8225A1D773003B596F /* Object */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
+		09FD4A7E25A1D288003B596F /* Network */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		09FD4A8225A1D773003B596F /* Object */ = {
+			isa = PBXGroup;
+			children = (
+				09FD4A8325A1D792003B596F /* RealmUser.swift */,
+			);
+			path = Object;
 			sourceTree = "<group>";
 		};
 		0C2A884A61E9B8B9736785C2 /* Pods */ = {
@@ -456,8 +510,10 @@
 				1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
 				195A5C88251CF32F00FD352D /* LoginViewController.swift in Sources */,
+				09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */,
 				099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
+				09FD4A8425A1D792003B596F /* RealmUser.swift in Sources */,
 				1924FBF225827A700031BB60 /* Chat.swift in Sources */,
 				1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */,
 				19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */,
