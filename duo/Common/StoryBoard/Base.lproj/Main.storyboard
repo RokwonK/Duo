@@ -185,7 +185,7 @@
             </objects>
             <point key="canvasLocation" x="-874" y="-239"/>
         </scene>
-        <!--채팅-->
+        <!--Chat View-->
         <scene sceneID="QZn-P0-Xc4">
             <objects>
                 <viewController id="2nb-xp-bKu" customClass="ChatView" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
@@ -237,7 +237,7 @@
                         <viewLayoutGuide key="safeArea" id="NnM-wq-h8i"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="채팅" image="bubble.left.and.bubble.right" catalog="system" id="uuK-78-CnX"/>
+                    <tabBarItem key="tabBarItem" title="" image="chat" selectedImage="chat" id="uuK-78-CnX"/>
                     <connections>
                         <outlet property="chattitle" destination="QDX-Ue-5LB" id="1X1-OE-UyO"/>
                     </connections>
@@ -261,11 +261,11 @@
             </objects>
             <point key="canvasLocation" x="2149" y="470"/>
         </scene>
-        <!--홈-->
+        <!--Navigation Controller-->
         <scene sceneID="sdj-vn-MSc">
             <objects>
                 <navigationController id="QPI-6Q-mNC" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="홈" image="gamecontroller" catalog="system" id="NIe-7B-Icy"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" selectedImage="home" id="NIe-7B-Icy"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="jat-vK-Hzx">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -327,11 +327,11 @@
             </objects>
             <point key="canvasLocation" x="-1169" y="470"/>
         </scene>
-        <!--내 정보-->
+        <!--Navigation Controller-->
         <scene sceneID="pAt-lG-zya">
             <objects>
                 <navigationController id="dsI-xV-LUg" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="내 정보" image="person" catalog="system" id="9LB-ZQ-Wsu"/>
+                    <tabBarItem key="tabBarItem" title="" image="account" selectedImage="account" id="9LB-ZQ-Wsu"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="uak-Cv-E5q">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -815,7 +815,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
+        <image name="account" width="28.333333969116211" height="26.333333969116211"/>
         <image name="button:HhW-7r-MT0:backgroundImage" width="108" height="128">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGBwpYJHZlcnNpb25ZJGFyY2hpdmVyVCR0b3BYJG9iamVjdHMSAAGGoF8QD05T
@@ -15714,7 +15714,8 @@ AA2PfgANj4YADY+IAA2PigANj4wADY+OAA2g+gANoP8ADaEMAA2hDwANoRwADaEhAA2hKQANoSwADaEx
 AA2hOQAAAAAAAAQBAAAAAAAAAFUAAAAAAAAAAAAAAAAADaE8A
 </mutableData>
         </image>
-        <image name="gamecontroller" catalog="system" width="128" height="80"/>
+        <image name="chat" width="32.666667938232422" height="26.666666030883789"/>
+        <image name="home" width="37.666667938232422" height="25.333333969116211"/>
         <image name="icon-position-bottom" width="136" height="136"/>
         <image name="icon-position-jungle" width="136" height="136"/>
         <image name="icon-position-middle" width="136" height="136"/>
@@ -15725,7 +15726,6 @@ AA2hOQAAAAAAAAQBAAAAAAAAAFUAAAAAAAAAAAAAAAAADaE8A
         <image name="logo_kakao" width="24" height="24"/>
         <image name="logo_title" width="121" height="30"/>
         <image name="mic.fill" catalog="system" width="108" height="128"/>
-        <image name="person" catalog="system" width="128" height="117"/>
         <image name="person.circle.fill" catalog="system" width="128" height="121"/>
         <image name="person.crop.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
