@@ -23,6 +23,7 @@
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
 		09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9C24ED038200409033 /* LaunchScreen.storyboard */; };
+		09CD951C25A4BA83008F7E68 /* NetworkBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09CD951B25A4BA83008F7E68 /* NetworkBase.swift */; };
 		09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A7F25A1D3C0003B596F /* RealmManager.swift */; };
 		09FD4A8425A1D792003B596F /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A8325A1D792003B596F /* RealmUser.swift */; };
 		1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909BB812561994D00C44CFA /* MyPostViewExtension.swift */; };
@@ -71,6 +72,7 @@
 		09BD7F9824ED038100409033 /* duo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duo.xcdatamodel; sourceTree = "<group>"; };
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		09CD951B25A4BA83008F7E68 /* NetworkBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkBase.swift; sourceTree = SOURCE_ROOT; };
 		09FD4A7F25A1D3C0003B596F /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		09FD4A8325A1D792003B596F /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		1909BB812561994D00C44CFA /* MyPostViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewExtension.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 		09FD4A7E25A1D288003B596F /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				09CD951B25A4BA83008F7E68 /* NetworkBase.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -510,6 +513,7 @@
 				1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */,
 				09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */,
 				195A5C88251CF32F00FD352D /* LoginViewController.swift in Sources */,
+				09CD951C25A4BA83008F7E68 /* NetworkBase.swift in Sources */,
 				09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */,
 				099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
