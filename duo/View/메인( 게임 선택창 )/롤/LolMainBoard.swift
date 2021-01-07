@@ -97,6 +97,7 @@ class LoLMainBoard: UITableViewController{
         let cell = TableViewController.dequeueReusableCell(withIdentifier: "LoLPostCell", for: indexPath) as! LoLPostCell
         extension_cellSetting(cell);
         
+
         cell.tableBox.layer.cornerRadius = 10
         cell.tableBox.layer.borderWidth = 1.0
         cell.tableBox.layer.borderColor = UIColor.white.cgColor
@@ -105,24 +106,25 @@ class LoLMainBoard: UITableViewController{
         cell.tableBox.layer.shadowOpacity = 0.16
         cell.tableBox.layer.shadowRadius = 6
         
+        
         if let posts = postsData {
             let v = posts[indexPath.row];
             
-            if let top = v["top"] as? Int, top == 2 {
-                cell.topBtn.isHidden = true;
-            }
-            if let bottom = v["bottom"] as? Int, bottom == 2 {
-                cell.bottomBtn.isHidden = true;
-            }
-            if let mid = v["mid"] as? Int, mid == 2 {
-                cell.midBtn.isHidden = true;
-            }
-            if let sup = v["support"] as? Int, sup == 2 {
-                cell.supportBtn.isHidden = true;
-            }
-            if let jung = v["jungle"] as? Int, jung == 2 {
-                cell.jungleBtn.isHidden = true;
-            }
+//            if let top = v["top"] as? Int, top == 2 {
+//                cell.topBtn.isHidden = true;
+//            }
+//            if let bottom = v["bottom"] as? Int, bottom == 2 {
+//                cell.bottomBtn.isHidden = true;
+//            }
+//            if let mid = v["mid"] as? Int, mid == 2 {
+//                cell.midBtn.isHidden = true;
+//            }
+//            if let sup = v["support"] as? Int, sup == 2 {
+//                cell.supportBtn.isHidden = true;
+//            }
+//            if let jung = v["jungle"] as? Int, jung == 2 {
+//                cell.jungleBtn.isHidden = true;
+//            }
             
             if let talk = v["talkon"] as? Int, talk == 2 {
                 cell.micFillBtn.isHidden = true;
@@ -153,6 +155,7 @@ class LoLMainBoard: UITableViewController{
             let thisDateFormatter = DateFormatter();
             thisDateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
             let et = thisDateFormatter.date(from: v["endTime"] as! String)
+            let ut = thisDateFormatter.date(from: v["createdAt"] as! String)
             //                let thisDate = thisDateFormatter.date(from: et)!;
             //                thisDateFormatter.dateFormat = "MM-dd";
             //                let thisDateMMdd = thisDateFormatter.string(from : thisDate);
@@ -163,20 +166,35 @@ class LoLMainBoard: UITableViewController{
             
             var useTime = Int(et!.timeIntervalSince(nowDate))
             if (useTime >= 0){
-                if (useTime>=3600){
-                    if (useTime>=86400){
-                        cell.endTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 만료"
-                    }
-                    else{
-                        cell.endTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 만료"
-                    }
+//                if (useTime>=3600){
+//                    if (useTime>=86400){
+//                        cell.endTime.text = "\(useTime/86400)일 \((useTime/3600)%24)시간 \((useTime/60)%60)분후 만료"
+//                    }
+//                    else{
+//                        cell.endTime.text = "\(useTime/3600)시간 \((useTime/60)%60)분후 만료"
+//                    }
+//                }
+//                else{
+//                    cell.endTime.text = "\(useTime/60)분후 만료"
+//                }
+                cell.endTime.text = "모집중"
+            }
+            else{
+                cell.endTime.text = "만료"
+                
+            }
+            
+            var timegap = Int(nowDate.timeIntervalSince(ut!))
+            if (timegap>=3600){
+                if (timegap>=86400){
+                    cell.uploadTime.text = "\(timegap/86400)일 \((timegap/3600)%24)시간 \((timegap/60)%60)분전"
                 }
                 else{
-                    cell.endTime.text = "\(useTime/60)분후 만료"
+                    cell.uploadTime.text = "\(timegap/3600)시간 \((timegap/60)%60)분전"
                 }
             }
             else{
-                cell.endTime.text = "모집만료"
+                cell.uploadTime.text = "\(timegap/60)분전"
             }
             
 //                thisDateFormatter.dateFormat = "HH:mm";
@@ -238,9 +256,7 @@ class LoLMainBoard: UITableViewController{
         TableViewController.dataSource = self
     
         lolMainBoardViewModel = LoLMainBoardViewModel();
-        
-        filterOutlet.tintColor = UIColor.black;
-        popOutlet.tintColor = UIColor.black;
+        filterOutlet.image = UIImage(named: "filter")?.withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.black]
         extension_upLoadBtnStyle(upLoadBtn);
         

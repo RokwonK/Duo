@@ -49,6 +49,11 @@ extension LoLMainBoard {
     }
 
     func extension_cellSetting(_ cell : LoLPostCell) {
+        
+        let tierColor = UIColor(red: 108, green: 137, blue: 255, alpha: 1)
+        let modeColor = UIColor(red: 255, green: 62 ,blue: 62, alpha: 1)
+        let countColor = UIColor(red: 255, green: 164 ,blue: 43, alpha: 1)
+        
         cell.tier.layer.cornerRadius = 7;
         cell.tier.tintColor = UIColor.white
         cell.tier.backgroundColor = UIColor.lightGray
