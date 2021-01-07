@@ -28,15 +28,15 @@ class GameSelectView : UIViewController{
 //        attributedStr.addAttribute(.foregroundColor, value: UIColor(displayP3Red: 250/255, green: 90/255, blue: 90/255, alpha: 1), range: (introText.text! as NSString).range(of: "듀오"))
 //        introText.attributedText = attributedStr
         
-        searchBar.layer.cornerRadius = 15
+//        searchBar.layer.cornerRadius = 15
 //        searchBar.layer.masksToBounds = true
 //        searchBar.clipsToBounds = true
-        searchBar.layer.borderWidth = 1.0
-        searchBar.layer.borderColor = UIColor.white.cgColor
-        searchBar.layer.shadowColor = UIColor.black.cgColor
-        searchBar.layer.shadowOffset = CGSize(width: 0, height: 3)
-        searchBar.layer.shadowOpacity = 0.2
-        searchBar.layer.shadowRadius = 6
+//        searchBar.layer.borderWidth = 1.0
+//        searchBar.layer.borderColor = UIColor.white.cgColor
+//        searchBar.layer.shadowColor = UIColor.black.cgColor
+//        searchBar.layer.shadowOffset = CGSize(width: 0, height: 3)
+//        searchBar.layer.shadowOpacity = 0.2
+//        searchBar.layer.shadowRadius = 6
 //        searchBar.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [NSAttributedString.Key.foregroundColor : UIColor(red: 134, green: 134, blue: 134, alpha: 1)])
         
         lol.layer.borderWidth = 1.0
