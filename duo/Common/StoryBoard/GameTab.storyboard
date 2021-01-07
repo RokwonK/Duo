@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -387,6 +388,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인원수" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuI-Om-4F2">
+                                <rect key="frame" x="16" y="455" width="41" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="41" id="29c-Zw-P93"/>
+                                    <constraint firstAttribute="height" constant="22" id="JMY-nd-QI2"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="1" maxValue="4" translatesAutoresizingMaskIntoConstraints="NO" id="fhf-0e-oVo">
                                 <rect key="frame" x="14" y="498" width="347" height="27"/>
                                 <color key="tintColor" red="1" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
@@ -432,7 +443,7 @@
                                     <constraint firstAttribute="width" constant="375" id="FCU-h4-H60"/>
                                     <constraint firstAttribute="height" constant="55" id="hhD-6C-esA"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="적용"/>
                                 <connections>
@@ -461,7 +472,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jfk-GL-poF">
                                         <rect key="frame" x="0.0" y="0.0" width="63.666666666666664" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="솔랭"/>
                                         <connections>
@@ -471,7 +482,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j5P-4c-p52">
                                         <rect key="frame" x="69.666666666666671" y="0.0" width="64.000000000000014" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="자랭"/>
                                         <connections>
@@ -481,7 +492,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bh4-nj-imZ">
                                         <rect key="frame" x="139.66666666666666" y="0.0" width="63.666666666666657" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="일반"/>
                                         <connections>
@@ -491,7 +502,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Nff-Sb-L6Q">
                                         <rect key="frame" x="209.33333333333334" y="0.0" width="64.000000000000028" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="칼바람"/>
                                         <connections>
@@ -501,7 +512,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvY-GU-UYn">
                                         <rect key="frame" x="279.33333333333331" y="0.0" width="63.666666666666686" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="Cust"/>
                                         <connections>
@@ -527,7 +538,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TaQ-Mr-hWw">
                                         <rect key="frame" x="0.0" y="0.0" width="65.333333333333329" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="탑"/>
                                         <connections>
@@ -537,7 +548,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="38V-E5-Mxg">
                                         <rect key="frame" x="69.333333333333343" y="0.0" width="65.333333333333343" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="정글"/>
                                         <connections>
@@ -547,7 +558,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h5c-hg-xBk">
                                         <rect key="frame" x="138.66666666666666" y="0.0" width="65.666666666666657" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="원딜"/>
                                         <connections>
@@ -557,7 +568,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zJ8-41-3gP">
                                         <rect key="frame" x="208.33333333333334" y="0.0" width="65.333333333333343" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="서폿"/>
                                         <connections>
@@ -567,7 +578,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pqv-xh-jy0">
                                         <rect key="frame" x="277.66666666666669" y="0.0" width="65.333333333333314" height="25"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="미드"/>
                                         <connections>
@@ -584,7 +595,7 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y0j-dG-LQ9">
                                         <rect key="frame" x="0.0" y="0.0" width="109" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="가능"/>
                                         <connections>
@@ -593,7 +604,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BtC-0j-8If">
                                         <rect key="frame" x="117" y="0.0" width="109" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="불가능"/>
                                         <connections>
@@ -602,7 +613,7 @@
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v4p-gQ-PZW">
                                         <rect key="frame" x="234" y="0.0" width="109" height="25"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="10"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <state key="normal" title="상관없음"/>
                                         <connections>
@@ -614,16 +625,15 @@
                                     <constraint firstAttribute="height" constant="25" id="M2U-7h-BGi"/>
                                 </constraints>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="인원수" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QuI-Om-4F2">
-                                <rect key="frame" x="16" y="455" width="41" height="22"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oSG-DA-woo">
+                                <rect key="frame" x="339" y="400.33333333333331" width="10" height="8.3333333333333144"/>
+                                <color key="tintColor" red="1" green="0.24313725489999999" blue="0.24313725489999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="41" id="29c-Zw-P93"/>
-                                    <constraint firstAttribute="height" constant="22" id="JMY-nd-QI2"/>
+                                    <constraint firstAttribute="width" constant="10" id="HjB-lu-Dk9"/>
+                                    <constraint firstAttribute="height" constant="9" id="dCd-gn-zzh"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <imageReference key="image" image="arrowtriangle.down.fill" catalog="system" symbolScale="large"/>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="KhN-Zu-VIv"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -638,6 +648,7 @@
                             <constraint firstItem="8Uz-M5-D7Q" firstAttribute="top" secondItem="KhN-Zu-VIv" secondAttribute="top" constant="57" id="DjX-pM-hxr"/>
                             <constraint firstItem="fhf-0e-oVo" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="16" id="EC8-yw-4kX"/>
                             <constraint firstItem="QuI-Om-4F2" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="16" id="FE1-q1-aaB"/>
+                            <constraint firstItem="oSG-DA-woo" firstAttribute="top" secondItem="WNX-IV-YSh" secondAttribute="bottom" constant="92" id="Fid-0g-qdE"/>
                             <constraint firstItem="amo-q5-yel" firstAttribute="top" secondItem="WNX-IV-YSh" secondAttribute="bottom" constant="45" id="H8c-Ck-45o"/>
                             <constraint firstItem="tv8-K8-fhO" firstAttribute="top" secondItem="fhf-0e-oVo" secondAttribute="bottom" constant="9" id="IQt-Xw-81P"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="WNX-IV-YSh" secondAttribute="trailing" constant="16" id="KNz-zV-wV6"/>
@@ -646,6 +657,7 @@
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="tv8-K8-fhO" secondAttribute="trailing" constant="75" id="PJ1-Jv-qxV"/>
                             <constraint firstAttribute="bottom" secondItem="FLa-4t-TZ2" secondAttribute="bottom" id="QB2-qA-clQ"/>
                             <constraint firstItem="fhf-0e-oVo" firstAttribute="top" secondItem="QuI-Om-4F2" secondAttribute="bottom" constant="21" id="RIZ-Z4-9IH"/>
+                            <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="oSG-DA-woo" secondAttribute="trailing" constant="26" id="RPy-z7-ed1"/>
                             <constraint firstItem="WNX-IV-YSh" firstAttribute="leading" secondItem="KhN-Zu-VIv" secondAttribute="leading" constant="16" id="ZIY-nU-9kk"/>
                             <constraint firstItem="KhN-Zu-VIv" firstAttribute="trailing" secondItem="Rsq-b4-PI4" secondAttribute="trailing" constant="16" id="ajG-6z-KF3"/>
                             <constraint firstItem="Rsq-b4-PI4" firstAttribute="top" secondItem="amo-q5-yel" secondAttribute="bottom" constant="16" id="cdY-KJ-dcN"/>
@@ -660,7 +672,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="mNn-Xv-Nw8">
-                        <barButtonItem key="rightBarButtonItem" image="xmark" catalog="system" id="iwR-Lz-DbY">
+                        <barButtonItem key="rightBarButtonItem" image="exit" id="iwR-Lz-DbY">
                             <connections>
                                 <action selector="popAction:" destination="bJf-RR-lwF" id="WBf-9p-ar6"/>
                             </connections>
@@ -1359,10 +1371,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="arrowtriangle.down.fill" catalog="system" width="128" height="124"/>
         <image name="arrowtriangle.right" catalog="system" width="128" height="113"/>
         <image name="back_left" width="15.666666984558105" height="26.666666030883789"/>
         <image name="battleground" width="48" height="48"/>
         <image name="ethernal" width="120" height="70"/>
+        <image name="exit" width="23.666666030883789" height="23.666666030883789"/>
         <image name="filter" width="25.333333969116211" height="26.666666030883789"/>
         <image name="lol" width="48" height="48"/>
         <image name="message" catalog="system" width="128" height="113"/>

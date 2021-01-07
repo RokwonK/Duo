@@ -248,6 +248,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         tierPicker.delegate = self;
         tierPicker.dataSource = self;
         tierPicker.backgroundColor = UIColor.white;
+        tierPicker.showsSelectionIndicator = true
         
         return tierPicker;
     }()
