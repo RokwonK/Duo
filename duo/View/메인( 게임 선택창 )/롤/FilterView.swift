@@ -26,7 +26,8 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
     @IBOutlet weak var myTier: UITextField!
 
     let toolBarKeyboard = UIToolbar()
-    let customcolor = UIColor(displayP3Red: 250/255, green: 90/255, blue: 90/255, alpha: 1)
+    let nonselectColor = UIColor(displayP3Red: 77/255, green: 77/255, blue: 77/255, alpha: 1)
+    let selectColor = UIColor(displayP3Red: 255/255, green: 62/255, blue: 62/255, alpha: 1)
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +41,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         self.navigationController?.navigationBar.barStyle = .default;
         self.navigationController?.navigationBar.isTranslucent = true
         self.navigationController?.navigationBar.topItem?.title = "필터"
-        exitButton.tintColor = UIColor.black
+        exitButton.tintColor = selectColor
         
         toolBarKeyboard.sizeToFit()
         let btnDoneBar = UIBarButtonItem(title: "확인", style: .done, target: self, action: #selector(self.doneBtnClicked))
@@ -48,24 +49,29 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
         toolBarKeyboard.items = [nilBar, nilBar, btnDoneBar]
         toolBarKeyboard.tintColor = UIColor.gray;
         
+        
         //티어
         myTier.inputAccessoryView = toolBarKeyboard
         myTier.inputView = uploadStartTier;
-        myTier.textColor = UIColor.lightGray
-        myTier.text = FilterModel().tierData[0];
+        myTier.textColor = nonselectColor
+        myTier.layer.borderWidth = 1
+        myTier.layer.borderColor = nonselectColor.cgColor
+        myTier.layer.cornerRadius = 5
+        myTier.text = "모든티어"
+        
         //게임모드버튼
         GameModeButtons.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = customcolor.cgColor;
+            btn.layer.borderColor = nonselectColor.cgColor;
             btn.layer.cornerRadius = 5;
-            btn.tintColor = customcolor;
+            btn.tintColor = nonselectColor;
         }
         //포지션버튼
         PositionButtons.forEach{ (btn) in
             btn.layer.borderWidth = 1;
-            btn.layer.borderColor = customcolor.cgColor;
+            btn.layer.borderColor = nonselectColor.cgColor;
             btn.layer.cornerRadius = 5;
-            btn.tintColor = customcolor;
+            btn.tintColor = nonselectColor;
         }
         //인원수 표시 라벨
         peopleNum.layer.borderWidth = 1
@@ -77,22 +83,13 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
 //        let dateformat : DateFormatter = DateFormatter();
 //        dateformat.dateFormat = "yyyy/MM/dd hh:mm";
         
-        
         //토크온
         talkOnButtons.forEach{(btn) in
             btn.layer.borderWidth = 1
-            btn.layer.borderColor = customcolor.cgColor
+            btn.layer.borderColor = nonselectColor.cgColor
             btn.layer.cornerRadius = 5
-            btn.tintColor = customcolor
+            btn.tintColor = nonselectColor
         }
-        
-        //적용버튼
-        applyBtn.layer.cornerRadius = 10;
-        applyBtn.layer.borderWidth = 1;
-        applyBtn.layer.borderColor = customcolor.cgColor
-        applyBtn.backgroundColor = customcolor
-        applyBtn.tintColor = UIColor.white;
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -125,44 +122,43 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
 //    }
     
     @IBAction func gameModeAction(_ sender : UIButton) {
-        if (sender.tintColor == customcolor) {
+        if (sender.tintColor == nonselectColor) {
             GameModeButtons.forEach{ (btn) in
-                btn.tintColor = customcolor
-                btn.backgroundColor = UIColor.white
+                btn.tintColor = nonselectColor
+                btn.layer.borderColor = nonselectColor.cgColor
             }
-            sender.tintColor = UIColor.white;
-            sender.backgroundColor = customcolor;
+            sender.tintColor = selectColor;
+            sender.layer.borderColor = selectColor.cgColor
         }
         else {
-            sender.tintColor = customcolor;
-            sender.backgroundColor = UIColor.white;
+            sender.tintColor = nonselectColor;
+            sender.layer.borderColor = selectColor.cgColor
         }
     }
     
     @IBAction func positionAction(_ sender : UIButton) {
-        if (sender.tintColor == customcolor) {
-            sender.tintColor = UIColor.white
-            sender.backgroundColor = customcolor;
+        if (sender.tintColor == nonselectColor) {
+            sender.tintColor = selectColor
+            sender.layer.borderColor = selectColor.cgColor
         }
         else {
-            sender.tintColor = customcolor;
-            sender.backgroundColor = UIColor.white;
+            sender.tintColor = nonselectColor;
+            sender.layer.borderColor = nonselectColor.cgColor
         }
     }
     
     @IBAction func talkOnAction(_ sender : UIButton) {
-        if (sender.tintColor == customcolor) {
+        if (sender.tintColor == nonselectColor) {
             talkOnButtons.forEach{ (btn) in
-                btn.tintColor = customcolor
-                btn.backgroundColor = UIColor.white
+                btn.tintColor = nonselectColor
+                btn.layer.borderColor = nonselectColor.cgColor
             }
-            sender.tintColor = UIColor.white;
-            sender.backgroundColor = customcolor;
-            
+            sender.tintColor = selectColor
+            sender.layer.borderColor = selectColor.cgColor
         }
         else {
-            sender.tintColor = customcolor;
-            sender.backgroundColor = UIColor.white;
+            sender.tintColor = nonselectColor;
+            sender.layer.borderColor = nonselectColor.cgColor
         }
     }
     
