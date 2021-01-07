@@ -10,6 +10,8 @@ import UIKit
 
 class LoLPostCell : UITableViewCell {
     
+    @IBOutlet weak var tableBox: UIView!
+    
     @IBOutlet weak var gameMode: UIButton!
     @IBOutlet weak var tier: UIButton!
     @IBOutlet weak var headCount: UIButton!

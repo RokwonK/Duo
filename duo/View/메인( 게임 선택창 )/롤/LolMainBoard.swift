@@ -21,6 +21,7 @@ class LoLMainBoard: UITableViewController{
     @IBOutlet var TableViewController: UITableView!
     var postsData : Array<Dictionary<String, Any>>?;
     let eachTier : Array<String> = ["I", "B", "S", "G", "P", "D","q", "M", "GM", "Ch"];
+
     
     func getPosts() {
 //        BaseFunc.fetch();
@@ -96,6 +97,14 @@ class LoLMainBoard: UITableViewController{
         let cell = TableViewController.dequeueReusableCell(withIdentifier: "LoLPostCell", for: indexPath) as! LoLPostCell
         extension_cellSetting(cell);
         
+        cell.tableBox.layer.cornerRadius = 10
+        cell.tableBox.layer.borderWidth = 1.0
+        cell.tableBox.layer.borderColor = UIColor.white.cgColor
+        cell.tableBox.layer.shadowColor = UIColor.black.cgColor
+        cell.tableBox.layer.shadowOffset = CGSize(width: 0, height: 3)
+        cell.tableBox.layer.shadowOpacity = 0.16
+        cell.tableBox.layer.shadowRadius = 6
+        
         if let posts = postsData {
             let v = posts[indexPath.row];
             
@@ -131,7 +140,7 @@ class LoLMainBoard: UITableViewController{
             }
             if let tit = v["title"] as? String {
                 cell.title.text = tit;
-                cell.title.font = UIFont.boldSystemFont(ofSize: 18)
+//                cell.title.font = UIFont.boldSystemFont(ofSize: 18)
             }
             
                 //cell.startTime.text = "시작시간 : \(st)";
