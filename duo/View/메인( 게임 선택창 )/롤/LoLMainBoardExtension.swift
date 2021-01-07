@@ -50,30 +50,26 @@ extension LoLMainBoard {
 
     func extension_cellSetting(_ cell : LoLPostCell) {
         
-        let tierColor = UIColor(red: 108, green: 137, blue: 255, alpha: 1)
-        let modeColor = UIColor(red: 255, green: 62 ,blue: 62, alpha: 1)
-        let countColor = UIColor(red: 255, green: 164 ,blue: 43, alpha: 1)
+        let tierColor = UIColor(red: 108/255, green: 137/255, blue: 255/255, alpha: 1)
+        let modeColor = UIColor(red: 255/255, green: 62/255 ,blue: 62/255, alpha: 1)
+        let countColor = UIColor(red: 255/255, green: 164/255 ,blue: 43/255, alpha: 1)
         
         cell.tier.layer.cornerRadius = 7;
-        cell.tier.tintColor = UIColor.white
-        cell.tier.backgroundColor = UIColor.lightGray
+        cell.tier.tintColor = tierColor
         cell.tier.layer.masksToBounds = true;
-        cell.tier.layer.borderColor =  UIColor.lightGray.cgColor
+        cell.tier.layer.borderColor =  tierColor.cgColor
         cell.tier.layer.borderWidth = 1
         
         cell.gameMode.layer.cornerRadius = 7;
-//        cell.gameMode.tintColor = UIColor(displayP3Red: 71/255, green: 123/255, blue: 209/255, alpha: 1)
-        cell.gameMode.tintColor = UIColor.white
-        cell.gameMode.backgroundColor = UIColor.lightGray
+        cell.gameMode.tintColor = modeColor
         cell.gameMode.layer.masksToBounds = true;
-        cell.gameMode.layer.borderColor =  UIColor.lightGray.cgColor
+        cell.gameMode.layer.borderColor =  modeColor.cgColor
         cell.gameMode.layer.borderWidth = 1
         
         cell.headCount.layer.cornerRadius = 7;
-        cell.headCount.tintColor = UIColor.white
-        cell.headCount.backgroundColor = UIColor.lightGray
+        cell.headCount.tintColor = countColor
         cell.headCount.layer.masksToBounds = true;
-        cell.headCount.layer.borderColor =  UIColor.lightGray.cgColor
+        cell.headCount.layer.borderColor =  countColor.cgColor
         cell.headCount.layer.borderWidth = 1
         
         cell.endTime.textColor = UIColor.black
