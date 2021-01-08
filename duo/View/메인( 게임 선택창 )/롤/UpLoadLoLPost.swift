@@ -467,15 +467,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
         textContentView.layer.borderColor = customcolor.cgColor;
         textContentView.inputAccessoryView = toolBarKeyboard;
         textContentView.delegate = self;
-        
-        // upload 버튼
-        uploadBtn.layer.cornerRadius = 10;
-        uploadBtn.layer.borderWidth = 1;
-        uploadBtn.layer.borderColor = customcolor.cgColor;
-        uploadBtn.backgroundColor = customcolor;
-        uploadBtn.tintColor = UIColor.white;
-        
-        
+
         // Scroll View 에서 스크린 터치시 키보드 내려가게
         let singleTapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(MyTapMethod))
         singleTapGestureRecognizer.numberOfTapsRequired = 1
@@ -493,5 +485,4 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     override var prefersStatusBarHidden: Bool {
         return false
     }
-    
 }
