@@ -15,7 +15,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     let ad = UIApplication.shared.delegate as? AppDelegate
     var selectDate = Date();
     let toolBarKeyboard = UIToolbar()
-    let gameModeData : [String] = ["일반", "듀오", "자유랭" , "커스텀", "칼바람" ];
+    let gameModeData : [String] = ["모든 큐","일반", "듀오", "자유랭" , "커스텀", "칼바람" ];
     let tierData : [String] = ["Iron 4","Iron 3","Iron 2","Iron 1",
                                "Bronze 4","Bronze 3","Bronze 2","Bronze 1",
                                "Silver 4","Silver 3","Silver 2","Silver 1",
@@ -27,7 +27,7 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
     let headCountData : [String] = ["1","2","3","4","5","6","7","8","9"]
     let talkonData :[String] = ["가능","불가능","상관없음"]
     var headCountValue : Int = 1
-    let positionData : [String] = ["탑", "정글", "미드", "원딜", "서폿"]
+    let positionData : [String] = [ "모든 포지션","탑", "정글", "미드", "원딜", "서폿"]
     
     @IBAction func uploadAction(_ sender: Any) {
         
@@ -445,18 +445,15 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
 //        talkOnBtn.layer.cornerRadius = 5;
 //        talkOnBtn.tintColor = customcolor;
         
-        let customtextColor = UIColor(displayP3Red: 77/255, green: 77/255, blue: 77/255, alpha: 1)
+        let customtextColor = UIColor(displayP3Red: 157/255, green: 157/255, blue: 157/255, alpha: 1)
         
         // 제목 textField
-//        uploadTitle.attributedPlaceholder = NSAttributedString(string : "제목");
-        uploadTitle.text = "제목"
+        uploadTitle.attributedPlaceholder = NSAttributedString(string : "제목",attributes: [NSAttributedString.Key.foregroundColor: customtextColor]);
         uploadTitle.inputAccessoryView = toolBarKeyboard
-        uploadTitle.font = UIFont.systemFont(ofSize: 18)
-        uploadTitle.textColor = customtextColor
+        uploadTitle.textColor = UIColor.black
         uploadTitle.layer.borderColor = customcolor.cgColor
         uploadTitle.layer.borderWidth = 1
         uploadTitle.layer.cornerRadius = 5
-        
         
         // 내용
         textContentView.text = "내용 입력"
