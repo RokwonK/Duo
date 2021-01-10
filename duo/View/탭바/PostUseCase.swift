@@ -10,8 +10,5 @@ import UIKit
 
 class PostUseCase : NSObject {
     
-    override init() {
-        super.init()
-    }
     
 }

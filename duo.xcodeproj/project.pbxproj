@@ -37,6 +37,9 @@
 		09D7339A25AAFAAA00DC556A /* TabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D7339925AAFAAA00DC556A /* TabBarViewModel.swift */; };
 		09D7339D25AAFB7E00DC556A /* MemberUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D7339C25AAFB7E00DC556A /* MemberUseCase.swift */; };
 		09D733A025AAFF6C00DC556A /* PostUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D7339F25AAFF6C00DC556A /* PostUseCase.swift */; };
+		09D733A325AB304800DC556A /* MemberDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D733A225AB304800DC556A /* MemberDatabase.swift */; };
+		09D733A625AB319300DC556A /* MemberEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D733A525AB319300DC556A /* MemberEntity.swift */; };
+		09D733A925AB354300DC556A /* Object+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D733A825AB354300DC556A /* Object+Extension.swift */; };
 		09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A7F25A1D3C0003B596F /* RealmManager.swift */; };
 		09FD4A8425A1D792003B596F /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A8325A1D792003B596F /* RealmUser.swift */; };
 		1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909BB812561994D00C44CFA /* MyPostViewExtension.swift */; };
@@ -98,6 +101,9 @@
 		09D7339925AAFAAA00DC556A /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
 		09D7339C25AAFB7E00DC556A /* MemberUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemberUseCase.swift; path = "duo/View/탭바/MemberUseCase.swift"; sourceTree = SOURCE_ROOT; };
 		09D7339F25AAFF6C00DC556A /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostUseCase.swift; path = "duo/View/탭바/PostUseCase.swift"; sourceTree = SOURCE_ROOT; };
+		09D733A225AB304800DC556A /* MemberDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemberDatabase.swift; sourceTree = "<group>"; };
+		09D733A525AB319300DC556A /* MemberEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MemberEntity.swift; path = duo/Data/Database/MemberEntity.swift; sourceTree = SOURCE_ROOT; };
+		09D733A825AB354300DC556A /* Object+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+Extension.swift"; sourceTree = "<group>"; };
 		09FD4A7F25A1D3C0003B596F /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		09FD4A8325A1D792003B596F /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		1909BB812561994D00C44CFA /* MyPostViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewExtension.swift; sourceTree = "<group>"; };
@@ -330,6 +336,7 @@
 		09FD4A7B25A1CDC2003B596F /* Entity */ = {
 			isa = PBXGroup;
 			children = (
+				09D733A525AB319300DC556A /* MemberEntity.swift */,
 			);
 			path = Entity;
 			sourceTree = "<group>";
@@ -348,6 +355,7 @@
 			children = (
 				09FD4A7F25A1D3C0003B596F /* RealmManager.swift */,
 				09FD4A8225A1D773003B596F /* Object */,
+				09D733A225AB304800DC556A /* MemberDatabase.swift */,
 			);
 			path = Database;
 			sourceTree = "<group>";
@@ -364,6 +372,7 @@
 			isa = PBXGroup;
 			children = (
 				09FD4A8325A1D792003B596F /* RealmUser.swift */,
+				09D733A825AB354300DC556A /* Object+Extension.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -540,6 +549,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				09D733A925AB354300DC556A /* Object+Extension.swift in Sources */,
 				091A062E25072C7000B405B6 /* UpLoadLoLPost.swift in Sources */,
 				09549B0124FFC07400B1A0B0 /* LoLPostCell.swift in Sources */,
 				1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */,
@@ -548,6 +558,7 @@
 				09CD951C25A4BA83008F7E68 /* NetworkBase.swift in Sources */,
 				09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */,
 				099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */,
+				09D733A325AB304800DC556A /* MemberDatabase.swift in Sources */,
 				09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */,
 				09FD4A8425A1D792003B596F /* RealmUser.swift in Sources */,
 				09D733A025AAFF6C00DC556A /* PostUseCase.swift in Sources */,
@@ -581,6 +592,7 @@
 				19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */,
 				09D7338B25AAF81300DC556A /* HomeViewController.swift in Sources */,
 				19BD2FFA251D0FAD00C52697 /* NickNameViewModel.swift in Sources */,
+				09D733A625AB319300DC556A /* MemberEntity.swift in Sources */,
 				1910CCA0256156B8008DFC20 /* CommetCell.swift in Sources */,
 				09D7339525AAF8A600DC556A /* ProfileViewController.swift in Sources */,
 				1974132F24FD09B7003BB2F3 /* AccountView.swift in Sources */,
