@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="2iu-3y-WV1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -70,38 +70,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hhF-aN-hpF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-119" y="-239"/>
-        </scene>
-        <!--Splash View Controller-->
-        <scene sceneID="vIF-Rr-I0L">
-            <objects>
-                <viewController id="DoC-0s-uih" customClass="SplashViewController" customModule="duo" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="9d5-ub-GeV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_base" translatesAutoresizingMaskIntoConstraints="NO" id="but-dJ-gww">
-                                <rect key="frame" x="146.66666666666666" y="333" width="82" height="100"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="82" id="03o-kO-V58"/>
-                                    <constraint firstAttribute="height" constant="100" id="75w-XA-RFx"/>
-                                </constraints>
-                            </imageView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="wXc-rd-E7k"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="but-dJ-gww" firstAttribute="centerX" secondItem="wXc-rd-E7k" secondAttribute="centerX" id="Asz-0t-CWk"/>
-                            <constraint firstItem="but-dJ-gww" firstAttribute="centerY" secondItem="wXc-rd-E7k" secondAttribute="centerY" constant="-50" id="Sai-Qo-kXo"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" id="O8t-Mo-mmx"/>
-                    <connections>
-                        <outlet property="mainImage" destination="but-dJ-gww" id="h8w-X7-P4q"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="RHV-Kj-dsK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-332" y="470"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="oqZ-q3-E4H">
@@ -310,22 +278,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dEv-qQ-5ja" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="612" y="468"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="xK3-XS-yx9">
-            <objects>
-                <navigationController id="2iu-3y-WV1" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Tgt-59-oBt">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="DoC-0s-uih" kind="relationship" relationship="rootViewController" id="GTg-Sb-fFd"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="JfB-Wi-aii" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1169" y="470"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="pAt-lG-zya">

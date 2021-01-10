@@ -26,60 +26,60 @@ class LoLMainBoard: UITableViewController{
     func getPosts() {
 //        BaseFunc.fetch();
 
-        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
-        let req = AF.request(url,
-                            method:.get,
-                            parameters: ["limit": 100, "offset" : 0],
-                            encoding: URLEncoding.queryString,
-                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
-                            )
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            print(res)
-            switch res.result {
-            case.success(let value):
-                
-                if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.postsData = datas;
-                    DispatchQueue.main.async {
-                        /*
-                         didset {
-                         }
-                         */
-                        self.TableViewController.reloadData();
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
+//        let req = AF.request(url,
+//                            method:.get,
+//                            parameters: ["limit": 100, "offset" : 0],
+//                            encoding: URLEncoding.queryString,
+//                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
+//                            )
+//        // db에서 값 가져오기
+//        req.responseJSON {res in
+//            print(res)
+//            switch res.result {
+//            case.success(let value):
+//
+//                if let datas = value as? Array<Dictionary<String,Any>> {
+//                    self.postsData = datas;
+//                    DispatchQueue.main.async {
+//                        /*
+//                         didset {
+//                         }
+//                         */
+//                        self.TableViewController.reloadData();
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     func getPosts2() {
 //        BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
-        let req = AF.request(url,
-                            method:.get,
-                            parameters: ["limit": 100, "offset" : 0],
-                            encoding: URLEncoding.queryString,
-                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
-                            )
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            print(res)
-            switch res.result {
-            case.success(let value):
-                
-                if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.postsData = datas;
-                    DispatchQueue.main.async {
-                        self.TableViewController.reloadData();
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
+//        let req = AF.request(url,
+//                            method:.get,
+//                            parameters: ["limit": 100, "offset" : 0],
+//                            encoding: URLEncoding.queryString,
+//                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
+//                            )
+//        // db에서 값 가져오기
+//        req.responseJSON {res in
+//            print(res)
+//            switch res.result {
+//            case.success(let value):
+//
+//                if let datas = value as? Array<Dictionary<String,Any>> {
+//                    self.postsData = datas;
+//                    DispatchQueue.main.async {
+//                        self.TableViewController.reloadData();
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     // 테이블의 갯수 정의
@@ -263,12 +263,12 @@ class LoLMainBoard: UITableViewController{
         self.getPosts();
     }
     override func viewWillAppear(_ animated: Bool) {
-        if (ad!.record==1){
-            self.getPosts2()
-        }
-        else{
-            self.getPosts()
-        }
+//        if (ad!.record==1){
+//            self.getPosts2()
+//        }
+//        else{
+//            self.getPosts()
+//        }
     }
     
     override func viewDidAppear(_ animated: Bool) {

@@ -22,7 +22,10 @@ class GameSelectView : UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        print(ad!.access_token)
+        //print(ad!.access_token)
+        
+        
+        
 //        introText.text = "어떤게임의 듀오를 구하시나요?"
 //        let attributedStr = NSMutableAttributedString(string: introText.text!)
 //        attributedStr.addAttribute(.foregroundColor, value: UIColor(displayP3Red: 250/255, green: 90/255, blue: 90/255, alpha: 1), range: (introText.text! as NSString).range(of: "듀오"))
@@ -77,7 +80,7 @@ class GameSelectView : UIViewController{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        ad!.record = 0
+        //ad!.record = 0
         self.navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     

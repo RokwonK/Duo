@@ -18,30 +18,30 @@ class MyPostView :  UITableViewController{
     
     func getPosts() {
         //        BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/me")!
-        let req = AF.request(url,
-                             method:.get,
-                             parameters: ["userId" : ad!.userID],
-                             encoding: URLEncoding.queryString,
-                             headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            print(res)
-            switch res.result {
-            case.success(let value):
-                
-                if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.postsData = datas;
-                    DispatchQueue.main.async {
-                        // 테이블 뷰에 그리기
-                        self.MyPostTable.reloadData();
-                    }
-                }
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let url = URL(string : BaseFunc.baseurl + "/post/me")!
+//        let req = AF.request(url,
+//                             method:.get,
+//                             parameters: ["userId" : ad!.userID],
+//                             encoding: URLEncoding.queryString,
+//                             headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
+//        // db에서 값 가져오기
+//        req.responseJSON {res in
+//            print(res)
+//            switch res.result {
+//            case.success(let value):
+//                
+//                if let datas = value as? Array<Dictionary<String,Any>> {
+//                    self.postsData = datas;
+//                    DispatchQueue.main.async {
+//                        // 테이블 뷰에 그리기
+//                        self.MyPostTable.reloadData();
+//                    }
+//                }
+//                
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
     }
     
     struct Message : Codable {

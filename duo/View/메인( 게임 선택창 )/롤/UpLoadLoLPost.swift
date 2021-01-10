@@ -99,47 +99,47 @@ class UpLoadLoLPost : UIViewController, UITextViewDelegate, UIPickerViewDelegate
             
             
             
-            let req = AF.request(url,
-                                 method:.post,
-                                 parameters: [
-                                    "userId" : ad?.userID,
-                                    "userNickname" : ad?.nickname,
-                                    "gameMode" : gameModeField.text!,
-                                    "title" : uploadTitle.text!,
-                                    "startTier" : uploadedStartTier,
-                                    "endTier" : uploadedEndTier,
-//                                    "endTime" : uploadedEndTime,
-                                    "headCount" : headCountValue,
-                                    "top" : uploadedTop,
-                                    "mid" : uploadedMid,
-                                    "bottom" : uploadedBottom,
-                                    "support" : uploadedSupport,
-                                    "jungle" : uploadedJungle,
-                                    "talkon" : talkonField.text!,
-                                    "content" : textContentView.text!
-                                 ],
-                                 encoding: JSONEncoding.default,
-                                 headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
-            // db에서 값 가져오기
-            req.responseJSON {res in
-                switch res.result {
-                case.success(let value):
-                    print(value)
-                    if let datas = value as? Dictionary<String,Any> {
-                        if let msg = datas["msg"] as? String  {
-                            if (msg == "create success") {
-                                let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
-                                alert.addAction(UIAlertAction(title: "확인", style: .default ) { (action) in
-                                    self.dismiss(animated: true, completion: nil)
-                                })
-                                self.present(alert, animated: true, completion: nil)
-                            }
-                        }
-                    }
-                case .failure(let error):
-                    print(error)
-                }
-            }
+//            let req = AF.request(url,
+//                                 method:.post,
+//                                 parameters: [
+//                                    "userId" : ad?.userID,
+//                                    "userNickname" : ad?.nickname,
+//                                    "gameMode" : gameModeField.text!,
+//                                    "title" : uploadTitle.text!,
+//                                    "startTier" : uploadedStartTier,
+//                                    "endTier" : uploadedEndTier,
+////                                    "endTime" : uploadedEndTime,
+//                                    "headCount" : headCountValue,
+//                                    "top" : uploadedTop,
+//                                    "mid" : uploadedMid,
+//                                    "bottom" : uploadedBottom,
+//                                    "support" : uploadedSupport,
+//                                    "jungle" : uploadedJungle,
+//                                    "talkon" : talkonField.text!,
+//                                    "content" : textContentView.text!
+//                                 ],
+//                                 encoding: JSONEncoding.default,
+//                                 headers: ["Authorization": ad!.access_token, "Content-Type": "application/json"])
+//            // db에서 값 가져오기
+//            req.responseJSON {res in
+//                switch res.result {
+//                case.success(let value):
+//                    print(value)
+//                    if let datas = value as? Dictionary<String,Any> {
+//                        if let msg = datas["msg"] as? String  {
+//                            if (msg == "create success") {
+//                                let alert = UIAlertController(title: "업로드 성공!", message: "", preferredStyle: .alert)
+//                                alert.addAction(UIAlertAction(title: "확인", style: .default ) { (action) in
+//                                    self.dismiss(animated: true, completion: nil)
+//                                })
+//                                self.present(alert, animated: true, completion: nil)
+//                            }
+//                        }
+//                    }
+//                case .failure(let error):
+//                    print(error)
+//                }
+//            }
         }
     }
     

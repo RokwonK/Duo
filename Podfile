@@ -6,11 +6,8 @@ target 'duo' do
   use_frameworks!
 
   # Social Login
-  pod 'naveridlogin-sdk-ios'
   pod 'KakaoSDKAuth'
   pod 'KakaoSDKUser'
-  pod 'GoogleSignIn', '~> 5.0.2'
-
 
   # Network
   pod 'Alamofire'
@@ -21,6 +18,9 @@ target 'duo' do
   # RxSwift
   pod 'RxSwift', '~> 5.0'
   pod 'RxCocoa', '~> 5.0'
+
+  # UI
+  pod 'SnapKit', '~> 5.0.0'
   
   # Pods for duo
 end

@@ -28,70 +28,70 @@ class LoginViewModel : ViewModel{
     
     private func requestUserInfo(_ snsToken : String, _ sns_name : String) {
         
-        var nickName = ""
-        var userID = 0
-        var userToken = ""
-        
-        var msg = ""
-        var code = 0
-        
-        ad?.sns_name = sns_name
-        ad?.access_token = snsToken
-        
-        //서버에서 받을 json데이터항목정의
-        struct getInfo : Codable {
-            var userToken : String
-            var nickname : String
-            var userId : Int
-        }
-        
-        struct errorMessage : Codable {
-            var msg : String
-            var code : Int
-        }
-        
-        //(우리 서버로 인증 하는 부분)
-        let req = AF.request(URL(string :"\(BaseFunc.baseurl)/auth/\(sns_name)")!,
-                             method:.post,
-                             encoding: JSONEncoding.default,
-                             headers: ["Authorization" : snsToken, "Content-Type": "application/json"])
-        
-        req.responseJSON { res in
-            switch res.result {
-            case.success (let value):
-                do{
-                    print("success")
-                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                    
-                    
-                    if let loginInfo = try? JSONDecoder().decode(getInfo.self, from: data){
-                        nickName = loginInfo.nickname
-                        userID = Int(loginInfo.userId)
-                        userToken = loginInfo.userToken
-                        self.ad?.access_token = userToken
-                        self.ad?.userID = loginInfo.userId
-                        self.ad?.nickname = loginInfo.nickname
-                        
-                        if userToken != "" {
-                            self.loginComplete.onNext("loginSuccess")
-                        }
-                    }
-                    else{
-                        let eM = try? JSONDecoder().decode(errorMessage.self, from: data)
-                        msg = eM!.msg
-                        code = Int(eM!.code)
-                        
-                        self.loginComplete.onNext("needNickname")
-                    }
-                }
-                catch{
-                }
-                
-            case.failure(let error):
-                print("error :\(error)")
-                break;
-            }
-        }
+//        var nickName = ""
+//        var userID = 0
+//        var userToken = ""
+//        
+//        var msg = ""
+//        var code = 0
+//        
+//        ad?.sns_name = sns_name
+//        ad?.access_token = snsToken
+//        
+//        //서버에서 받을 json데이터항목정의
+//        struct getInfo : Codable {
+//            var userToken : String
+//            var nickname : String
+//            var userId : Int
+//        }
+//        
+//        struct errorMessage : Codable {
+//            var msg : String
+//            var code : Int
+//        }
+//        
+//        //(우리 서버로 인증 하는 부분)
+//        let req = AF.request(URL(string :"\(BaseFunc.baseurl)/auth/\(sns_name)")!,
+//                             method:.post,
+//                             encoding: JSONEncoding.default,
+//                             headers: ["Authorization" : snsToken, "Content-Type": "application/json"])
+//        
+//        req.responseJSON { res in
+//            switch res.result {
+//            case.success (let value):
+//                do{
+//                    print("success")
+//                    let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+//                    
+//                    
+//                    if let loginInfo = try? JSONDecoder().decode(getInfo.self, from: data){
+//                        nickName = loginInfo.nickname
+//                        userID = Int(loginInfo.userId)
+//                        userToken = loginInfo.userToken
+//                        self.ad?.access_token = userToken
+//                        self.ad?.userID = loginInfo.userId
+//                        self.ad?.nickname = loginInfo.nickname
+//                        
+//                        if userToken != "" {
+//                            self.loginComplete.onNext("loginSuccess")
+//                        }
+//                    }
+//                    else{
+//                        let eM = try? JSONDecoder().decode(errorMessage.self, from: data)
+//                        msg = eM!.msg
+//                        code = Int(eM!.code)
+//                        
+//                        self.loginComplete.onNext("needNickname")
+//                    }
+//                }
+//                catch{
+//                }
+//                
+//            case.failure(let error):
+//                print("error :\(error)")
+//                break;
+//            }
+//        }
     }
 
     

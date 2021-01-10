@@ -55,8 +55,8 @@ class NickNameView : UIViewController {
     // 로그인 성공시에 탭바뷰 컨트롤러의 storyboard id("tabbar")를 추적해 그 화면으로 전환
     func gotoTabBar() {
         let storyBoard = self.storyboard!
-        let tabBarController = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
-        present(tabBarController, animated: true, completion: nil)
+        //let tabBarController = storyBoard.instantiateViewController(withIdentifier: "TabBar") as! TabBarControllerView
+        //present(tabBarController, animated: true, completion: nil)
     }
     
     //닉네임생성완료 버튼누르면 실행
@@ -68,55 +68,56 @@ class NickNameView : UIViewController {
             self.present(alert, animated: true, completion: nil)
         }
         else{
-            let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
-            var sns_name = ad!.sns_name!
-            var snsToken = ad!.access_token
-            //닉네임 서버로 송신하는코드
-            let url = URL(string :"http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns_name)")!
-            
-            var nickName = ""
-            var userId = 0
-            var userToken = ""
-            
-            //서버에서 받을 json 구조체
-            struct getInfo : Codable {
-                var userToken : String
-                var nickname : String
-                var userId : Int
-            }
-            
-            //서버로 생성할 닉네임 보내고 nickname,id json데이터 받아오기
-            let req = AF.request(url,
-                                 method:.post,
-                                 parameters: ["nickname" : inputText.text],
-                                 encoding: JSONEncoding.default,
-                                 headers: ["Authorization": snsToken, "Content-Type": "application/json"])
-            
-            req.responseJSON { res in
-                print(res)
-                
-                switch res.result{
-                
-                case.success (let value):
-                    do{
-                        let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
-                        let logininfo = try JSONDecoder().decode(getInfo.self, from: data)
-                        
-                        ad!.access_token = logininfo.userToken
-                        ad!.nickname = logininfo.nickname
-                        ad!.userID = Int(logininfo.userId)
-                       
-                        self.gotoTabBar()
-                    }
-                    catch{
-                    }
-                    
-                case .failure(let error):
-                    print("error :\(error)")
-                    break;
-                }
-                
-            }
+//            let ad = UIApplication.shared.delegate as? AppDelegate // Appdelegate 참조후 캐스팅
+//            var sns_name = ""// ad!.sns_name!
+//            var snsToken = ""// ad!.access_token
+//            
+//            //닉네임 서버로 송신하는코드
+//            let url = URL(string :"http://ec2-18-222-143-156.us-east-2.compute.amazonaws.com:3000/auth/\(sns_name)")!
+//            
+//            var nickName = ""
+//            var userId = 0
+//            var userToken = ""
+//            
+//            //서버에서 받을 json 구조체
+//            struct getInfo : Codable {
+//                var userToken : String
+//                var nickname : String
+//                var userId : Int
+//            }
+//            
+//            //서버로 생성할 닉네임 보내고 nickname,id json데이터 받아오기
+//            let req = AF.request(url,
+//                                 method:.post,
+//                                 parameters: ["nickname" : inputText.text],
+//                                 encoding: JSONEncoding.default,
+//                                 headers: ["Authorization": snsToken, "Content-Type": "application/json"])
+//            
+//            req.responseJSON { res in
+//                print(res)
+//                
+//                switch res.result{
+//                
+//                case.success (let value):
+//                    do{
+//                        let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
+//                        let logininfo = try JSONDecoder().decode(getInfo.self, from: data)
+//                        
+//                        ad!.access_token = logininfo.userToken
+//                        ad!.nickname = logininfo.nickname
+//                        ad!.userID = Int(logininfo.userId)
+//                       
+//                        self.gotoTabBar()
+//                    }
+//                    catch{
+//                    }
+//                    
+//                case .failure(let error):
+//                    print("error :\(error)")
+//                    break;
+//                }
+//                
+//            }
         }
     }
 }

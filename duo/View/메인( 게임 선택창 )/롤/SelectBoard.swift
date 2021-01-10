@@ -23,51 +23,51 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
     @IBOutlet weak var tableviewheight: NSLayoutConstraint!
 
     @IBAction func postComment(_ sender: Any) {
-        let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
-        let req = AF.request(url,
-                             method:.post,
-                             parameters: ["content": commentTextfield.text!,
-                                          "userId": ad!.userID,
-                                          "postId": postID,
-                                          "nickname" : ad!.nickname],
-                             encoding: JSONEncoding.default,
-                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            print(res)
-            switch res.result {
-            case.success(let value): break
-                
-            case .failure(let error):
-                print(error)
-            }
-        }
-        
-        self.view.endEditing(true);
-        commentTextfield.text = ""
-        postID = boardInfo?["id"] as! Int
-        print(postID)
-        let url2 = URL(string : BaseFunc.baseurl + "/comment/lol")!
-        let req2 = AF.request(url2,
-                             method:.get,
-                             parameters: ["postId": postID],
-                             encoding: URLEncoding.queryString,
-                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
-        // db에서 값 가져오기
-        req2.responseJSON {res in
-            print(res)
-            switch res.result {
-            case.success(let value):
-                if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.commentsData = datas;
-                    DispatchQueue.main.async {
-                        self.tableview.reloadData();
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
+//        let req = AF.request(url,
+//                             method:.post,
+//                             parameters: ["content": commentTextfield.text!,
+//                                          "userId": ad!.userID,
+//                                          "postId": postID,
+//                                          "nickname" : ad!.nickname],
+//                             encoding: JSONEncoding.default,
+//                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+//        // db에서 값 가져오기
+//        req.responseJSON {res in
+//            print(res)
+//            switch res.result {
+//            case.success(let value): break
+//
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
+//
+//        self.view.endEditing(true);
+//        commentTextfield.text = ""
+//        postID = boardInfo?["id"] as! Int
+//        print(postID)
+//        let url2 = URL(string : BaseFunc.baseurl + "/comment/lol")!
+//        let req2 = AF.request(url2,
+//                             method:.get,
+//                             parameters: ["postId": postID],
+//                             encoding: URLEncoding.queryString,
+//                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+//        // db에서 값 가져오기
+//        req2.responseJSON {res in
+//            print(res)
+//            switch res.result {
+//            case.success(let value):
+//                if let datas = value as? Array<Dictionary<String,Any>> {
+//                    self.commentsData = datas;
+//                    DispatchQueue.main.async {
+//                        self.tableview.reloadData();
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
     }
     func addBottomBorder() {
@@ -145,26 +145,26 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         postID = boardInfo?["id"] as! Int
         print(postID)
         let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
-        let req = AF.request(url,
-                             method:.get,
-                             parameters: ["postId": postID],
-                             encoding: URLEncoding.queryString,
-                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
-        // db에서 값 가져오기
-        req.responseJSON {res in
-            print(res)
-            switch res.result {
-            case.success(let value):
-                if let datas = value as? Array<Dictionary<String,Any>> {
-                    self.commentsData = datas;
-                    DispatchQueue.main.async {
-                        self.tableview.reloadData();
-                    }
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+//        let req = AF.request(url,
+//                             method:.get,
+//                             parameters: ["postId": postID],
+//                             encoding: URLEncoding.queryString,
+//                             headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"])
+//        // db에서 값 가져오기
+//        req.responseJSON {res in
+//            print(res)
+//            switch res.result {
+//            case.success(let value):
+//                if let datas = value as? Array<Dictionary<String,Any>> {
+//                    self.commentsData = datas;
+//                    DispatchQueue.main.async {
+//                        self.tableview.reloadData();
+//                    }
+//                }
+//            case .failure(let error):
+//                print(error)
+//            }
+//        }
         
         var talkon = boardInfo?["talkon"] as! Int
         var startt = boardInfo?["startTier"] as! Int

@@ -223,7 +223,7 @@ class FilterView : UIViewController, UITextViewDelegate, UIPickerViewDelegate, U
             FilterModel.sharedInstance.talkOn = 2}
         else{FilterModel.sharedInstance.talkOn = 3}
         FilterViewModel().getPosts()
-        FilterModel.sharedInstance.AD!.record += 1
+        // FilterModel.sharedInstance.AD!.record += 1
 //        self.dismiss(animated: true, completion: nil)
     }
     
