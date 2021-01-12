@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-class NetworkBase : NSObject {
+class BaseNetwork : NSObject {
     
     func requestGet<T : Codable>(type : T.Type, success : ( () -> Void)?, failure : ( () -> Void )?) {
 //        AF.request(<#T##convertible: URLConvertible##URLConvertible#>,
@@ -18,7 +18,7 @@ class NetworkBase : NSObject {
 //                   encoder: <#T##ParameterEncoder#>,
 //                   headers: <#T##HTTPHeaders?#>,
 //                   interceptor: <#T##RequestInterceptor?#>,
-//                   requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)
+//                   requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)           
         
     }
     

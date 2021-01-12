@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MemberUseCase : NSObject {
+class UserUseCase : NSObject {
     
     // 넷통신 ( 유저 정보 가져오기 )
     func getMember() {

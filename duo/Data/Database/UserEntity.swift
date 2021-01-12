@@ -8,7 +8,7 @@
 
 import UIKit
 
-struct MemberEntity : Codable {
+struct UserEntity : Codable {
     var user_token : String?
     var user_id : String?
     var nickname : String?

@@ -59,4 +59,8 @@ class RealmManager : NSObject {
         }
     }
     
+    func save() {
+        try? realm.commitWrite()
+    }
+    
 }
