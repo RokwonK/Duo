@@ -9,7 +9,7 @@
 import UIKit
 import RealmSwift
 
-class RealmUser : Object, Codable {
+class RealmUser : Object, CodableProtocol {
     @objc dynamic var user_token : String?
     @objc dynamic var user_id : String?
     @objc dynamic var nickname : String?

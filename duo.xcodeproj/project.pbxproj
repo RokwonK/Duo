@@ -21,7 +21,7 @@
 		097B73E225AADBDB00367728 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097B73E125AADBDB00367728 /* TabBarView.xib */; };
 		0989123C2502338D0006909F /* BaseFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseFunc.swift */; };
 		098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A740A25ADE5720018300F /* Codable+Extension.swift */; };
-		098A741525ADEF690018300F /* CodableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A741425ADEF690018300F /* CodableProtocol.swift */; };
+		098A741525ADEF690018300F /* CodableProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A741425ADEF690018300F /* CodableProtocol+extension.swift */; };
 		099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669632524AC7200336252 /* LoLMainBoardModel.swift */; };
 		099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669672524AC9000336252 /* LoLMainBoardExtension.swift */; };
 		0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */; };
@@ -84,7 +84,7 @@
 		097B73E125AADBDB00367728 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
 		0989123B2502338D0006909F /* BaseFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFunc.swift; sourceTree = "<group>"; };
 		098A740A25ADE5720018300F /* Codable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
-		098A741425ADEF690018300F /* CodableProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableProtocol.swift; sourceTree = "<group>"; };
+		098A741425ADEF690018300F /* CodableProtocol+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableProtocol+extension.swift"; sourceTree = "<group>"; };
 		099669632524AC7200336252 /* LoLMainBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardModel.swift; sourceTree = "<group>"; };
 		099669672524AC9000336252 /* LoLMainBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardExtension.swift; sourceTree = "<group>"; };
 		0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardViewModel.swift; sourceTree = "<group>"; };
@@ -154,6 +154,7 @@
 				096E157F25A079D600F2A55C /* UIViewController+Extension.swift */,
 				0904E0AA259A357900184DC0 /* UIButton+Extension.swift */,
 				098A740A25ADE5720018300F /* Codable+Extension.swift */,
+				098A741425ADEF690018300F /* CodableProtocol+extension.swift */,
 				09D733A825AB354300DC556A /* Object+Extension.swift */,
 			);
 			path = Extension;
@@ -195,7 +196,6 @@
 		09825E8E259A1C4E003BA409 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				098A741325ADEF4E0018300F /* Protocol */,
 				0904E0A8259A345100184DC0 /* Extension */,
 				19BD2FF1251D0D8D00C52697 /* StoryBoard */,
 				0904E0AF259A37EE00184DC0 /* ViewModel.swift */,
@@ -204,14 +204,6 @@
 				0989123B2502338D0006909F /* BaseFunc.swift */,
 			);
 			path = Common;
-			sourceTree = "<group>";
-		};
-		098A741325ADEF4E0018300F /* Protocol */ = {
-			isa = PBXGroup;
-			children = (
-				098A741425ADEF690018300F /* CodableProtocol.swift */,
-			);
-			path = Protocol;
 			sourceTree = "<group>";
 		};
 		099259C9259DEE8B0068FCF1 /* 회원가입( 닉네임 설정 ) */ = {
@@ -597,7 +589,7 @@
 				19EF8FF0255A883300767CC8 /* NickNameChange.swift in Sources */,
 				192DB5232582863B0037BF39 /* NewChat.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */,
-				098A741525ADEF690018300F /* CodableProtocol.swift in Sources */,
+				098A741525ADEF690018300F /* CodableProtocol+extension.swift in Sources */,
 				096E157625A06EF100F2A55C /* SplashViewController.swift in Sources */,
 				098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */,
 				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
