@@ -21,3 +21,17 @@ struct UserEntity : CodableProtocol {
         return try? JSONEncoder().encode(self)
     }
 }
+
+struct UserRequestEntity : Codable {
+    
+}
+
+struct UserResponseEntity : Codable {
+    var user_token : String?
+    var user_id : String?
+    var nickname : String?
+    var con_lol : String?
+    var con_er : String?
+    var con_bg : String?
+    var con_ow : String?
+}

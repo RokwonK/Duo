@@ -24,15 +24,30 @@ class LoLMainBoard: UITableViewController{
 
     
     func getPosts() {
+//        
 //        BaseFunc.fetch();
-
+//
 //        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
 //        let req = AF.request(url,
 //                            method:.get,
 //                            parameters: ["limit": 100, "offset" : 0],
 //                            encoding: URLEncoding.queryString,
-//                            headers: ["Authorization" : ad!.access_token, "Content-Type": "application/json"]
+//                            headers: ["Authorization" : "ad!.access_token", "Content-Type": "application/json"]
 //                            )
+//        req.responseData { res in
+//            switch res.result {
+//            case .success(let data):
+//                try! JSONDecoder().decode(UserEntity.self, from: data)
+//                
+//            
+//            case .failure(let error):
+//                break
+//            }
+//            
+//            
+//        }
+//        
+//        req.response
 //        // db에서 값 가져오기
 //        req.responseJSON {res in
 //            print(res)

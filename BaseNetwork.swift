@@ -11,14 +11,11 @@ import Alamofire
 
 class BaseNetwork : NSObject {
     
-    func requestGet<T : Codable>(type : T.Type, success : ( () -> Void)?, failure : ( () -> Void )?) {
-//        AF.request(<#T##convertible: URLConvertible##URLConvertible#>,
-//                   method: <#T##HTTPMethod#>,
-//                   parameters: <#T##Encodable?#>,
-//                   encoder: <#T##ParameterEncoder#>,
-//                   headers: <#T##HTTPHeaders?#>,
-//                   interceptor: <#T##RequestInterceptor?#>,
-//                   requestModifier: <#T##Session.RequestModifier?##Session.RequestModifier?##(inout URLRequest) throws -> Void#>)           
+    func requestGet<T : Codable>(type : T.Type, param : T.Type? = nil, success : ( () -> Void)?, failure : ( () -> Void )?) {
+        
+        let header = UserDefaults.standard.string(forKey: "user_token")
+        print("헤더 : ", header ?? "")
+        
         
     }
     
