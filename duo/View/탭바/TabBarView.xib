@@ -8,11 +8,16 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="GodoM.ttf">
+            <string>GodoM</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="TabBarView" customModule="duo" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="402" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="402" height="45"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="O9O-sy-GD1">
@@ -20,33 +25,68 @@
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qV3-Dg-eXv">
                             <rect key="frame" x="0.0" y="0.0" width="134" height="50"/>
-                            <state key="normal" image="tab_home">
-                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17"/>
+                            <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="12"/>
+                            <color key="tintColor" red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="메인" image="house" catalog="system">
+                                <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" weight="light"/>
                             </state>
-                            <state key="selected" image="tab_shome"/>
+                            <state key="selected" image="house" catalog="system">
+                                <color key="titleColor" red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6P-Uv-it9">
                             <rect key="frame" x="134" y="0.0" width="134" height="50"/>
-                            <state key="normal" image="tab_chat"/>
-                            <state key="selected" image="tab_schat"/>
+                            <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="12"/>
+                            <color key="tintColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="titleEdgeInsets" minX="-30" minY="25" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="20" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="채팅" image="bubble.left.and.bubble.right" catalog="system">
+                                <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="17" weight="light"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9E-GV-F7L">
                             <rect key="frame" x="268" y="0.0" width="134" height="50"/>
-                            <state key="normal" image="tab_profile"/>
-                            <state key="selected" image="tab_sprofile"/>
+                            <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="12"/>
+                            <color key="tintColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <inset key="titleEdgeInsets" minX="-25" minY="25" maxX="0.0" maxY="0.0"/>
+                            <inset key="imageEdgeInsets" minX="34" minY="0.0" maxX="0.0" maxY="15"/>
+                            <state key="normal" title="내 정보" image="person" catalog="system">
+                                <color key="titleColor" red="0.74901960784313726" green="0.74901960784313726" blue="0.74901960784313726" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="21" weight="light"/>
+                            </state>
+                            <state key="selected">
+                                <color key="titleColor" red="1" green="0.37254901959999998" blue="0.37254901959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
                         </button>
                     </subviews>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="YV9-AC-yal"/>
                     </constraints>
                 </stackView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="w9z-KJ-J07">
+                    <rect key="frame" x="0.0" y="0.0" width="402" height="1"/>
+                    <color key="backgroundColor" red="0.92941176470588238" green="0.92941176470588238" blue="0.92941176470588238" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="1" id="xEB-da-TkG"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="O9O-sy-GD1" secondAttribute="trailing" id="8RF-kq-8fT"/>
                 <constraint firstAttribute="top" secondItem="O9O-sy-GD1" secondAttribute="top" id="IBO-av-PX8"/>
+                <constraint firstItem="w9z-KJ-J07" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="SOU-bq-vSV"/>
                 <constraint firstItem="O9O-sy-GD1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="WXF-nZ-k8e"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="w9z-KJ-J07" secondAttribute="trailing" id="gmq-W0-okz"/>
+                <constraint firstAttribute="top" secondItem="w9z-KJ-J07" secondAttribute="top" id="h7D-sM-Yrp"/>
             </constraints>
             <nil key="simulatedTopBarMetrics"/>
             <nil key="simulatedBottomBarMetrics"/>
@@ -56,16 +96,13 @@
                 <outlet property="homeButton" destination="qV3-Dg-eXv" id="fbb-xd-abP"/>
                 <outlet property="profileButton" destination="V9E-GV-F7L" id="BCV-Cd-etv"/>
             </connections>
-            <point key="canvasLocation" x="131.8840579710145" y="-152.67857142857142"/>
+            <point key="canvasLocation" x="131.8840579710145" y="-154.35267857142856"/>
         </view>
     </objects>
     <resources>
-        <image name="tab_chat" width="33.5" height="27.5"/>
-        <image name="tab_home" width="38" height="26"/>
-        <image name="tab_profile" width="29.5" height="27.5"/>
-        <image name="tab_schat" width="33.5" height="27.5"/>
-        <image name="tab_shome" width="38" height="26"/>
-        <image name="tab_sprofile" width="29.5" height="27.5"/>
+        <image name="bubble.left.and.bubble.right" catalog="system" width="128" height="96"/>
+        <image name="house" catalog="system" width="128" height="106"/>
+        <image name="person" catalog="system" width="128" height="117"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

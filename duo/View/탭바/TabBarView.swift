@@ -19,25 +19,31 @@ class TabBarView: UIView {
     var touchTab : ((Int) -> Void)?
     
     let disposeBag = DisposeBag()
+    let basicTintColor = UIColor(displayP3Red: 191/255, green: 191/255, blue: 191/255, alpha: 1)
+    let selectedTintColor = UIColor(displayP3Red: 255/255, green: 95/255, blue: 95/255, alpha: 1)
 
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
         homeButton.rx.tap.subscribe(onNext : {[weak self] in
             self?.deselectAll()
             self?.homeButton.isSelected = true
+            self?.homeButton.tintColor = self?.selectedTintColor
             self?.touchTab?(0)
         }).disposed(by: disposeBag)
         
         chatButton.rx.tap.subscribe(onNext : {[weak self] in
             self?.deselectAll()
             self?.chatButton.isSelected = true
+            self?.chatButton.tintColor = self?.selectedTintColor
             self?.touchTab?(1)
         }).disposed(by: disposeBag)
         
         profileButton.rx.tap.subscribe(onNext : {[weak self] in
             self?.deselectAll()
             self?.profileButton.isSelected = true
+            self?.profileButton.tintColor = self?.selectedTintColor
             self?.touchTab?(2)
         }).disposed(by: disposeBag)
     }
@@ -46,6 +52,10 @@ class TabBarView: UIView {
         homeButton.isSelected = false
         chatButton.isSelected = false
         profileButton.isSelected = false
+        
+        homeButton.tintColor = basicTintColor
+        chatButton.tintColor = basicTintColor
+        profileButton.tintColor = basicTintColor
     }
 
 }

@@ -19,6 +19,8 @@
 		097B73D925AADA0B00367728 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B73D825AADA0B00367728 /* TabBarViewController.swift */; };
 		097B73DE25AADB5100367728 /* TabBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 097B73DD25AADB5100367728 /* TabBarView.swift */; };
 		097B73E225AADBDB00367728 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097B73E125AADBDB00367728 /* TabBarView.xib */; };
+		0987128325B7195F008D571D /* GodoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0949308125B7157400AA95C6 /* GodoM.ttf */; };
+		0987128525B71A1F008D571D /* GodoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0949308325B7166E00AA95C6 /* GodoB.ttf */; };
 		0989123C2502338D0006909F /* BaseFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseFunc.swift */; };
 		098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A740A25ADE5720018300F /* Codable+Extension.swift */; };
 		098A741525ADEF690018300F /* CodableProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A741425ADEF690018300F /* CodableProtocol+extension.swift */; };
@@ -74,6 +76,8 @@
 		0904E0AF259A37EE00184DC0 /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
 		090EF50D24FFE55700ADC959 /* SelectBoard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectBoard.swift; sourceTree = "<group>"; };
 		091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpLoadLoLPost.swift; sourceTree = "<group>"; };
+		0949308125B7157400AA95C6 /* GodoM.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GodoM.ttf; path = ../../../Downloads/godoFont/GodoM.ttf; sourceTree = "<group>"; };
+		0949308325B7166E00AA95C6 /* GodoB.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = GodoB.ttf; path = ../../../Downloads/godoFont/GodoB.ttf; sourceTree = "<group>"; };
 		09549B0024FFC07400B1A0B0 /* LoLPostCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLPostCell.swift; sourceTree = "<group>"; };
 		096E157525A06EF100F2A55C /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		096E157C25A0791D00F2A55C /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
@@ -220,7 +224,7 @@
 			isa = PBXGroup;
 			children = (
 				1980409824F4B23700ED48B2 /* GameSelectView.swift */,
-				09DEF76125A09D6E001A320B /* 롤 */,
+				09DEF76125A09D6E001A320B /* LoL */,
 				09D7338925AAF81300DC556A /* HomeViewController.swift */,
 				09D7338A25AAF81300DC556A /* HomeViewController.xib */,
 			);
@@ -257,6 +261,8 @@
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
 				195CA9A224F16D2100D1F52A /* Assets.xcassets */,
 				09BD7F9F24ED038200409033 /* Info.plist */,
+				0949308125B7157400AA95C6 /* GodoM.ttf */,
+				0949308325B7166E00AA95C6 /* GodoB.ttf */,
 			);
 			path = duo;
 			sourceTree = "<group>";
@@ -289,7 +295,7 @@
 			path = "설정";
 			sourceTree = "<group>";
 		};
-		09DEF76125A09D6E001A320B /* 롤 */ = {
+		09DEF76125A09D6E001A320B /* LoL */ = {
 			isa = PBXGroup;
 			children = (
 				090EF50D24FFE55700ADC959 /* SelectBoard.swift */,
@@ -301,7 +307,7 @@
 				091A062D25072C7000B405B6 /* UpLoadLoLPost.swift */,
 				09DEF76225A09D95001A320B /* Cell */,
 			);
-			name = "롤";
+			name = LoL;
 			path = "롤";
 			sourceTree = "<group>";
 		};
@@ -495,10 +501,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				09D7339625AAF8A600DC556A /* ProfileViewController.xib in Resources */,
+				0987128325B7195F008D571D /* GodoM.ttf in Resources */,
 				097B73E225AADBDB00367728 /* TabBarView.xib in Resources */,
 				09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */,
 				195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */,
 				1995002E250D12180041BA69 /* GameTab.storyboard in Resources */,
+				0987128525B71A1F008D571D /* GodoB.ttf in Resources */,
 				097B73D625AAD22600367728 /* SplashViewController.xib in Resources */,
 				09D7338C25AAF81300DC556A /* HomeViewController.xib in Resources */,
 				09D7339125AAF89500DC556A /* ChatViewController.xib in Resources */,
