@@ -29,9 +29,9 @@ class HomeViewController: UIViewController {
         overwatchView.layer.cornerRadius = 10
         pokemonView.layer.cornerRadius = 10
         
-        lolView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 1.5)
-        bagView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 1.5)
-        overwatchView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 1.5)
+        lolView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
+        bagView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
+        overwatchView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
         pokemonView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
     }
 

@@ -19,8 +19,8 @@ class TabBarView: UIView {
     var touchTab : ((Int) -> Void)?
     
     let disposeBag = DisposeBag()
-    let basicTintColor = UIColor(displayP3Red: 191/255, green: 191/255, blue: 191/255, alpha: 1)
-    let selectedTintColor = UIColor(displayP3Red: 255/255, green: 95/255, blue: 95/255, alpha: 1)
+    let basicTintColor = UIColor(displayP3Red: 159/255, green: 166/255, blue: 170/255, alpha: 1)
+    let selectedTintColor = UIColor(displayP3Red: 15/255, green: 15/255, blue: 15/255, alpha: 1)
 
     
     override func awakeFromNib() {
