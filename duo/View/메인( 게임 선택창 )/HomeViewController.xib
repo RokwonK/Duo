@@ -106,12 +106,29 @@
                                                     <fontDescription key="fontDescription" name="GodoB" family="Godo B" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bag_image" translatesAutoresizingMaskIntoConstraints="NO" id="MsO-lr-j0Q">
+                                                    <rect key="frame" x="95" y="95" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="MsO-lr-j0Q" secondAttribute="height" multiplier="1:1" id="l2g-YP-bsU"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Battle Grounds" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODM-Re-Ota">
+                                                    <rect key="frame" x="16" y="52.5" width="105.5" height="17"/>
+                                                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="15"/>
+                                                    <color key="textColor" red="0.62352941179999999" green="0.65098039220000004" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="ERc-hl-Clu" firstAttribute="top" secondItem="W7t-G3-IDV" secondAttribute="top" constant="24" id="6A4-Gr-ThB"/>
                                                 <constraint firstItem="ERc-hl-Clu" firstAttribute="leading" secondItem="W7t-G3-IDV" secondAttribute="leading" constant="16" id="Etm-xq-DBG"/>
+                                                <constraint firstItem="MsO-lr-j0Q" firstAttribute="width" secondItem="W7t-G3-IDV" secondAttribute="width" multiplier="0.35" id="KS5-ZG-ozk"/>
                                                 <constraint firstAttribute="width" secondItem="W7t-G3-IDV" secondAttribute="height" multiplier="1:1" id="MlJ-75-Xtk"/>
+                                                <constraint firstAttribute="trailing" secondItem="MsO-lr-j0Q" secondAttribute="trailing" constant="16" id="Qaj-LB-FY6"/>
+                                                <constraint firstItem="ODM-Re-Ota" firstAttribute="top" secondItem="ERc-hl-Clu" secondAttribute="bottom" constant="8" id="Uez-59-Avh"/>
+                                                <constraint firstAttribute="bottom" secondItem="MsO-lr-j0Q" secondAttribute="bottom" constant="16" id="W8H-LX-Rxf"/>
+                                                <constraint firstItem="ODM-Re-Ota" firstAttribute="leading" secondItem="W7t-G3-IDV" secondAttribute="leading" constant="16" id="Zrs-On-zD0"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N6p-10-icZ">
@@ -122,11 +139,28 @@
                                                     <fontDescription key="fontDescription" name="GodoB" family="Godo B" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="lol_image" translatesAutoresizingMaskIntoConstraints="NO" id="1iS-9w-SAw">
+                                                    <rect key="frame" x="95" y="95" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="1iS-9w-SAw" secondAttribute="height" multiplier="1:1" id="Xqb-jv-hhz"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="League of Legends " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cob-Ns-8le">
+                                                    <rect key="frame" x="16" y="52.5" width="137.5" height="17"/>
+                                                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="15"/>
+                                                    <color key="textColor" red="0.62352941176470589" green="0.65098039215686276" blue="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstAttribute="bottom" secondItem="1iS-9w-SAw" secondAttribute="bottom" constant="16" id="5ek-iJ-XhO"/>
+                                                <constraint firstItem="1iS-9w-SAw" firstAttribute="width" secondItem="N6p-10-icZ" secondAttribute="width" multiplier="0.35" id="D72-Pf-BbP"/>
                                                 <constraint firstAttribute="width" secondItem="N6p-10-icZ" secondAttribute="height" multiplier="1:1" id="HFh-Qj-jgX"/>
+                                                <constraint firstAttribute="trailing" secondItem="1iS-9w-SAw" secondAttribute="trailing" constant="16" id="HiL-of-fc3"/>
+                                                <constraint firstItem="cob-Ns-8le" firstAttribute="leading" secondItem="N6p-10-icZ" secondAttribute="leading" constant="16" id="MYd-nT-YP3"/>
                                                 <constraint firstItem="cRY-J1-IF4" firstAttribute="leading" secondItem="N6p-10-icZ" secondAttribute="leading" constant="16" id="XfD-0y-Hqp"/>
+                                                <constraint firstItem="cob-Ns-8le" firstAttribute="top" secondItem="cRY-J1-IF4" secondAttribute="bottom" constant="8" id="ery-ob-cKQ"/>
                                                 <constraint firstItem="cRY-J1-IF4" firstAttribute="top" secondItem="N6p-10-icZ" secondAttribute="top" constant="24" id="svv-q5-bCA"/>
                                             </constraints>
                                         </view>
@@ -153,12 +187,27 @@
                                                     <fontDescription key="fontDescription" name="GodoB" family="Godo B" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pokemon_image" translatesAutoresizingMaskIntoConstraints="NO" id="KSm-VP-JI8">
+                                                    <rect key="frame" x="95" y="95" width="60" height="60"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pokemon GO" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQ3-gY-V7z">
+                                                    <rect key="frame" x="16" y="52.5" width="89.5" height="17"/>
+                                                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="15"/>
+                                                    <color key="textColor" red="0.62352941179999999" green="0.65098039220000004" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
                                                 <constraint firstItem="V3Y-fK-8AF" firstAttribute="leading" secondItem="5OX-Qp-1d6" secondAttribute="leading" constant="16" id="2OI-Bl-pV1"/>
+                                                <constraint firstItem="KSm-VP-JI8" firstAttribute="width" secondItem="KSm-VP-JI8" secondAttribute="height" multiplier="1:1" id="CHg-yE-CCT"/>
+                                                <constraint firstAttribute="bottom" secondItem="KSm-VP-JI8" secondAttribute="bottom" constant="16" id="Deu-66-cKv"/>
+                                                <constraint firstAttribute="trailing" secondItem="KSm-VP-JI8" secondAttribute="trailing" constant="16" id="F6P-dX-esd"/>
+                                                <constraint firstItem="QQ3-gY-V7z" firstAttribute="leading" secondItem="5OX-Qp-1d6" secondAttribute="leading" constant="16" id="JB5-mp-xad"/>
                                                 <constraint firstAttribute="width" secondItem="5OX-Qp-1d6" secondAttribute="height" multiplier="1:1" id="W2S-U7-tG2"/>
+                                                <constraint firstItem="KSm-VP-JI8" firstAttribute="width" secondItem="5OX-Qp-1d6" secondAttribute="width" multiplier="0.35" id="eB0-9B-mgj"/>
                                                 <constraint firstItem="V3Y-fK-8AF" firstAttribute="top" secondItem="5OX-Qp-1d6" secondAttribute="top" constant="24" id="hL8-W7-7Qg"/>
+                                                <constraint firstItem="QQ3-gY-V7z" firstAttribute="top" secondItem="V3Y-fK-8AF" secondAttribute="bottom" constant="8" id="wj9-At-EDb"/>
                                             </constraints>
                                         </view>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FMI-Nb-rrD">
@@ -169,12 +218,29 @@
                                                     <fontDescription key="fontDescription" name="GodoB" family="Godo B" pointSize="18"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="overwatch_image" translatesAutoresizingMaskIntoConstraints="NO" id="xul-cg-YSD">
+                                                    <rect key="frame" x="95" y="95" width="60" height="60"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="xul-cg-YSD" secondAttribute="height" multiplier="1:1" id="6MB-vQ-JhR"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Overwatch" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R8l-nN-YwW">
+                                                    <rect key="frame" x="16" y="52.5" width="76.5" height="17"/>
+                                                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="15"/>
+                                                    <color key="textColor" red="0.62352941179999999" green="0.65098039220000004" blue="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                             <constraints>
+                                                <constraint firstItem="R8l-nN-YwW" firstAttribute="leading" secondItem="FMI-Nb-rrD" secondAttribute="leading" constant="16" id="BKa-3X-nHU"/>
+                                                <constraint firstAttribute="bottom" secondItem="xul-cg-YSD" secondAttribute="bottom" constant="16" id="HWl-Vr-7vp"/>
                                                 <constraint firstAttribute="width" secondItem="FMI-Nb-rrD" secondAttribute="height" multiplier="1:1" id="Jad-yB-tcE"/>
                                                 <constraint firstItem="QrY-hK-YaO" firstAttribute="leading" secondItem="FMI-Nb-rrD" secondAttribute="leading" constant="16" id="PEr-zN-r4h"/>
+                                                <constraint firstAttribute="trailing" secondItem="xul-cg-YSD" secondAttribute="trailing" constant="16" id="VVw-AM-Cnn"/>
+                                                <constraint firstItem="xul-cg-YSD" firstAttribute="width" secondItem="FMI-Nb-rrD" secondAttribute="width" multiplier="0.35" id="Yy9-hk-Bil"/>
                                                 <constraint firstItem="QrY-hK-YaO" firstAttribute="top" secondItem="FMI-Nb-rrD" secondAttribute="top" constant="24" id="ZPf-Li-tVc"/>
+                                                <constraint firstItem="R8l-nN-YwW" firstAttribute="top" secondItem="QrY-hK-YaO" secondAttribute="bottom" constant="8" id="mbr-o5-vJA"/>
                                             </constraints>
                                         </view>
                                     </subviews>
@@ -280,6 +346,10 @@
         </view>
     </objects>
     <resources>
+        <image name="bag_image" width="768" height="768"/>
+        <image name="lol_image" width="1600" height="1600"/>
+        <image name="overwatch_image" width="1600" height="1600"/>
+        <image name="pokemon_image" width="564" height="508"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
