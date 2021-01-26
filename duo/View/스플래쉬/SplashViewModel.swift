@@ -7,3 +7,18 @@
 //
 
 import UIKit
+
+class SplashViewModel : ViewModel {
+    
+    
+    override init() {
+        super.init()
+        
+        setupInput()
+    }
+    
+    func setupInput() {
+        
+    }
+    
+}

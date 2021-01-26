@@ -9,33 +9,35 @@
 import UIKit
 
 class UserUseCase : NSObject {
+    let userDatabase = UserDatabase()
+    let userNetwork = UserNetwork()
     
     // 넷통신 ( 유저 정보 가져오기 )
-    func getMember() {
+    func getUser() {
         
     }
     
     // 넷통신 ( 유저 정보 수정 )
-    func patchMember() {
+    func patchUser() {
         
     }
     
     // 넷통신 ( 유저 탈퇴 )
-    func deleteMember() {
+    func deleteUser() {
         
     }
     
     // DB ( 유저 정보 저장 )
-    func saveMember() {
+    func saveUser() {
         
     }
     
     // DB ( 유저 정보 가져오기 )
-    func loadMember() {
+    func loadUser() {
     }
     
     // DB ( 유저 로그아웃 )
-    func logoutMember() {
+    func logoutUser() {
         
     }
     

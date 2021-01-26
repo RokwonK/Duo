@@ -21,12 +21,13 @@
 		097B73E225AADBDB00367728 /* TabBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 097B73E125AADBDB00367728 /* TabBarView.xib */; };
 		0987128325B7195F008D571D /* GodoM.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0949308125B7157400AA95C6 /* GodoM.ttf */; };
 		0987128525B71A1F008D571D /* GodoB.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0949308325B7166E00AA95C6 /* GodoB.ttf */; };
-		0989123C2502338D0006909F /* BaseFunc.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseFunc.swift */; };
+		0989123C2502338D0006909F /* BaseValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseValue.swift */; };
 		098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A740A25ADE5720018300F /* Codable+Extension.swift */; };
 		098A741525ADEF690018300F /* CodableProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A741425ADEF690018300F /* CodableProtocol+extension.swift */; };
 		099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669632524AC7200336252 /* LoLMainBoardModel.swift */; };
 		099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669672524AC9000336252 /* LoLMainBoardExtension.swift */; };
 		0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */; };
+		09B3F03725C0564E00F5A2AE /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B3F03625C0564E00F5A2AE /* BaseApi.swift */; };
 		09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */; };
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
 		09BD7F9924ED038100409033 /* duo.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F9724ED038100409033 /* duo.xcdatamodeld */; };
@@ -44,6 +45,7 @@
 		09D733A325AB304800DC556A /* UserDatabase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D733A225AB304800DC556A /* UserDatabase.swift */; };
 		09D733A625AB319300DC556A /* UserEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D733A525AB319300DC556A /* UserEntity.swift */; };
 		09D733A925AB354300DC556A /* Object+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D733A825AB354300DC556A /* Object+Extension.swift */; };
+		09DE17C525C05EE20003A846 /* UserNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09DE17C425C05EE20003A846 /* UserNetwork.swift */; };
 		09FD4A8025A1D3C0003B596F /* RealmManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A7F25A1D3C0003B596F /* RealmManager.swift */; };
 		09FD4A8425A1D792003B596F /* RealmUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09FD4A8325A1D792003B596F /* RealmUser.swift */; };
 		1909BB822561994D00C44CFA /* MyPostViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1909BB812561994D00C44CFA /* MyPostViewExtension.swift */; };
@@ -86,12 +88,13 @@
 		097B73D825AADA0B00367728 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		097B73DD25AADB5100367728 /* TabBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarView.swift; sourceTree = "<group>"; };
 		097B73E125AADBDB00367728 /* TabBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TabBarView.xib; sourceTree = "<group>"; };
-		0989123B2502338D0006909F /* BaseFunc.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseFunc.swift; sourceTree = "<group>"; };
+		0989123B2502338D0006909F /* BaseValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseValue.swift; sourceTree = "<group>"; };
 		098A740A25ADE5720018300F /* Codable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		098A741425ADEF690018300F /* CodableProtocol+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableProtocol+extension.swift"; sourceTree = "<group>"; };
 		099669632524AC7200336252 /* LoLMainBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardModel.swift; sourceTree = "<group>"; };
 		099669672524AC9000336252 /* LoLMainBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardExtension.swift; sourceTree = "<group>"; };
 		0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardViewModel.swift; sourceTree = "<group>"; };
+		09B3F03625C0564E00F5A2AE /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09BD7F8B24ED038100409033 /* duo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		09BD7F8E24ED038100409033 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -99,7 +102,7 @@
 		09BD7F9824ED038100409033 /* duo.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = duo.xcdatamodel; sourceTree = "<group>"; };
 		09BD7F9D24ED038200409033 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		09BD7F9F24ED038200409033 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		09CD951B25A4BA83008F7E68 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetwork.swift; sourceTree = SOURCE_ROOT; };
+		09CD951B25A4BA83008F7E68 /* BaseNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseNetwork.swift; path = duo/Data/Network/BaseNetwork.swift; sourceTree = SOURCE_ROOT; };
 		09D7338925AAF81300DC556A /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		09D7338A25AAF81300DC556A /* HomeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeViewController.xib; sourceTree = "<group>"; };
 		09D7338E25AAF89500DC556A /* ChatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatViewController.swift; sourceTree = "<group>"; };
@@ -107,11 +110,12 @@
 		09D7339325AAF8A600DC556A /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
 		09D7339425AAF8A600DC556A /* ProfileViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileViewController.xib; sourceTree = "<group>"; };
 		09D7339925AAFAAA00DC556A /* TabBarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewModel.swift; sourceTree = "<group>"; };
-		09D7339C25AAFB7E00DC556A /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserUseCase.swift; path = "duo/View/탭바/UserUseCase.swift"; sourceTree = SOURCE_ROOT; };
-		09D7339F25AAFF6C00DC556A /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostUseCase.swift; path = "duo/View/탭바/PostUseCase.swift"; sourceTree = SOURCE_ROOT; };
+		09D7339C25AAFB7E00DC556A /* UserUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserUseCase.swift; path = duo/Domain/UseCase/UserUseCase.swift; sourceTree = SOURCE_ROOT; };
+		09D7339F25AAFF6C00DC556A /* PostUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PostUseCase.swift; path = duo/Domain/UseCase/PostUseCase.swift; sourceTree = SOURCE_ROOT; };
 		09D733A225AB304800DC556A /* UserDatabase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDatabase.swift; sourceTree = "<group>"; };
-		09D733A525AB319300DC556A /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserEntity.swift; path = duo/Data/Database/UserEntity.swift; sourceTree = SOURCE_ROOT; };
+		09D733A525AB319300DC556A /* UserEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UserEntity.swift; path = duo/Domain/Entity/UserEntity.swift; sourceTree = SOURCE_ROOT; };
 		09D733A825AB354300DC556A /* Object+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Object+Extension.swift"; sourceTree = "<group>"; };
+		09DE17C425C05EE20003A846 /* UserNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserNetwork.swift; sourceTree = "<group>"; };
 		09FD4A7F25A1D3C0003B596F /* RealmManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmManager.swift; sourceTree = "<group>"; };
 		09FD4A8325A1D792003B596F /* RealmUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmUser.swift; sourceTree = "<group>"; };
 		1909BB812561994D00C44CFA /* MyPostViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostViewExtension.swift; sourceTree = "<group>"; };
@@ -205,7 +209,7 @@
 				0904E0AF259A37EE00184DC0 /* ViewModel.swift */,
 				09BD7F8E24ED038100409033 /* AppDelegate.swift */,
 				09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */,
-				0989123B2502338D0006909F /* BaseFunc.swift */,
+				0989123B2502338D0006909F /* BaseValue.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -232,6 +236,42 @@
 			path = "메인( 게임 선택창 )";
 			sourceTree = "<group>";
 		};
+		09B3F03525C0564000F5A2AE /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				09CD951B25A4BA83008F7E68 /* BaseNetwork.swift */,
+				09B3F03625C0564E00F5A2AE /* BaseApi.swift */,
+				09DE17C425C05EE20003A846 /* UserNetwork.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		09B3F03A25C05BF700F5A2AE /* Domain */ = {
+			isa = PBXGroup;
+			children = (
+				09B3F03B25C05C0000F5A2AE /* UseCase */,
+				09B3F03C25C05C0C00F5A2AE /* Entity */,
+			);
+			path = Domain;
+			sourceTree = "<group>";
+		};
+		09B3F03B25C05C0000F5A2AE /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				09D7339C25AAFB7E00DC556A /* UserUseCase.swift */,
+				09D7339F25AAFF6C00DC556A /* PostUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		09B3F03C25C05C0C00F5A2AE /* Entity */ = {
+			isa = PBXGroup;
+			children = (
+				09D733A525AB319300DC556A /* UserEntity.swift */,
+			);
+			path = Entity;
+			sourceTree = "<group>";
+		};
 		09BD7F8224ED038100409033 = {
 			isa = PBXGroup;
 			children = (
@@ -255,7 +295,7 @@
 			children = (
 				09825E8E259A1C4E003BA409 /* Common */,
 				195A5C7F251CF1E100FD352D /* View */,
-				09FD4A7925A1CD77003B596F /* Domain */,
+				09B3F03A25C05BF700F5A2AE /* Domain */,
 				09FD4A7C25A1CE6F003B596F /* Data */,
 				195A5C7E251CF1DA00FD352D /* Model */,
 				09BD7F9724ED038100409033 /* duo.xcdatamodeld */,
@@ -328,36 +368,10 @@
 			path = Cell;
 			sourceTree = "<group>";
 		};
-		09FD4A7925A1CD77003B596F /* Domain */ = {
-			isa = PBXGroup;
-			children = (
-				09FD4A7A25A1CDBB003B596F /* UseCase */,
-				09FD4A7B25A1CDC2003B596F /* Entity */,
-			);
-			path = Domain;
-			sourceTree = "<group>";
-		};
-		09FD4A7A25A1CDBB003B596F /* UseCase */ = {
-			isa = PBXGroup;
-			children = (
-				09D7339C25AAFB7E00DC556A /* UserUseCase.swift */,
-				09D7339F25AAFF6C00DC556A /* PostUseCase.swift */,
-			);
-			path = UseCase;
-			sourceTree = "<group>";
-		};
-		09FD4A7B25A1CDC2003B596F /* Entity */ = {
-			isa = PBXGroup;
-			children = (
-				09D733A525AB319300DC556A /* UserEntity.swift */,
-			);
-			path = Entity;
-			sourceTree = "<group>";
-		};
 		09FD4A7C25A1CE6F003B596F /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				09FD4A7E25A1D288003B596F /* Network */,
+				09B3F03525C0564000F5A2AE /* Network */,
 				09FD4A7D25A1D282003B596F /* Database */,
 			);
 			path = Data;
@@ -370,14 +384,6 @@
 				09FD4A8225A1D773003B596F /* Realm */,
 			);
 			path = Database;
-			sourceTree = "<group>";
-		};
-		09FD4A7E25A1D288003B596F /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				09CD951B25A4BA83008F7E68 /* BaseNetwork.swift */,
-			);
-			path = Network;
 			sourceTree = "<group>";
 		};
 		09FD4A8225A1D773003B596F /* Realm */ = {
@@ -588,7 +594,7 @@
 				097B73DE25AADB5100367728 /* TabBarView.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
 				0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */,
-				0989123C2502338D0006909F /* BaseFunc.swift in Sources */,
+				0989123C2502338D0006909F /* BaseValue.swift in Sources */,
 				09D7339D25AAFB7E00DC556A /* UserUseCase.swift in Sources */,
 				09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */,
 				09D7339A25AAFAAA00DC556A /* TabBarViewModel.swift in Sources */,
@@ -598,11 +604,13 @@
 				192DB5232582863B0037BF39 /* NewChat.swift in Sources */,
 				1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */,
 				098A741525ADEF690018300F /* CodableProtocol+extension.swift in Sources */,
+				09B3F03725C0564E00F5A2AE /* BaseApi.swift in Sources */,
 				096E157625A06EF100F2A55C /* SplashViewController.swift in Sources */,
 				098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */,
 				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
 				099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
+				09DE17C525C05EE20003A846 /* UserNetwork.swift in Sources */,
 				19713313251A29890085EDEA /* FilterView.swift in Sources */,
 				191CAFB82503BED900933A66 /* MyPostView.swift in Sources */,
 				19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */,
