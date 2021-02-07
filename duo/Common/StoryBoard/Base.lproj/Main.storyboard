@@ -143,11 +143,6 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="ySZ-eL-4Ib"/>
-                    <connections>
-                        <outlet property="appleButton" destination="prg-09-ZmI" id="yiH-iC-qjy"/>
-                        <outlet property="back" destination="3sF-sd-yKf" id="itv-fR-xb0"/>
-                        <outlet property="kakaoButton" destination="nxW-yq-6iB" id="bhH-MU-es5"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Xyt-h7-5Lk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

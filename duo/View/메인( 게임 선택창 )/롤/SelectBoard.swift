@@ -144,7 +144,7 @@ class SelectBoard : UIViewController, UITableViewDelegate, UITableViewDataSource
         
         postID = boardInfo?["id"] as! Int
         print(postID)
-        let url = URL(string : BaseFunc.baseurl + "/comment/lol")!
+        let url = URL(string : BaseValue.baseurl + "/comment/lol")!
 //        let req = AF.request(url,
 //                             method:.get,
 //                             parameters: ["postId": postID],

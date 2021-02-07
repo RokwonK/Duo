@@ -8,29 +8,69 @@
 
 import UIKit
 import Alamofire
+import RxAlamofire
+import RxCocoa
+import RxSwift
 
 class BaseNetwork : NSObject {
     
-    func requestGet<T : Codable>(api : BaseApi, responseType : T.Type, param : [String:Any] ,  success : ( (T.Type?) -> Void)?, failure : ( () -> Void )?) {
+    func request<T : Codable>(
+        method : HTTPMethod,
+        addPath : String,
+        param : Codable? = nil,
+        responseType : T.Type
+    ) -> Observable<ApiResult<T,ApiErrorMessage>> {
         
-        let header = UserDefaults.standard.string(forKey: "user_token") ?? ""
-        let headers : HTTPHeaders = ["Authorization" : header]
-        let request = AF.request(api.getURL(),
-                                 method: api.method,
-                                 parameters: param,
-                                 encoding: JSONEncoding.default,
-                                 headers: headers,
-                                 interceptor: nil).validate(statusCode: 200..<300)
+        let headers : HTTPHeaders? = ["Authorization": UserDefaults.standard.string(forKey: "userToken") ?? ""]
         
-        
-        request.responseData { response in
-            switch response.result {
-            case .success(let data):
-                let entity = try? JSONDecoder().decode(responseType, from: data) as? T.Type
-                success?(entity)
-            case .failure(let error):
-                print("Error Code", error)
+        return RxAlamofire
+            .request(method, BaseValue.baseurl + addPath,
+                            parameters: param?.toDictionary(),
+                            encoding: URLEncoding.default,
+                            headers: headers)
+            .responseData()
+            .mappingObject(type: responseType)
+    }
+
+}
+
+extension Observable where Element == (HTTPURLResponse, Data){
+    fileprivate func mappingObject<T : Codable>(type: T.Type) -> Observable<ApiResult<T, ApiErrorMessage>>{
+        return self.map{ (httpURLResponse, data) -> ApiResult<T, ApiErrorMessage> in
+            
+            
+            if let object = try? JSONDecoder().decode(type, from: data){
+                return .success(object)
             }
+            if let object = try? JSONDecoder().decode(ApiErrorMessage.self, from: data) {
+                return .failure(object)
+            }
+            return .failure(ApiErrorMessage(msg : "server error", code: -501))
         }
+    }
+}
+
+
+enum ApiResult<Value, Error>{
+    case success(Value)
+    case failure(Error)
+    
+    init(value: Value){
+        self = .success(value)
+    }
+    
+    init(error: Error){
+        self = .failure(error)
+    }
+
+}
+
+struct ApiErrorMessage: Codable{
+    var msg: String?
+    var code: Int?
+    
+    init(msg : String?, code : Int?) {
+        self.msg = msg
+        self.code = code
     }
 }

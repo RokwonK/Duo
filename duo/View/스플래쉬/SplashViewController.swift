@@ -5,6 +5,7 @@
 //  Created by 김록원 on 2021/01/02.
 //  Copyright © 2021 김록원. All rights reserved.
 //
+
 import UIKit
 
 class SplashViewController : UIViewController {
@@ -21,30 +22,27 @@ class SplashViewController : UIViewController {
     }
     
     func setupUI() {
-        
         self.navigationController?.isNavigationBarHidden = true
-        
         mainImage.alpha = 0
         UIView.animate(withDuration: 1, animations: {
             self.mainImage.alpha = 1
         })
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2, execute: { [weak self] in
-            
-            self?.moveTabBarView()
-            // Realm에 값이 있는지 없는지 찾아봄 있으면 바로 tabBar로 없으면 로그인뷰 띄우고 뒤에서 tab바로
-//            self?.showLoginView()
-//            
-//            if let tabBar = self?.storyboard?.instantiateViewController(withIdentifier: "TabBar") as? TabBarControllerView {
-//                print("이건 찍혀야지")
-//                
-//                self?.navigationController?.pushViewController(tabBar, animated: true)
-//            }
-        })
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
+                                      execute: { [weak self] in
+                                        if UserDefaults.standard.string(forKey: "userToken") == nil {
+                                            self?.showLoginView()
+                                        }
+                                        self?.showTabBarView()
+                                      })
     }
     
-    func moveTabBarView() {
-        self.navigationController?.pushViewController(tabBar, animated: true)
+    func showTabBarView() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5,
+                                      execute: { [weak self] in
+                                        guard let `self` = self else {return}
+                                        self.navigationController?.pushViewController(self.tabBar, animated: true)
+                                      })
     }
     
 }

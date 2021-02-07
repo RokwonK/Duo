@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="duo" customModuleProvider="target">
+            <connections>
+                <outlet property="appleButton" destination="c9d-Jz-754" id="9FD-Xp-6OE"/>
+                <outlet property="kakaoButton" destination="rwg-Ol-aPN" id="frK-he-Dw8"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rwg-Ol-aPN">
+                    <rect key="frame" x="24" y="706" width="366" height="48"/>
+                    <color key="backgroundColor" red="0.99607843139999996" green="0.8980392157" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="kIt-Pb-2Oz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="170" maxY="0.0"/>
+                    <state key="normal" title="카카오톡으로 로그인" image="logo_kakao">
+                        <color key="titleColor" red="0.113858901" green="0.1253279746" blue="0.13725820180000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </state>
+                </button>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_base" translatesAutoresizingMaskIntoConstraints="NO" id="xjO-Ty-QQ5">
+                    <rect key="frame" x="166" y="303" width="82" height="100"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="100" id="RGf-HH-2NS"/>
+                        <constraint firstAttribute="width" constant="82" id="TAG-mg-vSQ"/>
+                    </constraints>
+                </imageView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo_title" translatesAutoresizingMaskIntoConstraints="NO" id="AsI-I5-Su2">
+                    <rect key="frame" x="147" y="403" width="120" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="120" id="6lb-4G-SNh"/>
+                        <constraint firstAttribute="height" constant="32" id="eGc-kL-424"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c9d-Jz-754">
+                    <rect key="frame" x="24" y="778" width="366" height="48"/>
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="48" id="g1n-TM-NmR"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="190" maxY="0.0"/>
+                    <state key="normal" title="Apple로 로그인" image="logo_apple">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="c9d-Jz-754" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="3AP-Ma-UFF"/>
+                <constraint firstItem="c9d-Jz-754" firstAttribute="top" secondItem="rwg-Ol-aPN" secondAttribute="bottom" constant="24" id="BkJ-Kc-2DW"/>
+                <constraint firstItem="AsI-I5-Su2" firstAttribute="top" secondItem="xjO-Ty-QQ5" secondAttribute="bottom" id="Da0-e8-z3W"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="c9d-Jz-754" secondAttribute="trailing" constant="24" id="GLu-nO-V0b"/>
+                <constraint firstItem="rwg-Ol-aPN" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="W1A-6R-Xik"/>
+                <constraint firstItem="AsI-I5-Su2" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="WDT-qK-gdy"/>
+                <constraint firstItem="xjO-Ty-QQ5" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="-100" id="aoR-NG-ztP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="rwg-Ol-aPN" secondAttribute="trailing" constant="24" id="bbc-ga-aMI"/>
+                <constraint firstItem="xjO-Ty-QQ5" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="luw-fm-yOP"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="c9d-Jz-754" secondAttribute="bottom" constant="36" id="vri-lO-yY3"/>
+            </constraints>
+            <point key="canvasLocation" x="141" y="151"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="logo_apple" width="20" height="24"/>
+        <image name="logo_base" width="82" height="99"/>
+        <image name="logo_kakao" width="24" height="24"/>
+        <image name="logo_title" width="121" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

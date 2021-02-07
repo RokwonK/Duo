@@ -7,14 +7,16 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class UserUseCase : NSObject {
     let userDatabase = UserDatabase()
     let userNetwork = UserNetwork()
     
     // 넷통신 ( 유저 정보 가져오기 )
-    func getUser() {
-        
+    func getUser(social : String) -> Observable<ApiResult<UserEntity,ApiErrorMessage>> {
+        return userNetwork.getUser(social: social)
     }
     
     // 넷통신 ( 유저 정보 수정 )
@@ -40,5 +42,4 @@ class UserUseCase : NSObject {
     func logoutUser() {
         
     }
-    
 }

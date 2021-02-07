@@ -10,14 +10,15 @@ target 'duo' do
   pod 'KakaoSDKUser'
 
   # Network
-  pod 'Alamofire'
+  pod 'Alamofire', '5.4.1'
 
   # DB
   pod 'RealmSwift'
 
   # RxSwift
-  pod 'RxSwift', '~> 5.0'
-  pod 'RxCocoa', '~> 5.0'
+  pod 'RxSwift', '6.0.0'
+  pod 'RxCocoa', '6.0.0'
+  pod 'RxAlamofire'
 
   # UI
   pod 'SnapKit', '~> 5.0.0'

@@ -10,15 +10,14 @@ import UIKit
 
 extension UIViewController {
     
-    
-    
     func showLoginView() {        
-        let loginView = storyboard!.instantiateViewController(withIdentifier: "LoginView") as! LoginViewController
+        let loginView = LoginViewController()
+        
         let navi = UINavigationController(rootViewController: loginView)
         navi.setNavigationBarHidden(true, animated: false)
         navi.modalPresentationStyle = .fullScreen
+        
         self.present(navi, animated: true, completion: nil)
     }
-    
     
 }

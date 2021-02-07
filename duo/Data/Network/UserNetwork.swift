@@ -7,10 +7,23 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class UserNetwork : BaseNetwork {
     
-    func getUser() {
+    func getUser(social : String) -> Observable<ApiResult<UserEntity,ApiErrorMessage>>{
+        return request(method: .post,
+                       addPath: "/auth/\(social)",
+                       responseType: UserEntity.self)
+    }
+    
+    func patchUser() {
+        
+    }
+    
+    // 넷통신 ( 유저 탈퇴 )
+    func deleteUser() {
         
     }
     

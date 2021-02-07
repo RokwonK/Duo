@@ -15,12 +15,14 @@ extension Encodable {
     }
     
     // Dictionary로
-    func toDictionary() throws -> [String: Any] {
-        let data = try JSONEncoder().encode(self)
-        guard let dictionary = try JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any] else {
-          throw NSError()
+    func toDictionary() -> [String: Any] {
+        if let data = try? JSONEncoder().encode(self),
+           let dict = try? JSONSerialization.jsonObject(with: data, options: .allowFragments) as? [String: Any]
+        {
+            return dict
         }
-        return dictionary
+         
+        return [:]
     }
 }
 

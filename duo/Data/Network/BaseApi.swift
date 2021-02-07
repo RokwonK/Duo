@@ -29,5 +29,5 @@ class BaseApi : NSObject {
         
         return URL(string: url) ?? URL(string: BaseValue.baseurl)!
     }
-    
+
 }

@@ -50,12 +50,12 @@ class MyPostView :  UITableViewController{
     
     @IBAction func delete (){
         //        BaseFunc.fetch();
-        let url = URL(string : BaseFunc.baseurl + "/post/lol")!
+        let url = URL(string : BaseValue.baseurl + "/post/lol")!
         let req = AF.request(url,
                              method:.get,
-                             parameters: ["userId" : BaseFunc.userId],
+                             parameters: [ : ],
                              encoding: JSONEncoding.default,
-                             headers: ["Authorization": BaseFunc.userToken, "Content-Type": "application/json"])
+                             headers: [ "Content-Type": "application/json"])
         
         req.responseJSON { res in
             print(res)

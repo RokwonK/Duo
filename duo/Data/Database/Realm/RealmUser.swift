@@ -10,11 +10,10 @@ import UIKit
 import RealmSwift
 
 class RealmUser : Object, CodableProtocol {
-    @objc dynamic var user_token : String?
-    @objc dynamic var user_id : String?
+    @objc dynamic var userToken : String?
+    let userId = RealmOptional<Int>()
     @objc dynamic var nickname : String?
-    @objc dynamic var con_lol : String?
-    @objc dynamic var con_er : String?
-    @objc dynamic var con_bg : String?
-    @objc dynamic var con_ow : String?
+    @objc dynamic var conLOL : String?
+    @objc dynamic var conBG : String?
+    @objc dynamic var conOW : String?
 }
