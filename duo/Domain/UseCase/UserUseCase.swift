@@ -30,8 +30,10 @@ class UserUseCase : NSObject {
     }
     
     // DB ( 유저 정보 저장 )
-    func saveUser() {
-        
+    func saveUser(entity : UserEntity?) {
+        if let entity = entity {
+            userDatabase.update(user: entity)
+        }
     }
     
     // DB ( 유저 정보 가져오기 )

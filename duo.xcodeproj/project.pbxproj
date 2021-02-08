@@ -29,6 +29,9 @@
 		099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669632524AC7200336252 /* LoLMainBoardModel.swift */; };
 		099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669672524AC9000336252 /* LoLMainBoardExtension.swift */; };
 		0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */; };
+		099E6A4725D19263008C8864 /* SetNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099E6A4525D19263008C8864 /* SetNicknameViewController.swift */; };
+		099E6A4825D19263008C8864 /* SetNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099E6A4625D19263008C8864 /* SetNicknameViewController.xib */; };
+		099E6A4B25D196C7008C8864 /* SetNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099E6A4A25D196C7008C8864 /* SetNicknameViewModel.swift */; };
 		09B3F03725C0564E00F5A2AE /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B3F03625C0564E00F5A2AE /* BaseApi.swift */; };
 		09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */; };
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
@@ -66,8 +69,6 @@
 		1980409924F4B23700ED48B2 /* GameSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1980409824F4B23700ED48B2 /* GameSelectView.swift */; };
 		1995002E250D12180041BA69 /* GameTab.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1995002D250D12180041BA69 /* GameTab.storyboard */; };
 		19BD2FEF251CFE5D00C52697 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 09BD7F9424ED038100409033 /* Main.storyboard */; };
-		19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF6251D0FA300C52697 /* NickNameView.swift */; };
-		19BD2FFA251D0FAD00C52697 /* NickNameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */; };
 		19EF8FF0255A883300767CC8 /* NickNameChange.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19EF8FEF255A883300767CC8 /* NickNameChange.swift */; };
 		19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F4BB7F251DE8860092F928 /* MyPostModel.swift */; };
 		19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19F82B72256A75BA00DFEB4E /* MyComment.swift */; };
@@ -97,6 +98,9 @@
 		099669632524AC7200336252 /* LoLMainBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardModel.swift; sourceTree = "<group>"; };
 		099669672524AC9000336252 /* LoLMainBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardExtension.swift; sourceTree = "<group>"; };
 		0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardViewModel.swift; sourceTree = "<group>"; };
+		099E6A4525D19263008C8864 /* SetNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNicknameViewController.swift; sourceTree = "<group>"; };
+		099E6A4625D19263008C8864 /* SetNicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetNicknameViewController.xib; sourceTree = "<group>"; };
+		099E6A4A25D196C7008C8864 /* SetNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNicknameViewModel.swift; sourceTree = "<group>"; };
 		09B3F03625C0564E00F5A2AE /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09BD7F8B24ED038100409033 /* duo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -136,8 +140,6 @@
 		1974132E24FD09B7003BB2F3 /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		1980409824F4B23700ED48B2 /* GameSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameSelectView.swift; sourceTree = "<group>"; };
 		1995002D250D12180041BA69 /* GameTab.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = GameTab.storyboard; sourceTree = "<group>"; };
-		19BD2FF6251D0FA300C52697 /* NickNameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameView.swift; sourceTree = "<group>"; };
-		19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameViewModel.swift; sourceTree = "<group>"; };
 		19EF8FEF255A883300767CC8 /* NickNameChange.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NickNameChange.swift; sourceTree = "<group>"; };
 		19F4BB7F251DE8860092F928 /* MyPostModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPostModel.swift; sourceTree = "<group>"; };
 		19F82B72256A75BA00DFEB4E /* MyComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyComment.swift; sourceTree = "<group>"; };
@@ -220,8 +222,9 @@
 		099259C9259DEE8B0068FCF1 /* 회원가입( 닉네임 설정 ) */ = {
 			isa = PBXGroup;
 			children = (
-				19BD2FF6251D0FA300C52697 /* NickNameView.swift */,
-				19BD2FF9251D0FAD00C52697 /* NickNameViewModel.swift */,
+				099E6A4525D19263008C8864 /* SetNicknameViewController.swift */,
+				099E6A4625D19263008C8864 /* SetNicknameViewController.xib */,
+				099E6A4A25D196C7008C8864 /* SetNicknameViewModel.swift */,
 			);
 			name = "회원가입( 닉네임 설정 )";
 			path = "회원가입( 닉네임 설정 )";
@@ -514,6 +517,7 @@
 				097B73E225AADBDB00367728 /* TabBarView.xib in Resources */,
 				09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */,
 				195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */,
+				099E6A4825D19263008C8864 /* SetNicknameViewController.xib in Resources */,
 				1995002E250D12180041BA69 /* GameTab.storyboard in Resources */,
 				0987128525B71A1F008D571D /* GodoB.ttf in Resources */,
 				097B73D625AAD22600367728 /* SplashViewController.xib in Resources */,
@@ -589,12 +593,12 @@
 				097B73D925AADA0B00367728 /* TabBarViewController.swift in Sources */,
 				1924FBF225827A700031BB60 /* Chat.swift in Sources */,
 				1943A45E24FD3604001B4092 /* LolMainBoard.swift in Sources */,
-				19BD2FF7251D0FA300C52697 /* NickNameView.swift in Sources */,
 				0904E0B0259A37EE00184DC0 /* ViewModel.swift in Sources */,
 				096E157D25A0791D00F2A55C /* SplashViewModel.swift in Sources */,
 				19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */,
 				0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */,
 				097B73DE25AADB5100367728 /* TabBarView.swift in Sources */,
+				099E6A4725D19263008C8864 /* SetNicknameViewController.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
 				0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */,
 				09442DCD25D0121B0095EFC9 /* LoginViewController.swift in Sources */,
@@ -612,6 +616,7 @@
 				096E157625A06EF100F2A55C /* SplashViewController.swift in Sources */,
 				098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */,
 				1971331A251A29B00085EDEA /* FilterViewModel.swift in Sources */,
+				099E6A4B25D196C7008C8864 /* SetNicknameViewModel.swift in Sources */,
 				099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
 				09DE17C525C05EE20003A846 /* UserNetwork.swift in Sources */,
@@ -619,7 +624,6 @@
 				191CAFB82503BED900933A66 /* MyPostView.swift in Sources */,
 				19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */,
 				09D7338B25AAF81300DC556A /* HomeViewController.swift in Sources */,
-				19BD2FFA251D0FAD00C52697 /* NickNameViewModel.swift in Sources */,
 				09D733A625AB319300DC556A /* UserEntity.swift in Sources */,
 				1910CCA0256156B8008DFC20 /* CommetCell.swift in Sources */,
 				09D7339525AAF8A600DC556A /* ProfileViewController.swift in Sources */,

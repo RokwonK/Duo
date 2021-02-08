@@ -16,12 +16,8 @@ class LoginViewModel : ViewModel {
         setupBinding()
     }
     
-    
-    
     private func setupBinding() {
     }
-    
-    
     
     func requestUser(social : String) {
         userUseCase.getUser(social: social)
@@ -39,6 +35,10 @@ class LoginViewModel : ViewModel {
             .disposed(by: disposeBag)
     }
     
+    
+    func saveUser(entity : UserEntity?) {
+        userUseCase.saveUser(entity: entity)
+    }
     
     
 }

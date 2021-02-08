@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="GodoM.ttf">
+            <string>GodoM</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SetNicknameViewController" customModule="duo" customModuleProvider="target">
+            <connections>
+                <outlet property="nicknameTextField" destination="KtS-LY-iIB" id="gWe-oj-HIJ"/>
+                <outlet property="startButton" destination="Ghb-7C-FjP" id="UYJ-zm-z6r"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="닉네임을 입력해주세요!" textAlignment="natural" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="KtS-LY-iIB">
+                    <rect key="frame" x="24" y="342" width="366" height="22"/>
+                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="18"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Gd-D5-tKp">
+                    <rect key="frame" x="24" y="367" width="366" height="3"/>
+                    <color key="backgroundColor" red="0.19607843137254902" green="0.43137254901960786" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="3" id="Rps-H1-3Mr"/>
+                    </constraints>
+                </view>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="환영합니다!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L6Z-dO-czW">
+                    <rect key="frame" x="24" y="280" width="111.5" height="26"/>
+                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="23"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 닉네임의 최대 길이는 10자 입니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pql-Kz-Xg8">
+                    <rect key="frame" x="24" y="378" width="195" height="15"/>
+                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="13"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ghb-7C-FjP">
+                    <rect key="frame" x="0.0" y="816" width="414" height="80"/>
+                    <color key="backgroundColor" red="0.19607843137254902" green="0.43137254901960786" blue="0.97647058823529409" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="wzq-pH-p1W"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="GodoM" family="Godo M" pointSize="16"/>
+                    <inset key="titleEdgeInsets" minX="0.0" minY="-16" maxX="0.0" maxY="0.0"/>
+                    <state key="normal" title="시작하기">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="Ghb-7C-FjP" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Ps-9T-3Ng"/>
+                <constraint firstAttribute="bottom" secondItem="Ghb-7C-FjP" secondAttribute="bottom" id="3nG-vb-O0m"/>
+                <constraint firstItem="KtS-LY-iIB" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="6N7-Vr-4gQ"/>
+                <constraint firstItem="4Gd-D5-tKp" firstAttribute="top" secondItem="KtS-LY-iIB" secondAttribute="bottom" constant="3" id="6eb-wt-MZs"/>
+                <constraint firstItem="Pql-Kz-Xg8" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="FhO-cx-4iq"/>
+                <constraint firstItem="L6Z-dO-czW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="GdK-7g-1Uy"/>
+                <constraint firstItem="KtS-LY-iIB" firstAttribute="top" secondItem="L6Z-dO-czW" secondAttribute="bottom" constant="36" id="NNS-PQ-kFC"/>
+                <constraint firstItem="KtS-LY-iIB" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" constant="-100" id="Y1t-Xk-lZm"/>
+                <constraint firstItem="Pql-Kz-Xg8" firstAttribute="top" secondItem="4Gd-D5-tKp" secondAttribute="bottom" constant="8" id="cgx-Mf-QCd"/>
+                <constraint firstItem="4Gd-D5-tKp" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="24" id="l7y-rW-Rqd"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="4Gd-D5-tKp" secondAttribute="trailing" constant="24" id="q0t-cX-x8f"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ghb-7C-FjP" secondAttribute="trailing" id="rQt-1J-bVA"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="KtS-LY-iIB" secondAttribute="trailing" constant="24" id="y44-bC-Ntt"/>
+            </constraints>
+            <point key="canvasLocation" x="140.57971014492756" y="124.55357142857142"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

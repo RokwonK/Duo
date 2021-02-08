@@ -23,7 +23,6 @@ class RealmManager : NSObject {
         let documentPath = "\(NSHomeDirectory())/Documents/"
         let fileURL = URL.init(fileURLWithPath: "\(documentPath)\(fileName)")
         
-        
         // Realm 환경설정
         // Realm 설정위치, 버전, 마이그레이션(버전 바꿀 시 수행), Realm 객체
         var config = Realm.Configuration()
@@ -33,7 +32,6 @@ class RealmManager : NSObject {
             
         }
         config.objectTypes = [RealmUser.self]
-        
         
         Realm.Configuration.defaultConfiguration = config
         if let realm = try? Realm() {

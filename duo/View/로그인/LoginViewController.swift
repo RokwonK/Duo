@@ -101,9 +101,8 @@ class LoginViewController: UIViewController {
     
     
     private func loginSuccessHandler(userEntity : UserEntity?) {
-        UserDefaults.standard.setValue(userEntity?.userToken, forKey: "userToken")
-        
-        // DB에 저장
+        viewModel.saveUser(entity: userEntity)
+        UserDefaults.standard.setValue(userEntity?.userToken ?? "", forKey: "userToken")
         
         self.dismiss(animated: true)
     }
@@ -111,7 +110,18 @@ class LoginViewController: UIViewController {
     
     
     private func loginErrorHandler(code : Int) {
-        UserDefaults.standard.setValue(nil, forKey: "userToken")
+        
+        switch code {
+        case -401:
+            let loginView = SetNicknameViewController()
+            self.navigationController?.pushViewController(loginView, animated: true)
+            break
+        case -412:
+            break
+        default:
+            break
+        }
+        
     }
     
 }
