@@ -15,8 +15,13 @@ class UserUseCase : NSObject {
     let userNetwork = UserNetwork()
     
     // 넷통신 ( 유저 정보 가져오기 )
-    func getUser(social : String) -> Observable<ApiResult<UserEntity,ApiErrorMessage>> {
+    func getUser(social : String) -> Single<UserEntity> {
         return userNetwork.getUser(social: social)
+    }
+    
+    // 넷통신 ( 유저 닉네임 저장 ) 회원가입
+    func signUp(social : String, request : UserRequestEntity) -> Single<UserEntity> {
+        return userNetwork.setNickname(social: social, param: request)
     }
     
     // 넷통신 ( 유저 정보 수정 )
@@ -37,11 +42,12 @@ class UserUseCase : NSObject {
     }
     
     // DB ( 유저 정보 가져오기 )
-    func loadUser() {
+    func loadUser() -> UserEntity? {
+        return userDatabase.select()
     }
     
     // DB ( 유저 로그아웃 )
     func logoutUser() {
-        
+        userDatabase.delete()
     }
 }

@@ -10,6 +10,8 @@ class LoginViewModel : ViewModel {
     let userEntity = PublishRelay<UserEntity?>()
     let loginErrorEntity = PublishRelay<ApiErrorMessage?>()
     
+    var socialName = "kakao"
+    
     override init() {
         super.init()
         
@@ -22,16 +24,9 @@ class LoginViewModel : ViewModel {
     func requestUser(social : String) {
         userUseCase.getUser(social: social)
             .subscribe(on: MainScheduler.instance)
-            .subscribe(onNext : { [weak self] result in
-                
-                switch result{
-                case .success(let data):
-                    self?.userEntity.accept(data)
-                case .failure(let error):
-                    self?.loginErrorEntity.accept(error)
-                }
-                
-            })
+            .subscribe(onSuccess: { [weak self] entity in
+                self?.userEntity.accept(entity)
+            }, onFailure: { _ in })
             .disposed(by: disposeBag)
     }
     

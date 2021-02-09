@@ -64,13 +64,7 @@ class LoginViewController: UIViewController {
     func setupBinding() {
         viewModel.userEntity
             .subscribe(onNext : { [weak self] entity in
-                self?.loginSuccessHandler(userEntity : entity)
-            })
-            .disposed(by: viewModel.disposeBag)
-        
-        viewModel.loginErrorEntity
-            .subscribe(onNext : { [weak self] error in
-                self?.loginErrorHandler(code: error?.code ?? 0)
+                entity?.code == nil ? self?.loginSuccess(userEntity : entity) : self?.loginError(code: entity?.code ?? 0)
             })
             .disposed(by: viewModel.disposeBag)
     }
@@ -78,6 +72,7 @@ class LoginViewController: UIViewController {
     
     
     private func loginWithKakao() {
+        viewModel.socialName = "kakao"
         if (AuthApi.isKakaoTalkLoginAvailable()) {
             AuthApi.shared.loginWithKakaoTalk { [weak self] (oauthToken, error) in
                 UserDefaults.standard.setValue(oauthToken?.accessToken ?? "", forKey: "userToken")
@@ -95,33 +90,29 @@ class LoginViewController: UIViewController {
     
     
     private func loginWithApple() {
-        
+        viewModel.socialName = "apple"
     }
     
     
     
-    private func loginSuccessHandler(userEntity : UserEntity?) {
+    private func loginSuccess(userEntity : UserEntity?) {
         viewModel.saveUser(entity: userEntity)
         UserDefaults.standard.setValue(userEntity?.userToken ?? "", forKey: "userToken")
+        
         
         self.dismiss(animated: true)
     }
     
-    
-    
-    private func loginErrorHandler(code : Int) {
+    private func loginError(code : Int) {
         
         switch code {
         case -401:
-            let loginView = SetNicknameViewController()
-            self.navigationController?.pushViewController(loginView, animated: true)
-            break
-        case -412:
-            break
+            let setNicknameView = SetNicknameViewController()
+            setNicknameView.setData(socialName: viewModel.socialName)
+            self.navigationController?.pushViewController(setNicknameView, animated: true)
         default:
             break
         }
-        
     }
     
 }

@@ -22,7 +22,7 @@ class SplashViewController : UIViewController {
     }
     
     func setupUI() {
-        UserDefaults.standard.setValue(nil, forKey: "userToken")
+        //UserDefaults.standard.setValue(nil, forKey: "userToken")
         self.navigationController?.isNavigationBarHidden = true
         mainImage.alpha = 0
         UIView.animate(withDuration: 1, animations: {
@@ -31,9 +31,10 @@ class SplashViewController : UIViewController {
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
                                       execute: { [weak self] in
-                                        let userToken = UserDefaults.standard.string(forKey: "userToken")
+                                        let userToken = UserDefaults.standard.string(forKey: "userToken") ?? ""
                                         
-                                        if userToken == nil || (Int(userToken ?? "r") == nil)  {
+                                        // accesstoken이란 뜻
+                                        if userToken.count < 100 {
                                             self?.showLoginView()
                                         }
                                         self?.showTabBarView()

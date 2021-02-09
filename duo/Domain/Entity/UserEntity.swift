@@ -15,7 +15,12 @@ struct UserEntity : CodableProtocol {
     var conLOL : String?
     var conBG : String?
     var conOW : String?
+    
+    var code : Int?
+    
+    init() {}
 }
 
 struct UserRequestEntity : Codable {
+    var nickname: String?
 }

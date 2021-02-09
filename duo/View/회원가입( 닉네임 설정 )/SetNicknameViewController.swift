@@ -29,6 +29,13 @@ class SetNicknameViewController: UIViewController {
     }
     
     
+    
+    func setData(socialName : String) {
+        viewModel.socialName = socialName
+    }
+    
+    
+    
     func setupUI() {
         nicknameTextField.rx
             .text
@@ -44,7 +51,7 @@ class SetNicknameViewController: UIViewController {
         startButton.rx
             .tap
             .subscribe(onNext : { [weak self] in
-                self?.viewModel.requestSetNickname()
+                self?.viewModel.requestSetNickname(nickname: self?.nicknameTextField.text ?? "")
             })
             .disposed(by: viewModel.disposeBag)
     }
@@ -52,11 +59,13 @@ class SetNicknameViewController: UIViewController {
     
     
     func setupBinding() {
-        
+        viewModel.userEntity
+            .subscribe(onNext : { [weak self] entity in
+                self?.viewModel.saveUser(entity: entity)
+                self?.dismiss(animated: true)
+            })
+            .disposed(by: viewModel.disposeBag)
     }
-    
-
-
     
 
 }

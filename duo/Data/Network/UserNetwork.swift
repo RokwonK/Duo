@@ -12,11 +12,27 @@ import RxSwift
 
 class UserNetwork : BaseNetwork {
     
-    func getUser(social : String) -> Observable<ApiResult<UserEntity,ApiErrorMessage>>{
+    func getUser(
+        social : String
+    ) -> Single<UserEntity> {
         return request(method: .post,
                        addPath: "/auth/\(social)",
                        responseType: UserEntity.self)
     }
+    
+    
+    
+    func signUp(
+        social : String,
+        param : UserRequestEntity
+    ) -> Single<UserEntity> {
+        return request(method: .post,
+                       addPath: "/auth/\(social)",
+                       param: param,
+                       responseType: UserEntity.self)
+    }
+    
+    
     
     func patchUser() {
         

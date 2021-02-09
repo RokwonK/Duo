@@ -19,7 +19,7 @@ class BaseNetwork : NSObject {
         addPath : String,
         param : Codable? = nil,
         responseType : T.Type
-    ) -> Observable<ApiResult<T,ApiErrorMessage>> {
+    ) -> Single<T> {
         
         let headers : HTTPHeaders? = ["Authorization": UserDefaults.standard.string(forKey: "userToken") ?? ""]
         
@@ -28,6 +28,7 @@ class BaseNetwork : NSObject {
                             parameters: param?.toDictionary(),
                             encoding: URLEncoding.default,
                             headers: headers)
+            .validate(statusCode: 200...300)
             .responseData()
             .mappingObject(type: responseType)
     }
@@ -35,18 +36,18 @@ class BaseNetwork : NSObject {
 }
 
 extension Observable where Element == (HTTPURLResponse, Data){
-    fileprivate func mappingObject<T : Codable>(type: T.Type) -> Observable<ApiResult<T, ApiErrorMessage>>{
-        return self.map{ (httpURLResponse, data) -> ApiResult<T, ApiErrorMessage> in
-            
-            
-            if let object = try? JSONDecoder().decode(type, from: data){
-                return .success(object)
+    fileprivate func mappingObject<T : Codable>(type: T.Type) -> Single<T>{
+        return self.map{ (_, data) -> T in
+            if let object = try? JSONDecoder().decode(type, from: data) {
+                return object
             }
-            if let object = try? JSONDecoder().decode(ApiErrorMessage.self, from: data) {
-                return .failure(object)
-            }
-            return .failure(ApiErrorMessage(msg : "server error", code: -501))
-        }
+            
+            // code만 뽑기 위해서
+            let error = try JSONDecoder().decode(ApiErrorMessage.self, from: data)
+            let errorJson = try JSONEncoder().encode(error)
+            return try JSONDecoder().decode(type, from: errorJson)
+            
+        }.asSingle()
     }
 }
 
