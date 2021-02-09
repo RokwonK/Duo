@@ -7,32 +7,66 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var lolView: UIView!
-    @IBOutlet weak var bagView: UIView!
-    @IBOutlet weak var overwatchView: UIView!
-    @IBOutlet weak var pokemonView: UIView!
+    @IBOutlet weak var lolButton: UIButton!
     
+    @IBOutlet weak var bgView: UIView!
+    @IBOutlet weak var bgButton: UIButton!
     
+    @IBOutlet weak var owView: UIView!
+    @IBOutlet weak var owButton: UIButton!
+    
+    let viewModel = HomeViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupLayer()
         setupUI()
     }
     
-    func setupUI() {
-        lolView.layer.cornerRadius = 10
-        bagView.layer.cornerRadius = 10
-        overwatchView.layer.cornerRadius = 10
-        pokemonView.layer.cornerRadius = 10
+    func setupLayer() {
+        lolView.layer.borderWidth = 1
+        lolView.layer.borderColor = .init(srgbRed: 50/255, green: 110/255, blue: 249/255, alpha: 1)
+        lolView.layer.cornerRadius = 2
         
-        lolView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
-        bagView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
-        overwatchView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
-        pokemonView.setShadow(color: UIColor.black.cgColor, width: 1, height: 1, opacity: 0.1, radius: 3)
+        bgView.layer.borderWidth = 1
+        bgView.layer.borderColor = .init(srgbRed: 50/255, green: 110/255, blue: 249/255, alpha: 1)
+        bgView.layer.cornerRadius = 2
+        
+        owView.layer.borderWidth = 1
+        owView.layer.borderColor = .init(srgbRed: 50/255, green: 110/255, blue: 249/255, alpha: 1)
+        owView.layer.cornerRadius = 2
     }
+    
+    func setupUI() {
+        lolButton.rx
+            .tap
+            .subscribe(onNext : {
+                // 게시판으로
+            })
+            .disposed(by: viewModel.disposeBag)
+        
+        bgButton.rx
+            .tap
+            .subscribe(onNext : {
+                print("준비 중입니다.")
+            })
+            .disposed(by: viewModel.disposeBag)
+        
+        owButton.rx
+            .tap
+            .subscribe(onNext : {
+                print("준비 중입니다.")
+            })
+            .disposed(by: viewModel.disposeBag)
+    }
+    
+    
 
 }

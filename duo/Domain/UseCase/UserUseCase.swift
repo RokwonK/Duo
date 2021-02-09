@@ -21,7 +21,7 @@ class UserUseCase : NSObject {
     
     // 넷통신 ( 유저 닉네임 저장 ) 회원가입
     func signUp(social : String, request : UserRequestEntity) -> Single<UserEntity> {
-        return userNetwork.setNickname(social: social, param: request)
+        return userNetwork.signUp(social: social, param: request)
     }
     
     // 넷통신 ( 유저 정보 수정 )
