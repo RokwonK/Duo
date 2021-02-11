@@ -33,6 +33,8 @@
 		099E6A4725D19263008C8864 /* SetNicknameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099E6A4525D19263008C8864 /* SetNicknameViewController.swift */; };
 		099E6A4825D19263008C8864 /* SetNicknameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 099E6A4625D19263008C8864 /* SetNicknameViewController.xib */; };
 		099E6A4B25D196C7008C8864 /* SetNicknameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099E6A4A25D196C7008C8864 /* SetNicknameViewModel.swift */; };
+		09B035FA25D57D1E00FAA99C /* LoLBoardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B035F825D57D1E00FAA99C /* LoLBoardViewController.swift */; };
+		09B035FB25D57D1E00FAA99C /* LoLBoardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 09B035F925D57D1E00FAA99C /* LoLBoardViewController.xib */; };
 		09B3F03725C0564E00F5A2AE /* BaseApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B3F03625C0564E00F5A2AE /* BaseApi.swift */; };
 		09B519BF24FAAC5400E41FFE /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */; };
 		09BD7F8F24ED038100409033 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09BD7F8E24ED038100409033 /* AppDelegate.swift */; };
@@ -102,6 +104,8 @@
 		099E6A4525D19263008C8864 /* SetNicknameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNicknameViewController.swift; sourceTree = "<group>"; };
 		099E6A4625D19263008C8864 /* SetNicknameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SetNicknameViewController.xib; sourceTree = "<group>"; };
 		099E6A4A25D196C7008C8864 /* SetNicknameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNicknameViewModel.swift; sourceTree = "<group>"; };
+		09B035F825D57D1E00FAA99C /* LoLBoardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLBoardViewController.swift; sourceTree = "<group>"; };
+		09B035F925D57D1E00FAA99C /* LoLBoardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoLBoardViewController.xib; sourceTree = "<group>"; };
 		09B3F03625C0564E00F5A2AE /* BaseApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseApi.swift; sourceTree = "<group>"; };
 		09B519BE24FAAC5400E41FFE /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		09BD7F8B24ED038100409033 /* duo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = duo.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -236,6 +240,8 @@
 				09DEF76125A09D6E001A320B /* LoL */,
 				09D7338925AAF81300DC556A /* HomeViewController.swift */,
 				09D7338A25AAF81300DC556A /* HomeViewController.xib */,
+				09B035F825D57D1E00FAA99C /* LoLBoardViewController.swift */,
+				09B035F925D57D1E00FAA99C /* LoLBoardViewController.xib */,
 			);
 			name = "메인";
 			path = "메인( 게임 선택창 )";
@@ -513,6 +519,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				09D7339625AAF8A600DC556A /* ProfileViewController.xib in Resources */,
+				09B035FB25D57D1E00FAA99C /* LoLBoardViewController.xib in Resources */,
 				0987128325B7195F008D571D /* GodoM.ttf in Resources */,
 				097B73E225AADBDB00367728 /* TabBarView.xib in Resources */,
 				09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */,
@@ -598,6 +605,7 @@
 				19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */,
 				0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */,
 				097B73DE25AADB5100367728 /* TabBarView.swift in Sources */,
+				09B035FA25D57D1E00FAA99C /* LoLBoardViewController.swift in Sources */,
 				099E6A4725D19263008C8864 /* SetNicknameViewController.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
 				0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */,
