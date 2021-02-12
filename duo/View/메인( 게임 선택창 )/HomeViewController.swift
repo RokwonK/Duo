@@ -27,7 +27,7 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         
         setupLayer()
-        setupUI()
+        setupUIBinding()
     }
     
     func setupLayer() {
@@ -44,11 +44,11 @@ class HomeViewController: UIViewController {
         owView.layer.cornerRadius = 2
     }
     
-    func setupUI() {
+    func setupUIBinding() {
         lolButton.rx
             .tap
-            .subscribe(onNext : {
-                // 게시판으로
+            .subscribe(onNext : { [weak self] in
+                self?.moveBoardView()
             })
             .disposed(by: viewModel.disposeBag)
         
@@ -67,6 +67,12 @@ class HomeViewController: UIViewController {
             .disposed(by: viewModel.disposeBag)
     }
     
+    
+    func moveBoardView() {
+        let boardView = LoLBoardViewController()
+        boardView.hidesBottomBarWhenPushed = true
+        self.navigationController?.pushViewController(boardView, animated: true)
+    }
     
 
 }

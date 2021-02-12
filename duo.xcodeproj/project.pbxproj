@@ -27,6 +27,10 @@
 		0989123C2502338D0006909F /* BaseValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0989123B2502338D0006909F /* BaseValue.swift */; };
 		098A740B25ADE5720018300F /* Codable+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A740A25ADE5720018300F /* Codable+Extension.swift */; };
 		098A741525ADEF690018300F /* CodableProtocol+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 098A741425ADEF690018300F /* CodableProtocol+extension.swift */; };
+		0995E78E25D610FE003A58AF /* LoLBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995E78D25D610FE003A58AF /* LoLBoardViewModel.swift */; };
+		0995E79125D612A4003A58AF /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995E79025D612A4003A58AF /* NavigationViewController.swift */; };
+		0995E79525D62625003A58AF /* LoLBoardCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0995E79325D62625003A58AF /* LoLBoardCell.swift */; };
+		0995E79625D62625003A58AF /* LoLBoardCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0995E79425D62625003A58AF /* LoLBoardCell.xib */; };
 		099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669632524AC7200336252 /* LoLMainBoardModel.swift */; };
 		099669682524AC9000336252 /* LoLMainBoardExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 099669672524AC9000336252 /* LoLMainBoardExtension.swift */; };
 		0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */; };
@@ -98,6 +102,10 @@
 		0989123B2502338D0006909F /* BaseValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseValue.swift; sourceTree = "<group>"; };
 		098A740A25ADE5720018300F /* Codable+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Codable+Extension.swift"; sourceTree = "<group>"; };
 		098A741425ADEF690018300F /* CodableProtocol+extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CodableProtocol+extension.swift"; sourceTree = "<group>"; };
+		0995E78D25D610FE003A58AF /* LoLBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLBoardViewModel.swift; sourceTree = "<group>"; };
+		0995E79025D612A4003A58AF /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		0995E79325D62625003A58AF /* LoLBoardCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLBoardCell.swift; sourceTree = "<group>"; };
+		0995E79425D62625003A58AF /* LoLBoardCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoLBoardCell.xib; sourceTree = "<group>"; };
 		099669632524AC7200336252 /* LoLMainBoardModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardModel.swift; sourceTree = "<group>"; };
 		099669672524AC9000336252 /* LoLMainBoardExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardExtension.swift; sourceTree = "<group>"; };
 		0996696A2524ACB300336252 /* LoLMainBoardViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoLMainBoardViewModel.swift; sourceTree = "<group>"; };
@@ -205,6 +213,7 @@
 				097B73DD25AADB5100367728 /* TabBarView.swift */,
 				097B73E125AADBDB00367728 /* TabBarView.xib */,
 				09D7339925AAFAAA00DC556A /* TabBarViewModel.swift */,
+				0995E79025D612A4003A58AF /* NavigationViewController.swift */,
 			);
 			name = "탭바";
 			path = "탭바";
@@ -242,6 +251,9 @@
 				09D7338A25AAF81300DC556A /* HomeViewController.xib */,
 				09B035F825D57D1E00FAA99C /* LoLBoardViewController.swift */,
 				09B035F925D57D1E00FAA99C /* LoLBoardViewController.xib */,
+				0995E78D25D610FE003A58AF /* LoLBoardViewModel.swift */,
+				0995E79325D62625003A58AF /* LoLBoardCell.swift */,
+				0995E79425D62625003A58AF /* LoLBoardCell.xib */,
 			);
 			name = "메인";
 			path = "메인( 게임 선택창 )";
@@ -525,6 +537,7 @@
 				09BD7F9E24ED038200409033 /* LaunchScreen.storyboard in Resources */,
 				195CA9A324F16D2100D1F52A /* Assets.xcassets in Resources */,
 				099E6A4825D19263008C8864 /* SetNicknameViewController.xib in Resources */,
+				0995E79625D62625003A58AF /* LoLBoardCell.xib in Resources */,
 				1995002E250D12180041BA69 /* GameTab.storyboard in Resources */,
 				0987128525B71A1F008D571D /* GodoB.ttf in Resources */,
 				097B73D625AAD22600367728 /* SplashViewController.xib in Resources */,
@@ -604,9 +617,11 @@
 				096E157D25A0791D00F2A55C /* SplashViewModel.swift in Sources */,
 				19F4BB80251DE8860092F928 /* MyPostModel.swift in Sources */,
 				0996696B2524ACB300336252 /* LoLMainBoardViewModel.swift in Sources */,
+				0995E79525D62625003A58AF /* LoLBoardCell.swift in Sources */,
 				097B73DE25AADB5100367728 /* TabBarView.swift in Sources */,
 				09B035FA25D57D1E00FAA99C /* LoLBoardViewController.swift in Sources */,
 				099E6A4725D19263008C8864 /* SetNicknameViewController.swift in Sources */,
+				0995E79125D612A4003A58AF /* NavigationViewController.swift in Sources */,
 				191CAFBA2503E88200933A66 /* MyPostCell.swift in Sources */,
 				0904E0AB259A357900184DC0 /* UIButton+Extension.swift in Sources */,
 				09442DCD25D0121B0095EFC9 /* LoginViewController.swift in Sources */,
@@ -627,6 +642,7 @@
 				099669642524AC7200336252 /* LoLMainBoardModel.swift in Sources */,
 				090EF50E24FFE55700ADC959 /* SelectBoard.swift in Sources */,
 				09DE17C525C05EE20003A846 /* UserNetwork.swift in Sources */,
+				0995E78E25D610FE003A58AF /* LoLBoardViewModel.swift in Sources */,
 				19713313251A29890085EDEA /* FilterView.swift in Sources */,
 				191CAFB82503BED900933A66 /* MyPostView.swift in Sources */,
 				19F82B73256A75BA00DFEB4E /* MyComment.swift in Sources */,

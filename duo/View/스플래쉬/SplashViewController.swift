@@ -32,13 +32,12 @@ class SplashViewController : UIViewController {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5,
                                       execute: { [weak self] in
                                         let userToken = UserDefaults.standard.string(forKey: "userToken") ?? ""
-                                        
+                                        print("접근가능토큰", userToken)
                                         // accesstoken이란 뜻
                                         if userToken.count < 100 {
                                             self?.showLoginView()
                                         }
                                         self?.showTabBarView()
-                                        
                                       })
     }
     

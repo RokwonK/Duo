@@ -26,7 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate{
         }
         else {
             window = UIWindow()
-            let rootVC = UINavigationController(rootViewController: SplashViewController())
+            let rootVC = NavigationViewController(rootViewController: SplashViewController())
             window?.rootViewController = rootVC
             window?.makeKeyAndVisible()
         }
